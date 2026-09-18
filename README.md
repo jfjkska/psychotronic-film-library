@@ -18,6 +18,19 @@ GitHub Pages for free with no build tooling on your side.
 `_config.yml` has `baseurl: "/psychotronic-film-library"` to match that address. If the
 repo is named differently, change `baseurl` to `/<repo-name>`.
 
+## Posters fetched automatically (TMDB, free)
+
+`.github/workflows/posters.yml` looks every review up on The Movie Database and
+downloads the best poster whenever the one in the repo is small or missing. It
+runs when a review is added and can be run by hand from the **Actions** tab
+(with a "force" option to replace everything).
+
+One-time setup: make a free account at https://www.themoviedb.org, then under
+**Settings → API** request a key (choose "Developer", fill the form with the site's
+name and address). Copy the **API Key (v3 auth)** and add it on this repo under
+**Settings → Secrets and variables → Actions → New repository secret**, named
+`TMDB_API_KEY`. Then run the workflow once from the Actions tab.
+
 ## Wiring the contact form (2 minutes, free)
 
 GitHub Pages can't process a form on its own, so the form posts to Formspree.

@@ -1,0 +1,53 @@
+# Fetches better posters from The Movie Database and commits them.
+# Runs when a review is added or changed, and on demand from the Actions tab.
+# Needs the repository secret TMDB_API_KEY (Settings → Secrets → Actions).
+name: Fetch posters
+
+on:
+  push:
+    branches: [main]
+    paths: ["_posts/**"]
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Replace every poster, even ones already large"
+        type: boolean
+        default: false
+      only:
+        description: "Only these review slugs, space separated (blank = all)"
+        type: string
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: posters
+  cancel-in-progress: true
+
+jobs:
+  posters:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet pillow
+      - name: Fetch posters
+        env:
+          TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
+        run: |
+          if [ -z "$TMDB_API_KEY" ]; then
+            echo "::warning::TMDB_API_KEY secret is not set; nothing fetched. Add it under Settings → Secrets and variables → Actions."
+            exit 0
+          fi
+          python tools/fetch_posters.py ${{ inputs.force && '--force' || '' }} ${{ inputs.only }}
+      - name: Commit any new posters
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A assets/img/posters _posts
+          if git diff --cached --quiet; then echo "No poster changes."; exit 0; fi
+          git commit -m "Fetch posters from TMDB"
+          git push
