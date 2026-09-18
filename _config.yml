@@ -25,10 +25,10 @@ contact_form_endpoint: https://formspree.io/f/xzezzyez
 # site's repo, free). Leave `repo` empty and no comments box appears.
 # Setup: README → "Turning on comments".
 giscus:
-  repo: "jfjkska/psychotronic-film-library"
-  repo_id: "R_kgDOUgekHA"
+  repo: ""              # was jfjkska/psychotronic-film-library; switched off, readers would need GitHub accounts
+  repo_id: ""           # R_kgDOUgekHA
   category: "General"
-  category_id: "DIC_kwDOUgekHM4DF5vQ"
+  category_id: ""       # DIC_kwDOUgekHM4DF5vQ
 
 # Newsletter via Buttondown (free up to 100 subscribers). Leave empty and the
 # sign-up box stays hidden. Setup: README → "Turning on the newsletter".
