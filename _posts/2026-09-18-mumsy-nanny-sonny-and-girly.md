@@ -3,6 +3,7 @@ title: "Mumsy, Nanny, Sonny and Girly"
 aka: "Girly"
 date: 2026-09-18 10:04:00 +0100
 year: 1970
+tmdb: 62108                                 # TMDB id, because the title search misses the ampersand
 director: "Freddie Francis"
 country: UK
 starring: "Michael Bryant, Ursula Howells, Pat Heywood, Howard Trevor, Vanessa Howard"

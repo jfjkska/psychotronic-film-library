@@ -5,6 +5,7 @@ title: "Film Title"
 aka: "Other titles it goes by"            # optional
 date: 2026-01-31 12:00:00 +0000            # posting day; add a time so same-day posts keep their order
 year: 1972
+tmdb: 12345                                 # optional: TMDB film id, only if the poster fetch picks the wrong film
 director: "Director Name"
 country: Italy                              # optional
 starring: "Lead One, Lead Two, Lead Three"  # optional

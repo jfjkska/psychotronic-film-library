@@ -69,17 +69,26 @@ for path in sorted(glob.glob("_posts/*.md")):
     if os.path.exists(current):
         try: width = Image.open(current).size[0]
         except Exception: width = 0
-    if width >= MIN_WIDTH and not FORCE:
+    # A square or landscape image is a stand-in (album cover, quad), not a poster.
+    ratio = 1.0
+    if width:
+        try: w0, h0 = Image.open(current).size; ratio = w0 / h0
+        except Exception: ratio = 1.0
+    if width >= MIN_WIDTH and ratio < 0.8 and not FORCE:
         print(f"skip  {slug}: already {width}px wide"); continue
 
     try:
-        res = api("/search/movie", query=title, year=year or "")
-        hits = res.get("results") or []
-        if not hits and year:
-            hits = (api("/search/movie", query=title).get("results") or [])
-        if not hits:
-            print(f"none  {slug}: no TMDB match for {title!r} {year}"); continue
-        movie = hits[0]
+        tmdb_id = field(fm, "tmdb")
+        if tmdb_id:
+            movie = api(f"/movie/{tmdb_id}")
+        else:
+            res = api("/search/movie", query=title, year=year or "")
+            hits = res.get("results") or []
+            if not hits and year:
+                hits = (api("/search/movie", query=title).get("results") or [])
+            if not hits:
+                print(f"none  {slug}: no TMDB match for {title!r} {year}. Add a `tmdb:` id to the post."); continue
+            movie = hits[0]
         fp = best_poster(movie["id"])
         if not fp:
             print(f"none  {slug}: TMDB has no poster for {movie.get('title')}"); continue
@@ -98,7 +107,7 @@ for path in sorted(glob.glob("_posts/*.md")):
         elif poster.lstrip("/") != dest:
             text = text.replace(poster, "/" + dest, 1)
             open(path, "w", encoding="utf-8").write(text)
-        print(f"fetch {slug}: {movie.get('title')} ({movie.get('release_date','')[:4]}) -> {w}px from {im.width}px")
+        print(f"fetch {slug}: {movie.get('title')} ({movie.get('release_date','')[:4]}) -> {w}px wide")
         changed.append(slug)
     except Exception as e:
         print(f"error {slug}: {e}")
