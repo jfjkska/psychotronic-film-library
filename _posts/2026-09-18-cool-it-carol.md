@@ -13,7 +13,7 @@ watch:
 rating: 3
 verdict: "Exploitation curio"
 poster: /assets/img/posters/cool-it-carol.jpg
-trailer: tlize_fz8qQ
+trailer: MfDbaJUCpOg
 tracks:
   - title: "Cyril Ornadel – music from Cool It, Carol!"
     youtube: Fv1_tb7j99Q
