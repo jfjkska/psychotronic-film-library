@@ -22,6 +22,8 @@ excerpt: >-
   town. Fur bikinis, a prop guillotine, a dagger in the back. An Agatha Christie
   whodunnit with nudity.
 image: /assets/img/cards/the-flesh-and-blood-show.jpg
+imdb: tt0068596
+stills: [/assets/img/stills/the-flesh-and-blood-show-1.jpg, /assets/img/stills/the-flesh-and-blood-show-2.jpg, /assets/img/stills/the-flesh-and-blood-show-3.jpg]
 ---
 
 More Pete Walker early-70s fare with The Flesh and Blood Show. Ray Brooks

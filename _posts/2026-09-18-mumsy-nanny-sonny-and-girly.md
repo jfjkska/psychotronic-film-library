@@ -23,6 +23,8 @@ excerpt: >-
   bizarre games and rituals. Break the rules of the house and you are sent to
   the angels.
 image: /assets/img/cards/mumsy-nanny-sonny-and-girly.jpg
+imdb: tt0064704
+stills: [/assets/img/stills/mumsy-nanny-sonny-and-girly-1.jpg, /assets/img/stills/mumsy-nanny-sonny-and-girly-2.jpg, /assets/img/stills/mumsy-nanny-sonny-and-girly-3.jpg, /assets/img/stills/mumsy-nanny-sonny-and-girly-4.jpg]
 ---
 
 Mumsy, Nanny, Sonny and Girly (1970) is a twisty and macabre comedy of manners

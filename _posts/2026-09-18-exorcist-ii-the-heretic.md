@@ -23,6 +23,8 @@ excerpt: >-
   existential essay on good attracting evil, with Blair floundering among the
   locusts and Burton knowing better.
 image: /assets/img/cards/exorcist-ii-the-heretic.jpg
+imdb: tt0076009
+stills: [/assets/img/stills/exorcist-ii-the-heretic-1.jpg, /assets/img/stills/exorcist-ii-the-heretic-2.jpg, /assets/img/stills/exorcist-ii-the-heretic-3.jpg, /assets/img/stills/exorcist-ii-the-heretic-4.jpg]
 ---
 
 Does it deserve the accolade of the most hated film? With comments like "there

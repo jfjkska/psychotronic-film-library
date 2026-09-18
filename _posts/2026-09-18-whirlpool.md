@@ -22,6 +22,8 @@ excerpt: >-
   for a weekend of portfolio shots, strip card games and worse. Larraz's debut,
   scored by Stelvio Cipriani.
 image: /assets/img/cards/whirlpool.jpg
+imdb: tt0065210
+stills: [/assets/img/stills/whirlpool-1.jpg, /assets/img/stills/whirlpool-2.jpg, /assets/img/stills/whirlpool-3.jpg, /assets/img/stills/whirlpool-4.jpg]
 ---
 
 Whirlpool, a.k.a. She Died with Her Boots On, is the 1970 debut from Spanish

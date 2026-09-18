@@ -16,6 +16,8 @@ excerpt: >-
   impersonates her to bring the business back. Whipped cream, occult whipping,
   a champagne-soaked threesome and an a cappella chorus to remind him.
 image: /assets/img/cards/keep-it-up-jack.jpg
+imdb: tt0130808
+stills: [/assets/img/stills/keep-it-up-jack-1.jpg, /assets/img/stills/keep-it-up-jack-2.jpg, /assets/img/stills/keep-it-up-jack-3.jpg, /assets/img/stills/keep-it-up-jack-4.jpg]
 ---
 
 Keep It Up, Jack (1974) is another entry from the incorrigible Derek Ford, he

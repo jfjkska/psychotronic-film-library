@@ -19,6 +19,8 @@ excerpt: >-
   and walks into a wild ride of debauchery, sadism and farmyard deviancy. Larraz
   disowned it. Watch out for the sabre scene.
 image: /assets/img/cards/black-candles.jpg
+imdb: tt0081432
+stills: [/assets/img/stills/black-candles-1.jpg, /assets/img/stills/black-candles-2.jpg, /assets/img/stills/black-candles-3.jpg, /assets/img/stills/black-candles-4.jpg]
 ---
 
 Black Candles, a.k.a. The Sexual Rites of the Devil, is a 1982 occult

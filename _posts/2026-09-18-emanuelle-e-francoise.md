@@ -22,6 +22,8 @@ excerpt: >-
   two-way mirror and injects him with LSD. Cue hallucinatory cannibalism and
   death by meat cleaver.
 image: /assets/img/cards/emanuelle-e-francoise.jpg
+imdb: tt0074472
+stills: [/assets/img/stills/emanuelle-e-francoise-1.jpg, /assets/img/stills/emanuelle-e-francoise-2.jpg, /assets/img/stills/emanuelle-e-francoise-3.jpg, /assets/img/stills/emanuelle-e-francoise-4.jpg]
 ---
 
 Emanuelle e Françoise (1975) is an interesting erotic thriller from Bruno Mattei

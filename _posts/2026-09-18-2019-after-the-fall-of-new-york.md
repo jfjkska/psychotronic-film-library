@@ -20,6 +20,8 @@ excerpt: >-
   after the nuclear holocaust, mercenary Parsifal must bring the last fertile
   woman back to Alaska so the good guys can repopulate from space.
 image: /assets/img/cards/2019-after-the-fall-of-new-york.jpg
+imdb: tt0085125
+stills: [/assets/img/stills/2019-after-the-fall-of-new-york-1.jpg, /assets/img/stills/2019-after-the-fall-of-new-york-2.jpg, /assets/img/stills/2019-after-the-fall-of-new-york-3.jpg, /assets/img/stills/2019-after-the-fall-of-new-york-4.jpg]
 ---
 
 One of two macaroni cheese servings from Sergio Martino, the other being

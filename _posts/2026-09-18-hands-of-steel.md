@@ -23,6 +23,8 @@ excerpt: >-
   a conscience, John Saxon's corporate hitman, and an arm-wrestling truck driver.
   Plenty of punch-ups and crash-helmeted henchmen.
 image: /assets/img/cards/hands-of-steel.jpg
+imdb: tt0091166
+stills: [/assets/img/stills/hands-of-steel-1.jpg, /assets/img/stills/hands-of-steel-2.jpg, /assets/img/stills/hands-of-steel-3.jpg, /assets/img/stills/hands-of-steel-4.jpg]
 ---
 
 One of two macaroni cheese servings from Sergio Martino, the other being

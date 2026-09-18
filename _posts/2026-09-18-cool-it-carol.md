@@ -22,6 +22,8 @@ excerpt: >-
   Joe leave their small town to make it big in London; the cash runs out and
   Carol turns to sex work with Joe as pimp and manager.
 image: /assets/img/cards/cool-it-carol.jpg
+imdb: tt0065575
+stills: [/assets/img/stills/cool-it-carol-1.jpg, /assets/img/stills/cool-it-carol-2.jpg, /assets/img/stills/cool-it-carol-3.jpg]
 ---
 
 Pete Walker's sex comedy exploitationer (sic) from 1970 was based on a report

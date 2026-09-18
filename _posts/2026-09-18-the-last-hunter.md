@@ -23,6 +23,8 @@ excerpt: >-
   shot on the Apocalypse Now locations in the Philippines. Gritty, gory, and
   seized as a video nasty. Highly recommended.
 image: /assets/img/cards/the-last-hunter.jpg
+imdb: tt0087594
+stills: [/assets/img/stills/the-last-hunter-1.jpg, /assets/img/stills/the-last-hunter-2.jpg, /assets/img/stills/the-last-hunter-3.jpg, /assets/img/stills/the-last-hunter-4.jpg]
 ---
 
 The Last Hunter (1980) is a "macaroni combat" film directed by Antonio

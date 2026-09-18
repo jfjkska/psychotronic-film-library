@@ -19,6 +19,8 @@ excerpt: >-
   chews the scenery like she is chewing the brains of one of her victims.
   Insanity, cannibalism, family strife and 1970s British fashion choices.
 image: /assets/img/cards/frightmare.jpg
+imdb: tt0071523
+stills: [/assets/img/stills/frightmare-1.jpg, /assets/img/stills/frightmare-2.jpg, /assets/img/stills/frightmare-3.jpg]
 ---
 
 Pete Walker's Frightmare is a slab of psycho horror from the Brit king of

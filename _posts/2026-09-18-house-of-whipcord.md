@@ -22,6 +22,8 @@ excerpt: >-
   sounds like Marquis de Sade. Solitary, flogging, and hanging for a third
   offence. Less bonkers than Frightmare, but the tropes are all here.
 image: /assets/img/cards/house-of-whipcord.jpg
+imdb: tt0071628
+stills: [/assets/img/stills/house-of-whipcord-1.jpg]
 ---
 
 More Pete Walker psychodrama with House of Whipcord. A young French model,

@@ -21,6 +21,8 @@ excerpt: >-
   brutalises the whole household. Voyeurism, whippings and censorship trouble
   in Catholic Italy, but hard to feel invested.
 image: /assets/img/cards/devil-in-the-flesh.jpg
+imdb: tt0064626
+stills: [/assets/img/stills/devil-in-the-flesh-1.jpg, /assets/img/stills/devil-in-the-flesh-2.jpg, /assets/img/stills/devil-in-the-flesh-3.jpg, /assets/img/stills/devil-in-the-flesh-4.jpg]
 ---
 
 Devil in the Flesh, a.k.a. Venus in Furs (1969), is an Italian erotic drama by

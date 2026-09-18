@@ -19,6 +19,8 @@ excerpt: >-
   follows eager recruit Penny into Alex and Maxine Sanders' coven. Naked
   dancing, black candles, sex magick and a Faustian kraut-rock score.
 image: /assets/img/cards/secret-rites.jpg
+imdb: tt0257119
+stills: [/assets/img/stills/secret-rites-1.jpg, /assets/img/stills/secret-rites-2.jpg]
 ---
 
 Secret Rites (1971) is a pseudo-documentary dressed in ceremonial robes which
