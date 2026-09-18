@@ -2,6 +2,7 @@
 title: "Exorcist II: The Heretic"
 date: 2026-09-18 10:14:00 +0100
 year: 1977
+tmdb_poster: /lxxXL6U41WcD5PUK7DBFDSH5CIu.jpg
 director: "John Boorman"
 country: USA
 starring: "Linda Blair, Richard Burton, Louise Fletcher, Max von Sydow, Kitty Winn, Paul Henreid, James Earl Jones"
