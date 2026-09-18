@@ -88,6 +88,48 @@ def candidate_sheet(slug, movie):
     open(f"_poster_candidates/{slug}.txt", "w").write("\n".join(lines) + "\n")
     print(f"sheet {slug}: {len(lines)} candidates written to _poster_candidates/{slug}.jpg")
 
+def set_field(text, fm, name, value):
+    """Add or replace a front-matter line; returns (new text, new fm)."""
+    if re.search(rf"^{name}:", fm, re.M):
+        fm2 = re.sub(rf"^{name}:.*$", f"{name}: {value}", fm, count=1, flags=re.M)
+    else:
+        fm2 = fm + f"\n{name}: {value}"
+    return "---\n" + fm2 + "\n---\n" + text.split("\n---\n", 1)[1], fm2
+
+def extras(slug, movie, path):
+    """Stills (up to 4 TMDB backdrops) and the IMDb id, added to the post."""
+    text = open(path, encoding="utf-8").read()
+    fm, _ = front_matter(text)
+    changed_here = False
+    if not field(fm, "imdb"):
+        try:
+            det = api(f"/movie/{movie['id']}")
+            if det.get("imdb_id"):
+                text, fm = set_field(text, fm, "imdb", det["imdb_id"]); changed_here = True
+        except Exception as e:
+            print(f"  imdb {slug}: {e}")
+    if not re.search(r"^stills:", fm, re.M):
+        try:
+            bds = (api(f"/movie/{movie['id']}/images").get("backdrops") or [])
+            bds.sort(key=lambda b: (b.get("vote_count", 0), b.get("vote_average", 0)), reverse=True)
+            paths = []
+            os.makedirs("assets/img/stills", exist_ok=True)
+            for i, b in enumerate(bds[:4]):
+                im = Image.open(io.BytesIO(get(IMG + b["file_path"]))).convert("RGB")
+                w = min(1280, im.width)
+                im = im.resize((w, round(w * im.height / im.width)), Image.LANCZOS)
+                out = f"assets/img/stills/{slug}-{i+1}.jpg"
+                im.save(out, quality=82, optimize=True, progressive=True)
+                paths.append("/" + out)
+            if paths:
+                text, fm = set_field(text, fm, "stills", "[" + ", ".join(paths) + "]"); changed_here = True
+                print(f"stills {slug}: {len(paths)}")
+        except Exception as e:
+            print(f"  stills {slug}: {e}")
+    if changed_here:
+        open(path, "w", encoding="utf-8").write(text)
+    return changed_here
+
 changed = []
 for path in sorted(glob.glob("_posts/*.md")):
     slug = re.sub(r"^\d{4}-\d{2}-\d{2}-", "", os.path.basename(path))[:-3]
@@ -109,8 +151,10 @@ for path in sorted(glob.glob("_posts/*.md")):
         try: w0, h0 = Image.open(current).size; ratio = w0 / h0
         except Exception: ratio = 1.0
     pinned = field(fm, "tmdb_poster")
-    if width >= MIN_WIDTH and ratio < 0.8 and not FORCE and not pinned and not CANDIDATES:
+    need_extras = not field(fm, "imdb") or not re.search(r"^stills:", fm, re.M)
+    if width >= MIN_WIDTH and ratio < 0.8 and not FORCE and not pinned and not CANDIDATES and not need_extras:
         print(f"skip  {slug}: already {width}px wide"); continue
+    skip_poster = width >= MIN_WIDTH and ratio < 0.8 and not FORCE and not pinned
 
     try:
         tmdb_id = field(fm, "tmdb")
@@ -126,6 +170,10 @@ for path in sorted(glob.glob("_posts/*.md")):
             movie = hits[0]
         if CANDIDATES:
             candidate_sheet(slug, movie); continue
+        if extras(slug, movie, path): changed.append(slug + " (extras)")
+        if skip_poster:
+            print(f"skip  {slug}: poster already {width}px wide"); continue
+        text = open(path, encoding="utf-8").read(); fm, end = front_matter(text)
         fp = pinned or best_poster(movie["id"])
         if not fp:
             print(f"none  {slug}: TMDB has no poster for {movie.get('title')}"); continue

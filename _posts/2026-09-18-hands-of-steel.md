@@ -22,6 +22,7 @@ excerpt: >-
   Macaroni cheese from Sergio Martino: Daniel Greene as an assassin cyborg with
   a conscience, John Saxon's corporate hitman, and an arm-wrestling truck driver.
   Plenty of punch-ups and crash-helmeted henchmen.
+image: /assets/img/cards/hands-of-steel.jpg
 ---
 
 One of two macaroni cheese servings from Sergio Martino, the other being

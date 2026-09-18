@@ -12,6 +12,7 @@ country: Italy                              # optional
 starring: "Lead One, Lead Two, Lead Three"  # optional
 music: "Composer Name"                      # optional
 runtime: "88 min"                           # optional
+version: "Arrow Blu-ray, uncut"             # optional: the cut or copy you watched
 genres: [giallo, horror]                    # one or more, in square brackets
 rating: 3                                   # 0 to 5 eyes (0 hides the rating)
 verdict: "Two-word verdict"                 # optional, stamped on the poster

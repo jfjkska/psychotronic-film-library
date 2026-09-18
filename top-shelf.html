@@ -1,0 +1,21 @@
+---
+layout: default
+title: Top shelf
+permalink: /top-shelf/
+body_class: top-shelf
+---
+<section class="top-shelf-page">
+  <header class="page-head">
+    <h1 class="display">Top shelf</h1>
+  </header>
+  {% assign five = site.posts | where: "rating", 5 %}
+  {% assign four = site.posts | where: "rating", 4 %}
+  {% if five.size > 0 %}
+  <h2 class="rule">Drop everything</h2>
+  <ul class="rack">{% for post in five %}{% include card.html post=post %}{% endfor %}</ul>
+  {% endif %}
+  {% if four.size > 0 %}
+  <h2 class="rule">Well worth an evening</h2>
+  <ul class="rack">{% for post in four %}{% include card.html post=post %}{% endfor %}</ul>
+  {% endif %}
+</section>

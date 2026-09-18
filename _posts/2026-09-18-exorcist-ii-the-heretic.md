@@ -22,6 +22,7 @@ excerpt: >-
   Does it deserve the accolade of the most hated film? Probably yes. A dull
   existential essay on good attracting evil, with Blair floundering among the
   locusts and Burton knowing better.
+image: /assets/img/cards/exorcist-ii-the-heretic.jpg
 ---
 
 Does it deserve the accolade of the most hated film? With comments like "there

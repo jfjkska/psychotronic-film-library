@@ -5,6 +5,7 @@
   <nav class="marquee" aria-label="Main">
     <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}aria-current="page"{% endif %}>Now showing</a>
     <a href="{{ '/shelf/' | relative_url }}" {% if page.url == '/shelf/' %}aria-current="page"{% endif %}>The shelf</a>
+    <a href="{{ '/top-shelf/' | relative_url }}" {% if page.url == '/top-shelf/' %}aria-current="page"{% endif %}>Top shelf</a>
     <a href="{{ '/directors/' | relative_url }}" {% if page.url == '/directors/' %}aria-current="page"{% endif %}>Directors</a>
     <a href="{{ '/about/' | relative_url }}" {% if page.url == '/about/' %}aria-current="page"{% endif %}>About</a>
     <a href="{{ '/contact/' | relative_url }}" {% if page.url == '/contact/' %}aria-current="page"{% endif %}>Contact</a>

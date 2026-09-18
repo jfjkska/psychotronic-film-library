@@ -273,6 +273,22 @@ a:hover { color: var(--paper); }
 @media (min-width: 720px) { .tracks { grid-template-columns: 1fr 1fr; } }
 .track-title { margin: 0 0 .5rem; font-family: var(--type); font-size: .95rem; color: var(--paper); }
 
+/* ── Stills ──────────────────────────────────────────────────────────────── */
+.stills { margin-top: 2.5rem; }
+.still-strip { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: .8rem; }
+@media (min-width: 720px) { .still-strip { grid-template-columns: repeat(4, 1fr); } }
+.still-strip img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border: 3px solid var(--cream); box-shadow: 5px 5px 0 var(--magenta), 5px 5px 0 2px var(--black); transition: transform .15s; }
+.still-strip a:hover img { transform: translate(-2px, -2px); }
+
+/* ── Related ─────────────────────────────────────────────────────────────── */
+.related { margin-top: 3rem; }
+.rack-small { grid-template-columns: repeat(auto-fill, minmax(min(100%, 150px), 1fr)); }
+.rack-small .card-title { font-size: 1rem; }
+.rack-small .sticker { width: 46px; height: 46px; font-size: .85rem; }
+.elsewhere { display: flex; gap: .9em; flex-wrap: wrap; }
+.elsewhere a { color: var(--yellow); }
+.top-shelf-page .rule { margin-top: 2.2rem; }
+
 /* ── Shelf ────────────────────────────────────────────────────────────────── */
 .genre-block { margin: 1.4rem 0 2rem; }
 .genre-name { margin: 0 0 .3em; font-family: var(--display); font-weight: 400; font-size: 1.5rem; color: var(--cream); text-transform: capitalize; }

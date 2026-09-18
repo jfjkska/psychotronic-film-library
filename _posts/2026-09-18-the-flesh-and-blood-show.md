@@ -21,6 +21,7 @@ excerpt: >-
   Unemployed actors lured to an abandoned theatre in an out-of-season seaside
   town. Fur bikinis, a prop guillotine, a dagger in the back. An Agatha Christie
   whodunnit with nudity.
+image: /assets/img/cards/the-flesh-and-blood-show.jpg
 ---
 
 More Pete Walker early-70s fare with The Flesh and Blood Show. Ray Brooks

@@ -21,6 +21,7 @@ excerpt: >-
   Aunt Sarah and nephew Theo invite aspiring model Tulia to their country home
   for a weekend of portfolio shots, strip card games and worse. Larraz's debut,
   scored by Stelvio Cipriani.
+image: /assets/img/cards/whirlpool.jpg
 ---
 
 Whirlpool, a.k.a. She Died with Her Boots On, is the 1970 debut from Spanish

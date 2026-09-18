@@ -18,6 +18,7 @@ excerpt: >-
   Carol arrives in England to visit her sister-in-law after her brother's death
   and walks into a wild ride of debauchery, sadism and farmyard deviancy. Larraz
   disowned it. Watch out for the sabre scene.
+image: /assets/img/cards/black-candles.jpg
 ---
 
 Black Candles, a.k.a. The Sexual Rites of the Devil, is a 1982 occult

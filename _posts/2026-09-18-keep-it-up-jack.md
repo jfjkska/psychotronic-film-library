@@ -15,6 +15,7 @@ excerpt: >-
   A quick-change artist inherits a redundant brothel from his dead Auntie and
   impersonates her to bring the business back. Whipped cream, occult whipping,
   a champagne-soaked threesome and an a cappella chorus to remind him.
+image: /assets/img/cards/keep-it-up-jack.jpg
 ---
 
 Keep It Up, Jack (1974) is another entry from the incorrigible Derek Ford, he

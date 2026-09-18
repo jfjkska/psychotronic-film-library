@@ -38,6 +38,17 @@ Find the video on YouTube and copy the id from its address: in
 Delete the lines you don't use. The page shows a thumbnail with a play button, and the
 video only loads from YouTube when a reader presses it.
 
+## Version seen
+
+A `version:` line for the cut or copy you watched: "88 Films Blu-ray, uncut", "a worn
+ex-rental VHS", "the BBFC-cut TV print". Shows in the credits block.
+
+## Stills, links and share cards
+
+These arrive by themselves within a minute or two of posting: four stills under the
+review, IMDb and Letterboxd links in the credits, and a share card so the link looks
+right when pasted into WhatsApp or X. Nothing to do.
+
 ## Where to watch
 
 Under `watch:` list the disc label or streaming home, one `label` per line with an

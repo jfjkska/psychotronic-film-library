@@ -21,6 +21,7 @@ excerpt: >-
   Pete Walker's sex comedy, lifted from a News of the World report. Carol and
   Joe leave their small town to make it big in London; the cash runs out and
   Carol turns to sex work with Joe as pimp and manager.
+image: /assets/img/cards/cool-it-carol.jpg
 ---
 
 Pete Walker's sex comedy exploitationer (sic) from 1970 was based on a report

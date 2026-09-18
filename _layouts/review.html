@@ -29,11 +29,20 @@ body_class: review-page
         {% if page.starring %}<dt>Starring</dt><dd>{{ page.starring }}</dd>{% endif %}
         {% if page.music %}<dt>Music</dt><dd>{{ page.music }}</dd>{% endif %}
         {% if page.runtime %}<dt>Runtime</dt><dd>{{ page.runtime }}</dd>{% endif %}
+        {% if page.version %}<dt>Version seen</dt><dd>{{ page.version }}</dd>{% endif %}
         {% if page.watched_on %}<dt>Seen on</dt><dd>{{ page.watched_on }}</dd>{% endif %}
         {% if page.watch %}
         <dt>Where to watch</dt>
         <dd class="watch">
           {% for w in page.watch %}<span class="watch-item">{% if w.url %}<a href="{{ w.url }}" rel="noopener">{{ w.label }}</a>{% else %}{{ w.label }}{% endif %}</span>{% endfor %}
+        </dd>
+        {% endif %}
+        {% if page.imdb %}
+        <dt>Elsewhere</dt>
+        <dd class="elsewhere">
+          <a href="https://www.imdb.com/title/{{ page.imdb }}/" rel="noopener">IMDb</a>
+          <a href="https://letterboxd.com/imdb/{{ page.imdb }}/" rel="noopener">Letterboxd</a>
+          {% if page.tmdb %}<a href="https://www.themoviedb.org/movie/{{ page.tmdb }}" rel="noopener">TMDB</a>{% endif %}
         </dd>
         {% endif %}
         {% if page.genres %}
@@ -47,6 +56,16 @@ body_class: review-page
 
     <div class="prose review-body" itemprop="reviewBody">
       {{ content }}
+      {% if page.stills %}
+      <section class="stills" aria-label="Stills">
+        <h2 class="rule">Stills</h2>
+        <ul class="still-strip">
+          {% for st in page.stills %}
+          <li><a href="{{ st | relative_url }}"><img src="{{ st | relative_url }}" alt="Still from {{ page.title }}" loading="lazy"></a></li>
+          {% endfor %}
+        </ul>
+      </section>
+      {% endif %}
       {% if page.trailer or page.tracks %}
       <section class="screening" aria-label="Trailer and soundtrack">
         {% if page.trailer %}
@@ -70,6 +89,23 @@ body_class: review-page
       {% include comments.html %}
     </div>
   </div>
+
+  {%- assign g1 = page.genres | first -%}
+  {%- assign same_dir = site.posts | where: "director", page.director | where_exp: "p", "p.url != page.url" -%}
+  {%- assign same_genre = site.posts | where_exp: "p", "p.genres contains g1 and p.url != page.url" -%}
+  {%- comment -%} Dedupe by url: never uniq/stringify documents, Jekyll renders them. {%- endcomment -%}
+  {%- assign related_urls = "" | split: "" -%}
+  {%- for d in same_dir -%}{%- assign related_urls = related_urls | push: d.url -%}{%- endfor -%}
+  {%- for d in same_genre -%}{%- unless related_urls contains d.url -%}{%- assign related_urls = related_urls | push: d.url -%}{%- endunless -%}{%- endfor -%}
+  {%- assign related_urls = related_urls | slice: 0, 4 -%}
+  {% if related_urls.size > 0 %}
+  <section class="related" aria-label="Related reviews">
+    <h2 class="rule">If you liked this</h2>
+    <ul class="rack rack-small">
+      {% for u in related_urls %}{% assign r = site.posts | where: "url", u | first %}{% include card.html post=r %}{% endfor %}
+    </ul>
+  </section>
+  {% endif %}
 
   {% if page.previous or page.next %}
   <nav class="double-bill" aria-label="More reviews">

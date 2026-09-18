@@ -19,6 +19,7 @@ excerpt: >-
   Mad Max, Escape from New York and Planet of the Apes in one pot. Twenty years
   after the nuclear holocaust, mercenary Parsifal must bring the last fertile
   woman back to Alaska so the good guys can repopulate from space.
+image: /assets/img/cards/2019-after-the-fall-of-new-york.jpg
 ---
 
 One of two macaroni cheese servings from Sergio Martino, the other being

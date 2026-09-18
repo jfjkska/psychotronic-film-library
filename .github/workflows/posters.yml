@@ -1,7 +1,7 @@
 # Fetches better posters from The Movie Database and commits them.
 # Runs when a review is added or changed, and on demand from the Actions tab.
 # Needs the repository secret TMDB_API_KEY (Settings → Secrets → Actions).
-name: Fetch posters
+name: Fetch posters, stills and cards
 
 on:
   push:
@@ -48,11 +48,13 @@ jobs:
             exit 0
           fi
           python tools/fetch_posters.py ${{ inputs.force && '--force' || '' }} ${{ inputs.candidates && '--candidates' || '' }} ${{ inputs.only }}
+      - name: Draw share cards
+        run: python tools/make_cards.py
       - name: Commit any new posters
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A assets/img/posters _posts _poster_candidates
+          git add -A assets/img/posters assets/img/stills assets/img/cards _posts _poster_candidates
           if git diff --cached --quiet; then echo "No poster changes."; exit 0; fi
           git commit -m "Fetch posters from TMDB"
           git push

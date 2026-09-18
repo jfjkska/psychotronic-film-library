@@ -22,6 +22,7 @@ excerpt: >-
   An eccentric family lure unsuspecting "friends" to their crumbling estate for
   bizarre games and rituals. Break the rules of the house and you are sent to
   the angels.
+image: /assets/img/cards/mumsy-nanny-sonny-and-girly.jpg
 ---
 
 Mumsy, Nanny, Sonny and Girly (1970) is a twisty and macabre comedy of manners

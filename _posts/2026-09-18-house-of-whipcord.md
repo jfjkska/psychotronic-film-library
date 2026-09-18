@@ -21,6 +21,7 @@ excerpt: >-
   A young French model is lured to a private prison by a boyfriend whose name
   sounds like Marquis de Sade. Solitary, flogging, and hanging for a third
   offence. Less bonkers than Frightmare, but the tropes are all here.
+image: /assets/img/cards/house-of-whipcord.jpg
 ---
 
 More Pete Walker psychodrama with House of Whipcord. A young French model,

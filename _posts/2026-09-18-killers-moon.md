@@ -17,6 +17,7 @@ excerpt: >-
   LSD-fuelled droog-like maniacs escape a mental institution, a hotel full of
   stranded schoolgirls in the Lake District, and a vengeful three-legged dog.
   Once called the most tasteless film in British cinema history.
+image: /assets/img/cards/killers-moon.jpg
 ---
 
 What film has LSD-induced, droog-like maniacs escaped from a mental institution

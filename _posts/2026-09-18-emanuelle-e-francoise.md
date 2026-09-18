@@ -21,6 +21,7 @@ excerpt: >-
   Emanuelle takes revenge on her sister's ex, locks him in a padded cell with a
   two-way mirror and injects him with LSD. Cue hallucinatory cannibalism and
   death by meat cleaver.
+image: /assets/img/cards/emanuelle-e-francoise.jpg
 ---
 
 Emanuelle e Françoise (1975) is an interesting erotic thriller from Bruno Mattei

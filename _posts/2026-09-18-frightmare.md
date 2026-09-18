@@ -18,6 +18,7 @@ excerpt: >-
   A slab of psycho horror from the Brit king of exploitation. Sheila Keith
   chews the scenery like she is chewing the brains of one of her victims.
   Insanity, cannibalism, family strife and 1970s British fashion choices.
+image: /assets/img/cards/frightmare.jpg
 ---
 
 Pete Walker's Frightmare is a slab of psycho horror from the Brit king of
