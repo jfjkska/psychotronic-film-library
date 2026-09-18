@@ -19,7 +19,7 @@ baseurl: "/psychotronic-film-library"
 # Contact form. Sign up free at https://formspree.io, make a form, paste its
 # endpoint here (looks like https://formspree.io/f/abcdwxyz). Until then the
 # form shows a note saying it isn't wired up.
-contact_form_endpoint: https://formspree.io/f/YOUR_FORM_ID
+contact_form_endpoint: https://formspree.io/f/xzezzyez
 
 # Comments on review pages, via giscus (stored in GitHub Discussions on the
 # site's repo, free). Leave `repo` empty and no comments box appears.
