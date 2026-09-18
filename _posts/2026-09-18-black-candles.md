@@ -14,9 +14,6 @@ watch:
 rating: 3
 verdict: "Eye-watering"
 poster: /assets/img/posters/black-candles.jpg
-tracks:
-  - title: "Marcello Giombini – music from Black Candles"
-    youtube: IHUP7t3UAhc
 excerpt: >-
   Carol arrives in England to visit her sister-in-law after her brother's death
   and walks into a wild ride of debauchery, sadism and farmyard deviancy. Larraz
