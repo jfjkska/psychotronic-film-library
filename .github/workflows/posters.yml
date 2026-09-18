@@ -20,6 +20,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: posters
@@ -51,3 +52,8 @@ jobs:
           if git diff --cached --quiet; then echo "No poster changes."; exit 0; fi
           git commit -m "Fetch posters from TMDB"
           git push
+          # A push made with the workflow token does not start other workflows,
+          # so publish the site explicitly.
+          gh workflow run pages.yml --ref main
+        env:
+          GH_TOKEN: ${{ github.token }}
