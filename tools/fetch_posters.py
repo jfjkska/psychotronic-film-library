@@ -19,6 +19,7 @@ IMG = "https://image.tmdb.org/t/p/original"
 KEY = os.environ.get("TMDB_API_KEY", "").strip()
 MIN_WIDTH = 700
 FORCE = "--force" in sys.argv
+CANDIDATES = "--candidates" in sys.argv
 ONLY = [a for a in sys.argv[1:] if not a.startswith("--")]
 
 if not KEY:
@@ -56,6 +57,37 @@ def best_poster(movie_id):
     pool.sort(key=lambda p: (p.get("vote_count", 0), p.get("vote_average", 0), p.get("width", 0)), reverse=True)
     return pool[0]["file_path"]
 
+def candidate_sheet(slug, movie):
+    """Write _poster_candidates/<slug>.jpg: the top posters, numbered, plus a
+    .txt listing each number's TMDB path. Pin one with `tmdb_poster:` in the post."""
+    from PIL import ImageDraw
+    imgs = api(f"/movie/{movie['id']}/images")
+    posters = imgs.get("posters") or []
+    posters.sort(key=lambda p: (p.get("vote_count", 0), p.get("vote_average", 0)), reverse=True)
+    posters = posters[:16]
+    if not posters:
+        print(f"none  {slug}: TMDB has no posters"); return
+    W, H, cols = 230, 345, 4
+    rows = (len(posters) + cols - 1) // cols
+    sheet = Image.new("RGB", (cols * W, rows * (H + 22)), "black")
+    d = ImageDraw.Draw(sheet)
+    lines = []
+    for i, p in enumerate(posters):
+        try:
+            im = Image.open(io.BytesIO(get(f"https://image.tmdb.org/t/p/w342{p['file_path']}"))).convert("RGB")
+        except Exception as e:
+            print(f"  candidate {i+1}: {e}"); continue
+        im.thumbnail((W, H))
+        x, y = (i % cols) * W, (i // cols) * (H + 22)
+        sheet.paste(im, (x + (W - im.width) // 2, y))
+        d.rectangle([x, y + H, x + W, y + H + 22], fill="black")
+        d.text((x + 6, y + H + 5), f"{i+1}  {p.get('iso_639_1') or '--'}  {p.get('width')}x{p.get('height')}", fill="white")
+        lines.append(f"{i+1}\t{p['file_path']}\t{p.get('iso_639_1') or '--'}\t{p.get('width')}x{p.get('height')}\tvotes={p.get('vote_count',0)}")
+    os.makedirs("_poster_candidates", exist_ok=True)
+    sheet.save(f"_poster_candidates/{slug}.jpg", quality=80)
+    open(f"_poster_candidates/{slug}.txt", "w").write("\n".join(lines) + "\n")
+    print(f"sheet {slug}: {len(lines)} candidates written to _poster_candidates/{slug}.jpg")
+
 changed = []
 for path in sorted(glob.glob("_posts/*.md")):
     slug = re.sub(r"^\d{4}-\d{2}-\d{2}-", "", os.path.basename(path))[:-3]
@@ -76,7 +108,8 @@ for path in sorted(glob.glob("_posts/*.md")):
     if width:
         try: w0, h0 = Image.open(current).size; ratio = w0 / h0
         except Exception: ratio = 1.0
-    if width >= MIN_WIDTH and ratio < 0.8 and not FORCE:
+    pinned = field(fm, "tmdb_poster")
+    if width >= MIN_WIDTH and ratio < 0.8 and not FORCE and not pinned and not CANDIDATES:
         print(f"skip  {slug}: already {width}px wide"); continue
 
     try:
@@ -91,12 +124,14 @@ for path in sorted(glob.glob("_posts/*.md")):
             if not hits:
                 print(f"none  {slug}: no TMDB match for {title!r} {year}. Add a `tmdb:` id to the post."); continue
             movie = hits[0]
-        fp = best_poster(movie["id"])
+        if CANDIDATES:
+            candidate_sheet(slug, movie); continue
+        fp = pinned or best_poster(movie["id"])
         if not fp:
             print(f"none  {slug}: TMDB has no poster for {movie.get('title')}"); continue
         raw = get(IMG + fp)
         im = Image.open(io.BytesIO(raw)).convert("RGB")
-        if im.width <= width and ratio < 0.8 and not FORCE:
+        if im.width <= width and ratio < 0.8 and not FORCE and not pinned:
             print(f"skip  {slug}: TMDB poster ({im.width}px) is no wider than current ({width}px)"); continue
         w = min(900, im.width)
         im = im.resize((w, round(w * im.height / im.width)), Image.LANCZOS)

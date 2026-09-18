@@ -31,6 +31,11 @@ name and address). Copy the **API Key (v3 auth)** and add it on this repo under
 **Settings → Secrets and variables → Actions → New repository secret**, named
 `TMDB_API_KEY`. Then run the workflow once from the Actions tab.
 
+If it picks the wrong poster (a modern Blu-ray cover, say), run the workflow with
+**candidates** ticked and the review's slug in **only**. It commits a numbered sheet
+to `_poster_candidates/<slug>.jpg` with the TMDB paths in the `.txt` beside it. Put
+the chosen path on a `tmdb_poster:` line in the review and run the fetch again.
+
 ## Wiring the contact form (2 minutes, free)
 
 GitHub Pages can't process a form on its own, so the form posts to Formspree.

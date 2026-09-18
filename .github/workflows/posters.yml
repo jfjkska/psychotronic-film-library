@@ -17,6 +17,10 @@ on:
         description: "Only these review slugs, space separated (blank = all)"
         type: string
         default: ""
+      candidates:
+        description: "Instead of fetching, write a numbered sheet of poster options for the named slugs"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -43,12 +47,12 @@ jobs:
             echo "::warning::TMDB_API_KEY secret is not set; nothing fetched. Add it under Settings → Secrets and variables → Actions."
             exit 0
           fi
-          python tools/fetch_posters.py ${{ inputs.force && '--force' || '' }} ${{ inputs.only }}
+          python tools/fetch_posters.py ${{ inputs.force && '--force' || '' }} ${{ inputs.candidates && '--candidates' || '' }} ${{ inputs.only }}
       - name: Commit any new posters
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A assets/img/posters _posts
+          git add -A assets/img/posters _posts _poster_candidates
           if git diff --cached --quiet; then echo "No poster changes."; exit 0; fi
           git commit -m "Fetch posters from TMDB"
           git push
