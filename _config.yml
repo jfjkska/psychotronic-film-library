@@ -6,7 +6,7 @@ tagline: Obscure exploitation, giallo, sleaze and the strange stuff in between.
 description: >-
   Reviews of obscure exploitation, giallo, eurosleaze, horror and the weird
   psychotronic corners of cinema.
-author: Psychotronic Film Library
+author: Darren Evanson
 lang: en-GB
 
 # `url` is the public address, `baseurl` is the path under it.
@@ -67,6 +67,7 @@ defaults:
     values:
       layout: review
       rating: 0
+      author: Darren Evanson
 
 exclude:
   - Gemfile

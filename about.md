@@ -5,7 +5,7 @@ kicker: Who is doing this and why
 permalink: /about/
 ---
 
-**Psychotronic Film Library** is one person's shelf of the films that never made it
+**Psychotronic Film Library** is Darren Evanson's shelf of the films that never made it
 to the multiplex: Italian giallo, eurosleaze, grindhouse exploitation, video-nasty
 horror, mondo, softcore oddities, cannibal pictures, poliziotteschi and anything else
 with a lurid poster and a lounge soundtrack.
