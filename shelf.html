@@ -1,0 +1,43 @@
+---
+layout: default
+title: The shelf
+permalink: /shelf/
+body_class: shelf
+---
+<section class="shelf-page">
+  <header class="page-head">
+    <p class="kicker">Every film reviewed, sorted three ways</p>
+    <h1 class="display">The shelf</h1>
+  </header>
+
+  <h2 class="rule">By genre</h2>
+  {%- assign all_genres = "" | split: "" -%}
+  {%- for post in site.posts -%}{%- for g in post.genres -%}{%- assign all_genres = all_genres | push: g -%}{%- endfor -%}{%- endfor -%}
+  {%- assign all_genres = all_genres | uniq | sort_natural -%}
+  {% for g in all_genres %}
+  <section class="genre-block" id="{{ g | slugify }}">
+    <h3 class="genre-name">{{ g }}</h3>
+    <ul class="listing">
+      {% for post in site.posts %}{% if post.genres contains g %}
+      <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a>{% if post.year %} <span class="dim">({{ post.year }})</span>{% endif %}{% if post.director %} <span class="dim">— {{ post.director }}</span>{% endif %}</li>
+      {% endif %}{% endfor %}
+    </ul>
+  </section>
+  {% endfor %}
+
+  <h2 class="rule">A to Z</h2>
+  <ul class="listing az">
+    {% assign az = site.posts | sort_natural: "title" %}
+    {% for post in az %}
+    <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a>{% if post.year %} <span class="dim">({{ post.year }})</span>{% endif %}{% if post.director %} <span class="dim">— {{ post.director }}</span>{% endif %}</li>
+    {% endfor %}
+  </ul>
+
+  <h2 class="rule">By year</h2>
+  <ul class="listing">
+    {% assign by_year = site.posts | sort: "year" %}
+    {% for post in by_year %}
+    <li><span class="dim">{{ post.year | default: "????" }}</span> <a href="{{ post.url | relative_url }}">{{ post.title }}</a>{% if post.director %} <span class="dim">— {{ post.director }}</span>{% endif %}</li>
+    {% endfor %}
+  </ul>
+</section>

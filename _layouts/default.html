@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en' }}">
+<head>
+  {% include head.html %}
+</head>
+<body class="{{ page.body_class | default: layout.body_class | default: 'page' }}">
+  <div class="grain" aria-hidden="true"></div>
+  <a class="skip" href="#main">Skip to content</a>
+  {% include header.html %}
+  <main id="main" class="wrap">
+    {{ content }}
+  </main>
+  {% include footer.html %}
+  <script src="{{ '/assets/js/library.js' | relative_url }}" defer></script>
+</body>
+</html>

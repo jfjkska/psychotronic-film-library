@@ -1,0 +1,5 @@
+<footer class="colophon">
+  {% include newsletter.html %}
+  <p class="colophon-line">{{ site.title }} &middot; {{ site.posts | size }} film{% if site.posts.size != 1 %}s{% endif %} on the shelf &middot; <a href="{{ '/feed.xml' | relative_url }}">RSS</a></p>
+  <p class="colophon-small">Posters and stills belong to their studios and distributors and appear here for review. Words &copy; {{ site.time | date: "%Y" }} {{ site.author }}.</p>
+</footer>

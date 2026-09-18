@@ -1,0 +1,48 @@
+---
+layout: default
+body_class: home
+---
+<section class="lobby">
+  <div class="lobby-head">
+    <p class="kicker">{{ site.tagline }}</p>
+    <h1 class="display">Now showing</h1>
+  </div>
+
+  <form class="finder" role="search" data-finder>
+    <label class="sr-only" for="finder-q">Search the library</label>
+    <input id="finder-q" type="search" name="q" placeholder="Search a title, director, year…" autocomplete="off" data-finder-input>
+    <div class="genre-row" data-genre-row>
+      <button type="button" class="chip is-on" data-genre="">All</button>
+      {%- assign all_genres = "" | split: "" -%}
+      {%- for post in site.posts -%}{%- for g in post.genres -%}{%- assign all_genres = all_genres | push: g -%}{%- endfor -%}{%- endfor -%}
+      {%- assign uniq_genres = all_genres | uniq | sort_natural -%}
+      {%- comment -%} Most-used genres first; the rest fold behind a button. {%- endcomment -%}
+      {%- assign ranked = "" | split: "" -%}
+      {%- for g in uniq_genres -%}
+        {%- assign n = 0 -%}{%- for x in all_genres -%}{%- if x == g -%}{%- assign n = n | plus: 1 -%}{%- endif -%}{%- endfor -%}
+        {%- assign key = 999 | minus: n | prepend: "0000" | slice: -4, 4 | append: "|" | append: g -%}
+        {%- assign ranked = ranked | push: key -%}
+      {%- endfor -%}
+      {%- assign ranked = ranked | sort_natural -%}
+      {%- for key in ranked -%}
+      {%- assign g = key | split: "|" | last -%}
+      <button type="button" class="chip{% if forloop.index > 10 %} chip-more{% endif %}" data-genre="{{ g | downcase | escape }}">{{ g }}</button>
+      {%- endfor -%}
+      {%- if ranked.size > 10 -%}
+      <button type="button" class="chip chip-toggle" data-more-genres aria-expanded="false">+ {{ ranked.size | minus: 10 }} more</button>
+      {%- endif -%}
+    </div>
+  </form>
+
+  {% if site.next_up and site.next_up.size > 0 %}
+  <aside class="coming" aria-label="Coming attractions">
+    <span class="coming-label">In the pile</span>
+    <span class="coming-list">{% for n in site.next_up %}<span class="coming-item">{{ n }}</span>{% endfor %}</span>
+  </aside>
+  {% endif %}
+
+  <ul class="rack" data-rack>
+    {% for post in site.posts %}{% include card.html post=post %}{% endfor %}
+  </ul>
+  <p class="empty" data-empty hidden>Nothing on the shelf matches that. Try another word.</p>
+</section>

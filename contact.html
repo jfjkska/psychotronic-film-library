@@ -1,0 +1,40 @@
+---
+layout: default
+title: Get in touch
+permalink: /contact/
+body_class: contact
+---
+<section class="page-body">
+  <header class="page-head">
+    <p class="kicker">Get in touch</p>
+    <h1 class="display">Write to the library</h1>
+  </header>
+
+  <div class="contact-grid">
+    <div class="prose">
+      <p>Seen something on the shelf you disagree with? Got a tip for a film that deserves a review, a better poster scan, or a soundtrack worth a mention? Send it here.</p>
+      <p>Studios and rights holders: posters and stills appear here for review and comment. If you own one and want it taken down, say so and it will go.</p>
+    </div>
+
+    <form class="contact-form" action="{{ site.contact_form_endpoint }}" method="POST" data-contact-form>
+      <label for="cf-name">Your name</label>
+      <input id="cf-name" name="name" type="text" autocomplete="name" required>
+
+      <label for="cf-email">Your email</label>
+      <input id="cf-email" name="email" type="email" autocomplete="email" required>
+
+      <label for="cf-subject">What's it about</label>
+      <input id="cf-subject" name="subject" type="text" placeholder="A film, a poster, a correction…">
+
+      <label for="cf-message">Message</label>
+      <textarea id="cf-message" name="message" rows="7" required></textarea>
+
+      <!-- Spam trap: hidden from people, filled in by bots. -->
+      <div class="trap" aria-hidden="true"><label for="cf-trap">Leave this empty</label><input id="cf-trap" name="_gotcha" type="text" tabindex="-1" autocomplete="off"></div>
+      <input type="hidden" name="_subject" value="Psychotronic Film Library: new message">
+
+      <button class="button" type="submit">Send it</button>
+      <p class="form-note" data-form-note>{% if site.contact_form_endpoint contains 'YOUR_FORM_ID' %}The form isn't wired up yet. See README for the one-line fix.{% endif %}</p>
+    </form>
+  </div>
+</section>

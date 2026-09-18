@@ -1,0 +1,12 @@
+---
+layout: default
+---
+<article class="page-body">
+  <header class="page-head">
+    <p class="kicker">{{ page.kicker | default: "Psychotronic Film Library" }}</p>
+    <h1 class="display">{{ page.title }}</h1>
+  </header>
+  <div class="prose">
+    {{ content }}
+  </div>
+</article>

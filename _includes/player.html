@@ -1,0 +1,7 @@
+{%- assign vid = include.id -%}
+<div class="player" data-player="{{ vid }}">
+  <button class="player-face" type="button" aria-label="Play {{ include.title | escape }}">
+    <img src="https://i.ytimg.com/vi/{{ vid }}/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
+    <span class="play-badge" aria-hidden="true">&#9654;</span>
+  </button>
+</div>

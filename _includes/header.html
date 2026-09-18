@@ -1,0 +1,15 @@
+<header class="masthead">
+  <a class="banner" href="{{ '/' | relative_url }}" aria-label="{{ site.title }} — home">
+    <img src="{{ '/assets/img/banner.jpg' | relative_url }}" alt="{{ site.title }}" width="2172" height="724" fetchpriority="high">
+  </a>
+  <nav class="marquee" aria-label="Main">
+    <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}aria-current="page"{% endif %}>Now showing</a>
+    <a href="{{ '/shelf/' | relative_url }}" {% if page.url == '/shelf/' %}aria-current="page"{% endif %}>The shelf</a>
+    <a href="{{ '/directors/' | relative_url }}" {% if page.url == '/directors/' %}aria-current="page"{% endif %}>Directors</a>
+    <a href="{{ '/about/' | relative_url }}" {% if page.url == '/about/' %}aria-current="page"{% endif %}>About</a>
+    <a href="{{ '/contact/' | relative_url }}" {% if page.url == '/contact/' %}aria-current="page"{% endif %}>Contact</a>
+    <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+    <a class="dice" href="{{ '/shelf/' | relative_url }}" data-dice title="Open a review at random">&#127922; Roll the dice</a>
+  </nav>
+  <script type="application/json" data-reel>[{% for post in site.posts %}"{{ post.url | relative_url }}"{% unless forloop.last %},{% endunless %}{% endfor %}]</script>
+</header>

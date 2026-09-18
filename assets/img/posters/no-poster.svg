@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 450">
+  <rect width="300" height="450" fill="#2a0b2e"/>
+  <g fill="#ff2d9b" opacity=".35">
+    <circle cx="30" cy="30" r="8"/><circle cx="90" cy="30" r="8"/><circle cx="150" cy="30" r="8"/><circle cx="210" cy="30" r="8"/><circle cx="270" cy="30" r="8"/>
+    <circle cx="30" cy="420" r="8"/><circle cx="90" cy="420" r="8"/><circle cx="150" cy="420" r="8"/><circle cx="210" cy="420" r="8"/><circle cx="270" cy="420" r="8"/>
+  </g>
+  <g transform="translate(150 215)">
+    <path d="M-70 0C-40-40 40-40 70 0 40 40-40 40-70 0Z" fill="none" stroke="#f4e6c3" stroke-width="6"/>
+    <circle r="26" fill="#ff2d9b"/><circle r="11" fill="#12060f"/>
+  </g>
+  <text x="150" y="330" text-anchor="middle" font-family="Impact, 'Anton', sans-serif" font-size="30" fill="#f4e04d" letter-spacing="2">NO POSTER</text>
+  <text x="150" y="356" text-anchor="middle" font-family="Impact, 'Anton', sans-serif" font-size="16" fill="#f4e6c3" letter-spacing="3">PSYCHOTRONIC FILM LIBRARY</text>
+</svg>

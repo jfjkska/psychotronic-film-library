@@ -1,0 +1,38 @@
+---
+layout: default
+title: Directors
+permalink: /directors/
+body_class: directors
+---
+<section class="directors-page">
+  <header class="page-head">
+    <p class="kicker">Who made what</p>
+    <h1 class="display">Directors</h1>
+  </header>
+
+  {%- assign names = "" | split: "" -%}
+  {%- for post in site.posts -%}{%- if post.director -%}{%- assign names = names | push: post.director -%}{%- endif -%}{%- endfor -%}
+  {%- assign names = names | uniq | sort_natural -%}
+  {%- comment -%} Directors with the most reviews first, then alphabetical. {%- endcomment -%}
+  {%- assign ranked = "" | split: "" -%}
+  {%- for n in names -%}
+    {%- assign count = 0 -%}
+    {%- for post in site.posts -%}{%- if post.director == n -%}{%- assign count = count | plus: 1 -%}{%- endif -%}{%- endfor -%}
+    {%- assign key = 999 | minus: count | prepend: "0000" | slice: -4, 4 | append: "|" | append: n -%}
+    {%- assign ranked = ranked | push: key -%}
+  {%- endfor -%}
+  {%- assign ranked = ranked | sort_natural -%}
+
+  {% for key in ranked %}
+    {%- assign n = key | split: "|" | last -%}
+    {%- assign films = site.posts | where: "director", n | sort: "year" -%}
+    <section class="director-block" id="{{ n | slugify }}">
+      <h2 class="director-name">{{ n }}<span class="director-count">{{ films.size }} film{% if films.size != 1 %}s{% endif %}</span></h2>
+      <ul class="listing">
+        {% for post in films %}
+        <li><span class="dim">{{ post.year }}</span> <a href="{{ post.url | relative_url }}">{{ post.title }}</a>{% if post.rating and post.rating > 0 %} {% include rating.html rating=post.rating %}{% endif %}</li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% endfor %}
+</section>

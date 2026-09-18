@@ -1,0 +1,16 @@
+{%- assign p = include.post -%}
+{%- assign poster = p.poster | default: "/assets/img/posters/no-poster.svg" -%}
+<li class="card" data-title="{{ p.title | downcase | escape }}" data-year="{{ p.year }}" data-director="{{ p.director | downcase | escape }}" data-genres="{{ p.genres | join: '|' | downcase | escape }}">
+  <a class="card-link" href="{{ p.url | relative_url }}">
+    <figure class="card-poster">
+      <img src="{{ poster | relative_url }}" alt="" loading="lazy" width="300" height="450">
+      {% if p.year %}<span class="sticker">{{ p.year }}</span>{% endif %}
+    </figure>
+    <div class="card-text">
+      {% if p.genres %}<p class="card-genre">{{ p.genres | first }}</p>{% endif %}
+      <h3 class="card-title">{{ p.title }}</h3>
+      {% if p.director %}<p class="card-dir">{{ p.director }}</p>{% endif %}
+      {% if p.rating and p.rating > 0 %}{% include rating.html rating=p.rating %}{% endif %}
+    </div>
+  </a>
+</li>

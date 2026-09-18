@@ -1,0 +1,12 @@
+{% if site.buttondown_username != "" %}
+<section class="newsletter" aria-label="Newsletter">
+  <form action="https://buttondown.com/api/emails/embed-subscribe/{{ site.buttondown_username }}" method="post" target="_blank" class="newsletter-form">
+    <label for="bd-email" class="newsletter-label">New reviews by email</label>
+    <div class="newsletter-row">
+      <input id="bd-email" type="email" name="email" placeholder="you@example.com" required autocomplete="email">
+      <button class="button" type="submit">Subscribe</button>
+    </div>
+    <p class="newsletter-small">Occasional. Unsubscribe any time.</p>
+  </form>
+</section>
+{% endif %}

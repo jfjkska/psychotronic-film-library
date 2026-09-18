@@ -1,0 +1,92 @@
+---
+layout: default
+body_class: review-page
+---
+{% assign poster = page.poster | default: "/assets/img/posters/no-poster.svg" %}
+<article class="review" itemscope itemtype="https://schema.org/Review">
+  <header class="review-head">
+    <p class="kicker">Now showing</p>
+    <h1 class="display" itemprop="name">{{ page.title }}</h1>
+    {% if page.aka %}<p class="aka">a.k.a. {{ page.aka }}</p>{% endif %}
+    <p class="strap">
+      {% if page.year %}<span class="strap-year">{{ page.year }}</span>{% endif %}
+      {% if page.director %}<span class="strap-sep">·</span> Directed by <b>{{ page.director }}</b>{% endif %}
+      {% if page.country %}<span class="strap-sep">·</span> {{ page.country }}{% endif %}
+    </p>
+  </header>
+
+  <div class="review-grid">
+    <aside class="one-sheet">
+      <figure class="poster-frame">
+        <img src="{{ poster | relative_url }}" alt="Poster for {{ page.title }}{% if page.year %} ({{ page.year }}){% endif %}" loading="eager">
+        {% if page.verdict %}<span class="stamp">{{ page.verdict }}</span>{% endif %}
+      </figure>
+
+      <dl class="credits">
+        {% if page.rating and page.rating > 0 %}
+        <dt>Verdict</dt><dd>{% include rating.html rating=page.rating %}</dd>
+        {% endif %}
+        {% if page.director %}<dt>Director</dt><dd><a class="quiet" href="{{ '/directors/' | relative_url }}#{{ page.director | slugify }}">{{ page.director }}</a></dd>{% endif %}
+        {% if page.starring %}<dt>Starring</dt><dd>{{ page.starring }}</dd>{% endif %}
+        {% if page.music %}<dt>Music</dt><dd>{{ page.music }}</dd>{% endif %}
+        {% if page.runtime %}<dt>Runtime</dt><dd>{{ page.runtime }}</dd>{% endif %}
+        {% if page.watched_on %}<dt>Seen on</dt><dd>{{ page.watched_on }}</dd>{% endif %}
+        {% if page.watch %}
+        <dt>Where to watch</dt>
+        <dd class="watch">
+          {% for w in page.watch %}<span class="watch-item">{% if w.url %}<a href="{{ w.url }}" rel="noopener">{{ w.label }}</a>{% else %}{{ w.label }}{% endif %}</span>{% endfor %}
+        </dd>
+        {% endif %}
+        {% if page.genres %}
+        <dt>Filed under</dt>
+        <dd class="chips">
+          {% for g in page.genres %}<a class="chip" href="{{ '/shelf/' | relative_url }}#{{ g | slugify }}">{{ g }}</a>{% endfor %}
+        </dd>
+        {% endif %}
+      </dl>
+    </aside>
+
+    <div class="prose review-body" itemprop="reviewBody">
+      {{ content }}
+      {% if page.trailer or page.tracks %}
+      <section class="screening" aria-label="Trailer and soundtrack">
+        {% if page.trailer %}
+        <h2 class="rule">Trailer</h2>
+        {% include player.html id=page.trailer title=page.title %}
+        {% endif %}
+        {% if page.tracks %}
+        <h2 class="rule">From the score</h2>
+        <ul class="tracks">
+          {% for t in page.tracks %}
+          <li>
+            <p class="track-title">{{ t.title }}</p>
+            {% include player.html id=t.youtube title=t.title %}
+          </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+        <p class="screening-note">Videos play from YouTube when you press play. Nothing loads from YouTube until then.</p>
+      </section>
+      {% endif %}
+      <p class="byline">Filed {{ page.date | date: "%-d %B %Y" }}{% if page.author %} by {{ page.author }}{% endif %}.</p>
+      {% include comments.html %}
+    </div>
+  </div>
+
+  {% if page.previous or page.next %}
+  <nav class="double-bill" aria-label="More reviews">
+    {% if page.previous %}
+    <a class="bill prev" href="{{ page.previous.url | relative_url }}">
+      <span class="bill-label">Earlier</span>
+      <span class="bill-title">{{ page.previous.title }}{% if page.previous.year %} ({{ page.previous.year }}){% endif %}</span>
+    </a>
+    {% endif %}
+    {% if page.next %}
+    <a class="bill next" href="{{ page.next.url | relative_url }}">
+      <span class="bill-label">Later</span>
+      <span class="bill-title">{{ page.next.title }}{% if page.next.year %} ({{ page.next.year }}){% endif %}</span>
+    </a>
+    {% endif %}
+  </nav>
+  {% endif %}
+</article>

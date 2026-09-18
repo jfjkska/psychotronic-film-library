@@ -1,0 +1,77 @@
+# ── Psychotronic Film Library ────────────────────────────────────────────────
+# Built for GitHub Pages: push to the repo, turn Pages on, done. No build step.
+
+title: Psychotronic Film Library
+tagline: Obscure exploitation, giallo, sleaze and the strange stuff in between.
+description: >-
+  Reviews of obscure exploitation, giallo, eurosleaze, horror and the weird
+  psychotronic corners of cinema.
+author: Psychotronic Film Library
+lang: en-GB
+
+# `url` is the public address, `baseurl` is the path under it.
+#   Repo named  <you>.github.io            →  baseurl: ""
+#   Repo named  psychotronic-film-library  →  baseurl: "/psychotronic-film-library"
+#   Own domain later                       →  url: "https://yourdomain.com", baseurl: ""
+url: "https://jfjkska.github.io"
+baseurl: "/psychotronic-film-library"
+
+# Contact form. Sign up free at https://formspree.io, make a form, paste its
+# endpoint here (looks like https://formspree.io/f/abcdwxyz). Until then the
+# form shows a note saying it isn't wired up.
+contact_form_endpoint: https://formspree.io/f/YOUR_FORM_ID
+
+# Comments on review pages, via giscus (stored in GitHub Discussions on the
+# site's repo, free). Leave `repo` empty and no comments box appears.
+# Setup: README → "Turning on comments".
+giscus:
+  repo: ""              # e.g. yourname/psychotronic-film-library
+  repo_id: ""
+  category: "Reviews"
+  category_id: ""
+
+# Newsletter via Buttondown (free up to 100 subscribers). Leave empty and the
+# sign-up box stays hidden. Setup: README → "Turning on the newsletter".
+buttondown_username: ""
+
+# Coming attractions: films in the pile, shown on the front page. Any number,
+# or delete the lines under it to hide the strip.
+next_up:
+  - "Franco's Venus in Furs (the Kinski one, this time)"
+  - "Boorman and the Devil"
+
+# Social card used when a link is shared (Twitter/X, Facebook, WhatsApp).
+logo: /assets/img/social-card.jpg
+
+permalink: /reviews/:title/
+timezone: Europe/London
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  smart_quotes: ["lsquo", "rsquo", "ldquo", "rdquo"]
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+feed:
+  path: feed.xml
+  excerpt_only: false
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: review
+      rating: 0
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - HOW-TO-POST.md
+  - vendor
+  - node_modules

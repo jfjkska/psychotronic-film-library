@@ -1,0 +1,44 @@
+/* giscus theme matching the library. Loaded by giscus inside its iframe. */
+main {
+  --color-prettylights-syntax-comment: #b8126b;
+  --color-btn-text: #12060f;
+  --color-btn-bg: #f4e04d;
+  --color-btn-border: #12060f;
+  --color-btn-hover-bg: #ff5a1f;
+  --color-btn-hover-border: #12060f;
+  --color-btn-primary-text: #fff8ea;
+  --color-btn-primary-bg: #ff2d9b;
+  --color-btn-primary-border: #12060f;
+  --color-btn-primary-hover-bg: #ff5a1f;
+  --color-btn-primary-hover-border: #12060f;
+  --color-fg-default: #f4e6c3;
+  --color-fg-muted: rgba(244, 230, 195, .7);
+  --color-fg-subtle: rgba(244, 230, 195, .5);
+  --color-canvas-default: transparent;
+  --color-canvas-overlay: #2a0b2e;
+  --color-canvas-inset: #12060f;
+  --color-canvas-subtle: #2a0b2e;
+  --color-border-default: rgba(244, 230, 195, .3);
+  --color-border-muted: rgba(244, 230, 195, .15);
+  --color-neutral-muted: rgba(255, 45, 155, .15);
+  --color-accent-fg: #f4e04d;
+  --color-accent-emphasis: #ff2d9b;
+  --color-accent-muted: rgba(255, 45, 155, .4);
+  --color-accent-subtle: rgba(255, 45, 155, .12);
+  --color-success-fg: #3cc7c0;
+  --color-attention-fg: #f4e04d;
+  --color-attention-muted: rgba(244, 224, 77, .4);
+  --color-attention-subtle: rgba(244, 224, 77, .1);
+  --color-danger-fg: #ff5a1f;
+  --color-danger-muted: rgba(255, 90, 31, .4);
+  --color-danger-subtle: rgba(255, 90, 31, .1);
+  --color-primer-shadow-inset: 0 0 transparent;
+  --color-scale-gray-7: #2a0b2e;
+  --color-scale-blue-8: #451447;
+  --color-social-reaction-bg-hover: #451447;
+  --color-social-reaction-bg-reacted-hover: #b8126b;
+  font-family: Georgia, "Times New Roman", serif;
+}
+main .color-bg-primary { background: transparent; }
+main .gsc-comment-box-textarea { color: #12060f; background: #fff8ea; }
+main .gsc-reactions-count, main .gsc-comments-count { color: #f4e04d; }
