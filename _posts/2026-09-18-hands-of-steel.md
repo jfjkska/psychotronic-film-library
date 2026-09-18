@@ -16,8 +16,8 @@ verdict: "Muscle and metal"
 poster: /assets/img/posters/hands-of-steel.jpg
 trailer: bkk2XK8WzT4
 tracks:
-  - title: "Claudio Simonetti – Hands of Steel"
-    youtube: peyTWV5oJWg
+  - title: "Claudio Simonetti – Hands of Steel (complete score)"
+    youtube: 2Ordn8Y-XsU
 excerpt: >-
   Macaroni cheese from Sergio Martino: Daniel Greene as an assassin cyborg with
   a conscience, John Saxon's corporate hitman, and an arm-wrestling truck driver.
