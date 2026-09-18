@@ -21,6 +21,10 @@ on:
         description: "Instead of fetching, write a numbered sheet of poster options for the named slugs"
         type: boolean
         default: false
+      restills:
+        description: "Rebuild the gallery images even where a review already has them"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -47,7 +51,7 @@ jobs:
             echo "::warning::TMDB_API_KEY secret is not set; nothing fetched. Add it under Settings → Secrets and variables → Actions."
             exit 0
           fi
-          python tools/fetch_posters.py ${{ inputs.force && '--force' || '' }} ${{ inputs.candidates && '--candidates' || '' }} ${{ inputs.only }}
+          python tools/fetch_posters.py ${{ inputs.force && '--force' || '' }} ${{ inputs.candidates && '--candidates' || '' }} ${{ inputs.restills && '--restills' || '' }} ${{ inputs.only }}
       - name: Draw share cards
         run: python tools/make_cards.py
       - name: Commit any new posters

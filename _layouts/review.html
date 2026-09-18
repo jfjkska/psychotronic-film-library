@@ -57,11 +57,11 @@ body_class: review-page
     <div class="prose review-body" itemprop="reviewBody">
       {{ content }}
       {% if page.stills %}
-      <section class="stills" aria-label="Stills">
-        <h2 class="rule">Stills</h2>
+      <section class="stills" aria-label="Gallery">
+        <h2 class="rule">Gallery</h2>
         <ul class="still-strip">
           {% for st in page.stills %}
-          <li><a href="{{ st | relative_url }}"><img src="{{ st | relative_url }}" alt="Still from {{ page.title }}" loading="lazy"></a></li>
+          <li><a href="{{ st | relative_url }}"><img src="{{ st | relative_url }}" alt="Image from {{ page.title }}" loading="lazy"></a></li>
           {% endfor %}
         </ul>
       </section>

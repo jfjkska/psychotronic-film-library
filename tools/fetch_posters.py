@@ -20,6 +20,7 @@ KEY = os.environ.get("TMDB_API_KEY", "").strip()
 MIN_WIDTH = 700
 FORCE = "--force" in sys.argv
 CANDIDATES = "--candidates" in sys.argv
+RESTILLS = "--restills" in sys.argv   # rebuild the stills strip even if a post has one
 ONLY = [a for a in sys.argv[1:] if not a.startswith("--")]
 
 if not KEY:
@@ -108,17 +109,24 @@ def extras(slug, movie, path):
                 text, fm = set_field(text, fm, "imdb", det["imdb_id"]); changed_here = True
         except Exception as e:
             print(f"  imdb {slug}: {e}")
-    if not re.search(r"^stills:", fm, re.M):
+    if RESTILLS or not re.search(r"^stills:", fm, re.M):
         try:
             bds = (api(f"/movie/{movie['id']}/images").get("backdrops") or [])
             bds.sort(key=lambda b: (b.get("vote_count", 0), b.get("vote_average", 0)), reverse=True)
-            paths = []
+            paths, seen = [], []
             os.makedirs("assets/img/stills", exist_ok=True)
-            for i, b in enumerate(bds[:4]):
+            for old in glob.glob(f"assets/img/stills/{slug}-*.jpg"): os.remove(old)
+            for b in bds[:10]:
+                if len(paths) == 4: break
                 im = Image.open(io.BytesIO(get(IMG + b["file_path"]))).convert("RGB")
+                # skip near-duplicates (same art at different crops) via an 8x8 average hash
+                g = im.convert("L").resize((8, 8), Image.LANCZOS); px = list(g.getdata()); avg = sum(px) / 64
+                h = [1 if v > avg else 0 for v in px]
+                if any(sum(a != b2 for a, b2 in zip(h, x)) < 10 for x in seen): continue
+                seen.append(h)
                 w = min(1280, im.width)
                 im = im.resize((w, round(w * im.height / im.width)), Image.LANCZOS)
-                out = f"assets/img/stills/{slug}-{i+1}.jpg"
+                out = f"assets/img/stills/{slug}-{len(paths)+1}.jpg"
                 im.save(out, quality=82, optimize=True, progressive=True)
                 paths.append("/" + out)
             if paths:
@@ -151,7 +159,7 @@ for path in sorted(glob.glob("_posts/*.md")):
         try: w0, h0 = Image.open(current).size; ratio = w0 / h0
         except Exception: ratio = 1.0
     pinned = field(fm, "tmdb_poster")
-    need_extras = not field(fm, "imdb") or not re.search(r"^stills:", fm, re.M)
+    need_extras = RESTILLS or not field(fm, "imdb") or not re.search(r"^stills:", fm, re.M)
     if width >= MIN_WIDTH and ratio < 0.8 and not FORCE and not pinned and not CANDIDATES and not need_extras:
         print(f"skip  {slug}: already {width}px wide"); continue
     skip_poster = width >= MIN_WIDTH and ratio < 0.8 and not FORCE and not pinned

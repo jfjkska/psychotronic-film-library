@@ -45,7 +45,7 @@ ex-rental VHS", "the BBFC-cut TV print". Shows in the credits block.
 
 ## Stills, links and share cards
 
-These arrive by themselves within a minute or two of posting: four stills under the
+These arrive by themselves within a minute or two of posting: a gallery of up to four images under the
 review, IMDb and Letterboxd links in the credits, and a share card so the link looks
 right when pasted into WhatsApp or X. Nothing to do.
 
