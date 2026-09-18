@@ -5,7 +5,6 @@ body_class: review-page
 {% assign poster = page.poster | default: "/assets/img/posters/no-poster.svg" %}
 <article class="review" itemscope itemtype="https://schema.org/Review">
   <header class="review-head">
-    <p class="kicker">Now showing</p>
     <h1 class="display" itemprop="name">{{ page.title }}</h1>
     {% if page.aka %}<p class="aka">a.k.a. {{ page.aka }}</p>{% endif %}
     <p class="strap">

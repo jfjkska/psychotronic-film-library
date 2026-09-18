@@ -1,7 +1,6 @@
 ---
 layout: page
 title: About the library
-kicker: Who is doing this and why
 permalink: /about/
 ---
 

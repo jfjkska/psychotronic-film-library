@@ -115,10 +115,6 @@ a:hover { color: var(--paper); }
 .marquee a[aria-current="page"] { text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: .22em; }
 
 /* ── Type ─────────────────────────────────────────────────────────────────── */
-.kicker {
-  margin: 0 0 .3em; font-family: var(--type); text-transform: uppercase;
-  letter-spacing: .22em; font-size: .85rem; color: var(--magenta);
-}
 .display {
   margin: 0; font-family: var(--display); font-weight: 400;
   font-size: clamp(2.3rem, 6.5vw, 4.4rem); line-height: 1.02; color: var(--cream);
