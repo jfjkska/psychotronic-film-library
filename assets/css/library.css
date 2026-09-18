@@ -276,7 +276,6 @@ a:hover { color: var(--paper); }
 .tracks { list-style: none; margin: 0 0 1.4rem; padding: 0 0 12px; display: grid; gap: 1.6rem; }
 @media (min-width: 720px) { .tracks { grid-template-columns: 1fr 1fr; } }
 .track-title { margin: 0 0 .5rem; font-family: var(--type); font-size: .95rem; color: var(--paper); }
-.screening-note { margin: 1.2rem 0 0; font-family: var(--type); font-size: .8rem; color: var(--dim); }
 
 /* ── Shelf ────────────────────────────────────────────────────────────────── */
 .genre-block { margin: 1.4rem 0 2rem; }
