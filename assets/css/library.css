@@ -41,10 +41,10 @@ body {
   line-height: 1.6;
   background-color: var(--ink);
   background-image:
-    radial-gradient(circle at 50% 50%, var(--magenta) 0 1.4px, transparent 1.6px),
-    radial-gradient(ellipse at 50% 0%, rgba(255, 45, 155, .22), transparent 60%),
-    linear-gradient(180deg, var(--plum) 0%, var(--ink) 55%, var(--black) 100%);
-  background-size: 18px 18px, 100% 100%, 100% 100%;
+    radial-gradient(circle at 50% 50%, rgba(255, 45, 155, .28) 0 1px, transparent 1.3px),
+    radial-gradient(ellipse at 50% 0%, rgba(255, 45, 155, .14), transparent 55%),
+    linear-gradient(180deg, var(--plum) 0%, var(--ink) 45%, var(--black) 100%);
+  background-size: 26px 26px, 100% 100%, 100% 100%;
   overflow-x: hidden;
 }
 
@@ -57,17 +57,17 @@ body::before {
   border-radius: 50%;
   background: repeating-radial-gradient(circle at center,
     rgba(255, 45, 155, .0) 0 14px,
-    rgba(255, 45, 155, .13) 14px 22px,
+    rgba(255, 45, 155, .07) 14px 22px,
     rgba(69, 20, 71, .0) 22px 36px);
   pointer-events: none;
   z-index: 0;
-  opacity: .9;
+  opacity: .8;
 }
 
 /* Film grain overlay. */
 .grain {
   position: fixed; inset: 0; z-index: 3; pointer-events: none;
-  opacity: .08; mix-blend-mode: overlay;
+  opacity: .05; mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
 }
 
@@ -248,7 +248,7 @@ a:hover { color: var(--paper); }
 .credits { margin: 0; font-family: var(--type); font-size: .95rem; }
 .credits dt { font-family: var(--poster); text-transform: uppercase; letter-spacing: .16em; font-size: .72rem; color: var(--magenta); margin: 0 0 .15em; }
 .credits dd { margin: 0 0 1rem; color: var(--paper); }
-.review-body { font-size: 1.22rem; }
+.review-body { font-size: 1.22rem; padding: .2rem 1.2rem .6rem; margin: 0 -1.2rem; background: radial-gradient(ellipse at 50% 30%, rgba(18, 6, 15, .85), rgba(18, 6, 15, .55) 70%, transparent 100%); border-radius: 12px; }
 .review-body > p:first-of-type::first-letter {
   float: left; font-family: var(--display); font-size: 3.9em; line-height: .78;
   padding: .08em .12em 0 0; color: var(--magenta); text-shadow: 3px 3px 0 var(--black);
