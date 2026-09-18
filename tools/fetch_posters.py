@@ -41,6 +41,8 @@ def field(fm, name):
     m = re.search(rf"^{name}:\s*(.+)$", fm, re.M)
     if not m: return None
     v = m.group(1).strip()
+    if not v.startswith(("'", '"')):
+        v = v.split(" #", 1)[0].strip()   # drop an inline YAML comment
     return v.strip('"').strip("'")
 
 def best_poster(movie_id):
@@ -94,7 +96,7 @@ for path in sorted(glob.glob("_posts/*.md")):
             print(f"none  {slug}: TMDB has no poster for {movie.get('title')}"); continue
         raw = get(IMG + fp)
         im = Image.open(io.BytesIO(raw)).convert("RGB")
-        if im.width <= width and not FORCE:
+        if im.width <= width and ratio < 0.8 and not FORCE:
             print(f"skip  {slug}: TMDB poster ({im.width}px) is no wider than current ({width}px)"); continue
         w = min(900, im.width)
         im = im.resize((w, round(w * im.height / im.width)), Image.LANCZOS)
