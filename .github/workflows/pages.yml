@@ -1,4 +1,5 @@
-# Builds the site with Jekyll and publishes it to GitHub Pages on every push
+# Builds the site with the Jekyll pinned in Gemfile.lock and publishes it to
+# GitHub Pages on every push
 # to main. The first run also switches Pages on for the repo, so there is
 # nothing to click in Settings.
 name: Publish site
@@ -27,11 +28,14 @@ jobs:
         uses: actions/configure-pages@v5
         with:
           enablement: true
-      - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@v1
+      - uses: ruby/setup-ruby@v1
         with:
-          source: ./
-          destination: ./_site
+          ruby-version: "3.3"
+          bundler-cache: true
+      - name: Build with Jekyll
+        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+        env:
+          JEKYLL_ENV: production
       - uses: actions/upload-pages-artifact@v3
 
   deploy:

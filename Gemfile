@@ -1,5 +1,9 @@
-# Only needed if you want to preview the site on your own machine.
-# GitHub Pages builds it for you either way.
+# The site builds with these exact versions, on GitHub and on any machine.
 source "https://rubygems.org"
-gem "github-pages", group: :jekyll_plugins
+gem "jekyll", "~> 4.4"
 gem "webrick"
+group :jekyll_plugins do
+  gem "jekyll-feed"
+  gem "jekyll-seo-tag"
+  gem "jekyll-sitemap"
+end
