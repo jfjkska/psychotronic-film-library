@@ -14,7 +14,7 @@ watch:
 rating: 4
 verdict: "Ticks all the boxes"
 poster: /assets/img/posters/milano-calibro-9.jpg
-trailer: izTybWMr6cU
+trailer: LjkJ4GV3KNo
 tracks:
   - title: "Osanna and Luis Bacalov – Preludio"
     youtube: 3xjb61sgQXA

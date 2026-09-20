@@ -89,6 +89,32 @@ def candidate_sheet(slug, movie):
     open(f"_poster_candidates/{slug}.txt", "w").write("\n".join(lines) + "\n")
     print(f"sheet {slug}: {len(lines)} candidates written to _poster_candidates/{slug}.jpg")
 
+def _gray_rows(im, w=96):
+    g = im.convert("L"); h = max(1, round(w * g.height / g.width)); g = g.resize((w, h), Image.LANCZOS)
+    return [list(g.crop((0, y, w, y + 1)).tobytes()) for y in range(h)]
+
+def _corr(A, B, dx, dy):
+    import math
+    ha, wa = len(A), len(A[0]); hb, wb = len(B), len(B[0])
+    xs = range(max(0, dx), min(wa, wb + dx)); ys = range(max(0, dy), min(ha, hb + dy))
+    if len(xs) < wa * 0.5 or len(ys) < ha * 0.5: return 0.0
+    a = [A[y][x] for y in ys for x in xs]; b = [B[y - dy][x - dx] for y in ys for x in xs]
+    ma, mb = sum(a) / len(a), sum(b) / len(b)
+    num = sum((p - ma) * (q - mb) for p, q in zip(a, b))
+    den = math.sqrt(sum((p - ma) ** 2 for p in a) * sum((q - mb) ** 2 for q in b)) or 1.0
+    return num / den
+
+def looks_same(im1, im2, threshold=0.6):
+    """True when im2 is the same picture as im1 at another crop or scale:
+    slide a downscaled im2 over im1 and take the best normalized correlation."""
+    A = _gray_rows(im1)
+    for sc in (0.85, 1.0, 1.18):
+        B = _gray_rows(im2, w=round(96 * sc))
+        for dx in range(-30, 31, 6):
+            for dy in range(-20, 21, 5):
+                if _corr(A, B, dx, dy) > threshold: return True
+    return False
+
 def set_field(text, fm, name, value):
     """Add or replace a front-matter line; returns (new text, new fm)."""
     if re.search(rf"^{name}:", fm, re.M):
@@ -119,11 +145,9 @@ def extras(slug, movie, path):
             for b in bds[:10]:
                 if len(paths) == 4: break
                 im = Image.open(io.BytesIO(get(IMG + b["file_path"]))).convert("RGB")
-                # skip near-duplicates (same art at different crops) via an 8x8 average hash
-                g = im.convert("L").resize((8, 8), Image.LANCZOS); px = list(g.getdata()); avg = sum(px) / 64
-                h = [1 if v > avg else 0 for v in px]
-                if any(sum(a != b2 for a, b2 in zip(h, x)) < 10 for x in seen): continue
-                seen.append(h)
+                # skip the same picture at another crop or scale
+                if any(looks_same(prev, im) for prev in seen): continue
+                seen.append(im)
                 w = min(1280, im.width)
                 im = im.resize((w, round(w * im.height / im.width)), Image.LANCZOS)
                 out = f"assets/img/stills/{slug}-{len(paths)+1}.jpg"
