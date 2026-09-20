@@ -22,6 +22,9 @@ excerpt: >-
   buddies for a missing $300,000. Explosions, assassinations in public toilets
   and double-crossings across Milan, to a score that veers from lounge to
   freak-flute prog.
+imdb: tt0067429
+stills: [/assets/img/stills/milano-calibro-9-1.jpg, /assets/img/stills/milano-calibro-9-2.jpg, /assets/img/stills/milano-calibro-9-3.jpg, /assets/img/stills/milano-calibro-9-4.jpg]
+image: /assets/img/cards/milano-calibro-9.jpg
 ---
 
 Milano Calibro 9 (1972) is an Italian poliziottesco thriller written and
