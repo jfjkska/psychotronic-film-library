@@ -3,6 +3,7 @@ title: "Milano Calibro 9"
 aka: "Caliber 9"
 date: 2026-09-20 10:00:00 +0100
 year: 1972
+tmdb_poster: /iElPgRuZR5vO6Zu9HK5lcZI9XTR.jpg
 director: "Fernando Di Leo"
 country: Italy
 starring: "Gastone Moschin, Barbara Bouchet, Mario Adorf, Frank Wolff, Philippe Leroy, Lionel Stander"
