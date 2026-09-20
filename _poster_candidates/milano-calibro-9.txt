@@ -1,0 +1,16 @@
+1	/tV5xhT0luyD1Xiebx4HXbv3sV0q.jpg	en	2000x3000	votes=5
+2	/1US6zJ18ok1L0npSE52cQXjPR1w.jpg	en	592x841	votes=5
+3	/8lBLJS4DSi1Yuq6PC7Uw44HPOAf.jpg	en	1000x1500	votes=4
+4	/AqCXihDBa6A7SuM56ad5MNDanR3.jpg	it	577x800	votes=4
+5	/rFKXjrTFBGb74OhpgOdKlJeKP8w.jpg	en	1000x1500	votes=3
+6	/vFgCxGLnPGSuW3T2ohdCemOnfLP.jpg	en	960x1440	votes=2
+7	/sK4sBscvhVPC63odQ4F5b7A5slu.jpg	it	1200x1800	votes=2
+8	/iElPgRuZR5vO6Zu9HK5lcZI9XTR.jpg	it	2000x3000	votes=2
+9	/y8UFP7iCxUr1myzmtI53kVZ07DR.jpg	es	1000x1500	votes=2
+10	/c3ok8aVs531fpJjDxjvE74m4Qd6.jpg	en	750x1000	votes=2
+11	/7VF67snzfvBFayBiaNahGLJADL1.jpg	it	800x1200	votes=2
+12	/sOvBaSE0Nvlor86fYfEz2UdtyTm.jpg	de	1000x1500	votes=1
+13	/nsQeMeTTNrvegN7v7CzXMLgYocR.jpg	fr	898x1200	votes=1
+14	/clTWmsGVvtjNOnjBaVEushpzrBZ.jpg	it	2000x3000	votes=1
+15	/aFU43GtPRz2SIa2KbxufYRdUu7W.jpg	en	2000x3000	votes=0
+16	/m942s1hbZ0XgeUtsL7ZkrNLScfN.jpg	de	1200x1600	votes=0
