@@ -21,6 +21,8 @@ excerpt: >-
 image: /assets/img/cards/secret-rites.jpg
 imdb: tt0257119
 stills: [/assets/img/stills/secret-rites-1.jpg, /assets/img/stills/secret-rites-2.jpg]
+tmdb_poster: /uUMWKHVWB8FfCF9b89uKQnUZJVO.jpg
+posters: [/assets/img/posters/secret-rites-alt-1.jpg]
 ---
 
 Secret Rites (1971) is a pseudo-documentary dressed in ceremonial robes which

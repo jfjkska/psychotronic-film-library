@@ -21,6 +21,8 @@ excerpt: >-
 image: /assets/img/cards/black-candles.jpg
 imdb: tt0081432
 stills: [/assets/img/stills/black-candles-1.jpg, /assets/img/stills/black-candles-2.jpg, /assets/img/stills/black-candles-3.jpg, /assets/img/stills/black-candles-4.jpg]
+tmdb_poster: /7bxsUfuQ42OxpjAjtWs7u9gc1Wf.jpg
+posters: [/assets/img/posters/black-candles-alt-1.jpg]
 ---
 
 Black Candles, a.k.a. The Sexual Rites of the Devil, is a 1982 occult

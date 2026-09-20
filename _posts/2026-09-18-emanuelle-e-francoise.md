@@ -24,6 +24,8 @@ excerpt: >-
 image: /assets/img/cards/emanuelle-e-francoise.jpg
 imdb: tt0074472
 stills: [/assets/img/stills/emanuelle-e-francoise-1.jpg, /assets/img/stills/emanuelle-e-francoise-2.jpg, /assets/img/stills/emanuelle-e-francoise-3.jpg, /assets/img/stills/emanuelle-e-francoise-4.jpg]
+tmdb_poster: /a0HQlwHETO2FuidcvrpWEYbiEe6.jpg
+posters: [/assets/img/posters/emanuelle-e-francoise-alt-1.jpg, /assets/img/posters/emanuelle-e-francoise-alt-2.jpg, /assets/img/posters/emanuelle-e-francoise-alt-3.jpg, /assets/img/posters/emanuelle-e-francoise-alt-4.jpg, /assets/img/posters/emanuelle-e-francoise-alt-5.jpg]
 ---
 
 Emanuelle e Françoise (1975) is an interesting erotic thriller from Bruno Mattei

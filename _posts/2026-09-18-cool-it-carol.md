@@ -24,6 +24,8 @@ excerpt: >-
 image: /assets/img/cards/cool-it-carol.jpg
 imdb: tt0065575
 stills: [/assets/img/stills/cool-it-carol-1.jpg, /assets/img/stills/cool-it-carol-2.jpg, /assets/img/stills/cool-it-carol-3.jpg]
+tmdb_poster: /AtA3Fwck26BpX28YYOZyJlolkAU.jpg
+posters: [/assets/img/posters/cool-it-carol-alt-1.jpg, /assets/img/posters/cool-it-carol-alt-2.jpg]
 ---
 
 Pete Walker's sex comedy exploitationer (sic) from 1970 was based on a report

@@ -24,6 +24,8 @@ excerpt: >-
 image: /assets/img/cards/house-of-whipcord.jpg
 imdb: tt0071628
 stills: [/assets/img/stills/house-of-whipcord-1.jpg]
+tmdb_poster: /5sIdXRrebSiNjPJ7LICLOsfpff1.jpg
+posters: [/assets/img/posters/house-of-whipcord-alt-1.jpg, /assets/img/posters/house-of-whipcord-alt-2.jpg, /assets/img/posters/house-of-whipcord-alt-3.jpg, /assets/img/posters/house-of-whipcord-alt-4.jpg, /assets/img/posters/house-of-whipcord-alt-5.jpg]
 ---
 
 More Pete Walker psychodrama with House of Whipcord. A young French model,

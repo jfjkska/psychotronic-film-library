@@ -29,6 +29,8 @@ excerpt: >-
 image: /assets/img/cards/hands-of-steel.jpg
 imdb: tt0091166
 stills: [/assets/img/stills/hands-of-steel-1.jpg, /assets/img/stills/hands-of-steel-2.jpg, /assets/img/stills/hands-of-steel-3.jpg, /assets/img/stills/hands-of-steel-4.jpg]
+tmdb_poster: /6A5L3i0HAqZUnXtJ5nJEUYWJsmm.jpg
+posters: [/assets/img/posters/hands-of-steel-alt-1.jpg, /assets/img/posters/hands-of-steel-alt-2.jpg, /assets/img/posters/hands-of-steel-alt-3.jpg, /assets/img/posters/hands-of-steel-alt-4.jpg, /assets/img/posters/hands-of-steel-alt-5.jpg]
 ---
 
 One of two macaroni cheese servings from Sergio Martino, the other being
