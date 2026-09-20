@@ -17,6 +17,10 @@ trailer: izTybWMr6cU
 tracks:
   - title: "Osanna and Luis Bacalov – Preludio"
     youtube: 3xjb61sgQXA
+  - title: "Osanna – Canzona (There Will Be Time)"
+    youtube: E49l5pCJxqQ
+  - title: "Osanna and Luis Bacalov – the full album: Preludio, Tema, Variazioni, Canzona"
+    youtube: 2on463gehMw
 excerpt: >-
   Ugo Piazza is out of prison and wanted by the police and his old gangland
   buddies for a missing $300,000. Explosions, assassinations in public toilets

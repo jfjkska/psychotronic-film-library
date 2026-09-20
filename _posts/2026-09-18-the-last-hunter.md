@@ -18,6 +18,8 @@ trailer: hxINKSKaN_E
 tracks:
   - title: "Franco Micalizzi – The Last Hunter (main theme)"
     youtube: ChUk6okPEdc
+  - title: "Franco Micalizzi – Shining Shadow (end titles)"
+    youtube: h5neZXvL820
 excerpt: >-
   Margheriti's macaroni combat picture borrows freely from Cimino and Coppola,
   shot on the Apocalypse Now locations in the Philippines. Gritty, gory, and

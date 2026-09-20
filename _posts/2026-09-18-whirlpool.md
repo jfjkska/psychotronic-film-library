@@ -17,6 +17,8 @@ trailer: AL_oqPatoVA
 tracks:
   - title: "Stelvio Cipriani – Whirlpool"
     youtube: O1zFc9mSTJU
+  - title: "Stelvio Cipriani – Whirlpool, the full soundtrack"
+    youtube: jH8-p2GC54k
 excerpt: >-
   Aunt Sarah and nephew Theo invite aspiring model Tulia to their country home
   for a weekend of portfolio shots, strip card games and worse. Larraz's debut,

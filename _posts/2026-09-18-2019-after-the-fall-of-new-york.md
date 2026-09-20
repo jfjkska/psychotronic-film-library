@@ -15,6 +15,11 @@ rating: 3
 verdict: "Absurd and relentless"
 poster: /assets/img/posters/2019-after-the-fall-of-new-york.jpg
 trailer: OWFQA6tuiNQ
+tracks:
+  - title: "Guido and Maurizio De Angelis – 2019 Dopo la caduta di New York (Seq. 3)"
+    youtube: ca0LW__WAac
+  - title: "Guido and Maurizio De Angelis – the soundtrack LP"
+    youtube: Cg-qmDzuxtY
 excerpt: >-
   Mad Max, Escape from New York and Planet of the Apes in one pot. Twenty years
   after the nuclear holocaust, mercenary Parsifal must bring the last fertile

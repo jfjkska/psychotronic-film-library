@@ -18,6 +18,10 @@ trailer: bkk2XK8WzT4
 tracks:
   - title: "Claudio Simonetti – Hands of Steel (complete score)"
     youtube: 2Ordn8Y-XsU
+  - title: "Claudio Simonetti – Hands of Steel (main theme)"
+    youtube: xeofWxlPiTQ
+  - title: "Claudio Simonetti – Paco's Introduction / Atomic Cyborg"
+    youtube: mm4zOS5LvV0
 excerpt: >-
   Macaroni cheese from Sergio Martino: Daniel Greene as an assassin cyborg with
   a conscience, John Saxon's corporate hitman, and an arm-wrestling truck driver.

@@ -16,6 +16,12 @@ poster: /assets/img/posters/devil-in-the-flesh.jpg
 tracks:
   - title: "Gianfranco Reverberi – Le malizie di Venere (main theme)"
     youtube: NUumYIv7Dsw
+  - title: "Gianfranco and Gian Piero Reverberi – Le malizie di Venere (Seq. 3)"
+    youtube: ynVWbt5byqA
+  - title: "Gianfranco and Gian Piero Reverberi – Le malizie di Venere (Seq. 4)"
+    youtube: AAjZziwnuwg
+  - title: "Gianfranco and Gian Piero Reverberi – Le malizie di Venere (Seq. 8)"
+    youtube: 23qjTX3MWrw
 excerpt: >-
   Dallamano's take on Sacher-Masoch: Wanda, Severin, and the stranger Bruno who
   brutalises the whole household. Voyeurism, whippings and censorship trouble

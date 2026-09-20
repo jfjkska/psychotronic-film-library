@@ -18,6 +18,10 @@ trailer: zmMYylgRe4s
 tracks:
   - title: "Ennio Morricone – Regan's Theme (Finale)"
     youtube: fzd339oG0ys
+  - title: "Ennio Morricone – Pazuzu"
+    youtube: z96SsgLoHaY
+  - title: "Ennio Morricone – Magic and Ecstasy"
+    youtube: gge3WXm54Mg
 excerpt: >-
   Does it deserve the accolade of the most hated film? Probably yes. A dull
   existential essay on good attracting evil, with Blair floundering among the
