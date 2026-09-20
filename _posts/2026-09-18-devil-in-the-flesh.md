@@ -30,7 +30,7 @@ image: /assets/img/cards/devil-in-the-flesh.jpg
 imdb: tt0064626
 stills: [/assets/img/stills/devil-in-the-flesh-1.jpg, /assets/img/stills/devil-in-the-flesh-2.jpg, /assets/img/stills/devil-in-the-flesh-3.jpg, /assets/img/stills/devil-in-the-flesh-4.jpg]
 tmdb_poster: /l4AavcWCszUxGXriYC0PT5oXU18.jpg
-posters: [/assets/img/posters/devil-in-the-flesh-alt-1.jpg, /assets/img/posters/devil-in-the-flesh-alt-2.jpg, /assets/img/posters/devil-in-the-flesh-alt-3.jpg, /assets/img/posters/devil-in-the-flesh-alt-4.jpg, /assets/img/posters/devil-in-the-flesh-alt-5.jpg]
+posters: [/assets/img/posters/devil-in-the-flesh-alt-1.jpg, /assets/img/posters/devil-in-the-flesh-alt-2.jpg, /assets/img/posters/devil-in-the-flesh-alt-3.jpg]
 ---
 
 Devil in the Flesh, a.k.a. Venus in Furs (1969), is an Italian erotic drama by

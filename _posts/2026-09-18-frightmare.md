@@ -22,7 +22,7 @@ image: /assets/img/cards/frightmare.jpg
 imdb: tt0071523
 stills: [/assets/img/stills/frightmare-1.jpg, /assets/img/stills/frightmare-2.jpg, /assets/img/stills/frightmare-3.jpg]
 tmdb_poster: /3oave4IRYxELkje7fIqkYnS7IxV.jpg
-posters: [/assets/img/posters/frightmare-alt-1.jpg, /assets/img/posters/frightmare-alt-2.jpg, /assets/img/posters/frightmare-alt-3.jpg, /assets/img/posters/frightmare-alt-4.jpg]
+posters: [/assets/img/posters/frightmare-alt-1.jpg, /assets/img/posters/frightmare-alt-2.jpg, /assets/img/posters/frightmare-alt-3.jpg]
 ---
 
 Pete Walker's Frightmare is a slab of psycho horror from the Brit king of

@@ -25,7 +25,7 @@ image: /assets/img/cards/the-flesh-and-blood-show.jpg
 imdb: tt0068596
 stills: [/assets/img/stills/the-flesh-and-blood-show-1.jpg, /assets/img/stills/the-flesh-and-blood-show-2.jpg, /assets/img/stills/the-flesh-and-blood-show-3.jpg]
 tmdb_poster: /3nISlevmLAECPPTx0sUjqUaQhkg.jpg
-posters: [/assets/img/posters/the-flesh-and-blood-show-alt-1.jpg, /assets/img/posters/the-flesh-and-blood-show-alt-2.jpg, /assets/img/posters/the-flesh-and-blood-show-alt-3.jpg, /assets/img/posters/the-flesh-and-blood-show-alt-4.jpg, /assets/img/posters/the-flesh-and-blood-show-alt-5.jpg]
+posters: [/assets/img/posters/the-flesh-and-blood-show-alt-1.jpg, /assets/img/posters/the-flesh-and-blood-show-alt-2.jpg, /assets/img/posters/the-flesh-and-blood-show-alt-3.jpg]
 ---
 
 More Pete Walker early-70s fare with The Flesh and Blood Show. Ray Brooks

@@ -28,7 +28,7 @@ image: /assets/img/cards/the-last-hunter.jpg
 imdb: tt0087594
 stills: [/assets/img/stills/the-last-hunter-1.jpg, /assets/img/stills/the-last-hunter-2.jpg, /assets/img/stills/the-last-hunter-3.jpg, /assets/img/stills/the-last-hunter-4.jpg]
 tmdb_poster: /cfcXvcEkKwHmOXoUUDOO5ApK1pD.jpg
-posters: [/assets/img/posters/the-last-hunter-alt-1.jpg, /assets/img/posters/the-last-hunter-alt-2.jpg, /assets/img/posters/the-last-hunter-alt-3.jpg, /assets/img/posters/the-last-hunter-alt-4.jpg, /assets/img/posters/the-last-hunter-alt-5.jpg]
+posters: [/assets/img/posters/the-last-hunter-alt-1.jpg, /assets/img/posters/the-last-hunter-alt-2.jpg, /assets/img/posters/the-last-hunter-alt-3.jpg]
 ---
 
 The Last Hunter (1980) is a "macaroni combat" film directed by Antonio

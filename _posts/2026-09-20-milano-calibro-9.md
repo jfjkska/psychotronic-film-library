@@ -30,7 +30,7 @@ excerpt: >-
 imdb: tt0067429
 stills: [/assets/img/stills/milano-calibro-9-1.jpg, /assets/img/stills/milano-calibro-9-2.jpg, /assets/img/stills/milano-calibro-9-3.jpg, /assets/img/stills/milano-calibro-9-4.jpg]
 image: /assets/img/cards/milano-calibro-9.jpg
-posters: [/assets/img/posters/milano-calibro-9-alt-1.jpg, /assets/img/posters/milano-calibro-9-alt-2.jpg, /assets/img/posters/milano-calibro-9-alt-3.jpg, /assets/img/posters/milano-calibro-9-alt-4.jpg, /assets/img/posters/milano-calibro-9-alt-5.jpg]
+posters: [/assets/img/posters/milano-calibro-9-alt-1.jpg, /assets/img/posters/milano-calibro-9-alt-2.jpg, /assets/img/posters/milano-calibro-9-alt-3.jpg]
 ---
 
 Milano Calibro 9 (1972) is an Italian poliziottesco thriller written and

@@ -27,7 +27,7 @@ image: /assets/img/cards/whirlpool.jpg
 imdb: tt0065210
 stills: [/assets/img/stills/whirlpool-1.jpg, /assets/img/stills/whirlpool-2.jpg, /assets/img/stills/whirlpool-3.jpg, /assets/img/stills/whirlpool-4.jpg]
 tmdb_poster: /atym544B2nf0GWCxiAzljJdpD84.jpg
-posters: [/assets/img/posters/whirlpool-alt-1.jpg, /assets/img/posters/whirlpool-alt-2.jpg, /assets/img/posters/whirlpool-alt-3.jpg]
+posters: [/assets/img/posters/whirlpool-alt-1.jpg, /assets/img/posters/whirlpool-alt-2.jpg]
 ---
 
 Whirlpool, a.k.a. She Died with Her Boots On, is the 1970 debut from Spanish

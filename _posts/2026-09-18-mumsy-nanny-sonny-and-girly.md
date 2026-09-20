@@ -26,7 +26,7 @@ image: /assets/img/cards/mumsy-nanny-sonny-and-girly.jpg
 imdb: tt0064704
 stills: [/assets/img/stills/mumsy-nanny-sonny-and-girly-1.jpg, /assets/img/stills/mumsy-nanny-sonny-and-girly-2.jpg, /assets/img/stills/mumsy-nanny-sonny-and-girly-3.jpg, /assets/img/stills/mumsy-nanny-sonny-and-girly-4.jpg]
 tmdb_poster: /vh99lrMTLrBZinFo2jaLzxKzeOS.jpg
-posters: [/assets/img/posters/mumsy-nanny-sonny-and-girly-alt-1.jpg, /assets/img/posters/mumsy-nanny-sonny-and-girly-alt-2.jpg, /assets/img/posters/mumsy-nanny-sonny-and-girly-alt-3.jpg, /assets/img/posters/mumsy-nanny-sonny-and-girly-alt-4.jpg, /assets/img/posters/mumsy-nanny-sonny-and-girly-alt-5.jpg]
+posters: [/assets/img/posters/mumsy-nanny-sonny-and-girly-alt-1.jpg, /assets/img/posters/mumsy-nanny-sonny-and-girly-alt-2.jpg, /assets/img/posters/mumsy-nanny-sonny-and-girly-alt-3.jpg]
 ---
 
 Mumsy, Nanny, Sonny and Girly (1970) is a twisty and macabre comedy of manners

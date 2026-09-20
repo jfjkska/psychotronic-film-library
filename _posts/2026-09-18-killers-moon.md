@@ -21,7 +21,7 @@ image: /assets/img/cards/killers-moon.jpg
 imdb: tt0077801
 stills: [/assets/img/stills/killers-moon-1.jpg, /assets/img/stills/killers-moon-2.jpg, /assets/img/stills/killers-moon-3.jpg]
 tmdb_poster: /lFH5RlAAY31z2bgxSDiz5NjPB3G.jpg
-posters: [/assets/img/posters/killers-moon-alt-1.jpg, /assets/img/posters/killers-moon-alt-2.jpg, /assets/img/posters/killers-moon-alt-3.jpg, /assets/img/posters/killers-moon-alt-4.jpg]
+posters: [/assets/img/posters/killers-moon-alt-1.jpg, /assets/img/posters/killers-moon-alt-2.jpg, /assets/img/posters/killers-moon-alt-3.jpg]
 ---
 
 What film has LSD-induced, droog-like maniacs escaped from a mental institution
