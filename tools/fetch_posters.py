@@ -284,7 +284,11 @@ for path in sorted(glob.glob("_posts/*.md")):
         raw = get(IMG + fp)
         im = Image.open(io.BytesIO(raw)).convert("RGB")
         if im.width <= width and ratio < 0.8 and not FORCE and not pinned:
-            print(f"skip  {slug}: TMDB poster ({im.width}px) is no wider than current ({width}px)"); continue
+            print(f"skip  {slug}: TMDB poster ({im.width}px) is no wider than current ({width}px)")
+            main_img = Image.open(current).convert("RGB") if os.path.exists(current) else None
+            if RESTILLS or not re.search(r"^posters:", fm, re.M):
+                if variants(slug, movie, path, main_img, posters_all): changed.append(slug + " (variants)")
+            continue
         w = min(900, im.width)
         im = im.resize((w, round(w * im.height / im.width)), Image.LANCZOS)
         os.makedirs(os.path.dirname(dest), exist_ok=True)
