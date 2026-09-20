@@ -17,7 +17,7 @@ from PIL import Image
 API = "https://api.themoviedb.org/3"
 IMG = "https://image.tmdb.org/t/p/original"
 KEY = os.environ.get("TMDB_API_KEY", "").strip()
-MIN_WIDTH = 700
+MIN_WIDTH = 1100   # a supplied poster is kept only when it is at least this wide (HD)
 FORCE = "--force" in sys.argv
 CANDIDATES = "--candidates" in sys.argv
 RESTILLS = "--restills" in sys.argv   # rebuild the stills strip even if a post has one
@@ -137,11 +137,16 @@ def match_supplied(current_path, posters, current_width):
             return p["file_path"]
     return None
 
-def variants(slug, movie, path, main_img, posters):
+def variants(slug, movie, path, main_img, posters, sent=None):
     """Up to five other distinct posters, saved beside the main one; the post
-    gains a posters: list."""
+    gains a posters: list. A supplied scan that was replaced goes first if
+    it is a different design from the chosen poster."""
     chosen, imgs = [], [main_img] if main_img is not None else []
     for old in glob.glob(f"assets/img/posters/{slug}-alt-*.jpg"): os.remove(old)
+    if sent is not None and not (main_img is not None and looks_same(main_img, sent, threshold=0.6)):
+        w = min(700, sent.width); keep = sent.resize((w, round(w * sent.height / sent.width)), Image.LANCZOS)
+        out = f"assets/img/posters/{slug}-alt-1.jpg"; keep.save(out, quality=82, optimize=True, progressive=True)
+        chosen.append("/" + out); imgs.append(sent)
     for p in posters:
         if len(chosen) == 5: break
         if p.get("width", 0) < 500: continue
@@ -267,6 +272,13 @@ for path in sorted(glob.glob("_posts/*.md")):
                 if variants(slug, movie, path, main_img, posters_all): changed.append(slug + " (variants)")
             continue
         fp = fp or best_poster(movie["id"])
+        # Keep the supplied scan aside; it joins the variants row if it is a different design.
+        sent = None
+        if not pinned and os.path.exists(current) and ratio < 0.8:
+            try:
+                sent = Image.open(current).convert("RGB")
+            except Exception:
+                sent = None
         if not fp:
             print(f"none  {slug}: TMDB has no poster for {movie.get('title')}"); continue
         raw = get(IMG + fp)
@@ -287,7 +299,7 @@ for path in sorted(glob.glob("_posts/*.md")):
         open(path, "w", encoding="utf-8").write(text)
         print(f"fetch {slug}: {movie.get('title')} ({movie.get('release_date','')[:4]}) -> {w}px wide")
         changed.append(slug)
-        if variants(slug, movie, path, im, posters_all): changed.append(slug + " (variants)")
+        if variants(slug, movie, path, im, posters_all, sent=sent): changed.append(slug + " (variants)")
     except Exception as e:
         print(f"error {slug}: {e}")
 

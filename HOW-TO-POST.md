@@ -4,9 +4,9 @@ You never touch code. One file per film, and the site rebuilds itself in about a
 
 ## 1. Add the poster (optional)
 
-Put a JPEG in `assets/img/posters/`. Any size will do: the site looks for the
-same design in higher resolution and swaps it in, and adds a row of other posters
-for the film underneath. Name it something simple, all lowercase, dashes
+Put a JPEG in `assets/img/posters/`. Any size will do. Unless it is a big scan the site looks for the
+same design in higher resolution and swaps it in, or failing that the best poster
+it can find, and yours joins the row of other posters underneath. Name it something simple, all lowercase, dashes
 for spaces: `emanuelle-e-francoise.jpg`. Around 900 pixels wide is plenty.
 
 On GitHub: open the folder, **Add file → Upload files**, drag it in, **Commit changes**.
