@@ -20,6 +20,14 @@ body_class: review-page
         <img src="{{ poster | relative_url }}" alt="Poster for {{ page.title }}{% if page.year %} ({{ page.year }}){% endif %}" loading="eager">
         {% if page.verdict %}<span class="stamp">{{ page.verdict }}</span>{% endif %}
       </figure>
+      {% if page.posters %}
+      <ul class="poster-alts" aria-label="Other posters" data-poster-alts>
+        <li><button type="button" class="alt is-on" data-src="{{ poster | relative_url }}"><img src="{{ poster | relative_url }}" alt="" loading="lazy"></button></li>
+        {% for alt in page.posters %}
+        <li><button type="button" class="alt" data-src="{{ alt | relative_url }}"><img src="{{ alt | relative_url }}" alt="Another poster for {{ page.title }}" loading="lazy"></button></li>
+        {% endfor %}
+      </ul>
+      {% endif %}
 
       <dl class="credits">
         {% if page.rating and page.rating > 0 %}

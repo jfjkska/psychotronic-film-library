@@ -73,3 +73,16 @@
     location.href = pick;
   });
 })();
+
+// Other posters: tap a thumbnail to swap it into the frame.
+(function () {
+  var row = document.querySelector('[data-poster-alts]');
+  var frame = document.querySelector('.poster-frame img');
+  if (!row || !frame) return;
+  row.addEventListener('click', function (e) {
+    var btn = e.target.closest('.alt');
+    if (!btn) return;
+    frame.src = btn.getAttribute('data-src');
+    Array.prototype.forEach.call(row.querySelectorAll('.alt'), function (b) { b.classList.toggle('is-on', b === btn); });
+  });
+})();

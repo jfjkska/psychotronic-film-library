@@ -273,6 +273,13 @@ a:hover { color: var(--paper); }
 @media (min-width: 720px) { .tracks { grid-template-columns: 1fr 1fr; } }
 .track-title { margin: 0 0 .5rem; font-family: var(--type); font-size: .95rem; color: var(--paper); }
 
+/* ── Other posters ───────────────────────────────────────────────────────── */
+.poster-alts { list-style: none; margin: 0 0 1.4rem; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem; max-width: 420px; }
+.poster-alts .alt { display: block; padding: 0; width: 56px; border: 2px solid rgba(244, 230, 195, .4); background: var(--black); cursor: pointer; transition: border-color .15s, transform .15s; }
+.poster-alts .alt img { display: block; width: 100%; aspect-ratio: 2 / 3; object-fit: cover; }
+.poster-alts .alt:hover { border-color: var(--yellow); transform: translateY(-2px); }
+.poster-alts .alt.is-on { border-color: var(--magenta); box-shadow: 2px 2px 0 var(--black); }
+
 /* ── Stills ──────────────────────────────────────────────────────────────── */
 .stills { margin-top: 2.5rem; }
 .still-strip { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: .8rem; }
