@@ -21,6 +21,8 @@ MIN_WIDTH = 1100   # a supplied poster is kept only when it is at least this wid
 FORCE = "--force" in sys.argv
 CANDIDATES = "--candidates" in sys.argv
 RESTILLS = "--restills" in sys.argv   # rebuild the stills strip even if a post has one
+REVARIANTS = "--revariants" in sys.argv or RESTILLS   # rebuild the row of other posters
+MAX_VARIANTS = 3
 ONLY = [a for a in sys.argv[1:] if not a.startswith("--")]
 
 if not KEY:
@@ -137,28 +139,49 @@ def match_supplied(current_path, posters, current_width):
             return p["file_path"]
     return None
 
+def _feature(im):
+    """Small grayscale thumbnail as a vector, for telling designs apart."""
+    g = im.convert("L").resize((16, 24), Image.LANCZOS)
+    v = list(g.get_flattened_data()) if hasattr(g, "get_flattened_data") else list(g.getdata())
+    m = sum(v) / len(v); sd = (sum((x - m) ** 2 for x in v) / len(v)) ** 0.5 or 1.0
+    return [(x - m) / sd for x in v]
+
+def _dist(a, b):
+    return sum((x - y) ** 2 for x, y in zip(a, b)) ** 0.5
+
 def variants(slug, movie, path, main_img, posters, sent=None):
-    """Up to five other distinct posters, saved beside the main one; the post
-    gains a posters: list. A supplied scan that was replaced goes first if
-    it is a different design from the chosen poster."""
-    chosen, imgs = [], [main_img] if main_img is not None else []
+    """The MAX_VARIANTS other posters that look least like the main one and
+    each other, saved beside it; the post gains a posters: list. A supplied
+    scan that was replaced is always included first if it is a different design."""
     for old in glob.glob(f"assets/img/posters/{slug}-alt-*.jpg"): os.remove(old)
-    if sent is not None and not (main_img is not None and looks_same(main_img, sent, threshold=0.6)):
-        w = min(700, sent.width); keep = sent.resize((w, round(w * sent.height / sent.width)), Image.LANCZOS)
-        out = f"assets/img/posters/{slug}-alt-1.jpg"; keep.save(out, quality=82, optimize=True, progressive=True)
-        chosen.append("/" + out); imgs.append(sent)
+    pool, seen = [], [main_img] if main_img is not None else []
+    # gather distinct candidates (thumbnails only, so far)
     for p in posters:
-        if len(chosen) == 5: break
+        if len(pool) == 12: break
         if p.get("width", 0) < 500: continue
         try: thumb = tmdb_image(p["file_path"])
         except Exception: continue
-        if any(looks_same(prev, thumb, threshold=0.6) for prev in imgs): continue
-        try: full = tmdb_image(p["file_path"], "original")
-        except Exception: continue
+        if any(looks_same(prev, thumb, threshold=0.6) for prev in seen): continue
+        pool.append((p["file_path"], thumb)); seen.append(thumb)
+    # pick the most different ones, farthest-point style, starting from the main poster
+    anchors = [_feature(main_img)] if main_img is not None else []
+    picked = []
+    if sent is not None and not (main_img is not None and looks_same(main_img, sent, threshold=0.6)):
+        picked.append((None, sent)); anchors.append(_feature(sent))
+    feats = [(fp, th, _feature(th)) for fp, th in pool]
+    while len(picked) < MAX_VARIANTS and feats:
+        best = max(feats, key=lambda t: min([_dist(t[2], a) for a in anchors] or [0]))
+        picked.append((best[0], best[1])); anchors.append(best[2]); feats.remove(best)
+    chosen = []
+    for fp, th in picked:
+        try:
+            full = th if fp is None else tmdb_image(fp, "original")
+        except Exception:
+            continue
         w = min(700, full.width); full = full.resize((w, round(w * full.height / full.width)), Image.LANCZOS)
         out = f"assets/img/posters/{slug}-alt-{len(chosen)+1}.jpg"
         full.save(out, quality=82, optimize=True, progressive=True)
-        chosen.append("/" + out); imgs.append(thumb)
+        chosen.append("/" + out)
     text = open(path, encoding="utf-8").read(); fm, _ = front_matter(text)
     if chosen:
         text, fm = set_field(text, fm, "posters", "[" + ", ".join(chosen) + "]")
@@ -236,7 +259,7 @@ for path in sorted(glob.glob("_posts/*.md")):
         try: w0, h0 = Image.open(current).size; ratio = w0 / h0
         except Exception: ratio = 1.0
     pinned = field(fm, "tmdb_poster")
-    need_extras = RESTILLS or not field(fm, "imdb") or not re.search(r"^stills:", fm, re.M) or not re.search(r"^posters:", fm, re.M) or not pinned
+    need_extras = RESTILLS or REVARIANTS or not field(fm, "imdb") or not re.search(r"^stills:", fm, re.M) or not re.search(r"^posters:", fm, re.M) or not pinned
     if width >= MIN_WIDTH and ratio < 0.8 and not FORCE and not pinned and not CANDIDATES and not need_extras:
         print(f"skip  {slug}: already {width}px wide"); continue
     skip_poster = width >= MIN_WIDTH and ratio < 0.8 and not FORCE and not pinned
@@ -268,7 +291,7 @@ for path in sorted(glob.glob("_posts/*.md")):
         if skip_poster and not fp:
             print(f"skip  {slug}: poster already {width}px wide")
             main_img = Image.open(current).convert("RGB") if os.path.exists(current) else None
-            if RESTILLS or not re.search(r"^posters:", fm, re.M):
+            if REVARIANTS or not re.search(r"^posters:", fm, re.M):
                 if variants(slug, movie, path, main_img, posters_all): changed.append(slug + " (variants)")
             continue
         fp = fp or best_poster(movie["id"])
@@ -286,7 +309,7 @@ for path in sorted(glob.glob("_posts/*.md")):
         if im.width <= width and ratio < 0.8 and not FORCE and not pinned:
             print(f"skip  {slug}: TMDB poster ({im.width}px) is no wider than current ({width}px)")
             main_img = Image.open(current).convert("RGB") if os.path.exists(current) else None
-            if RESTILLS or not re.search(r"^posters:", fm, re.M):
+            if REVARIANTS or not re.search(r"^posters:", fm, re.M):
                 if variants(slug, movie, path, main_img, posters_all): changed.append(slug + " (variants)")
             continue
         w = min(900, im.width)

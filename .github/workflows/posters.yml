@@ -22,7 +22,11 @@ on:
         type: boolean
         default: false
       restills:
-        description: "Rebuild the gallery images even where a review already has them"
+        description: "Rebuild the gallery images (and the poster rows) even where a review already has them"
+        type: boolean
+        default: false
+      revariants:
+        description: "Rebuild only the rows of other posters"
         type: boolean
         default: false
 
@@ -51,7 +55,7 @@ jobs:
             echo "::warning::TMDB_API_KEY secret is not set; nothing fetched. Add it under Settings → Secrets and variables → Actions."
             exit 0
           fi
-          python tools/fetch_posters.py ${{ inputs.force && '--force' || '' }} ${{ inputs.candidates && '--candidates' || '' }} ${{ inputs.restills && '--restills' || '' }} ${{ inputs.only }}
+          python tools/fetch_posters.py ${{ inputs.force && '--force' || '' }} ${{ inputs.candidates && '--candidates' || '' }} ${{ inputs.restills && '--restills' || '' }} ${{ inputs.revariants && '--revariants' || '' }} ${{ inputs.only }}
       - name: Draw share cards
         run: python tools/make_cards.py
       - name: Commit any new posters
