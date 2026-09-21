@@ -11,6 +11,9 @@ genres: [wuxia, erotic drama, hong kong exploitation]
 rating: 4
 verdict: "Revenge through love, not hate"
 trailer: 8Slp6jdu2DA
+tracks:
+  - title: "Chou Fu-liang – music from Intimate Confessions of a Chinese Courtesan"
+    youtube: N3l1ETtFTH0
 excerpt: >-
   Grindhouse meets arthouse from the Shaw Brothers. Lily Ho is kidnapped and
   trafficked into a brothel, and turns kung fu and seduction into revenge.

@@ -11,6 +11,9 @@ genres: [home invasion, psycho thriller, american exploitation]
 rating: 4
 verdict: "A forgotten gem"
 trailer: L38IwbXMmUw
+tracks:
+  - title: "Jimmie Haskell – Death Game (soundtrack, part 1)"
+    youtube: dcMB2OGucGw
 excerpt: >-
   Two women talk their way into a man's house and never leave. Sondra Locke
   and Colleen Camp go as far as it goes, in a home invasion film MGM did not

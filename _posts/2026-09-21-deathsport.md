@@ -10,6 +10,9 @@ genres: [post-apocalyptic, american exploitation, sci-fi]
 rating: 3
 verdict: "They don't make them like this"
 trailer: HuIFZvcV2NQ
+tracks:
+  - title: "Andy Stein – Deathsport (soundtrack)"
+    youtube: 95JL8noFmtM
 excerpt: >-
   Destructocycles in the year 3000, sold as a sequel to Death Race 2000 and
   nothing of the sort. Carradine gives it his all, the explosions never let

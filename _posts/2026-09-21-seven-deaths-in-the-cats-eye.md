@@ -12,6 +12,9 @@ poster: /assets/img/posters/seven-deaths-in-the-cats-eye.jpg
 rating: 4
 verdict: "Preposterous, and better for it"
 trailer: GfeUBrrlubQ
+tracks:
+  - title: "Riz Ortolani – More (from the soundtrack)"
+    youtube: 1qeApRUumkI
 excerpt: >-
   A big ginger cat witnesses a Scottish family pile's body count, Serge
   Gainsbourg is hilariously cast as a Scottish detective, and Riz Ortolani's

@@ -11,6 +11,9 @@ genres: [french horror, gore, rural horror]
 rating: 4
 verdict: "Rollin's Crazies, in wine country"
 trailer: 9k1qvIVVdoA
+tracks:
+  - title: "Philippe Sissmann – Les raisins de la mort (soundtrack)"
+    youtube: w19r6J00mVg
 excerpt: >-
   Rollin's villagers turn into murderous ghouls, poisoned by pesticide in the
   wine rather than a virus. Isolation used to good effect, and more gore than

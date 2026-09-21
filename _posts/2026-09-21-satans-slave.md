@@ -10,6 +10,9 @@ genres: [british horror, occult horror, exploitation]
 rating: 3
 verdict: "Not the party she wanted"
 trailer: 4H1WuFEj2wo
+tracks:
+  - title: "John Scott – Satan's Slave (Main Titles)"
+    youtube: BxsYa_DRca0
 excerpt: >-
   A genial uncle, a coven, and a niece lined up for necromancy on her
   twentieth birthday. Norman J. Warren throws in every satanic trope going and

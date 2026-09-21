@@ -11,6 +11,9 @@ genres: [gothic horror, italian horror, ghost story]
 rating: 2
 verdict: "Watch the original instead"
 trailer: S-po5MHH-EQ
+tracks:
+  - title: "Riz Ortolani – the full Web of the Spider soundtrack"
+    youtube: PSYNHy1IuzA
 excerpt: >-
   Margheriti remakes his own Castle of Blood in colour, scene for scene, with
   Klaus Kinski as Edgar Allan Poe. The 1964 black and white version is the

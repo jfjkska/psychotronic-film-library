@@ -11,6 +11,9 @@ genres: [british horror, psycho horror, exploitation]
 rating: 4
 verdict: "Sheila isn't even the maddest"
 trailer: 2iu8dquJkgg
+tracks:
+  - title: "Stanley Myers – music from House of Mortal Sin"
+    youtube: IgxgCpSMFHU
 excerpt: >-
   A repressed priest turns the confessional into a hit list, and Sheila Keith
   isn't even the maddest person in the house. Walker on top form, with far

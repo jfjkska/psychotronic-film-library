@@ -11,6 +11,9 @@ genres: [black comedy, american horror, cult]
 rating: 4
 verdict: "The maddest story ever told"
 trailer: vNaJ5qh9Zg0
+tracks:
+  - title: "Ronald Stein – Spider Baby (Opening Title Song)"
+    youtube: A1O7u-1hNWU
 excerpt: >-
   Lon Chaney Jr. keeps the lid on a family of miscreants until the normal side
   of the family turns up wanting the estate. Jill Banner is unforgettable as

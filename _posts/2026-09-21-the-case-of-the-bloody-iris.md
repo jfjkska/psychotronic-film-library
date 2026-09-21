@@ -11,6 +11,9 @@ genres: [giallo, italian thriller, sleaze]
 rating: 3
 verdict: "Muddled, but watch it for Edwige"
 trailer: eSxukg0JRcA
+tracks:
+  - title: "Bruno Nicolai – The Case of the Bloody Iris (Main Titles)"
+    youtube: Qn_Ut3ZE76U
 excerpt: >-
   A model on the run from her ex-husband's sex cult finds a killer in brown
   rubber gloves working through her apartment block. Muddled even by giallo

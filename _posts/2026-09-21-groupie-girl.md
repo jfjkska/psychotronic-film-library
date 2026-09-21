@@ -5,6 +5,7 @@ date: 2026-09-21 10:09:00 +0100
 year: 1970
 director: "Derek Ford"
 country: UK
+music: "Opal Butterfly"
 starring: "Esme Johns, Billy Boyle, Donald Sumpter, Richard Shaw, James Beck, Ken Hutchison, Madeleine Collinson, Mary Collinson"
 genres: [british exploitation, sexploitation, drama]
 rating: 3

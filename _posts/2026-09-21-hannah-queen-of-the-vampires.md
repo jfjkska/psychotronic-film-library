@@ -11,6 +11,9 @@ genres: [vampire, gothic horror, euro horror]
 rating: 2
 verdict: "Ultimately lacks bite"
 trailer: aFv642sn6z4
+tracks:
+  - title: "Philip Lambro – music from Hannah, Queen of the Vampires"
+    youtube: jI_9it2s6oA
 excerpt: >-
   A seven-hundred-year-old vampire queen is let loose on a Mediterranean
   island and takes two thirds of the film to get going. The score is the best

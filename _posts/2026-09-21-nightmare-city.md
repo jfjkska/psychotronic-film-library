@@ -11,6 +11,9 @@ genres: [zombie, italian horror, exploitation]
 rating: 2
 verdict: "No sense of urgency"
 trailer: xo5T_FNdqe0
+tracks:
+  - title: "Stelvio Cipriani – the full Nightmare City soundtrack"
+    youtube: jer8FVsuk1M
 excerpt: >-
   A plane full of radioactive, knife-wielding zombies lands and the city goes
   with it. Lenzi is no Fulci, but he does his best.

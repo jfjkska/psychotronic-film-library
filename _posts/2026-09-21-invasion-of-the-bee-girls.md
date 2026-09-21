@@ -11,6 +11,9 @@ genres: [sci-fi, american exploitation, horror]
 rating: 4
 verdict: "Sci-fi nonsense, done well"
 trailer: 4ItIpMZ-bZY
+tracks:
+  - title: "Charles Bernstein – Invasion of the Bee Girls (Original Film Soundtrack)"
+    youtube: kKIfEOFTnt8
 excerpt: >-
   An experimental doctor turns housewives into sex-crazed queen bees who kill
   by exhaustion. Nudity and big hair, written by the man who went on to Star

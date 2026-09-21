@@ -10,6 +10,9 @@ genres: [sci-fi horror, creature feature, american exploitation]
 rating: 3
 verdict: "Four rooms and a corridor"
 trailer: EZhHBKisyT0
+tracks:
+  - title: "Guy Moon – Creepozoids Main Theme"
+    youtube: b00ZMCrPJI0
 excerpt: >-
   Deserters hide from acid rain in a bunker with a rubber-suited alien, mutant
   rats and Linnea Quigley. Shot in fifteen days, and it shows.

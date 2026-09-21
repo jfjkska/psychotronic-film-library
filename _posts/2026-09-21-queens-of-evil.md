@@ -11,6 +11,9 @@ genres: [fantasy horror, eurosleaze, surreal]
 rating: 4
 verdict: "Surreally unique"
 trailer: hasjuDbaOUw
+tracks:
+  - title: "Angelo Francesco Lavagnino – music from Queens of Evil"
+    youtube: Xx6ipJCFBxY
 excerpt: >-
   Three sisters, a cabal of satanic influencers, seduce a free-spirited biker
   who pays for it. Big hair, groovy clothes and a dreamlike curio of hippy

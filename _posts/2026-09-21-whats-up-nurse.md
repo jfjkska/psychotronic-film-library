@@ -5,9 +5,13 @@ year: 1977
 director: "Derek Ford"
 country: UK
 starring: "Nicholas Field, Felicity Devonshire, Angela Grant"
+music: "Roger Webb"
 genres: [sex comedy, british exploitation]
 rating: 1
 verdict: "No exception to the rule"
+tracks:
+  - title: "Tony Burrows – The Love Bug (theme song)"
+    youtube: _tMxJBov_LM
 excerpt: >-
   A young doctor joins a seaside hospital, and every woman in the county
   obliges. Harmless enough until the 70s humour turns, and there is a sequel

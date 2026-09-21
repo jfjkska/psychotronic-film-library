@@ -12,6 +12,9 @@ poster: /assets/img/posters/silent-night-bloody-night.jpg
 rating: 2
 verdict: "Muddled but influential"
 trailer: LWbjF4GQUaI
+tracks:
+  - title: "Gershon Kingsley – music from Silent Night, Bloody Night"
+    youtube: Ze2SwngzLM8
 excerpt: >-
   A New England town's dark past catches up with it on Christmas Eve, in an
   early Cannon Films release that critics now call a proto-slasher for its

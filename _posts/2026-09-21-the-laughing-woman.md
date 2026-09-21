@@ -11,6 +11,9 @@ genres: [psychosexual thriller, italian thriller, eurosleaze]
 rating: 4
 verdict: "Sexual one-upmanship"
 trailer: 6DRUQ0f4dWs
+tracks:
+  - title: "Stelvio Cipriani – Femina ridens (Opening Titles)"
+    youtube: m31G8jPkfc4
 excerpt: >-
   A press agent is held captive by a philanthropist with sadistic fantasies,
   and turns the cat and mouse game on its head. Groovy sets and a Cipriani

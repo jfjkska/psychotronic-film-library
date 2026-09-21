@@ -11,6 +11,9 @@ genres: [occult horror, giallo, italian horror]
 rating: 3
 verdict: "Interesting if uneven"
 trailer: XXauEwo5_3E
+tracks:
+  - title: "Stelvio Cipriani – music from Tragic Ceremony"
+    youtube: m79e7kFK5_k
 excerpt: >-
   A black mass slaughter, possession, revenge, and possibly the Devil running
   a petrol station. Camille Keaton six years before I Spit on Your Grave.

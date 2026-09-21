@@ -7,6 +7,9 @@ director: "José Ramón Larraz"
 country: Spain
 starring: "Helga Liné, Vanessa Hidalgo, Mauro Rivera"
 music: "Marcello Giombini"
+tracks:
+  - title: "Marcello Giombini – music from Black Candles"
+    youtube: IHUP7t3UAhc
 genres: [occult horror, eurosleaze, exploitation]
 watch:
   - label: "Severin Films Blu-ray (US)"
