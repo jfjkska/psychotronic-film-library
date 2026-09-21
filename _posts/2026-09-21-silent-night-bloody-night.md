@@ -16,6 +16,11 @@ excerpt: >-
   A New England town's dark past catches up with it on Christmas Eve, in an
   early Cannon Films release that critics now call a proto-slasher for its
   killer's-eye-view shots.
+imdb: tt0070694
+stills: [/assets/img/stills/silent-night-bloody-night-1.jpg, /assets/img/stills/silent-night-bloody-night-2.jpg, /assets/img/stills/silent-night-bloody-night-3.jpg, /assets/img/stills/silent-night-bloody-night-4.jpg]
+tmdb_poster: /wyDhKCLrHQw41OdNo4TjhSPCbs4.jpg
+posters: [/assets/img/posters/silent-night-bloody-night-alt-1.jpg, /assets/img/posters/silent-night-bloody-night-alt-2.jpg, /assets/img/posters/silent-night-bloody-night-alt-3.jpg]
+image: /assets/img/cards/silent-night-bloody-night.jpg
 ---
 
 Silent Night, Bloody Night (1972) is a proto-slasher directed by Theodore

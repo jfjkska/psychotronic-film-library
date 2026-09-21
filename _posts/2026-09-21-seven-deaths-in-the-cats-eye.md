@@ -16,6 +16,10 @@ excerpt: >-
   A big ginger cat witnesses a Scottish family pile's body count, Serge
   Gainsbourg is hilariously cast as a Scottish detective, and Riz Ortolani's
   score does the heavy lifting.
+imdb: tt0068415
+stills: [/assets/img/stills/seven-deaths-in-the-cats-eye-1.jpg, /assets/img/stills/seven-deaths-in-the-cats-eye-2.jpg, /assets/img/stills/seven-deaths-in-the-cats-eye-3.jpg, /assets/img/stills/seven-deaths-in-the-cats-eye-4.jpg]
+posters: [/assets/img/posters/seven-deaths-in-the-cats-eye-alt-1.jpg, /assets/img/posters/seven-deaths-in-the-cats-eye-alt-2.jpg, /assets/img/posters/seven-deaths-in-the-cats-eye-alt-3.jpg]
+image: /assets/img/cards/seven-deaths-in-the-cats-eye.jpg
 ---
 
 Seven Deaths in the Cat's Eye is a 1973 period-set gothic giallo from
