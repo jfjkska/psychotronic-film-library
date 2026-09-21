@@ -15,6 +15,12 @@ excerpt: >-
   Grindhouse meets arthouse from the Shaw Brothers. Lily Ho is kidnapped and
   trafficked into a brothel, and turns kung fu and seduction into revenge.
   Hailed as the first Chinese sex film.
+imdb: tt0068744
+stills: [/assets/img/stills/intimate-confessions-of-a-chinese-courtesan-1.jpg, /assets/img/stills/intimate-confessions-of-a-chinese-courtesan-2.jpg, /assets/img/stills/intimate-confessions-of-a-chinese-courtesan-3.jpg, /assets/img/stills/intimate-confessions-of-a-chinese-courtesan-4.jpg]
+poster: /assets/img/posters/intimate-confessions-of-a-chinese-courtesan.jpg
+tmdb_poster: /d8BxiNBxPL1nFMunRaXI2MAYPCB.jpg
+posters: [/assets/img/posters/intimate-confessions-of-a-chinese-courtesan-alt-1.jpg, /assets/img/posters/intimate-confessions-of-a-chinese-courtesan-alt-2.jpg, /assets/img/posters/intimate-confessions-of-a-chinese-courtesan-alt-3.jpg]
+image: /assets/img/cards/intimate-confessions-of-a-chinese-courtesan.jpg
 ---
 
 Intimate Confessions of a Chinese Courtesan (1972) is grindhouse meets

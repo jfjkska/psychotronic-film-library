@@ -15,6 +15,12 @@ excerpt: >-
   A model on the run from her ex-husband's sex cult finds a killer in brown
   rubber gloves working through her apartment block. Muddled even by giallo
   standards, but Edwige Fenech is reason enough.
+imdb: tt0069073
+stills: [/assets/img/stills/the-case-of-the-bloody-iris-1.jpg, /assets/img/stills/the-case-of-the-bloody-iris-2.jpg, /assets/img/stills/the-case-of-the-bloody-iris-3.jpg, /assets/img/stills/the-case-of-the-bloody-iris-4.jpg]
+poster: /assets/img/posters/the-case-of-the-bloody-iris.jpg
+tmdb_poster: /jbqzATXsyi2dTjZjI5YrI6Sub5K.jpg
+posters: [/assets/img/posters/the-case-of-the-bloody-iris-alt-1.jpg, /assets/img/posters/the-case-of-the-bloody-iris-alt-2.jpg, /assets/img/posters/the-case-of-the-bloody-iris-alt-3.jpg]
+image: /assets/img/cards/the-case-of-the-bloody-iris.jpg
 ---
 
 The Case of the Bloody Iris (1972) was described in DVD Talk as "a competent
