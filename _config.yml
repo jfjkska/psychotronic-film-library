@@ -13,8 +13,8 @@ lang: en-GB
 #   Repo named  <you>.github.io            →  baseurl: ""
 #   Repo named  psychotronic-film-library  →  baseurl: "/psychotronic-film-library"
 #   Own domain later                       →  url: "https://yourdomain.com", baseurl: ""
-url: "https://jfjkska.github.io"
-baseurl: "/psychotronic-film-library"
+url: "https://psychotronicfilmlibrary.com"
+baseurl: ""
 
 # Contact form. Sign up free at https://formspree.io, make a form, paste its
 # endpoint here (looks like https://formspree.io/f/abcdwxyz). Until then the
