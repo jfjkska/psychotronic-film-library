@@ -14,6 +14,12 @@ trailer: vOU0m9cehUE
 excerpt: >-
   A black mass slaughter, possession, revenge, and possibly the Devil running
   a petrol station. Camille Keaton six years before I Spit on Your Grave.
+imdb: tt0069417
+stills: [/assets/img/stills/tragic-ceremony-1.jpg, /assets/img/stills/tragic-ceremony-2.jpg, /assets/img/stills/tragic-ceremony-3.jpg]
+poster: /assets/img/posters/tragic-ceremony.jpg
+tmdb_poster: /wpIXmgoAkxrmYY5LgezXOgHux16.jpg
+posters: [/assets/img/posters/tragic-ceremony-alt-1.jpg, /assets/img/posters/tragic-ceremony-alt-2.jpg, /assets/img/posters/tragic-ceremony-alt-3.jpg]
+image: /assets/img/cards/tragic-ceremony.jpg
 ---
 
 Tragic Ceremony is an occult slasher from 1972. It involves a black mass

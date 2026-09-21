@@ -14,6 +14,12 @@ excerpt: >-
   A genial uncle, a coven, and a niece lined up for necromancy on her
   twentieth birthday. Norman J. Warren throws in every satanic trope going and
   a preposterous twist that somehow works.
+imdb: tt0075164
+stills: [/assets/img/stills/satans-slave-1.jpg, /assets/img/stills/satans-slave-2.jpg, /assets/img/stills/satans-slave-3.jpg, /assets/img/stills/satans-slave-4.jpg]
+poster: /assets/img/posters/satans-slave.jpg
+tmdb_poster: /oyXTmcc9WedFzdL2YiORU4sx69p.jpg
+posters: [/assets/img/posters/satans-slave-alt-1.jpg, /assets/img/posters/satans-slave-alt-2.jpg, /assets/img/posters/satans-slave-alt-3.jpg]
+image: /assets/img/cards/satans-slave.jpg
 ---
 
 A return to Blighty for Satan's Slave, a black magic offering from

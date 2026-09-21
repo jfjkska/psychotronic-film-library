@@ -14,6 +14,12 @@ excerpt: >-
   Paul Bartel's debut, half art house study of gender expectation and half
   exploitation trash, set in a respectable hotel where snooping leads to
   decapitation.
+imdb: tt0069124
+stills: [/assets/img/stills/private-parts-1.jpg, /assets/img/stills/private-parts-2.jpg, /assets/img/stills/private-parts-3.jpg, /assets/img/stills/private-parts-4.jpg]
+poster: /assets/img/posters/private-parts.jpg
+tmdb_poster: /AlCjCjjct3VcQqtrK1nKZuevaWx.jpg
+posters: [/assets/img/posters/private-parts-alt-1.jpg, /assets/img/posters/private-parts-alt-2.jpg, /assets/img/posters/private-parts-alt-3.jpg]
+image: /assets/img/cards/private-parts.jpg
 ---
 
 Private Parts (1972) is Paul Bartel's feature debut. It is part art house

@@ -15,6 +15,12 @@ excerpt: >-
   Rollin's villagers turn into murderous ghouls, poisoned by pesticide in the
   wine rather than a virus. Isolation used to good effect, and more gore than
   he usually pours on.
+imdb: tt0078077
+stills: [/assets/img/stills/the-grapes-of-death-1.jpg, /assets/img/stills/the-grapes-of-death-2.jpg, /assets/img/stills/the-grapes-of-death-3.jpg, /assets/img/stills/the-grapes-of-death-4.jpg]
+poster: /assets/img/posters/the-grapes-of-death.jpg
+tmdb_poster: /lbIcfRXUkDbddARv5preptv7ckN.jpg
+posters: [/assets/img/posters/the-grapes-of-death-alt-1.jpg, /assets/img/posters/the-grapes-of-death-alt-2.jpg, /assets/img/posters/the-grapes-of-death-alt-3.jpg]
+image: /assets/img/cards/the-grapes-of-death.jpg
 ---
 
 The Grapes of Death is Jean Rollin's 1978 film of people turning into

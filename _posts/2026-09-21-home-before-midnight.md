@@ -14,6 +14,12 @@ excerpt: >-
   A pop lyricist picks up a hitchhiker and learns she is fourteen. Walker
   swaps the Grand Guignol for social drama, and still crams in everything his
   fan base came for.
+imdb: tt0079301
+stills: [/assets/img/stills/home-before-midnight-1.jpg, /assets/img/stills/home-before-midnight-2.jpg]
+poster: /assets/img/posters/home-before-midnight.jpg
+tmdb_poster: /zCXcHrsTbQP2ZxzCHcRJN2K1iG1.jpg
+posters: [/assets/img/posters/home-before-midnight-alt-1.jpg, /assets/img/posters/home-before-midnight-alt-2.jpg, /assets/img/posters/home-before-midnight-alt-3.jpg]
+image: /assets/img/cards/home-before-midnight.jpg
 ---
 
 Home Before Midnight is Pete Walker's 1979 exploitation dressed as social

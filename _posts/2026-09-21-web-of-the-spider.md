@@ -15,6 +15,12 @@ excerpt: >-
   Margheriti remakes his own Castle of Blood in colour, scene for scene, with
   Klaus Kinski as Edgar Allan Poe. The 1964 black and white version is the
   better film.
+imdb: tt0066132
+stills: [/assets/img/stills/web-of-the-spider-1.jpg, /assets/img/stills/web-of-the-spider-2.jpg, /assets/img/stills/web-of-the-spider-3.jpg, /assets/img/stills/web-of-the-spider-4.jpg]
+poster: /assets/img/posters/web-of-the-spider.jpg
+tmdb_poster: /1FBfPu9jSdSBw0ZarW9UFeP9BvU.jpg
+posters: [/assets/img/posters/web-of-the-spider-alt-1.jpg, /assets/img/posters/web-of-the-spider-alt-2.jpg, /assets/img/posters/web-of-the-spider-alt-3.jpg]
+image: /assets/img/cards/web-of-the-spider.jpg
 ---
 
 Web of the Spider is a gothic horror directed by Antonio Margheriti. It didn't

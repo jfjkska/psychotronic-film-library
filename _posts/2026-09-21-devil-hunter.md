@@ -12,6 +12,12 @@ verdict: "Video waste of time"
 excerpt: >-
   A kidnapped model, an island, and a prowling naked cannibal devil. Banned in
   the UK as a video nasty and the worst Franco I have sat through.
+imdb: tt0080486
+stills: [/assets/img/stills/devil-hunter-1.jpg, /assets/img/stills/devil-hunter-2.jpg, /assets/img/stills/devil-hunter-3.jpg, /assets/img/stills/devil-hunter-4.jpg]
+poster: /assets/img/posters/devil-hunter.jpg
+tmdb_poster: /bD0zC3e2UZ19iwEUVAkUjK2hyhA.jpg
+posters: [/assets/img/posters/devil-hunter-alt-1.jpg, /assets/img/posters/devil-hunter-alt-2.jpg, /assets/img/posters/devil-hunter-alt-3.jpg]
+image: /assets/img/cards/devil-hunter.jpg
 ---
 
 Jess Franco liked to film back to back, and Devil Hunter was subsequently done

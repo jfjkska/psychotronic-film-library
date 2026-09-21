@@ -15,6 +15,12 @@ excerpt: >-
   A seven-hundred-year-old vampire queen is let loose on a Mediterranean
   island and takes two thirds of the film to get going. The score is the best
   thing in it.
+imdb: tt0069933
+stills: [/assets/img/stills/hannah-queen-of-the-vampires-1.jpg]
+poster: /assets/img/posters/hannah-queen-of-the-vampires.jpg
+tmdb_poster: /yGUKQpNwKUAOtC9gYBtVA1A5o6j.jpg
+posters: [/assets/img/posters/hannah-queen-of-the-vampires-alt-1.jpg, /assets/img/posters/hannah-queen-of-the-vampires-alt-2.jpg, /assets/img/posters/hannah-queen-of-the-vampires-alt-3.jpg]
+image: /assets/img/cards/hannah-queen-of-the-vampires.jpg
 ---
 
 Hannah, Queen of the Vampires, aka Crypt of the Living Dead, does not fulfil
