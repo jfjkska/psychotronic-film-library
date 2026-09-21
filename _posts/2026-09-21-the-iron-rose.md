@@ -14,8 +14,8 @@ trailer: oiY12wkVNF8
 tracks:
   - title: "Pierre Raph – La Rose de Fer (Générique)"
     youtube: KMD-tSCLEgU
-  - title: "Pierre Raph – the full suite"
-    youtube: 4KiTxwbXQzI
+  - title: "Pierre Raph – music from La Rose de Fer"
+    youtube: MLKZ7_QwWRE
 excerpt: >-
   Jean Rollin's first film without vampires. A boy and a girl get lost in a
   cemetery after dark, and the night takes them apart. Dreamlike, slow and

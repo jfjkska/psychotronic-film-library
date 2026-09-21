@@ -10,7 +10,7 @@ music: "Riz Ortolani"
 genres: [giallo, poliziottesco, italian thriller]
 rating: 4
 verdict: "One for Italian thriller fans"
-trailer: xPizz4JC56c
+trailer: GuFurwVhGSQ
 excerpt: >-
   Half giallo, half police procedural, if the police is a cop who kidnaps a
   witness and forces him onto a rollercoaster. Fabio Testi, two cats and a

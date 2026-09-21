@@ -14,8 +14,8 @@ trailer: QZsaaDqxGlI
 tracks:
   - title: "Riz Ortolani – Una sull'altra (main theme)"
     youtube: itp7QTiKpds
-  - title: "Riz Ortolani – Golden Gate Bridge"
-    youtube: ckLigbTWbMc
+  - title: "Riz Ortolani – Una sull'altra (1969)"
+    youtube: 43cZtON0mqk
   - title: "Riz Ortolani – the full album"
     youtube: gFT5cvGKbvg
 excerpt: >-

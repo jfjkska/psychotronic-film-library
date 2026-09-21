@@ -10,7 +10,7 @@ music: "Riz Ortolani"
 genres: [gothic horror, italian horror, ghost story]
 rating: 2
 verdict: "Watch the original instead"
-trailer: T4NJq75yWh4
+trailer: S-po5MHH-EQ
 excerpt: >-
   Margheriti remakes his own Castle of Blood in colour, scene for scene, with
   Klaus Kinski as Edgar Allan Poe. The 1964 black and white version is the

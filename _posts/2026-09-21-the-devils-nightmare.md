@@ -15,8 +15,8 @@ rating: 4
 verdict: "A diamond in the rough"
 trailer: hxF6QYqkkPM
 tracks:
-  - title: "Alessandro Alessandroni and Giulia De Mutiis – Devil's Nightmare (theme)"
-    youtube: Ubhh0b899Qg
+  - title: "Alessandro Alessandroni – Devil's Nightmare (main titles)"
+    youtube: TYU0ls-MLW0
   - title: "Alessandro Alessandroni – the full soundtrack"
     youtube: Vbbv4WbYwMU
 excerpt: >-

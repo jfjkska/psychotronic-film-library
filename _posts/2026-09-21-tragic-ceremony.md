@@ -10,7 +10,7 @@ music: "Stelvio Cipriani"
 genres: [occult horror, giallo, italian horror]
 rating: 3
 verdict: "Interesting if uneven"
-trailer: vOU0m9cehUE
+trailer: XXauEwo5_3E
 excerpt: >-
   A black mass slaughter, possession, revenge, and possibly the Devil running
   a petrol station. Camille Keaton six years before I Spit on Your Grave.

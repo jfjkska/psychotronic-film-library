@@ -12,8 +12,8 @@ rating: 3
 verdict: "Unabashedly sadistic"
 trailer: M_BYFP3uxh4
 tracks:
-  - title: "Berto Pisano – Nude per l'assassino (main titles)"
-    youtube: -1ghWrA6B08
+  - title: "Berto Pisano – the opening titles"
+    youtube: W5mykqk9v-8
 excerpt: >-
   A killer in black leather motorcycle gear works through a model agency, and
   Edwige Fenech sports a pixie cut. One of the bloodiest gialli going.
