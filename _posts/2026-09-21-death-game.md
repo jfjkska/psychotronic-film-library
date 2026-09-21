@@ -15,6 +15,12 @@ excerpt: >-
   Two women talk their way into a man's house and never leave. Sondra Locke
   and Colleen Camp go as far as it goes, in a home invasion film MGM did not
   know what to do with.
+imdb: tt0075921
+stills: [/assets/img/stills/death-game-1.jpg, /assets/img/stills/death-game-2.jpg, /assets/img/stills/death-game-3.jpg, /assets/img/stills/death-game-4.jpg]
+poster: /assets/img/posters/death-game.jpg
+tmdb_poster: /a4emMnKA9b9RjDgOeMKvVRBmXAT.jpg
+posters: [/assets/img/posters/death-game-alt-1.jpg, /assets/img/posters/death-game-alt-2.jpg, /assets/img/posters/death-game-alt-3.jpg]
+image: /assets/img/cards/death-game.jpg
 ---
 
 Death Game is an early 70s exploitation film dressed as a feminist psycho

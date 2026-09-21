@@ -19,6 +19,12 @@ tracks:
 excerpt: >-
   Venice in winter, two Lewton bus scares and a score by Cipriani played by
   Goblin. The music leads and the canals do the rest.
+imdb: tt0078288
+stills: [/assets/img/stills/the-bloodstained-shadow-1.jpg, /assets/img/stills/the-bloodstained-shadow-2.jpg, /assets/img/stills/the-bloodstained-shadow-3.jpg, /assets/img/stills/the-bloodstained-shadow-4.jpg]
+poster: /assets/img/posters/the-bloodstained-shadow.jpg
+tmdb_poster: /1BeYs9TuxUDCuMTqywwmBwKZhGo.jpg
+posters: [/assets/img/posters/the-bloodstained-shadow-alt-1.jpg, /assets/img/posters/the-bloodstained-shadow-alt-2.jpg, /assets/img/posters/the-bloodstained-shadow-alt-3.jpg]
+image: /assets/img/cards/the-bloodstained-shadow.jpg
 ---
 
 The Bloodstained Shadow is a 1978 giallo in and around Venice. The score is by

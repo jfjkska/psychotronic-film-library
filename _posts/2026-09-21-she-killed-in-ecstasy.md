@@ -18,6 +18,12 @@ excerpt: >-
   Soledad Miranda works through the four board members who ruined her husband.
   Filmed weeks after Vampyros Lesbos, with a soundtrack of pure kraut lounge
   gold.
+imdb: tt0066104
+stills: [/assets/img/stills/she-killed-in-ecstasy-1.jpg, /assets/img/stills/she-killed-in-ecstasy-2.jpg, /assets/img/stills/she-killed-in-ecstasy-3.jpg, /assets/img/stills/she-killed-in-ecstasy-4.jpg]
+poster: /assets/img/posters/she-killed-in-ecstasy.jpg
+tmdb_poster: /dMfcVK2fuNUwgT8Tg5gfYiOQYBZ.jpg
+posters: [/assets/img/posters/she-killed-in-ecstasy-alt-1.jpg, /assets/img/posters/she-killed-in-ecstasy-alt-2.jpg, /assets/img/posters/she-killed-in-ecstasy-alt-3.jpg]
+image: /assets/img/cards/she-killed-in-ecstasy.jpg
 ---
 
 More Eurosleaze, and ramp it up to ten with the godfather of the genre, Jess

@@ -13,6 +13,12 @@ trailer: EZhHBKisyT0
 excerpt: >-
   Deserters hide from acid rain in a bunker with a rubber-suited alien, mutant
   rats and Linnea Quigley. Shot in fifteen days, and it shows.
+imdb: tt0092795
+stills: [/assets/img/stills/creepozoids-1.jpg, /assets/img/stills/creepozoids-2.jpg, /assets/img/stills/creepozoids-3.jpg, /assets/img/stills/creepozoids-4.jpg]
+poster: /assets/img/posters/creepozoids.jpg
+tmdb_poster: /tWYM9LJ5Y8clU60E70Ip2Amuotk.jpg
+posters: [/assets/img/posters/creepozoids-alt-1.jpg, /assets/img/posters/creepozoids-alt-2.jpg, /assets/img/posters/creepozoids-alt-3.jpg]
+image: /assets/img/cards/creepozoids.jpg
 ---
 
 Creepozoids is a fun watch. Directed by David DeCoteau in fifteen days, and it

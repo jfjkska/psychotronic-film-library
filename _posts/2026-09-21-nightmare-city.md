@@ -14,6 +14,12 @@ trailer: xo5T_FNdqe0
 excerpt: >-
   A plane full of radioactive, knife-wielding zombies lands and the city goes
   with it. Lenzi is no Fulci, but he does his best.
+imdb: tt0080931
+stills: [/assets/img/stills/nightmare-city-1.jpg, /assets/img/stills/nightmare-city-2.jpg, /assets/img/stills/nightmare-city-3.jpg, /assets/img/stills/nightmare-city-4.jpg]
+poster: /assets/img/posters/nightmare-city.jpg
+tmdb_poster: /jbOkO2kxxfISyBWPCSKsVJS0MFc.jpg
+posters: [/assets/img/posters/nightmare-city-alt-1.jpg, /assets/img/posters/nightmare-city-alt-2.jpg, /assets/img/posters/nightmare-city-alt-3.jpg]
+image: /assets/img/cards/nightmare-city.jpg
 ---
 
 Nightmare City (1980) is a crazy one from Umberto "Cannibal Ferox" Lenzi. I am

@@ -17,6 +17,12 @@ tracks:
 excerpt: >-
   A giallo in style but without the stalk and slash, all plotting and
   counter-plotting at a sun-drenched villa. One killing in the whole film.
+imdb: tt0067520
+stills: [/assets/img/stills/the-fox-with-the-velvet-tail-1.jpg, /assets/img/stills/the-fox-with-the-velvet-tail-2.jpg, /assets/img/stills/the-fox-with-the-velvet-tail-3.jpg, /assets/img/stills/the-fox-with-the-velvet-tail-4.jpg]
+poster: /assets/img/posters/the-fox-with-the-velvet-tail.jpg
+tmdb_poster: /83AVqazlvS77SXJsnTx7VJavvHl.jpg
+posters: [/assets/img/posters/the-fox-with-the-velvet-tail-alt-1.jpg, /assets/img/posters/the-fox-with-the-velvet-tail-alt-2.jpg, /assets/img/posters/the-fox-with-the-velvet-tail-alt-3.jpg]
+image: /assets/img/cards/the-fox-with-the-velvet-tail.jpg
 ---
 
 The Fox with the Velvet Tail (1971) is a giallo in style, but without the

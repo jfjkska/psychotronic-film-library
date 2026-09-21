@@ -15,6 +15,12 @@ excerpt: >-
   Lon Chaney Jr. keeps the lid on a family of miscreants until the normal side
   of the family turns up wanting the estate. Jill Banner is unforgettable as
   Virginia.
+imdb: tt0058606
+stills: [/assets/img/stills/spider-baby-1.jpg, /assets/img/stills/spider-baby-2.jpg, /assets/img/stills/spider-baby-3.jpg, /assets/img/stills/spider-baby-4.jpg]
+poster: /assets/img/posters/spider-baby.jpg
+tmdb_poster: /pKKJsmTGt5MndLT8gBfl1pMp4fU.jpg
+posters: [/assets/img/posters/spider-baby-alt-1.jpg, /assets/img/posters/spider-baby-alt-2.jpg, /assets/img/posters/spider-baby-alt-3.jpg]
+image: /assets/img/cards/spider-baby.jpg
 ---
 
 Jack Hill's Spider Baby (1967) is an intriguing and strange film, with Lon

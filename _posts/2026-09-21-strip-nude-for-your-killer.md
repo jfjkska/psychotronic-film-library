@@ -17,6 +17,12 @@ tracks:
 excerpt: >-
   A killer in black leather motorcycle gear works through a model agency, and
   Edwige Fenech sports a pixie cut. One of the bloodiest gialli going.
+imdb: tt0073470
+stills: [/assets/img/stills/strip-nude-for-your-killer-1.jpg, /assets/img/stills/strip-nude-for-your-killer-2.jpg, /assets/img/stills/strip-nude-for-your-killer-3.jpg, /assets/img/stills/strip-nude-for-your-killer-4.jpg]
+poster: /assets/img/posters/strip-nude-for-your-killer.jpg
+tmdb_poster: /kLReiTohttxm8oYJ6sdBIo4trNb.jpg
+posters: [/assets/img/posters/strip-nude-for-your-killer-alt-1.jpg, /assets/img/posters/strip-nude-for-your-killer-alt-2.jpg, /assets/img/posters/strip-nude-for-your-killer-alt-3.jpg]
+image: /assets/img/cards/strip-nude-for-your-killer.jpg
 ---
 
 With a title like Strip Nude for Your Killer (1975), you are going to expect

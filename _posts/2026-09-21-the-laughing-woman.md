@@ -15,6 +15,12 @@ excerpt: >-
   A press agent is held captive by a philanthropist with sadistic fantasies,
   and turns the cat and mouse game on its head. Groovy sets and a Cipriani
   score of psych, jazz and funk.
+imdb: tt0124621
+stills: [/assets/img/stills/the-laughing-woman-1.jpg, /assets/img/stills/the-laughing-woman-2.jpg, /assets/img/stills/the-laughing-woman-3.jpg, /assets/img/stills/the-laughing-woman-4.jpg]
+poster: /assets/img/posters/the-laughing-woman.jpg
+tmdb_poster: /cB8dGlml8leFGW6D32jU08d5343.jpg
+posters: [/assets/img/posters/the-laughing-woman-alt-1.jpg, /assets/img/posters/the-laughing-woman-alt-2.jpg, /assets/img/posters/the-laughing-woman-alt-3.jpg]
+image: /assets/img/cards/the-laughing-woman.jpg
 ---
 
 Italian psychosexual thriller The Laughing Woman (1969) is a really

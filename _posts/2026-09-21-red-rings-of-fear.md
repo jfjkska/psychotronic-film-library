@@ -15,6 +15,12 @@ excerpt: >-
   Half giallo, half police procedural, if the police is a cop who kidnaps a
   witness and forces him onto a rollercoaster. Fabio Testi, two cats and a
   kleptomaniac girlfriend.
+imdb: tt0077505
+stills: [/assets/img/stills/red-rings-of-fear-1.jpg, /assets/img/stills/red-rings-of-fear-2.jpg, /assets/img/stills/red-rings-of-fear-3.jpg, /assets/img/stills/red-rings-of-fear-4.jpg]
+poster: /assets/img/posters/red-rings-of-fear.jpg
+tmdb_poster: /rGzKItpbFBTRIUOvqKfX2fD974N.jpg
+posters: [/assets/img/posters/red-rings-of-fear-alt-1.jpg, /assets/img/posters/red-rings-of-fear-alt-2.jpg, /assets/img/posters/red-rings-of-fear-alt-3.jpg]
+image: /assets/img/cards/red-rings-of-fear.jpg
 ---
 
 Red Rings of Fear sits somewhere in the sphere of giallo but is more of a
