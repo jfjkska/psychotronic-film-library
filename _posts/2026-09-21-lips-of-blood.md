@@ -5,7 +5,7 @@ date: 2026-09-21 10:03:00 +0100
 year: 1975
 director: "Jean Rollin"
 country: France
-starring: "Jean-Loup Philippe, Annie Briand, Natalie Perrey, Catherine Castel, Marie-Pierre Castel"
+starring: "Jean-Loup Philippe, Annie Brilland, Natalie Perrey, Catherine Castel, Marie-Pierre Castel"
 music: "Didier William Lepauw"
 genres: [french horror, vampire, eurosleaze]
 rating: 3
