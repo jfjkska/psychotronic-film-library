@@ -18,6 +18,12 @@ excerpt: >-
   Bruno Mattei sends a not-so-crack SWAT team to Papua New Guinea, or to some
   woodland outside Rome. Nobody is convinced, and even the Goblin music is
   borrowed from other films.
+imdb: tt0082559
+stills: [/assets/img/stills/zombie-creeping-flesh-1.jpg, /assets/img/stills/zombie-creeping-flesh-2.jpg, /assets/img/stills/zombie-creeping-flesh-3.jpg, /assets/img/stills/zombie-creeping-flesh-4.jpg]
+poster: /assets/img/posters/zombie-creeping-flesh.jpg
+tmdb_poster: /4EdvsD13dT5ksDCETpFYi4lgrqI.jpg
+posters: [/assets/img/posters/zombie-creeping-flesh-alt-1.jpg, /assets/img/posters/zombie-creeping-flesh-alt-2.jpg, /assets/img/posters/zombie-creeping-flesh-alt-3.jpg]
+image: /assets/img/cards/zombie-creeping-flesh.jpg
 ---
 
 Zombie Creeping Flesh (1980), aka Hell of the Living Dead. Directors Bruno

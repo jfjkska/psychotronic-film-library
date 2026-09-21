@@ -14,6 +14,12 @@ excerpt: >-
   Destructocycles in the year 3000, sold as a sequel to Death Race 2000 and
   nothing of the sort. Carradine gives it his all, the explosions never let
   up.
+imdb: tt0077414
+stills: [/assets/img/stills/deathsport-1.jpg, /assets/img/stills/deathsport-2.jpg, /assets/img/stills/deathsport-3.jpg, /assets/img/stills/deathsport-4.jpg]
+poster: /assets/img/posters/deathsport.jpg
+tmdb_poster: /shke7xfz0Jht0ElHBqiZShdqFTD.jpg
+posters: [/assets/img/posters/deathsport-alt-1.jpg, /assets/img/posters/deathsport-alt-2.jpg, /assets/img/posters/deathsport-alt-3.jpg]
+image: /assets/img/cards/deathsport.jpg
 ---
 
 Deathsport (1978) is sometimes described as a sequel to Paul Bartel's satire

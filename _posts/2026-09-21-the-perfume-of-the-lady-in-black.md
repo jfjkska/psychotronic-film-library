@@ -17,6 +17,12 @@ tracks:
 excerpt: >-
   A very odd giallo with a black magic cult, insanity and cannibalism in the
   mix. Not a classic, but an interesting addition to the genre.
+imdb: tt0070565
+stills: [/assets/img/stills/the-perfume-of-the-lady-in-black-1.jpg, /assets/img/stills/the-perfume-of-the-lady-in-black-2.jpg, /assets/img/stills/the-perfume-of-the-lady-in-black-3.jpg, /assets/img/stills/the-perfume-of-the-lady-in-black-4.jpg]
+poster: /assets/img/posters/the-perfume-of-the-lady-in-black.jpg
+tmdb_poster: /tnoXyXFkcnyVWvQ4hddli1cho2n.jpg
+posters: [/assets/img/posters/the-perfume-of-the-lady-in-black-alt-1.jpg, /assets/img/posters/the-perfume-of-the-lady-in-black-alt-2.jpg, /assets/img/posters/the-perfume-of-the-lady-in-black-alt-3.jpg]
+image: /assets/img/cards/the-perfume-of-the-lady-in-black.jpg
 ---
 
 The Perfume of the Lady in Black is a very odd giallo from 1974, with a black

@@ -15,6 +15,12 @@ excerpt: >-
   An experimental doctor turns housewives into sex-crazed queen bees who kill
   by exhaustion. Nudity and big hair, written by the man who went on to Star
   Trek II.
+imdb: tt0070222
+stills: [/assets/img/stills/invasion-of-the-bee-girls-1.jpg, /assets/img/stills/invasion-of-the-bee-girls-2.jpg, /assets/img/stills/invasion-of-the-bee-girls-3.jpg, /assets/img/stills/invasion-of-the-bee-girls-4.jpg]
+poster: /assets/img/posters/invasion-of-the-bee-girls.jpg
+tmdb_poster: /wIE6Fsq9KHTwBUOWwy1q9HwOXz3.jpg
+posters: [/assets/img/posters/invasion-of-the-bee-girls-alt-1.jpg, /assets/img/posters/invasion-of-the-bee-girls-alt-2.jpg, /assets/img/posters/invasion-of-the-bee-girls-alt-3.jpg]
+image: /assets/img/cards/invasion-of-the-bee-girls.jpg
 ---
 
 Denis Sanders' Invasion of the Bee Girls, from 1973, is a pretty good
