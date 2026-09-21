@@ -20,6 +20,12 @@ excerpt: >-
   Jean Rollin's first film without vampires. A boy and a girl get lost in a
   cemetery after dark, and the night takes them apart. Dreamlike, slow and
   very odd, with Francoise Pascal its real highlight.
+imdb: tt0126004
+stills: [/assets/img/stills/the-iron-rose-1.jpg, /assets/img/stills/the-iron-rose-2.jpg, /assets/img/stills/the-iron-rose-3.jpg, /assets/img/stills/the-iron-rose-4.jpg]
+poster: /assets/img/posters/the-iron-rose.jpg
+tmdb_poster: /oYuU66iqkllhZiABwDeqUVcy1zJ.jpg
+posters: [/assets/img/posters/the-iron-rose-alt-1.jpg, /assets/img/posters/the-iron-rose-alt-2.jpg, /assets/img/posters/the-iron-rose-alt-3.jpg]
+image: /assets/img/cards/the-iron-rose.jpg
 ---
 
 *Warning: contains plot spoilers. Only watch if you are a fan of dreamlike,

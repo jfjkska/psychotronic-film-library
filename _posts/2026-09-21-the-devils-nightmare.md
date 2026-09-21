@@ -23,6 +23,12 @@ excerpt: >-
   Erika Blanc plays a succubus loose in a German baron's castle, working her
   way through a coachload of stranded tourists one deadly sin at a time. The
   best sort of Eurosleaze horror, with an experimental Alessandroni score.
+imdb: tt0067592
+stills: [/assets/img/stills/the-devils-nightmare-1.jpg, /assets/img/stills/the-devils-nightmare-2.jpg, /assets/img/stills/the-devils-nightmare-3.jpg, /assets/img/stills/the-devils-nightmare-4.jpg]
+poster: /assets/img/posters/the-devils-nightmare.jpg
+tmdb_poster: /tRvh4IpxWvRg2AKuTOIpVNXbX7d.jpg
+posters: [/assets/img/posters/the-devils-nightmare-alt-1.jpg, /assets/img/posters/the-devils-nightmare-alt-2.jpg, /assets/img/posters/the-devils-nightmare-alt-3.jpg]
+image: /assets/img/cards/the-devils-nightmare.jpg
 ---
 
 The Devil's Nightmare is a real gem. Erika Blanc plays a succubus who preys on

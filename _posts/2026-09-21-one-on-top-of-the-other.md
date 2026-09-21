@@ -22,6 +22,12 @@ excerpt: >-
   Fulci's first giallo. An ambitious doctor is framed for the murder of his
   own wife, and Marisa Mell turns up as two women at once. The jazziest of Riz
   Ortolani scores.
+imdb: tt0065148
+stills: [/assets/img/stills/one-on-top-of-the-other-1.jpg, /assets/img/stills/one-on-top-of-the-other-2.jpg, /assets/img/stills/one-on-top-of-the-other-3.jpg, /assets/img/stills/one-on-top-of-the-other-4.jpg]
+poster: /assets/img/posters/one-on-top-of-the-other.jpg
+tmdb_poster: /hX48w6tmXDdK7rO1lKBCR9lnIFy.jpg
+posters: [/assets/img/posters/one-on-top-of-the-other-alt-1.jpg, /assets/img/posters/one-on-top-of-the-other-alt-2.jpg, /assets/img/posters/one-on-top-of-the-other-alt-3.jpg]
+image: /assets/img/cards/one-on-top-of-the-other.jpg
 ---
 
 One on Top of the Other, aka The Perversion Story (1969), is Lucio Fulci's

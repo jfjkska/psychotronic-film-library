@@ -13,6 +13,12 @@ excerpt: >-
   A fraudster lord sets up a finishing school to train young women as gold
   diggers. That is really all there is to it. Walker called it his worst film
   and he was not wrong.
+imdb: tt0063564
+stills: [/assets/img/stills/school-for-sex-1.jpg, /assets/img/stills/school-for-sex-2.jpg, /assets/img/stills/school-for-sex-3.jpg, /assets/img/stills/school-for-sex-4.jpg]
+poster: /assets/img/posters/school-for-sex.jpg
+tmdb_poster: /fEAoSzJ39DZS1K9WwXzWtjx8E3B.jpg
+posters: [/assets/img/posters/school-for-sex-alt-1.jpg]
+image: /assets/img/cards/school-for-sex.jpg
 ---
 
 School for Sex is produced, written and directed by the British legend of

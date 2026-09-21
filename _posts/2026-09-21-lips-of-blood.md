@@ -18,6 +18,12 @@ excerpt: >-
   Frederick chases a memory of a woman he met as a boy, springs four vampires
   along the way, and ends up on the same beach Rollin always ends up on. Lots
   of nudity, in all weathers.
+imdb: tt0073324
+stills: [/assets/img/stills/lips-of-blood-1.jpg, /assets/img/stills/lips-of-blood-2.jpg, /assets/img/stills/lips-of-blood-3.jpg, /assets/img/stills/lips-of-blood-4.jpg]
+poster: /assets/img/posters/lips-of-blood.jpg
+tmdb_poster: /tMWgnjK7JQJGCOYzpXcnATM0gcZ.jpg
+posters: [/assets/img/posters/lips-of-blood-alt-1.jpg, /assets/img/posters/lips-of-blood-alt-2.jpg, /assets/img/posters/lips-of-blood-alt-3.jpg]
+image: /assets/img/cards/lips-of-blood.jpg
 ---
 
 More Jean Rollin, from 1975. Lips of Blood concerns Frederick trying to piece

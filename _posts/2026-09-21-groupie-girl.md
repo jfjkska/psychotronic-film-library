@@ -17,6 +17,11 @@ excerpt: >-
   Sally stows away with a touring band to escape her small town and finds she
   is a commodity to be passed on when she outstays her welcome. Resolutely
   downbeat, and the better for it.
+imdb: tt0179225
+poster: /assets/img/posters/groupie-girl.jpg
+tmdb_poster: /7CKU15qdfNVoE58n9nhg0kfKcER.jpg
+posters: [/assets/img/posters/groupie-girl-alt-1.jpg]
+image: /assets/img/cards/groupie-girl.jpg
 ---
 
 Groupie Girl (1970), directed by British exploitation kingpin Derek Ford, is a

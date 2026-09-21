@@ -17,6 +17,12 @@ excerpt: >-
   Susan George on the run from her own family, who want the number of a Swiss
   account holding evidence against her father. Pete Walker in thriller mode,
   with none of his usual gore.
+imdb: tt0066996
+stills: [/assets/img/stills/die-screaming-marianne-1.jpg, /assets/img/stills/die-screaming-marianne-2.jpg]
+poster: /assets/img/posters/die-screaming-marianne.jpg
+tmdb_poster: /1AoVPUh1tg2AHOmBInYb1H76XNM.jpg
+posters: [/assets/img/posters/die-screaming-marianne-alt-1.jpg, /assets/img/posters/die-screaming-marianne-alt-2.jpg, /assets/img/posters/die-screaming-marianne-alt-3.jpg]
+image: /assets/img/cards/die-screaming-marianne.jpg
 ---
 
 Die Screaming Marianne (1971) is a thriller directed by Pete Walker and

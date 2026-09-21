@@ -15,6 +15,12 @@ excerpt: >-
   A repressed priest turns the confessional into a hit list, and Sheila Keith
   isn't even the maddest person in the house. Walker on top form, with far
   less nudity than usual.
+imdb: tt0072813
+stills: [/assets/img/stills/house-of-mortal-sin-1.jpg, /assets/img/stills/house-of-mortal-sin-2.jpg, /assets/img/stills/house-of-mortal-sin-3.jpg, /assets/img/stills/house-of-mortal-sin-4.jpg]
+poster: /assets/img/posters/house-of-mortal-sin.jpg
+tmdb_poster: /rkzPQVQZcHy2h3T63pRTINAd1v6.jpg
+posters: [/assets/img/posters/house-of-mortal-sin-alt-1.jpg, /assets/img/posters/house-of-mortal-sin-alt-2.jpg, /assets/img/posters/house-of-mortal-sin-alt-3.jpg]
+image: /assets/img/cards/house-of-mortal-sin.jpg
 ---
 
 I enjoy finding Pete Walker films that have previously eluded me, and this is

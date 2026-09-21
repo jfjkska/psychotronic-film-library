@@ -12,6 +12,12 @@ excerpt: >-
   A young doctor joins a seaside hospital, and every woman in the county
   obliges. Harmless enough until the 70s humour turns, and there is a sequel
   waiting in the wings.
+imdb: tt0076912
+stills: [/assets/img/stills/whats-up-nurse-1.jpg]
+poster: /assets/img/posters/whats-up-nurse.jpg
+tmdb_poster: /2SpN2wPogn5gNeigDsT7wjay6wz.jpg
+posters: [/assets/img/posters/whats-up-nurse-alt-1.jpg]
+image: /assets/img/cards/whats-up-nurse.jpg
 ---
 
 British sex comedies get a harsh rap for their dismal entendres and poor
