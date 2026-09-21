@@ -21,7 +21,7 @@ excerpt: >-
 imdb: tt0073324
 stills: [/assets/img/stills/lips-of-blood-1.jpg, /assets/img/stills/lips-of-blood-2.jpg, /assets/img/stills/lips-of-blood-3.jpg, /assets/img/stills/lips-of-blood-4.jpg]
 poster: /assets/img/posters/lips-of-blood.jpg
-tmdb_poster: /tMWgnjK7JQJGCOYzpXcnATM0gcZ.jpg
+tmdb_poster: /hAbczLjK3kmKyNvPH7LFf34ODMz.jpg
 posters: [/assets/img/posters/lips-of-blood-alt-1.jpg, /assets/img/posters/lips-of-blood-alt-2.jpg, /assets/img/posters/lips-of-blood-alt-3.jpg]
 image: /assets/img/cards/lips-of-blood.jpg
 ---

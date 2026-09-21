@@ -20,7 +20,7 @@ excerpt: >-
 imdb: tt0066996
 stills: [/assets/img/stills/die-screaming-marianne-1.jpg, /assets/img/stills/die-screaming-marianne-2.jpg]
 poster: /assets/img/posters/die-screaming-marianne.jpg
-tmdb_poster: /1AoVPUh1tg2AHOmBInYb1H76XNM.jpg
+tmdb_poster: /ajrJQYgy8GbQX09FiqYT4n6hLmI.jpg
 posters: [/assets/img/posters/die-screaming-marianne-alt-1.jpg, /assets/img/posters/die-screaming-marianne-alt-2.jpg, /assets/img/posters/die-screaming-marianne-alt-3.jpg]
 image: /assets/img/cards/die-screaming-marianne.jpg
 ---
