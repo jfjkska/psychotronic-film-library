@@ -32,8 +32,12 @@ jobs:
         with:
           ruby-version: "3.3"
           bundler-cache: true
+      # No --baseurl flag here on purpose. A command-line flag overrides
+      # _config.yml, and configure-pages reports the repo path
+      # (/psychotronic-film-library) even when the site is served from its own
+      # domain at the root. _config.yml holds the right answer: baseurl "".
       - name: Build with Jekyll
-        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+        run: bundle exec jekyll build
         env:
           JEKYLL_ENV: production
       - uses: actions/upload-pages-artifact@v3
