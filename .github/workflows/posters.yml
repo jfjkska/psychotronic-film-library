@@ -65,7 +65,13 @@ jobs:
           git add -A assets/img/posters assets/img/stills assets/img/cards _posts _poster_candidates
           if git diff --cached --quiet; then echo "No poster changes."; exit 0; fi
           git commit -m "Fetch posters from TMDB"
-          git push
+          # A push to main while this was running leaves our commit behind the
+          # remote; rebase onto it and try again rather than losing the posters.
+          for attempt in 1 2 3; do
+            if git push; then break; fi
+            if [ "$attempt" = 3 ]; then echo "::error::could not push the fetched posters"; exit 1; fi
+            git pull --rebase origin main
+          done
           # A push made with the workflow token does not start other workflows,
           # so publish the site explicitly.
           gh workflow run pages.yml --ref main
