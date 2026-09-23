@@ -18,6 +18,10 @@ excerpt: >-
   chequebook as to Clarke's direction. Banned uncut for years; restored by
   Severin from two prints.
 imdb: tt0072960
+stills: [/assets/img/stills/house-on-straw-hill-1.jpg, /assets/img/stills/house-on-straw-hill-2.jpg, /assets/img/stills/house-on-straw-hill-3.jpg, /assets/img/stills/house-on-straw-hill-4.jpg]
+tmdb_poster: /7bEV13lR9QrVTpx7RVYk3ea1hkR.jpg
+posters: [/assets/img/posters/house-on-straw-hill-alt-1.jpg, /assets/img/posters/house-on-straw-hill-alt-2.jpg, /assets/img/posters/house-on-straw-hill-alt-3.jpg]
+image: /assets/img/cards/house-on-straw-hill.jpg
 ---
 
 House on Straw Hill aka Exposé is a 1976 British exploitation gem written
