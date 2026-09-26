@@ -18,6 +18,10 @@ excerpt: >-
   murderous infant, a nun with a questionable Italian accent, and Ron
   Grainer's synths and Hawaiian guitars holding it all together.
 imdb: tt0072867
+stills: [/assets/img/stills/i-dont-want-to-be-born-1.jpg, /assets/img/stills/i-dont-want-to-be-born-2.jpg, /assets/img/stills/i-dont-want-to-be-born-3.jpg]
+tmdb_poster: /5CYgf4kyNWe2XlCKEpxn9cZsHH3.jpg
+posters: [/assets/img/posters/i-dont-want-to-be-born-alt-1.jpg, /assets/img/posters/i-dont-want-to-be-born-alt-2.jpg, /assets/img/posters/i-dont-want-to-be-born-alt-3.jpg]
+image: /assets/img/cards/i-dont-want-to-be-born.jpg
 ---
 
 I Don't Want to Be Born, aka The Devil Within Her, is a 1975 British
