@@ -87,7 +87,7 @@ Gino.
 
 I Don't Want to Be Born wasn't a critical success at the time: one review
 called it "an abominable screenplay by Stanley Price, ludicrous acting,
-and worst of all, Daddy's directing." Another labelled it "sensationalist
+and worst of all, Sasdy's directing." Another labelled it "sensationalist
 and vulgar, an unholy cross between The Exorcist and Rosemary's Baby." The
 film also carries the alternative title Sharon's Baby, despite Collins's
 character being called Lucy throughout.
