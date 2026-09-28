@@ -21,6 +21,10 @@ excerpt: >-
   dread by Alfred Sole. Paula Sheppard's only starring role, and Brooke
   Shields's film debut.
 imdb: tt0076150
+stills: [/assets/img/stills/alice-sweet-alice-1.jpg, /assets/img/stills/alice-sweet-alice-2.jpg, /assets/img/stills/alice-sweet-alice-3.jpg, /assets/img/stills/alice-sweet-alice-4.jpg]
+tmdb_poster: /izawwwy80RH7U7YKkdV1OpdPohZ.jpg
+posters: [/assets/img/posters/alice-sweet-alice-alt-1.jpg, /assets/img/posters/alice-sweet-alice-alt-2.jpg, /assets/img/posters/alice-sweet-alice-alt-3.jpg]
+image: /assets/img/cards/alice-sweet-alice.jpg
 ---
 
 Alice, Sweet Alice (1976) is a Catholic-imbued psychological slasher
