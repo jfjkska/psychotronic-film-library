@@ -56,11 +56,6 @@ right when pasted into WhatsApp or X. Nothing to do.
 Under `watch:` list the disc label or streaming home, one `label` per line with an
 optional `url`. It shows in the credits block. Delete the lines if you don't know.
 
-## The front-page "In the pile" strip
-
-Open `_config.yml` and edit the lines under `next_up:`. One film per line, in quotes.
-Delete them all to hide the strip.
-
 ## 3. Wait a minute
 
 GitHub rebuilds the site on every commit. If the page doesn't change, hard-refresh

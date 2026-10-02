@@ -305,12 +305,6 @@ a:hover { color: var(--paper); }
 .listing a { color: var(--paper); text-decoration: none; }
 .listing a:hover { color: var(--yellow); text-decoration: underline; }
 
-/* ── Coming attractions strip ─────────────────────────────────────────────── */
-.coming { display: flex; flex-wrap: wrap; align-items: baseline; gap: .4em 1em; margin: 0 auto 2rem; max-width: 900px; padding: .6em 1em; background: var(--cream); color: var(--ink); border: 2px solid var(--black); box-shadow: 5px 5px 0 var(--orange), 5px 5px 0 2px var(--black); transform: rotate(.4deg); }
-.coming-label { font-family: var(--poster); text-transform: uppercase; letter-spacing: .16em; font-size: .78rem; color: var(--magenta-deep); }
-.coming-list { display: flex; flex-wrap: wrap; gap: .3em 1.2em; font-family: var(--type); font-size: .92rem; }
-.coming-item::before { content: "\25B8 "; color: var(--magenta); }
-
 /* ── Dice ────────────────────────────────────────────────────────────────── */
 .marquee .dice { color: var(--yellow); }
 .marquee .dice:hover { color: var(--paper); }

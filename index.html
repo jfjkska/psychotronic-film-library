@@ -33,13 +33,6 @@ body_class: home
     </div>
   </form>
 
-  {% if site.next_up and site.next_up.size > 0 %}
-  <aside class="coming" aria-label="Coming attractions">
-    <span class="coming-label">In the pile</span>
-    <span class="coming-list">{% for n in site.next_up %}<span class="coming-item">{{ n }}</span>{% endfor %}</span>
-  </aside>
-  {% endif %}
-
   <ul class="rack" data-rack>
     {% for post in site.posts %}{% include card.html post=post %}{% endfor %}
   </ul>

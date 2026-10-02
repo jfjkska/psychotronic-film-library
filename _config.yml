@@ -34,12 +34,6 @@ giscus:
 # sign-up box stays hidden. Setup: README → "Turning on the newsletter".
 buttondown_username: ""
 
-# Coming attractions: films in the pile, shown on the front page. Any number,
-# or delete the lines under it to hide the strip.
-next_up:
-  - "Franco's Venus in Furs (the Kinski one, this time)"
-  - "Boorman and the Devil"
-
 # Social card used when a link is shared (Twitter/X, Facebook, WhatsApp).
 logo: /assets/img/social-card.jpg
 
