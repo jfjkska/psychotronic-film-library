@@ -46,6 +46,12 @@ logo: /assets/img/social-card.jpg
 permalink: /reviews/:title/
 timezone: Europe/London
 
+# Jekyll hides a post whose `date` is after the clock at build time, with no
+# warning. Reviews get dated as they're written, which has landed ahead of
+# the real clock before -- that's a post silently missing from the site with
+# everything else (posters, cards, publish) reporting success. Off.
+future: true
+
 markdown: kramdown
 kramdown:
   input: GFM
