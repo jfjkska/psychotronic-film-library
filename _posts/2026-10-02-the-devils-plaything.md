@@ -11,7 +11,7 @@ genres: [eurosleaze, erotic vampire, gothic horror]
 rating: 3
 verdict: "Rollin and Franco turned up to 11"
 poster: /assets/img/posters/the-devils-plaything.jpg
-trailer: ju7aBVnHM4g
+trailer: 2RsiR_wt2Sw
 excerpt: >-
   A castle full of sexy vampire worshippers, a bongo-driven dance number,
   and the spirit of Baroness Varga reaching out from her portrait. Joe
