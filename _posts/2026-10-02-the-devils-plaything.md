@@ -18,6 +18,10 @@ excerpt: >-
   Sarno's only horror film sits comfortably beside Franco's Vampyros
   Lesbos and Larraz's Vampyres in the erotic vampire canon.
 imdb: tt0070066
+stills: [/assets/img/stills/the-devils-plaything-1.jpg, /assets/img/stills/the-devils-plaything-2.jpg]
+tmdb_poster: /LSQsDYI6cXaufYEzAvYo5MQxsO.jpg
+posters: [/assets/img/posters/the-devils-plaything-alt-1.jpg, /assets/img/posters/the-devils-plaything-alt-2.jpg, /assets/img/posters/the-devils-plaything-alt-3.jpg]
+image: /assets/img/cards/the-devils-plaything.jpg
 ---
 
 The Devil's Plaything (1973) is a eurosleaze vampire film from Joseph W.
