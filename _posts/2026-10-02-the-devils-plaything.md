@@ -8,8 +8,8 @@ country: Sweden / Switzerland / West Germany
 starring: "Nadia Henkowa, Anke Syring, Ulrike Butz, Nico Wolferstetter, Marie Forså, Flavia Keyt"
 music: "Rolf-Hans Müller"
 genres: [eurosleaze, erotic vampire, gothic horror]
-rating: 3
-verdict: "Rollin and Franco turned up to 11"
+rating: 4
+verdict: "A great find"
 poster: /assets/img/posters/the-devils-plaything.jpg
 trailer: 2RsiR_wt2Sw
 excerpt: >-
