@@ -14,7 +14,7 @@ poster: /assets/img/posters/long-hair-of-death.jpg
 trailer: v0Sw2wii7vc
 tracks:
   - title: "Carlo Rustichelli – I Lunghi Capelli della Morte (1964)"
-    youtube: 5XJm-JxLlXA
+    youtube: TqE9cWOfbQ4
 excerpt: >-
   A woman burned as a witch, a curse on the family responsible, and
   Barbara Steele in a dual role seeking revenge. Margheriti's other 1964
