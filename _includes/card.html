@@ -1,9 +1,12 @@
 {%- assign p = include.post -%}
 {%- assign poster = p.poster | default: "/assets/img/posters/no-poster.svg" -%}
+{# The card crops every poster to 2:3; a design with text flush to one
+   edge can lose it. Set poster_focus: "left" (or a CSS object-position
+   value) on that review to crop from the other side instead. #}
 <li class="card" data-title="{{ p.title | downcase | escape }}" data-year="{{ p.year }}" data-director="{{ p.director | downcase | escape }}" data-genres="{{ p.genres | join: '|' | downcase | escape }}">
   <a class="card-link" href="{{ p.url | relative_url }}">
     <figure class="card-poster">
-      <img src="{{ poster | relative_url }}" alt="" loading="lazy" width="300" height="450">
+      <img src="{{ poster | relative_url }}" alt="" loading="lazy" width="300" height="450"{% if p.poster_focus %} style="object-position: {{ p.poster_focus }};"{% endif %}>
       {% if p.year %}<span class="sticker">{{ p.year }}</span>{% endif %}
     </figure>
     <div class="card-text">
