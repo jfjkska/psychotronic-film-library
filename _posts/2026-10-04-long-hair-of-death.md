@@ -10,9 +10,7 @@ music: "Carlo Rustichelli"
 genres: [italian horror, gothic horror, period]
 rating: 3
 verdict: "A worthy footnote to Castle of Blood"
-poster: /assets/img/posters/long-hair-of-death.jpg
-poster_focus: "left"
-trailer: v0Sw2wii7vc
+poster: /assets/img/posters/long-hair-of-death.jpgtrailer: v0Sw2wii7vc
 tracks:
   - title: "Carlo Rustichelli – I Lunghi Capelli della Morte (1964)"
     youtube: TqE9cWOfbQ4
