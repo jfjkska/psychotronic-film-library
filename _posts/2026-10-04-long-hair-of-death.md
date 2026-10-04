@@ -20,6 +20,10 @@ excerpt: >-
   Barbara Steele in a dual role seeking revenge. Margheriti's other 1964
   gothic with Steele, and a worthy if lesser companion to Castle of Blood.
 imdb: tt0058307
+stills: [/assets/img/stills/long-hair-of-death-1.jpg, /assets/img/stills/long-hair-of-death-2.jpg, /assets/img/stills/long-hair-of-death-3.jpg, /assets/img/stills/long-hair-of-death-4.jpg]
+tmdb_poster: /6LeODgFgnvpRkya1TYKBmotC0Wa.jpg
+posters: [/assets/img/posters/long-hair-of-death-alt-1.jpg, /assets/img/posters/long-hair-of-death-alt-2.jpg, /assets/img/posters/long-hair-of-death-alt-3.jpg]
+image: /assets/img/cards/long-hair-of-death.jpg
 ---
 
 Long Hair of Death (1964), directed by Antonio Margheriti, is a gothic
