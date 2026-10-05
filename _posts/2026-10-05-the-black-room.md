@@ -17,6 +17,10 @@ excerpt: >-
   alive. A pre-fame Linnea Quigley turns up early; the leads do not have
   the screen presence to carry it.
 imdb: tt0086971
+stills: [/assets/img/stills/the-black-room-1.jpg, /assets/img/stills/the-black-room-2.jpg, /assets/img/stills/the-black-room-3.jpg, /assets/img/stills/the-black-room-4.jpg]
+tmdb_poster: /sBlF5Gh4GQO5WC96MSfa2S5p4R6.jpg
+posters: [/assets/img/posters/the-black-room-alt-1.jpg, /assets/img/posters/the-black-room-alt-2.jpg, /assets/img/posters/the-black-room-alt-3.jpg]
+image: /assets/img/cards/the-black-room.jpg
 ---
 
 The Black Room (1982) is an American horror, written by Norman Thaddeus
