@@ -67,7 +67,7 @@ def candidate_sheet(slug, movie):
     imgs = api(f"/movie/{movie['id']}/images")
     posters = imgs.get("posters") or []
     posters.sort(key=lambda p: (p.get("vote_count", 0), p.get("vote_average", 0)), reverse=True)
-    posters = posters[:16]
+    posters = posters[:40]
     if not posters:
         print(f"none  {slug}: TMDB has no posters"); return
     W, H, cols = 230, 345, 4
