@@ -280,6 +280,14 @@ for path in sorted(glob.glob("_posts/*.md")):
             candidate_sheet(slug, movie); continue
         if extras(slug, movie, path): changed.append(slug + " (extras)")
         posters_all = all_posters(movie["id"])
+        # A TMDB movie's own image gallery can carry a mis-tagged poster (wrong
+        # film entirely). `tmdb_exclude:` names file_paths to never offer again,
+        # for when one slips into the alt row -- a bad tag upstream, not a
+        # search mismatch, so re-running variants() would otherwise bring it
+        # straight back.
+        excluded = {x.strip() for x in (field(fm, "tmdb_exclude") or "").split(",") if x.strip()}
+        if excluded:
+            posters_all = [p for p in posters_all if p.get("file_path") not in excluded]
         text = open(path, encoding="utf-8").read(); fm, end = front_matter(text)
         # A supplied poster (no pin): look for the same design in higher resolution.
         fp = pinned
