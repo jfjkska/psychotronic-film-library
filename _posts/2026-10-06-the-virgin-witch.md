@@ -21,6 +21,9 @@ excerpt: >-
   found her. Shot at the same location as Satan's Slave, and every bit
   its equal for seventies occult excess.
 imdb: tt0069464
+tmdb_poster: /jzDkDBIlRnloTiQqCugjwwJod7B.jpg
+posters: [/assets/img/posters/the-virgin-witch-alt-1.jpg, /assets/img/posters/the-virgin-witch-alt-2.jpg]
+image: /assets/img/cards/the-virgin-witch.jpg
 ---
 
 The Virgin Witch (1971) is an occult exploitation classic directed by Ray
