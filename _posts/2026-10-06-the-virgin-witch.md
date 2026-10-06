@@ -23,6 +23,9 @@ excerpt: >-
 imdb: tt0069464
 tmdb: 72153
 image: /assets/img/cards/the-virgin-witch.jpg
+stills: [/assets/img/stills/the-virgin-witch-1.jpg, /assets/img/stills/the-virgin-witch-2.jpg, /assets/img/stills/the-virgin-witch-3.jpg, /assets/img/stills/the-virgin-witch-4.jpg]
+tmdb_poster: /bLYZAd3yukk9HFamT16XHFrmKtw.jpg
+posters: [/assets/img/posters/the-virgin-witch-alt-1.jpg, /assets/img/posters/the-virgin-witch-alt-2.jpg, /assets/img/posters/the-virgin-witch-alt-3.jpg]
 ---
 
 The Virgin Witch (1971) is an occult exploitation classic directed by Ray
