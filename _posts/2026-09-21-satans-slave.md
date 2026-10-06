@@ -41,5 +41,6 @@ rituals and brightly coloured robes. He adds some cousinly love, brutal
 bloodletting and a preposterous twist, but it kind of works, so I will give
 him the benefit of the doubt.
 
-The location of the stately home of the coven was also used in Virgin Witch,
-for those eagle-eyed purveyors of 1970s satanic exploitation.
+The location of the stately home of the coven was also used in
+[The Virgin Witch](/reviews/the-virgin-witch/), for those eagle-eyed
+purveyors of 1970s satanic exploitation.
