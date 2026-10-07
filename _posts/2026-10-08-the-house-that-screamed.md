@@ -20,6 +20,10 @@ excerpt: >-
   students vanishing one by one. An early progenitor of the slasher that
   left its mark on the giallo that followed.
 imdb: tt0064888
+stills: [/assets/img/stills/the-house-that-screamed-1.jpg, /assets/img/stills/the-house-that-screamed-2.jpg, /assets/img/stills/the-house-that-screamed-3.jpg, /assets/img/stills/the-house-that-screamed-4.jpg]
+tmdb_poster: /a6rUOhmr14mXx7pDRJskFv2GpH2.jpg
+posters: [/assets/img/posters/the-house-that-screamed-alt-1.jpg, /assets/img/posters/the-house-that-screamed-alt-2.jpg, /assets/img/posters/the-house-that-screamed-alt-3.jpg]
+image: /assets/img/cards/the-house-that-screamed.jpg
 ---
 
 The House That Screamed, aka La residencia (1969), is a Spanish gothic
