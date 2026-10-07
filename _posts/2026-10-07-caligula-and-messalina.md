@@ -17,6 +17,7 @@ excerpt: >-
   padded out with sword-and-sandal stock footage. Messalina fights in the
   arena to catch the unhinged Emperor's eye.
 imdb: tt0083710
+image: /assets/img/cards/caligula-and-messalina.jpg
 ---
 
 Caligula and Messalina (1981) is Bruno Mattei's cheap cash-in on the
