@@ -54,10 +54,10 @@ the beautiful Dr Lisa Benson (Luciana Paluzzi).
 The theme song is pure psych freakbeat, sung by Richard Delvy. It contains
 the immortal lines:
 
-> What can it be, what's the reason?
-> Is this the end of all breathin'
-> Is this something in your head
-> Will it believe you when you're dead.
+> What can it be, what's the reason?  
+> Is this the end of all breathin'  
+> Is this something in your head  
+> Will it believe you when you're dead.  
 > Green Slime
 
 The original record fetches three-figure sums on the collectors' market
