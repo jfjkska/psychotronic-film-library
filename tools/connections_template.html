@@ -1,0 +1,551 @@
+<title>Psychotronic Connections</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Shrikhand&family=Special+Elite&display=swap">
+<style>
+/* Layout: one long reel. A poster-node map up top, then reels of evidence, each a different instrument. Single dark look, the library's own. */
+:root {
+  --ink: #12060f;
+  --black: #070206;
+  --plum: #2a0b2e;
+  --plum-2: #451447;
+  --magenta: #ff2d9b;
+  --orange: #ff5a1f;
+  --cream: #f4e6c3;
+  --yellow: #f4e04d;
+  --teal: #3cc7c0;
+  --dim: rgba(244, 230, 195, .66);
+  --faint: rgba(244, 230, 195, .16);
+  --display: "Shrikhand", "Cooper Black", Georgia, serif;
+  --poster: "Anton", Impact, "Arial Narrow Bold", sans-serif;
+  --type: "Special Elite", "Courier New", monospace;
+  --body: "Crimson Pro", Georgia, "Times New Roman", serif;
+  color-scheme: dark;
+}
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  margin: 0; color: var(--cream); font-family: var(--body); font-size: 1.125rem; line-height: 1.55;
+  background-color: var(--ink);
+  background-image:
+    radial-gradient(circle at 50% 50%, rgba(255, 45, 155, .22) 0 1px, transparent 1.3px),
+    radial-gradient(ellipse at 50% 0%, rgba(255, 45, 155, .16), transparent 55%),
+    linear-gradient(180deg, var(--plum) 0%, var(--ink) 40%, var(--black) 100%);
+  background-size: 26px 26px, 100% 100%, 100% 100%;
+}
+a { color: var(--yellow); }
+a:focus-visible, button:focus-visible, select:focus-visible, summary:focus-visible, input:focus-visible { outline: 2px solid var(--yellow); outline-offset: 2px; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-inline: 16px; }
+h1, h2, h3 { text-wrap: balance; margin: 0; font-weight: 400; }
+p { margin: 0; }
+.eyebrow { font-family: var(--type); font-size: .82rem; letter-spacing: .14em; text-transform: uppercase; color: var(--teal); }
+.lede { color: var(--dim); max-width: 62ch; }
+
+/* Hero */
+.hero { padding-block: 48px 28px; display: grid; gap: 18px; }
+.hero h1 { font-family: var(--display); font-size: clamp(2.6rem, 8vw, 5.6rem); line-height: .95; color: var(--magenta);
+  text-shadow: 3px 3px 0 var(--black), 6px 6px 0 var(--orange); }
+.hero .lede { font-size: 1.25rem; }
+.tally { display: flex; flex-wrap: wrap; gap: 10px 28px; font-family: var(--poster); text-transform: uppercase; letter-spacing: .04em; }
+.tally b { font-size: 2rem; color: var(--yellow); font-weight: 400; margin-right: 6px; font-variant-numeric: tabular-nums; }
+
+/* Sections */
+section { padding-block: 40px; border-top: 1px dashed var(--faint); display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; }
+section > header { display: grid; gap: 6px; }
+section h2 { font-family: var(--poster); text-transform: uppercase; font-size: clamp(1.8rem, 4.5vw, 2.8rem); letter-spacing: .02em; line-height: 1; }
+section h2 em { font-style: normal; color: var(--magenta); }
+
+/* Posters */
+.pst { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid var(--black); background: var(--plum-2); flex: none; display: inline-block; }
+.pst.big { width: 64px; height: 64px; }
+.pst.sm { width: 30px; height: 30px; border-width: 1px; }
+.film-link { color: var(--cream); text-decoration: none; border-bottom: 1px dotted var(--dim); }
+.film-link:hover { color: var(--yellow); }
+
+/* Did you spot */
+.spots { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 16px; }
+.spot { background: rgba(7, 2, 6, .55); border: 1px solid var(--faint); border-radius: 4px; padding: 16px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.spot .faces { display: flex; }
+.spot .faces .pst { margin-right: -10px; }
+.spot h3 { font-family: var(--poster); font-size: 1.3rem; text-transform: uppercase; color: var(--yellow); line-height: 1.1; letter-spacing: .02em; }
+.spot p { font-size: 1.02rem; }
+
+/* Map */
+.map-shell { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 16px; }
+@media (max-width: 860px) { .map-shell { grid-template-columns: minmax(0, 1fr); } }
+.map { position: relative; background: rgba(7, 2, 6, .6); border: 1px solid var(--faint); border-radius: 4px; height: 640px; overflow: hidden; touch-action: none; }
+@media (max-width: 600px) { .map { height: 480px; } }
+.map svg { width: 100%; height: 100%; display: block; cursor: grab; }
+.map .hint { position: absolute; left: 12px; bottom: 10px; font-family: var(--type); font-size: .78rem; color: var(--dim); pointer-events: none; }
+.toggles { display: flex; flex-wrap: wrap; gap: 8px; }
+.tog { font-family: var(--type); font-size: .85rem; color: var(--cream); background: transparent; border: 1px solid var(--faint); border-radius: 999px; padding: 5px 12px 5px 10px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+.tog[aria-pressed="true"] { background: rgba(244, 230, 195, .1); border-color: var(--dim); }
+.tog[aria-pressed="false"] { opacity: .55; }
+.tog i { width: 22px; height: 0; border-top: 3px solid currentColor; display: inline-block; }
+.panel { background: rgba(7, 2, 6, .6); border: 1px solid var(--faint); border-radius: 4px; padding: 16px; display: grid; gap: 12px; align-content: start; max-height: 640px; overflow-y: auto; min-width: 0; }
+.panel h3 { font-family: var(--poster); text-transform: uppercase; font-size: 1.5rem; line-height: 1.05; }
+.panel .meta { font-family: var(--type); font-size: .82rem; color: var(--dim); }
+.panel ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.panel li { display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: 10px; align-items: start; font-size: .98rem; line-height: 1.35; }
+.panel li small { display: block; color: var(--dim); }
+.panel .kind { font-family: var(--type); font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; margin-top: 4px; }
+.panel button.linkish { all: unset; cursor: pointer; border-bottom: 1px dotted var(--dim); }
+.panel button.linkish:focus-visible { outline: 2px solid var(--yellow); }
+.node-label { font-family: var(--poster); font-size: 11px; fill: var(--cream); paint-order: stroke; stroke: var(--black); stroke-width: 3px; pointer-events: none; text-transform: uppercase; letter-spacing: .03em; }
+.hub-label { font-family: var(--type); font-size: 10.5px; fill: var(--teal); paint-order: stroke; stroke: var(--black); stroke-width: 3px; pointer-events: none; }
+
+/* Six degrees */
+.degrees { background: rgba(7, 2, 6, .6); border: 1px solid var(--faint); border-radius: 4px; padding: 18px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; }
+.pickers { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; font-family: var(--type); }
+.pickers select { font: inherit; font-family: var(--body); font-size: 1.05rem; background: var(--plum); color: var(--cream); border: 1px solid var(--dim); border-radius: 3px; padding: 6px 8px; flex: 1 1 14rem; min-width: 0; max-width: 100%; }
+.pickers button { font-family: var(--poster); text-transform: uppercase; letter-spacing: .05em; font-size: 1rem; background: var(--magenta); color: var(--black); border: 0; border-radius: 3px; padding: 8px 14px; cursor: pointer; }
+.pickers label { display: inline-flex; gap: 6px; align-items: center; font-size: .9rem; color: var(--dim); }
+.chain { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 6px; }
+.chain .stop { display: grid; justify-items: center; gap: 4px; width: 112px; text-align: center; font-family: var(--poster); text-transform: uppercase; font-size: .86rem; line-height: 1.1; }
+.chain .stop.hub { font-family: var(--type); text-transform: none; color: var(--teal); font-size: .86rem; }
+.chain .stop.hub .ring { width: 64px; height: 64px; border-radius: 50%; border: 2px dashed var(--teal); display: grid; place-items: center; font-family: var(--display); font-size: 1.5rem; color: var(--teal); }
+.chain .arrow { font-family: var(--type); font-size: .8rem; color: var(--dim); max-width: 150px; text-align: center; line-height: 1.25; }
+.chain .arrow::before { content: "⟶"; display: block; font-size: 1.4rem; color: var(--magenta); }
+.chain-note { font-family: var(--type); color: var(--dim); font-size: .9rem; }
+
+/* Ghost shelf */
+.shelf { display: grid; gap: 8px; }
+.shelf details { border-bottom: 1px solid var(--faint); padding-block: 6px; }
+.shelf summary { display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); gap: 14px; align-items: center; cursor: pointer; list-style: none; }
+.shelf summary::-webkit-details-marker { display: none; }
+@media (max-width: 600px) { .shelf summary { grid-template-columns: minmax(0, 1fr); gap: 6px; } }
+.shelf .hname { font-family: var(--poster); text-transform: uppercase; font-size: 1.1rem; line-height: 1.1; }
+.shelf .hname small { display: block; font-family: var(--type); text-transform: none; font-size: .8rem; color: var(--dim); }
+.shelf .bar { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+.shelf .bar .count { font-family: var(--poster); color: var(--yellow); font-size: 1.3rem; margin-left: 6px; font-variant-numeric: tabular-nums; }
+.shelf .body { padding: 10px 0 6px; display: grid; gap: 10px; }
+.shelf .body p { color: var(--dim); max-width: 70ch; }
+.shelf .body ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+.shelf .body li { display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: 10px; font-size: 1rem; line-height: 1.3; }
+.shelf .body li small { display: block; color: var(--dim); }
+
+/* Swimlanes */
+.scroll-x { overflow-x: auto; border: 1px solid var(--faint); border-radius: 4px; background: rgba(7, 2, 6, .6); }
+.lanes text { font-family: var(--type); fill: var(--cream); }
+.lanes .axis text { font-family: var(--poster); fill: var(--dim); font-size: 12px; }
+
+/* Lineage */
+.lineage { display: grid; gap: 4px; }
+.lin { display: grid; grid-template-columns: minmax(0, 13rem) minmax(0, 1fr) minmax(0, 13rem); gap: 12px; align-items: center; padding-block: 6px; border-bottom: 1px solid var(--faint); }
+.lin .src { text-align: right; font-family: var(--type); font-size: .95rem; line-height: 1.2; }
+.lin .src small, .lin .dst small { display: block; color: var(--dim); font-family: var(--type); font-size: .78rem; }
+.lin .dst { display: flex; gap: 10px; align-items: center; font-family: var(--poster); text-transform: uppercase; font-size: .95rem; line-height: 1.1; }
+.lin .track { position: relative; height: 22px; }
+.lin .track .line { position: absolute; top: 10px; height: 3px; border-radius: 2px; }
+.lin .track .dot { position: absolute; top: 5px; width: 13px; height: 13px; border-radius: 50%; margin-left: -6px; }
+.lin.to .src { order: 3; text-align: left; }
+.lin.to .dst { order: 1; justify-content: flex-end; text-align: right; }
+.lin.to .track { order: 2; }
+.lin-axis { display: grid; grid-template-columns: minmax(0, 13rem) minmax(0, 1fr) minmax(0, 13rem); gap: 12px; font-family: var(--poster); color: var(--dim); font-size: .8rem; }
+.lin-axis div { display: flex; justify-content: space-between; }
+@media (max-width: 700px) {
+  .lin, .lin-axis { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .lin .src, .lin.to .src { text-align: left; order: 1; }
+  .lin .dst, .lin.to .dst { justify-content: flex-start; text-align: left; order: 3; }
+  .lin .track, .lin.to .track { order: 2; }
+  .lin-axis > span { display: none; }
+}
+
+/* Clubs */
+.clubs { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+.club { background: rgba(7, 2, 6, .55); border: 1px solid var(--faint); border-radius: 4px; padding: 16px; display: grid; gap: 12px; align-content: start; min-width: 0; }
+.club h3 { font-family: var(--display); font-size: 1.6rem; color: var(--orange); line-height: 1.1; }
+.club ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.club li { display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: 10px; font-size: 1rem; line-height: 1.3; }
+.club li small { display: block; color: var(--dim); }
+
+/* Aliases */
+.two { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+.two > div { min-width: 0; display: grid; gap: 10px; align-content: start; }
+.two h3 { font-family: var(--poster); text-transform: uppercase; font-size: 1.4rem; color: var(--yellow); }
+.clash { display: grid; gap: 4px; padding-block: 8px; border-bottom: 1px solid var(--faint); }
+.clash b { font-family: var(--display); font-weight: 400; font-size: 1.3rem; color: var(--magenta); }
+.clash .row { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.clash p { color: var(--dim); font-size: 1rem; }
+.alias { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: 10px; align-items: center; padding-block: 6px; border-bottom: 1px solid var(--faint); font-size: 1rem; }
+.alias .as { font-family: var(--poster); text-transform: uppercase; color: var(--yellow); }
+.alias .arrow { font-family: var(--type); color: var(--dim); font-size: .8rem; }
+
+footer { padding-block: 32px 48px; border-top: 1px dashed var(--faint); font-family: var(--type); font-size: .85rem; color: var(--dim); display: grid; gap: 6px; }
+footer code { color: var(--cream); }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+
+<div class="wrap">
+  <header class="hero">
+    <span class="eyebrow">For Daz · Psychotronic Film Library · October 2026</span>
+    <h1>Everything on the shelf is connected</h1>
+    <p class="lede">Every review in the library, wired together by who made it, who's in it, who scored it, and the films outside the library they all keep running into. Some of these you'll know. Some of them should not be true and are.</p>
+    <div class="tally" id="tally"></div>
+  </header>
+
+  <section id="spots">
+    <header>
+      <span class="eyebrow">Start here</span>
+      <h2>Ten you might <em>not</em> have spotted</h2>
+    </header>
+    <div class="spots" id="spot-list"></div>
+  </section>
+
+  <section id="map">
+    <header>
+      <span class="eyebrow">The map</span>
+      <h2>The whole library, <em>wired up</em></h2>
+      <p class="lede">Each poster is a review. Teal rings are films outside the library that tie two or more reviews together. Click anything to see what it touches. Drag to pan, scroll or pinch to zoom.</p>
+    </header>
+    <div class="toggles" id="toggles"></div>
+    <div class="map-shell">
+      <div class="map" id="graph"><span class="hint">Click a poster or a ring</span></div>
+      <aside class="panel" id="panel" aria-live="polite"></aside>
+    </div>
+  </section>
+
+  <section id="degrees">
+    <header>
+      <span class="eyebrow">Six degrees</span>
+      <h2>Get from <em>any</em> film to any other</h2>
+      <p class="lede">Pick two reviews. This finds the shortest chain through shared cast and crew and the outside films in between.</p>
+    </header>
+    <div class="degrees">
+      <div class="pickers">
+        <select id="from" aria-label="From film"></select>
+        <span>to</span>
+        <select id="to" aria-label="To film"></select>
+        <button type="button" id="go">Connect</button>
+        <button type="button" id="rand" style="background:var(--teal)">Random pair</button>
+        <label><input type="checkbox" id="loose"> allow clubs and themes</label>
+      </div>
+      <div class="chain" id="chain"></div>
+      <p class="chain-note" id="chain-note"></p>
+    </div>
+  </section>
+
+  <section id="shelf">
+    <header>
+      <span class="eyebrow">The ghost shelf</span>
+      <h2>Films not in the library that <em>haunt</em> it</h2>
+      <p class="lede">Ranked by how many reviews each one touches. Open one to see who carries the link. A few of these are probably the next reviews.</p>
+    </header>
+    <div class="shelf" id="shelf-list"></div>
+  </section>
+
+  <section id="rep">
+    <header>
+      <span class="eyebrow">The repertory company</span>
+      <h2>Everyone who <em>came back</em></h2>
+      <p class="lede">Every person credited on two or more of the reviewed films, plotted by release year. Directors, actors, composers, and one writer the credits on the site don't mention.</p>
+    </header>
+    <div class="scroll-x"><svg class="lanes" id="lanes" role="img" aria-label="Recurring cast and crew by year"></svg></div>
+  </section>
+
+  <section id="lineage">
+    <header>
+      <span class="eyebrow">Cash-ins and legacies</span>
+      <h2>What they were <em>cashing in</em> on, and what cashed in on them</h2>
+      <p class="lede">Magenta lines run from the hit to the library film that followed it. Teal lines run the other way, from a library film to what it set going.</p>
+    </header>
+    <div class="lineage" id="lin"></div>
+  </section>
+
+  <section id="clubs">
+    <header>
+      <span class="eyebrow">Secret societies</span>
+      <h2>Clubs the films <em>belong</em> to</h2>
+    </header>
+    <div class="clubs" id="club-list"></div>
+  </section>
+
+  <section id="names">
+    <header>
+      <span class="eyebrow">Aliases</span>
+      <h2>Same title, <em>different</em> film. Same person, different name.</h2>
+    </header>
+    <div class="two">
+      <div><h3>Title clashes</h3><div id="clashes"></div></div>
+      <div><h3>Who was really behind the camera</h3><div id="aliases"></div></div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Built from the reviews on psychotronicfilmlibrary.com. Shared credits come from each review's cast and crew; the outside-film links were dug out by hand.</span>
+    <span>To refresh after new reviews: <code>python3 tools/make_connections.py</code>. Add deep cuts in <code>tools/connections_data.py</code>.</span>
+  </footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+const DATA = /*__DATA__*/null;
+const F = Object.fromEntries(DATA.films.map(f => [f.id, f]));
+const HUB = Object.fromEntries([...DATA.hubs.map(h => [h.id, {...h, kind: 'hub'}]),
+  ...DATA.clubs.map(h => [h.id, {...h, kind: 'club'}]), ...DATA.themes.map(h => [h.id, {...h, kind: 'theme'}])]);
+const COLOR = { credit: '#ff2d9b', hub: '#3cc7c0', club: '#f4e04d', theme: '#ff5a1f' };
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const pst = (id, cls = '') => { const f = F[id]; return f.img ? `<img class="pst ${cls}" src="${f.img}" alt="">` : `<span class="pst ${cls}"></span>`; };
+const flink = id => `<a class="film-link" href="${F[id].url}" target="_blank" rel="noopener">${esc(F[id].t)}</a> <small style="display:inline;color:var(--dim)">(${F[id].y})</small>`;
+
+/* ---------- tally ---------- */
+{
+  const hubLinks = DATA.hubs.reduce((n, h) => n + Object.keys(h.films).length, 0);
+  const touched = new Set(); DATA.direct.forEach(l => { touched.add(l.a); touched.add(l.b); });
+  [...DATA.hubs, ...DATA.clubs].forEach(h => Object.keys(h.films).forEach(s => touched.add(s)));
+  document.getElementById('tally').innerHTML = [
+    [DATA.films.length, 'films'], [DATA.direct.length, 'shared-credit links'],
+    [DATA.hubs.length, 'outside films'], [hubLinks, 'hidden threads'],
+    [DATA.films.length - touched.size, 'loners']].map(([n, l]) => `<span><b>${n}</b>${l}</span>`).join('');
+}
+
+/* ---------- did you spot ---------- */
+const SPOTS = [
+  { films: ['tragic-ceremony', 'the-house-that-screamed', 'red-rings-of-fear', 'devil-in-the-flesh'], h: 'Solange is everywhere',
+    p: "Camille Keaton from Tragic Ceremony <em>is</em> Solange in What Have You Done to Solange?, and Cristina Galbó from The House That Screamed is in it too. It was directed by Massimo Dallamano (Devil in the Flesh), and Red Rings of Fear is the third part of his trilogy, finished after he died." },
+  { films: ['die-screaming-marianne', 'the-iron-rose'], h: 'Teacher and student',
+    p: "Barry Evans from Die Screaming Marianne and Françoise Pascal from Rollin's The Iron Rose ended up in the same ITV classroom: he's the teacher in Mind Your Language, she's his French student, Danielle." },
+  { films: ['seven-deaths-in-the-cats-eye', 'satans-slave'], h: "Fellini's two boys",
+    p: "The two leads of Fellini Satyricon went straight to the drive-in. Hiram Keller ended up in Seven Deaths in the Cat's Eye; Martin Potter in Norman J. Warren's Satan's Slave." },
+  { films: ['hannah-queen-of-the-vampires', 'web-of-the-spider', 'frogs'], h: 'One Bava film, three reviews',
+    p: "Black Sabbath gives you Mark Damon (Hannah, Queen of the Vampires), Michèle Mercier (Web of the Spider), and, on the American cut, a score by Les Baxter, who also did Frogs." },
+  { films: ['silent-night-bloody-night', 'deathsport', 'private-parts'], h: 'Death Race 2000, in three pieces',
+    p: "Silent Night, Bloody Night has John Carradine, father of Deathsport's David Carradine, plus Mary Woronov, who was in Death Race 2000. Paul Bartel, who made Private Parts, directed it. Deathsport was Corman's follow-up." },
+  { films: ['love-camp-7', 'frogs'], h: 'From the camp to the swamp',
+    p: "Lee Frost, who made Love Camp 7, directed Ray Milland in The Thing with Two Heads in 1972, the same year Milland was menaced by Frogs. AIP released both." },
+  { films: ['killers-moon'], h: 'Feminist dialogue, uncredited',
+    p: "Killer's Moon's director Alan Birkinshaw is the brother of the novelist Fay Weldon. She wrote dialogue for it and kept her name off it." },
+  { films: ['house-on-straw-hill'], h: 'A nasty hiding in plain sight',
+    p: "As Exposé, House on Straw Hill was the only British film on the DPP 72 video-nasty list. On the site it's the one prosecuted nasty not tagged as one." },
+  { films: ['one-on-top-of-the-other', 'nightmare-city'], h: 'Belle de Jour reunion',
+    p: "Jean Sorel (One on Top of the Other, The Fox with the Velvet Tail) plays Deneuve's husband in Buñuel's Belle de Jour. Francisco Rabal from Nightmare City plays the gangster she takes up with." },
+  { films: ['spider-baby', 'the-last-hunter'], h: 'From Spider Baby to the Oscars',
+    p: "Quinn Redeker, the hapless heir in Spider Baby, shared an Oscar nomination for the story of The Deer Hunter. The Last Hunter borrowed its title and most of its jungle from that film and Apocalypse Now." },
+];
+document.getElementById('spot-list').innerHTML = SPOTS.map(s => `
+  <article class="spot"><div class="faces">${s.films.map(id => pst(id, 'big')).join('')}</div>
+  <h3>${esc(s.h)}</h3><p>${s.p}</p></article>`).join('');
+
+/* ---------- graph model ---------- */
+function edgesFor(kinds) {
+  const E = [];
+  if (kinds.credit) DATA.direct.forEach(l => E.push({ s: 'f:' + l.a, t: 'f:' + l.b, kind: 'credit', via: l.via.join(', ') }));
+  for (const k of ['hub', 'club', 'theme']) if (kinds[k])
+    Object.values(HUB).filter(h => h.kind === k).forEach(h =>
+      Object.entries(h.films).forEach(([s, why]) => E.push({ s: 'h:' + h.id, t: 'f:' + s, kind: k, via: why })));
+  return E;
+}
+
+/* ---------- map ---------- */
+const kinds = { credit: true, hub: true, club: false, theme: false };
+const KLABEL = { credit: 'Shared cast & crew', hub: 'Outside films', club: 'Clubs', theme: 'Themes' };
+const tog = document.getElementById('toggles');
+tog.innerHTML = Object.keys(kinds).map(k => `<button type="button" class="tog" data-k="${k}" aria-pressed="${kinds[k]}"><i style="color:${COLOR[k]}"></i>${KLABEL[k]}</button>`).join('');
+tog.addEventListener('click', e => { const b = e.target.closest('.tog'); if (!b) return;
+  kinds[b.dataset.k] = !kinds[b.dataset.k]; b.setAttribute('aria-pressed', kinds[b.dataset.k]); drawMap(); });
+
+const panel = document.getElementById('panel');
+let selected = null, focusNode = () => {};
+function showPanel(id) {
+  selected = id;
+  if (!id) { panel.innerHTML = `<p class="eyebrow">Nothing selected</p><p style="color:var(--dim)">Click a poster or a teal ring on the map. The biggest posters are the most connected films.</p>`; return; }
+  const E = edgesFor(kinds);
+  if (id.startsWith('f:')) {
+    const s = id.slice(2), f = F[s];
+    const credits = E.filter(e => e.kind === 'credit' && (e.s === id || e.t === id)).map(e => ({ o: (e.s === id ? e.t : e.s).slice(2), via: e.via }));
+    const hubs = E.filter(e => e.kind !== 'credit' && e.t === id).map(e => ({ h: HUB[e.s.slice(2)], via: e.via }));
+    panel.innerHTML = `<div style="display:flex;gap:12px;align-items:center">${pst(s, 'big')}<div><h3>${esc(f.t)}</h3><div class="meta">${f.y} · ${esc(f.d)} · ${esc(f.c)}</div></div></div>
+      <a class="meta" href="${f.url}" target="_blank" rel="noopener">Read the review ↗</a>
+      ${credits.length ? `<div class="kind" style="color:${COLOR.credit}">Shared cast &amp; crew</div><ul>${credits.map(c => `<li>${pst(c.o, 'sm')}<span><button class="linkish" data-go="f:${c.o}">${esc(F[c.o].t)}</button><small>${esc(c.via)}</small></span></li>`).join('')}</ul>` : ''}
+      ${hubs.length ? `<div class="kind" style="color:${COLOR.hub}">Through other films, clubs, themes</div><ul>${hubs.map(c => `<li><span class="pst sm" style="border:2px dashed ${COLOR[c.h.kind]};background:transparent"></span><span><button class="linkish" data-go="h:${c.h.id}">${esc(c.h.name)}</button><small>${esc(c.via)}</small></span></li>`).join('')}</ul>` : ''}
+      ${!credits.length && !hubs.length ? '<p style="color:var(--dim)">No links with the current filters. Try switching on clubs or themes.</p>' : ''}`;
+  } else {
+    const h = HUB[id.slice(2)];
+    panel.innerHTML = `<span class="eyebrow" style="color:${COLOR[h.kind]}">${h.kind === 'hub' ? 'Not in the library' : h.kind === 'club' ? 'Club' : 'Theme'}${h.year ? ' · ' + esc(h.year) : ''}</span><h3>${esc(h.name)}</h3>
+      ${h.blurb ? `<p style="color:var(--dim);font-size:1rem">${esc(h.blurb)}</p>` : ''}
+      <ul>${Object.entries(h.films).map(([s, why]) => `<li>${pst(s, 'sm')}<span><button class="linkish" data-go="f:${s}">${esc(F[s].t)}</button>${why ? `<small>${esc(why)}</small>` : ''}</span></li>`).join('')}</ul>`;
+  }
+}
+panel.addEventListener('click', e => { const b = e.target.closest('[data-go]'); if (b) { showPanel(b.dataset.go); focusNode(b.dataset.go); } });
+
+const gEl = document.getElementById('graph');
+let sim;
+function drawMap() {
+  d3.select(gEl).select('svg').remove();
+  if (sim) sim.stop();
+  const W = gEl.clientWidth, H = gEl.clientHeight;
+  const E = edgesFor(kinds).map(e => ({ source: e.s, target: e.t, kind: e.kind }));
+  const used = new Set(E.flatMap(e => [e.source, e.target]));
+  const deg = {}; E.forEach(e => { deg[e.source] = (deg[e.source] || 0) + 1; deg[e.target] = (deg[e.target] || 0) + 1; });
+  const nodes = [...DATA.films.map(f => ({ id: 'f:' + f.id, film: f })),
+    ...Object.values(HUB).filter(h => used.has('h:' + h.id)).map(h => ({ id: 'h:' + h.id, hub: h }))];
+  nodes.forEach(n => n.r = n.film ? 11 + Math.min(deg[n.id] || 0, 12) * 1.4 : 7 + Math.min(deg[n.id] || 0, 10));
+
+  const svg = d3.select(gEl).append('svg').attr('viewBox', [0, 0, W, H]);
+  const defs = svg.append('defs');
+  DATA.films.forEach(f => { if (!f.img) return;
+    defs.append('pattern').attr('id', 'p-' + f.id).attr('width', 1).attr('height', 1).attr('patternContentUnits', 'objectBoundingBox')
+      .append('image').attr('href', f.img).attr('width', 1).attr('height', 1).attr('preserveAspectRatio', 'xMidYMid slice'); });
+  const root = svg.append('g');
+  const zoom = d3.zoom().scaleExtent([.3, 4]).on('zoom', ev => root.attr('transform', ev.transform));
+  svg.call(zoom);
+
+  const link = root.append('g').selectAll('line').data(E).join('line')
+    .attr('stroke', d => COLOR[d.kind]).attr('stroke-opacity', .5)
+    .attr('stroke-width', d => d.kind === 'credit' ? 2 : 1.4)
+    .attr('stroke-dasharray', d => d.kind === 'hub' ? '5 4' : d.kind === 'theme' ? '2 4' : d.kind === 'club' ? '8 3' : null);
+  const node = root.append('g').selectAll('g').data(nodes).join('g').style('cursor', 'pointer')
+    .attr('tabindex', 0).attr('role', 'button').attr('aria-label', d => d.film ? d.film.t : d.hub.name);
+  node.filter(d => d.film).append('circle').attr('r', d => d.r)
+    .attr('fill', d => d.film.img ? `url(#p-${d.film.id})` : '#451447').attr('stroke', '#070206').attr('stroke-width', 2);
+  node.filter(d => d.hub).append('circle').attr('r', d => d.r).attr('fill', '#070206')
+    .attr('stroke', d => COLOR[d.hub.kind]).attr('stroke-width', 2).attr('stroke-dasharray', '3 2');
+  node.filter(d => d.hub).append('text').attr('class', 'hub-label').attr('text-anchor', 'middle').attr('dy', d => d.r + 12)
+    .attr('fill', d => COLOR[d.hub.kind]).text(d => d.hub.name.length > 26 ? d.hub.name.slice(0, 24) + '…' : d.hub.name);
+  const label = node.filter(d => d.film).append('text').attr('class', 'node-label').attr('text-anchor', 'middle')
+    .attr('dy', d => d.r + 12).text(d => d.film.t).attr('opacity', d => (deg[d.id] || 0) >= 8 ? 1 : 0);
+
+  const adj = {}; E.forEach(e => { const a = e.source.id || e.source, b = e.target.id || e.target;
+    (adj[a] = adj[a] || new Set()).add(b); (adj[b] = adj[b] || new Set()).add(a); });
+  function highlight(id) {
+    if (!id) { node.attr('opacity', 1); link.attr('stroke-opacity', .5); label.attr('opacity', d => (deg[d.id] || 0) >= 8 ? 1 : 0); return; }
+    const near = new Set([id, ...(adj[id] || [])]);
+    node.attr('opacity', d => near.has(d.id) ? 1 : .15);
+    link.attr('stroke-opacity', d => d.source.id === id || d.target.id === id ? .95 : .04);
+    label.attr('opacity', d => near.has(d.id) ? 1 : 0);
+  }
+  node.on('click', (ev, d) => { ev.stopPropagation(); showPanel(d.id); highlight(d.id); })
+    .on('keydown', (ev, d) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); showPanel(d.id); highlight(d.id); } })
+    .on('mouseenter', (ev, d) => { if (!selected) label.filter(x => x.id === d.id).attr('opacity', 1); })
+    .on('mouseleave', (ev, d) => { if (!selected) label.filter(x => x.id === d.id).attr('opacity', (deg[d.id] || 0) >= 8 ? 1 : 0); });
+  svg.on('click', () => { showPanel(null); highlight(null); });
+  focusNode = id => { highlight(id); const n = nodes.find(x => x.id === id); if (n) svg.transition().duration(500)
+    .call(zoom.transform, d3.zoomIdentity.translate(W / 2, H / 2).scale(1.4).translate(-n.x, -n.y)); };
+
+  node.call(d3.drag()
+    .on('start', (ev, d) => { if (!ev.active) sim.alphaTarget(.2).restart(); d.fx = d.x; d.fy = d.y; })
+    .on('drag', (ev, d) => { d.fx = ev.x; d.fy = ev.y; })
+    .on('end', (ev, d) => { if (!ev.active) sim.alphaTarget(0); d.fx = null; d.fy = null; }));
+
+  sim = d3.forceSimulation(nodes)
+    .force('link', d3.forceLink(E).id(d => d.id).distance(d => d.kind === 'credit' ? 60 : 75).strength(.5))
+    .force('charge', d3.forceManyBody().strength(-160))
+    .force('collide', d3.forceCollide(d => d.r + 4))
+    .force('x', d3.forceX(W / 2).strength(.05)).force('y', d3.forceY(H / 2).strength(.07))
+    .on('tick', () => {
+      link.attr('x1', d => d.source.x).attr('y1', d => d.source.y).attr('x2', d => d.target.x).attr('y2', d => d.target.y);
+      node.attr('transform', d => `translate(${d.x},${d.y})`);
+    });
+  // Settle before first paint so the map reads at rest, then fit it to the frame.
+  sim.stop(); for (let i = 0; i < 260; i++) sim.tick(); sim.on('tick')();
+  const xs = nodes.map(n => n.x), ys = nodes.map(n => n.y);
+  const [x0, x1, y0, y1] = [Math.min(...xs) - 40, Math.max(...xs) + 40, Math.min(...ys) - 40, Math.max(...ys) + 40];
+  const k = Math.min(W / (x1 - x0), H / (y1 - y0), 1.5);
+  svg.call(zoom.transform, d3.zoomIdentity.translate(W / 2, H / 2).scale(k).translate(-(x0 + x1) / 2, -(y0 + y1) / 2));
+  if (selected && nodes.some(n => n.id === selected)) highlight(selected);
+  showPanel(selected && nodes.some(n => n.id === selected) ? selected : null);
+}
+drawMap();
+let rsz; window.addEventListener('resize', () => { clearTimeout(rsz); rsz = setTimeout(drawMap, 250); });
+
+/* ---------- six degrees ---------- */
+const byTitle = [...DATA.films].sort((a, b) => a.t.replace(/^The /, '').localeCompare(b.t.replace(/^The /, '')));
+const opts = byTitle.map(f => `<option value="${f.id}">${esc(f.t)} (${f.y})</option>`).join('');
+const fromSel = document.getElementById('from'), toSel = document.getElementById('to');
+fromSel.innerHTML = opts; toSel.innerHTML = opts;
+fromSel.value = 'love-camp-7'; toSel.value = 'the-house-that-screamed';
+function connect() {
+  const loose = document.getElementById('loose').checked;
+  const E = edgesFor({ credit: true, hub: true, club: loose, theme: loose });
+  const adj = {}; E.forEach(e => { (adj[e.s] = adj[e.s] || []).push([e.t, e]); (adj[e.t] = adj[e.t] || []).push([e.s, e]); });
+  const a = 'f:' + fromSel.value, b = 'f:' + toSel.value;
+  const prev = { [a]: null }, q = [a];
+  while (q.length) { const n = q.shift(); if (n === b) break;
+    for (const [m, e] of adj[n] || []) if (!(m in prev)) { prev[m] = [n, e]; q.push(m); } }
+  const out = document.getElementById('chain'), note = document.getElementById('chain-note');
+  if (a === b) { out.innerHTML = ''; note.textContent = 'Same film. Zero degrees.'; return; }
+  if (!(b in prev)) { out.innerHTML = ''; note.textContent = loose ? 'No route, even through clubs and themes. A genuine loner.' : 'No route through cast, crew or outside films. Tick “allow clubs and themes” and try again.'; return; }
+  const path = []; for (let n = b; n; n = prev[n] && prev[n][0]) path.unshift([n, prev[n] && prev[n][1]]);
+  const stop = id => id.startsWith('f:')
+    ? `<div class="stop">${pst(id.slice(2), 'big')}<span>${esc(F[id.slice(2)].t)}</span></div>`
+    : `<div class="stop hub"><span class="ring" style="border-color:${COLOR[HUB[id.slice(2)].kind]}">✶</span><span>${esc(HUB[id.slice(2)].name)}</span></div>`;
+  out.innerHTML = path.map(([id, e], i) => (i ? `<div class="arrow">${esc(e.via)}</div>` : '') + stop(id)).join('');
+  const steps = path.filter(([id]) => id.startsWith('f:')).length - 1;
+  note.textContent = `${steps} ${steps === 1 ? 'step' : 'steps'} between films.`;
+}
+document.getElementById('go').addEventListener('click', connect);
+document.getElementById('rand').addEventListener('click', () => {
+  const r = () => DATA.films[Math.floor(Math.random() * DATA.films.length)].id;
+  fromSel.value = r(); do { toSel.value = r(); } while (toSel.value === fromSel.value); connect(); });
+document.getElementById('loose').addEventListener('change', connect);
+connect();
+
+/* ---------- ghost shelf ---------- */
+const hubsRanked = [...DATA.hubs].sort((a, b) => Object.keys(b.films).length - Object.keys(a.films).length);
+document.getElementById('shelf-list').innerHTML = hubsRanked.map((h, i) => `
+  <details${i === 0 ? ' open' : ''}><summary>
+    <span class="hname">${esc(h.name)}<small>${esc(h.year)}</small></span>
+    <span class="bar">${Object.keys(h.films).map(s => pst(s, 'sm')).join('')}<span class="count">${Object.keys(h.films).length}</span></span>
+  </summary><div class="body"><p>${esc(h.blurb)}</p>
+  <ul>${Object.entries(h.films).map(([s, why]) => `<li>${pst(s, 'sm')}<span>${flink(s)}<small>${esc(why)}</small></span></li>`).join('')}</ul></div></details>`).join('');
+
+/* ---------- repertory swimlanes ---------- */
+{
+  const rows = DATA.rep, rowH = 38, left = 210, right = 30, top = 34;
+  const years = DATA.films.map(f => f.y), y0 = Math.min(...years) - 1, y1 = Math.max(...years) + 1;
+  const W = Math.max(760, document.getElementById('lanes').parentElement.clientWidth), H = top + rows.length * rowH + 10;
+  const x = d3.scaleLinear().domain([y0, y1]).range([left, W - right]);
+  const svg = d3.select('#lanes').attr('width', W).attr('height', H).attr('viewBox', [0, 0, W, H]);
+  const ax = svg.append('g').attr('class', 'axis');
+  for (let y = Math.ceil(y0 / 5) * 5; y <= y1; y += 5) {
+    ax.append('line').attr('x1', x(y)).attr('x2', x(y)).attr('y1', top - 8).attr('y2', H).attr('stroke', 'rgba(244,230,195,.12)');
+    ax.append('text').attr('x', x(y)).attr('y', top - 14).attr('text-anchor', 'middle').text(y);
+  }
+  const roleCol = { directed: '#f4e04d', acted: '#ff2d9b', scored: '#3cc7c0', wrote: '#ff5a1f' };
+  const legend = svg.append('g').attr('transform', `translate(12,${top - 18})`);
+  Object.entries(roleCol).forEach(([r, c], i) => { legend.append('circle').attr('cx', i * 48).attr('cy', -4).attr('r', 4).attr('fill', c);
+    legend.append('text').attr('x', i * 48 + 7).attr('y', 0).attr('font-size', 11).attr('fill', '#f4e6c3').text(r); });
+  rows.forEach((p, i) => {
+    const cy = top + i * rowH + rowH / 2;
+    const g = svg.append('g');
+    if (i % 2 === 0) g.append('rect').attr('x', 0).attr('y', cy - rowH / 2).attr('width', W).attr('height', rowH).attr('fill', 'rgba(244,230,195,.035)');
+    const fs = Object.entries(p.films).sort((a, b) => F[a[0]].y - F[b[0]].y);
+    const xs = fs.map(([s]) => x(F[s].y));
+    g.append('line').attr('x1', Math.min(...xs)).attr('x2', Math.max(...xs)).attr('y1', cy).attr('y2', cy).attr('stroke', roleCol[fs[0][1]]).attr('stroke-opacity', .45).attr('stroke-width', 2);
+    g.append('text').attr('x', left - 14).attr('y', cy + 4).attr('text-anchor', 'end').attr('font-size', 13).text(p.n);
+    const seen = {};
+    fs.forEach(([s, role]) => { const k = F[s].y; const off = (seen[k] = (seen[k] || 0) + 1) - 1;
+      const cx = x(F[s].y) + off * 13, a = g.append('a').attr('href', F[s].url).attr('target', '_blank');
+      a.append('title').text(`${F[s].t} (${F[s].y}), ${role}`);
+      a.append('circle').attr('cx', cx).attr('cy', cy).attr('r', 14).attr('fill', F[s].img ? `url(#lp-${s})` : '#451447').attr('stroke', roleCol[role]).attr('stroke-width', 2.5);
+    });
+  });
+  const defs = svg.insert('defs', ':first-child');
+  DATA.films.forEach(f => { if (f.img) defs.append('pattern').attr('id', 'lp-' + f.id).attr('width', 1).attr('height', 1).attr('patternContentUnits', 'objectBoundingBox')
+    .append('image').attr('href', f.img).attr('width', 1).attr('height', 1).attr('preserveAspectRatio', 'xMidYMid slice'); });
+}
+
+/* ---------- lineage ---------- */
+{
+  const L = [...DATA.lineage].sort((a, b) => (a.dir === b.dir ? 0 : a.dir === 'from' ? -1 : 1) || F[a.film].y - F[b.film].y);
+  const y0 = 1955, y1 = 1990, pct = y => Math.max(0, Math.min(100, (y - y0) / (y1 - y0) * 100));
+  document.getElementById('lin').innerHTML = `<div class="lin-axis"><span></span><div>${[1955, 1965, 1975, 1985].map(y => `<span>${y}</span>`).join('')}</div><span></span></div>` +
+    L.map(l => { const fy = F[l.film].y, c = l.dir === 'from' ? COLOR.credit : COLOR.hub;
+      const a = pct(Math.min(l.sy, fy)), b = pct(Math.max(l.sy, fy)), over = Math.max(l.sy, fy) > y1;
+      return `<div class="lin ${l.dir}">
+        <div class="src">${esc(l.src)}<small>${l.sy}${over && l.sy > y1 ? ' ⟶ off the scale' : ''}</small></div>
+        <div class="track"><span class="line" style="left:${a}%;width:${Math.max(b - a, .6)}%;background:${c}"></span>
+          <span class="dot" style="left:${pct(l.sy)}%;background:transparent;border:2px solid ${c}"></span>
+          <span class="dot" style="left:${pct(fy)}%;background:${c}"></span></div>
+        <div class="dst">${pst(l.film, 'sm')}<span>${esc(F[l.film].t)}<small>${fy} · ${esc(l.note)}</small></span></div></div>`; }).join('');
+}
+
+/* ---------- clubs ---------- */
+document.getElementById('club-list').innerHTML = DATA.clubs.map(c => `<article class="club"><h3>${esc(c.name)}</h3>
+  <ul>${Object.entries(c.films).map(([s, why]) => `<li>${pst(s, 'sm')}<span>${flink(s)}${why ? `<small>${esc(why)}</small>` : ''}</span></li>`).join('')}</ul></article>`).join('');
+
+/* ---------- aliases ---------- */
+document.getElementById('clashes').innerHTML = DATA.clashes.map(c => `<div class="clash"><b>${esc(c.title)}</b>
+  <div class="row">${c.films.map(s => pst(s, 'sm') + `<span style="font-size:1rem">${esc(F[s].t)}</span>`).join('<span style="color:var(--dim)">·</span>')}</div><p>${esc(c.note)}</p></div>`).join('');
+document.getElementById('aliases').innerHTML = DATA.aliases.map(a => `<div class="alias"><span>${esc(a.real)}</span><span class="arrow">credited as</span>
+  <span><span class="as">${esc(a.as)}</span><br><small style="color:var(--dim)">${a.films.map(s => esc(F[s].t)).join(', ')}</small></span></div>`).join('');
+</script>
