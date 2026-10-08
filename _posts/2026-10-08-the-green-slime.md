@@ -22,7 +22,7 @@ excerpt: >-
 imdb: tt0064393
 stills: [/assets/img/stills/the-green-slime-1.jpg, /assets/img/stills/the-green-slime-2.jpg, /assets/img/stills/the-green-slime-3.jpg, /assets/img/stills/the-green-slime-4.jpg]
 tmdb_poster: /3MWnOwcLeySNqPtHpxqr7bJTZE5.jpg
-posters: [/assets/img/posters/the-green-slime-alt-1.jpg, /assets/img/posters/the-green-slime-alt-2.jpg, /assets/img/posters/the-green-slime-alt-3.jpg, /assets/img/posters/the-green-slime-alt-4.jpg]
+posters: [/assets/img/posters/the-green-slime-alt-1.jpg, /assets/img/posters/the-green-slime-alt-2.jpg, /assets/img/posters/the-green-slime-alt-3.jpg, /assets/img/posters/the-green-slime-alt-4.jpg, /assets/img/posters/the-green-slime-alt-5.jpg]
 image: /assets/img/cards/the-green-slime.jpg
 ---
 
