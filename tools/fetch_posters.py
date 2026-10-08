@@ -258,11 +258,12 @@ for path in sorted(glob.glob("_posts/*.md")):
     if width:
         try: w0, h0 = Image.open(current).size; ratio = w0 / h0
         except Exception: ratio = 1.0
-    pinned = field(fm, "tmdb_poster")
+    kept = field(fm, "keep_poster") in ("true", "yes", "1")   # a supplied poster the fetch must leave alone
+    pinned = None if kept else field(fm, "tmdb_poster")
     need_extras = RESTILLS or REVARIANTS or not field(fm, "imdb") or not re.search(r"^stills:", fm, re.M) or not re.search(r"^posters:", fm, re.M) or not pinned
     if width >= MIN_WIDTH and ratio < 0.8 and not FORCE and not pinned and not CANDIDATES and not need_extras:
         print(f"skip  {slug}: already {width}px wide"); continue
-    skip_poster = width >= MIN_WIDTH and ratio < 0.8 and not FORCE and not pinned
+    skip_poster = kept or (width >= MIN_WIDTH and ratio < 0.8 and not FORCE and not pinned)
 
     try:
         tmdb_id = field(fm, "tmdb")
@@ -291,7 +292,7 @@ for path in sorted(glob.glob("_posts/*.md")):
         text = open(path, encoding="utf-8").read(); fm, end = front_matter(text)
         # A supplied poster (no pin): look for the same design in higher resolution.
         fp = pinned
-        if not fp and width and ratio < 0.8:
+        if not fp and width and ratio < 0.8 and not kept:
             hit = match_supplied(current, posters_all, width)
             if hit:
                 fp = hit; skip_poster = False
