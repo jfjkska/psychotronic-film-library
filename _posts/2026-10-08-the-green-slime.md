@@ -22,7 +22,7 @@ excerpt: >-
 imdb: tt0064393
 stills: [/assets/img/stills/the-green-slime-1.jpg, /assets/img/stills/the-green-slime-2.jpg, /assets/img/stills/the-green-slime-3.jpg, /assets/img/stills/the-green-slime-4.jpg]
 tmdb_poster: /3MWnOwcLeySNqPtHpxqr7bJTZE5.jpg
-posters: [/assets/img/posters/the-green-slime-alt-1.jpg, /assets/img/posters/the-green-slime-alt-2.jpg, /assets/img/posters/the-green-slime-alt-3.jpg]
+posters: [/assets/img/posters/the-green-slime-alt-1.jpg, /assets/img/posters/the-green-slime-alt-2.jpg, /assets/img/posters/the-green-slime-alt-3.jpg, /assets/img/posters/the-green-slime-alt-4.jpg]
 image: /assets/img/cards/the-green-slime.jpg
 ---
 
@@ -53,10 +53,10 @@ the beautiful Dr Lisa Benson (Luciana Paluzzi).
 The theme song is pure psych freakbeat, sung by Richard Delvy. It contains
 the immortal lines:
 
-> What can it be, what's the reason?
-> Is this the end of all breathin'
-> Is this something in your head
-> Will it believe you when you're dead.
+> What can it be, what's the reason?  
+> Is this the end of all breathin'  
+> Is this something in your head  
+> Will it believe you when you're dead.  
 > Green Slime
 
 The original record fetches three-figure sums on the collectors' market
