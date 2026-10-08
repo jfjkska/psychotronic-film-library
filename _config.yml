@@ -76,3 +76,4 @@ exclude:
   - HOW-TO-POST.md
   - vendor
   - node_modules
+  - tools
