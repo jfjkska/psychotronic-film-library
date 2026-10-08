@@ -334,7 +334,10 @@ for path in sorted(glob.glob("_posts/*.md")):
         open(path, "w", encoding="utf-8").write(text)
         print(f"fetch {slug}: {movie.get('title')} ({movie.get('release_date','')[:4]}) -> {w}px wide")
         changed.append(slug)
-        if variants(slug, movie, path, im, posters_all, sent=sent): changed.append(slug + " (variants)")
+        # `keep_alts: true` marks a hand-picked alternates row the fetch must not rebuild
+        # (an explicit --revariants / --restills run still does).
+        keep_alts = field(fm, "keep_alts") in ("true", "yes", "1") and not REVARIANTS
+        if not keep_alts and variants(slug, movie, path, im, posters_all, sent=sent): changed.append(slug + " (variants)")
     except Exception as e:
         print(f"error {slug}: {e}")
 
