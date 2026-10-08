@@ -9,7 +9,7 @@ starring: "Robert Horton, Luciana Paluzzi, Richard Jaeckel"
 music: "Toshiaki Tsushima"
 genres: [sci-fi horror, kaiju, campy]
 rating: 5
-verdict: "Dive in"
+verdict: "Schlock sci-fi gem"
 poster: /assets/img/posters/the-green-slime.jpg
 trailer: mVvm8YMz6z0
 tracks:
