@@ -11,6 +11,10 @@ genres: [sci-fi horror, kaiju, campy]
 rating: 4
 verdict: "Dive in"
 poster: /assets/img/posters/the-green-slime.jpg
+trailer: mVvm8YMz6z0
+tracks:
+  - title: "Richard Delvy – The Green Slime (theme song)"
+    youtube: vwrhOd9Do2A
 excerpt: >-
   A space station crew blasts an asteroid and brings home a stain of alien
   slime that mutates into bug-eyed tentacled monsters. Shoot them and they
