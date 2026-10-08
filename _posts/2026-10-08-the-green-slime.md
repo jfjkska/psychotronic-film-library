@@ -8,7 +8,7 @@ country: USA / Japan
 starring: "Robert Horton, Luciana Paluzzi, Richard Jaeckel"
 music: "Toshiaki Tsushima"
 genres: [sci-fi horror, kaiju, campy]
-rating: 0
+rating: 4
 verdict: "Dive in"
 poster: /assets/img/posters/the-green-slime.jpg
 excerpt: >-
