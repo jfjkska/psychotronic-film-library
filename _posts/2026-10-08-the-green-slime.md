@@ -11,7 +11,6 @@ genres: [sci-fi horror, kaiju, campy]
 rating: 5
 verdict: "Dive in"
 poster: /assets/img/posters/the-green-slime.jpg
-keep_poster: true                           # Sandoval print supplied with the review; the fetch must not replace it
 trailer: mVvm8YMz6z0
 tracks:
   - title: "Richard Delvy – The Green Slime (theme song)"
@@ -23,7 +22,7 @@ excerpt: >-
 imdb: tt0064393
 stills: [/assets/img/stills/the-green-slime-1.jpg, /assets/img/stills/the-green-slime-2.jpg, /assets/img/stills/the-green-slime-3.jpg, /assets/img/stills/the-green-slime-4.jpg]
 tmdb_poster: /3MWnOwcLeySNqPtHpxqr7bJTZE5.jpg
-posters: [/assets/img/posters/the-green-slime-alt-1.jpg, /assets/img/posters/the-green-slime-alt-2.jpg]
+posters: [/assets/img/posters/the-green-slime-alt-1.jpg]
 image: /assets/img/cards/the-green-slime.jpg
 ---
 
