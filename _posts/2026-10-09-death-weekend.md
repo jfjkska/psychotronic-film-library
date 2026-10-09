@@ -15,6 +15,11 @@ excerpt: >-
   A weekend in rural Ontario turns into a night of terror when a gang of
   thuggish locals invades a mansion. Banned outright in the UK as a video
   nasty, and a precursor to I Spit on Your Grave.
+imdb: tt0075922
+stills: [/assets/img/stills/death-weekend-1.jpg]
+tmdb_poster: /rdJrsUuMpv6e3Pp4jOd2Wh1F9ss.jpg
+posters: [/assets/img/posters/death-weekend-alt-1.jpg, /assets/img/posters/death-weekend-alt-2.jpg, /assets/img/posters/death-weekend-alt-3.jpg]
+image: /assets/img/cards/death-weekend.jpg
 ---
 
 Death Weekend (1976) is a Canadian home invasion thriller starring Brenda

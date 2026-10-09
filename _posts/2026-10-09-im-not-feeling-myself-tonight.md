@@ -16,6 +16,10 @@ excerpt: >-
   David McGillivray, writer of Frightmare and House of Whipcord, turns to the
   British sex comedy. A cleaner invents a sonic aphrodisiac machine to seduce
   his boss's secretary, and little comes of it.
+imdb: tt0212237
+stills: [/assets/img/stills/im-not-feeling-myself-tonight-1.jpg]
+posters: [/assets/img/posters/im-not-feeling-myself-tonight-alt-1.jpg, /assets/img/posters/im-not-feeling-myself-tonight-alt-2.jpg]
+image: /assets/img/cards/im-not-feeling-myself-tonight.jpg
 ---
 
 I'm Not Feeling Myself Tonight (1976) was directed by Joseph McGrath and
