@@ -18,7 +18,8 @@ excerpt: >-
 imdb: tt0075922
 stills: [/assets/img/stills/death-weekend-1.jpg]
 tmdb_poster: /rdJrsUuMpv6e3Pp4jOd2Wh1F9ss.jpg
-posters: [/assets/img/posters/death-weekend-alt-1.jpg, /assets/img/posters/death-weekend-alt-2.jpg, /assets/img/posters/death-weekend-alt-3.jpg]
+keep_alts: true                            # hand-picked alternates; the fetch must not rebuild them
+posters: [/assets/img/posters/death-weekend-alt-1.jpg, /assets/img/posters/death-weekend-alt-2.jpg, /assets/img/posters/death-weekend-alt-3.jpg, /assets/img/posters/death-weekend-alt-4.jpg]
 image: /assets/img/cards/death-weekend.jpg
 ---
 
