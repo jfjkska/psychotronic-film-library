@@ -8,7 +8,7 @@ country: Italy / Spain
 starring: "Margit Evelyn Newton, Franco Garofalo, Selan Karay, Jose Gras"
 music: "Goblin"
 genres: [zombie, italian horror, video nasty]
-rating: 1
+rating: 2
 verdict: "Watch it at your peril"
 trailer: 0AzfFlTLYfI
 tracks:
