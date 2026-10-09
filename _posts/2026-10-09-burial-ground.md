@@ -23,7 +23,8 @@ excerpt: >-
 imdb: tt0081248
 stills: [/assets/img/stills/burial-ground-1.jpg, /assets/img/stills/burial-ground-2.jpg, /assets/img/stills/burial-ground-3.jpg, /assets/img/stills/burial-ground-4.jpg]
 tmdb_poster: /4FgFYrzmRrMdzEyDq1O09A4k4Vn.jpg
-posters: [/assets/img/posters/burial-ground-alt-1.jpg, /assets/img/posters/burial-ground-alt-2.jpg, /assets/img/posters/burial-ground-alt-3.jpg]
+keep_alts: true                            # hand-picked alternates; the fetch must not rebuild them
+posters: [/assets/img/posters/burial-ground-alt-1.jpg, /assets/img/posters/burial-ground-alt-2.jpg, /assets/img/posters/burial-ground-alt-3.jpg, /assets/img/posters/burial-ground-alt-4.jpg]
 image: /assets/img/cards/burial-ground.jpg
 ---
 
