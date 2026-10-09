@@ -20,6 +20,11 @@ excerpt: >-
   An archeology professor opens an ancient crypt and the dead rise to crash
   his house party. Slow, muddy, crumbling zombies, plentiful gore, and
   Peter Bark as a 25-year-old playing a child.
+imdb: tt0081248
+stills: [/assets/img/stills/burial-ground-1.jpg, /assets/img/stills/burial-ground-2.jpg, /assets/img/stills/burial-ground-3.jpg, /assets/img/stills/burial-ground-4.jpg]
+tmdb_poster: /4FgFYrzmRrMdzEyDq1O09A4k4Vn.jpg
+posters: [/assets/img/posters/burial-ground-alt-1.jpg, /assets/img/posters/burial-ground-alt-2.jpg, /assets/img/posters/burial-ground-alt-3.jpg]
+image: /assets/img/cards/burial-ground.jpg
 ---
 
 Burial Ground, aka Nights of Terror (1981), is an Italian zombie exploitation
