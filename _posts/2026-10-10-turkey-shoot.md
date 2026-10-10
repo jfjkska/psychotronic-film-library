@@ -15,8 +15,8 @@ verdict: "Good taste left at the gate"
 poster: /assets/img/posters/turkey-shoot.jpg
 tmdb_poster: /837jSfdQYvhqToMPfAGdci6zszG.jpg
 keep_alts: true
-posters: [/assets/img/posters/turkey-shoot-alt-1.jpg, /assets/img/posters/turkey-shoot-alt-2.jpg, /assets/img/posters/turkey-shoot-alt-3.jpg]
-stills: [/assets/img/stills/turkey-shoot-1.jpg, /assets/img/stills/turkey-shoot-2.jpg, /assets/img/stills/turkey-shoot-3.jpg, /assets/img/stills/turkey-shoot-4.jpg]
+posters: [/assets/img/posters/turkey-shoot-alt-1.jpg, /assets/img/posters/turkey-shoot-alt-3.jpg]
+stills: [/assets/img/stills/turkey-shoot-1.jpg, /assets/img/stills/turkey-shoot-2.jpg, /assets/img/stills/turkey-shoot-3.jpg, /assets/img/stills/turkey-shoot-4.jpg, /assets/img/posters/turkey-shoot-alt-2.jpg]
 imdb: tt0082338
 trailer: cQ7Hb13GIhU
 tracks:
