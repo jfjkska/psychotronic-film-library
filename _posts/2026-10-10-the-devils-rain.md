@@ -55,6 +55,7 @@ The critics gave the film a panning. My favourite put-down is:
 
 Harsh but very funny.
 
-The eyeless mask created for William Shatner was later used by the
-production team on Halloween (1978). The crew spray-painted the mask
-white, and it was worn by Nick Castle when he played Michael Myers.
+A cast of Shatner's face made for the film is reported to have been used
+to create Don Post's Captain Kirk mask. For Halloween (1978), the crew
+modified a shop-bought copy, spray-painted it white and put it on Nick
+Castle as Michael Myers.
