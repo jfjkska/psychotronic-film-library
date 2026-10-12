@@ -36,6 +36,10 @@ If it picks the wrong poster (a modern Blu-ray cover, say), run the workflow wit
 to `_poster_candidates/<slug>.jpg` with the TMDB paths in the `.txt` beside it. Put
 the chosen path on a `tmdb_poster:` line in the review and run the fetch again.
 
+For archive films with no reliable TMDB entry, add `fetch_posters: false` to
+the review's front matter. This skips automatic poster, gallery and credit
+lookups for that review, preserving its supplied assets; share cards still run.
+
 ## Wiring the contact form (2 minutes, free)
 
 GitHub Pages can't process a form on its own, so the form posts to Formspree.

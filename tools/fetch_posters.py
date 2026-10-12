@@ -245,6 +245,11 @@ for path in sorted(glob.glob("_posts/*.md")):
     text = open(path, encoding="utf-8").read()
     fm, end = front_matter(text)
     if fm is None: continue
+    # Some archive shorts have no reliable TMDB entry. Preserve manually
+    # supplied artwork and credits rather than matching a different film.
+    if field(fm, "fetch_posters") in ("false", "no", "0"):
+        print(f"skip  {slug}: automatic poster fetching disabled")
+        continue
     title, year = field(fm, "title"), field(fm, "year")
     poster = field(fm, "poster")
     dest = f"assets/img/posters/{slug}.jpg"
