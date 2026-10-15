@@ -10,7 +10,7 @@ music: "Ronald Stein (credited as Leonard Morand)"
 runtime: "81 min"
 genres: [sci-fi horror, vampire, american exploitation]
 rating: 3
-verdict: "An interesting chapter in cosmic horror"
+verdict: "Cosmic curiosity"
 poster: /assets/img/posters/queen-of-blood.jpg
 fetch_posters: false
 posters: [/assets/img/posters/queen-of-blood-alt-1.jpg]
