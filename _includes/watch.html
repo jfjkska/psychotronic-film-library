@@ -1,0 +1,8 @@
+<dt>Where to watch</dt>
+<dd class="watch">
+  {% for w in page.watch %}
+    <span class="watch-item">{% if w.url %}<a href="{{ w.url | escape }}" rel="noopener">{{ w.label | escape }}</a>{% else %}{{ w.label | escape }}{% endif %}{% if w.checked %}<small class="watch-checked">Checked {{ w.checked | date: '%-d %b %Y' }}</small>{% endif %}</span>
+  {% endfor %}
+  {% assign watch_query = page.title | url_encode %}
+  <span class="watch-item"><a href="{% if page.watch_guide %}{{ page.watch_guide | escape }}{% else %}https://www.justwatch.com/uk/search?q={{ watch_query }}{% endif %}" rel="noopener">Check UK streaming</a><small class="watch-checked">{% if page.watch_guide %}UK availability guide{% else %}Search JustWatch{% endif %} for {{ page.title | escape }}{% if page.year %} ({{ page.year }}){% endif %}</small></span>
+</dd>

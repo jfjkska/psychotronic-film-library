@@ -9,7 +9,13 @@ body_class: home
 
   <form class="finder" role="search" data-finder>
     <label class="sr-only" for="finder-q">Search the library</label>
-    <input id="finder-q" type="search" name="q" placeholder="Search a title, director, year…" autocomplete="off" data-finder-input>
+    <input id="finder-q" type="search" name="q" placeholder="Title, alternative title, director, cast, year…" autocomplete="off" data-finder-input aria-controls="film-rack">
+    <div class="finder-controls" data-finder-controls hidden>
+      <label>Decade<select name="decade" data-decade><option value="">All decades</option></select></label>
+      <label>Country<select name="country" data-country><option value="">All countries</option></select></label>
+      <label>Eyes<select name="rating" data-rating><option value="">Any rating</option><option value="3">3–5 eyes</option><option value="4">4–5 eyes</option><option value="5">5 eyes</option></select></label>
+      <label>Sort by<select name="sort" data-sort><option value="newest">Newest reviews</option><option value="rating">Highest rated</option><option value="title">Title A–Z</option><option value="year-asc">Oldest films</option><option value="year-desc">Newest films</option></select></label>
+    </div>
     <div class="genre-row" data-genre-row>
       <button type="button" class="chip is-on" data-genre="">All</button>
       {%- assign all_genres = "" | split: "" -%}
@@ -33,7 +39,12 @@ body_class: home
     </div>
   </form>
 
-  <ul class="rack" data-rack>
+  <div class="finder-summary" data-finder-summary hidden>
+    <p role="status" aria-live="polite" aria-atomic="true" data-result-count></p>
+    <button type="button" class="chip" data-reset-finder hidden>Clear filters</button>
+  </div>
+
+  <ul class="rack" id="film-rack" data-rack>
     {% for post in site.posts %}{% include card.html post=post %}{% endfor %}
   </ul>
   <p class="empty" data-empty hidden>Nothing on the shelf matches that. Try another word.</p>

@@ -64,12 +64,31 @@ Comments live in GitHub Discussions on this repo, so nothing else to host.
    `data-category-id`. Copy those four values into the `giscus:` block in `_config.yml`.
    Commit. The comments box appears at the foot of every review, in the site's colours.
 
-## Turning on the newsletter (Buttondown, free to 100 subscribers)
+## Email updates
 
-1. Sign up at https://buttondown.com and pick a username.
-2. Put it in `buttondown_username` in `_config.yml`. Commit.
-3. A sign-up box appears above the footer on every page. New subscribers land in
-   Buttondown; write and send from there.
+1. Use the site's mailing-list account at https://buttondown.com and pick a username.
+2. Put the username in `buttondown_username` in `_config.yml`. The signup form
+   appears in the footer and on `/updates/`. With no account configured, readers
+   can still follow the RSS feed from that page; no email addresses are collected.
+3. For automatic new-review emails, configure Buttondown's RSS-to-email with
+   `https://psychotronicfilmlibrary.com/feed.xml`. Choose a cadence and test it with
+   your own subscription before inviting readers. Account setup and automation
+   are separate from displaying the form; check the service's current plan terms.
+
+The form submits directly to Buttondown, which handles confirmation and unsubscribe.
+It does not send emails itself. See [Buttondown's signup form documentation](https://docs.buttondown.com/building-your-subscriber-base)
+and [RSS-to-email documentation](https://docs.buttondown.com/rss-to-email).
+
+## Checking browsing and gallery changes
+
+Build the site with Jekyll, then run `node tools/test_library.cjs <build-folder> <jsdom-module-path>`.
+This exercises search by alternative title/cast, combined filters, country
+co-productions, sorting, shared search URLs, gallery navigation, focus restoration,
+swipes, recommendations and viewing links. Also check desktop and mobile in a
+browser, including Escape and the native modal focus behaviour.
+
+The `Check site` workflow builds with the production Jekyll version and runs these
+interaction checks on feature branches and pull requests, without publishing.
 
 ## Adding your own domain later
 

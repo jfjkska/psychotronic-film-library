@@ -21,6 +21,7 @@ watch:                                      # optional: where it can be seen
   - label: "88 Films Blu-ray"
     url: https://example.com                # url is optional
   - label: "Plex (free, with ads)"
+watch_guide: https://www.justwatch.com/uk/movie/example # optional: only use a verified matching film/year
 trailer: dQw4w9WgXcQ                        # optional: the YouTube video id (the bit after v= in the link)
 tracks:                                     # optional: score tracks, same idea
   - title: "Main theme"

@@ -63,6 +63,25 @@ right when pasted into WhatsApp or X. Nothing to do.
 Under `watch:` list the disc label or streaming home, one `label` per line with an
 optional `url`. It shows in the credits block. Delete the lines if you don't know.
 
+Add `checked: YYYY-MM-DD` to a verified source to show when its link was checked.
+Label archive access and disc regions accurately. Keep any viewing link in the
+review's body if it is part of the review itself.
+
+Every review also offers a UK JustWatch search, labelled as a lookup rather than
+a promise that the film is available. If you have verified the matching UK film
+page and year, set `watch_guide:` to that page's URL to avoid a title search.
+
+## Browsing and related films
+
+The finder searches `title`, `aka`, `starring`, `director`, `year`, `country` and
+`genres`. Separate co-production countries with `/`, for example `Italy / France`,
+so the film appears under either country. Readers can combine filters and share
+the resulting search URL.
+
+Related reviews use shared directors, cast and genre tags and show the connection
+on each card. They are automatic connections, not hand-picked recommendations from
+Darren. Curated collections can be added separately when Darren has supplied them.
+
 ## 3. Wait a minute
 
 GitHub rebuilds the site on every commit. If the page doesn't change, hard-refresh

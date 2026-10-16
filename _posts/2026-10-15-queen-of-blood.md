@@ -16,6 +16,7 @@ fetch_posters: false
 posters: [/assets/img/posters/queen-of-blood-alt-1.jpg]
 stills: [/assets/img/stills/queen-of-blood-1.jpg, /assets/img/stills/queen-of-blood-2.jpg, /assets/img/stills/queen-of-blood-3.jpg, /assets/img/stills/queen-of-blood-4.jpg]
 imdb: tt0060877
+watch_guide: https://www.justwatch.com/uk/movie/queen-of-blood-1966
 trailer: tFmrynvag2A
 tracks:
   - title: "Main title – Ronald Stein (credited as Leonard Morand)"

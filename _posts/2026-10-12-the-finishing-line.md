@@ -12,6 +12,10 @@ poster: /assets/img/posters/the-finishing-line.jpg
 fetch_posters: false
 stills: [/assets/img/stills/the-finishing-line-1.jpg, /assets/img/stills/the-finishing-line-2.jpg, /assets/img/stills/the-finishing-line-3.jpg, /assets/img/stills/the-finishing-line-4.jpg]
 imdb: tt1400509
+watch:
+  - label: "BFI Player"
+    url: https://player.bfi.org.uk/free/film/watch-the-finishing-line-1977-online
+    checked: 2026-10-16
 excerpt: >-
   An imagined sports day on the railway becomes a harrowing catalogue of
   injuries and deaths. John Krish's controversial short remains a difficult

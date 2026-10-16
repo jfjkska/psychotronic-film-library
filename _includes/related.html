@@ -1,0 +1,52 @@
+{%- comment -%} Connections from credits and tags; these are not editorial endorsements. {%- endcomment -%}
+{%- assign ranked = "" | split: "" -%}
+{%- assign leads = page.starring | split: ',' -%}
+{%- for film in site.posts -%}
+  {%- if film.url == page.url -%}{%- continue -%}{%- endif -%}
+  {%- assign score = 0 -%}
+  {%- assign reason = "" -%}
+  {%- if page.director and page.director != "" and film.director == page.director -%}
+    {%- assign score = score | plus: 100 -%}
+    {%- assign reason = "Also directed by " | append: page.director -%}
+  {%- endif -%}
+  {%- assign cast = film.starring | split: ',' -%}
+  {%- for lead in leads -%}
+    {%- assign actor = lead | strip -%}
+    {%- if actor == "" -%}{%- continue -%}{%- endif -%}
+    {%- assign matched_actor = false -%}
+    {%- for name in cast -%}
+      {%- assign name = name | strip -%}
+      {%- if name == actor -%}{%- assign matched_actor = true -%}{%- break -%}{%- endif -%}
+    {%- endfor -%}
+    {%- if matched_actor -%}
+      {%- assign score = score | plus: 35 -%}
+      {%- if reason == "" -%}{%- assign reason = "Also stars " | append: actor -%}{%- endif -%}
+      {%- break -%}
+    {%- endif -%}
+  {%- endfor -%}
+  {%- for genre in page.genres -%}
+    {%- if film.genres contains genre -%}
+      {%- assign weight = 15 -%}
+      {%- if genre == 'horror' or genre == 'american exploitation' or genre == 'exploitation' -%}{%- assign weight = 2 -%}{%- endif -%}
+      {%- assign score = score | plus: weight -%}
+      {%- if reason == "" -%}{%- assign reason = "More from the " | append: genre | append: " shelf" -%}{%- endif -%}
+    {%- endif -%}
+  {%- endfor -%}
+  {%- if score < 10 -%}{%- continue -%}{%- endif -%}
+  {%- assign score = score | plus: film.rating -%}
+  {%- assign key = score | prepend: '000000' | slice: -6, 6 | append: '|' | append: film.url | append: '|' | append: reason -%}
+  {%- assign ranked = ranked | push: key -%}
+{%- endfor -%}
+{%- assign ranked = ranked | sort | reverse | slice: 0, 4 -%}
+{% if ranked.size > 0 %}
+<section class="related" aria-label="Related reviews">
+  <h2 class="rule">What to watch next</h2>
+  <ul class="rack rack-small">
+    {% for entry in ranked %}
+      {% assign parts = entry | split: '|' %}
+      {% assign film = site.posts | where: 'url', parts[1] | first %}
+      {% include card.html post=film reason=parts[2] %}
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}

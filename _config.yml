@@ -30,8 +30,8 @@ giscus:
   category: "General"
   category_id: ""       # DIC_kwDOUgekHM4DF5vQ
 
-# Newsletter via Buttondown (free up to 100 subscribers). Leave empty and the
-# sign-up box stays hidden. Setup: README → "Turning on the newsletter".
+# Newsletter via Buttondown. Leave empty to hide the email signup; RSS remains
+# available on /updates/. Configure RSS-to-email in the account. Setup: README.
 buttondown_username: ""
 
 # Social card used when a link is shared (Twitter/X, Facebook, WhatsApp).

@@ -17,6 +17,10 @@ fetch_posters: false
 posters: [/assets/img/posters/secrets-of-sex-alt-1.jpg]
 stills: [/assets/img/stills/secrets-of-sex-1.jpg, /assets/img/stills/secrets-of-sex-2.jpg, /assets/img/stills/secrets-of-sex-3.jpg, /assets/img/stills/secrets-of-sex-4.jpg]
 imdb: tt0066349
+watch:
+  - label: "Synapse DVD via MVD (Region 1)"
+    url: https://mvdshop.com/products/secrets-of-sex-aka-bizarre-alternate-cover-release-dvd
+    checked: 2026-10-16
 trailer: 87zOeJcSCRk
 tracks:
   - title: "Peter Reno – This Is My City (De Wolfe)"

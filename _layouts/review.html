@@ -17,7 +17,7 @@ body_class: review-page
   <div class="review-grid">
     <aside class="one-sheet">
       <figure class="poster-frame">
-        <img src="{{ poster | relative_url }}" alt="Poster for {{ page.title }}{% if page.year %} ({{ page.year }}){% endif %}" loading="eager">
+        <a href="{{ poster | relative_url }}" data-poster-enlarge data-lightbox="posters"><img src="{{ poster | relative_url }}" alt="Enlarge poster for {{ page.title }}{% if page.year %} ({{ page.year }}){% endif %}" loading="eager"></a>
         {% if page.verdict %}<span class="stamp">{{ page.verdict }}</span>{% endif %}
       </figure>
       {% if page.posters %}
@@ -39,12 +39,7 @@ body_class: review-page
         {% if page.runtime %}<dt>Runtime</dt><dd>{{ page.runtime }}</dd>{% endif %}
         {% if page.version %}<dt>Version seen</dt><dd>{{ page.version }}</dd>{% endif %}
         {% if page.watched_on %}<dt>Seen on</dt><dd>{{ page.watched_on }}</dd>{% endif %}
-        {% if page.watch %}
-        <dt>Where to watch</dt>
-        <dd class="watch">
-          {% for w in page.watch %}<span class="watch-item">{% if w.url %}<a href="{{ w.url }}" rel="noopener">{{ w.label }}</a>{% else %}{{ w.label }}{% endif %}</span>{% endfor %}
-        </dd>
-        {% endif %}
+        {% include watch.html %}
         {% if page.imdb %}
         <dt>Elsewhere</dt>
         <dd class="elsewhere">
@@ -69,7 +64,7 @@ body_class: review-page
         <h2 class="rule">Gallery</h2>
         <ul class="still-strip">
           {% for st in page.stills %}
-          <li><a href="{{ st | relative_url }}"><img src="{{ st | relative_url }}" alt="Image from {{ page.title }}" loading="lazy"></a></li>
+          <li><a href="{{ st | relative_url }}" data-lightbox="stills"><img src="{{ st | relative_url }}" alt="{{ page.title | escape }} — gallery image {{ forloop.index }}" loading="lazy"></a></li>
           {% endfor %}
         </ul>
       </section>
@@ -98,26 +93,7 @@ body_class: review-page
     </div>
   </div>
 
-  {%- assign g1 = page.genres | first -%}
-  {%- comment -%} Same director first, then same lead genre. Plain loops, deduped by url. {%- endcomment -%}
-  {%- assign related_urls = "" | split: "" -%}
-  {%- for d in site.posts -%}
-    {%- if d.url != page.url and d.director == page.director -%}{%- assign related_urls = related_urls | push: d.url -%}{%- endif -%}
-  {%- endfor -%}
-  {%- for d in site.posts -%}
-    {%- if d.url != page.url and d.genres contains g1 -%}
-      {%- unless related_urls contains d.url -%}{%- assign related_urls = related_urls | push: d.url -%}{%- endunless -%}
-    {%- endif -%}
-  {%- endfor -%}
-  {%- assign related_urls = related_urls | slice: 0, 4 -%}
-  {% if related_urls.size > 0 %}
-  <section class="related" aria-label="Related reviews">
-    <h2 class="rule">If you liked this</h2>
-    <ul class="rack rack-small">
-      {% for u in related_urls %}{% assign r = site.posts | where: "url", u | first %}{% include card.html post=r %}{% endfor %}
-    </ul>
-  </section>
-  {% endif %}
+  {% include related.html %}
 
   {% if page.previous or page.next %}
   <nav class="double-bill" aria-label="More reviews">
