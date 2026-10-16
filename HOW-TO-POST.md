@@ -11,6 +11,13 @@ for spaces: `emanuelle-e-francoise.jpg`. Around 900 pixels wide is plenty.
 
 On GitHub: open the folder, **Add file → Upload files**, drag it in, **Commit changes**.
 
+For editorial preparation, treat a supplied poster as the design reference. Look
+for the sharpest genuine copy of that exact artwork first, and compare suitable
+portrait alternatives. Check the actual image detail as well as its dimensions;
+upscaling a small image does not improve its quality. Keep landscape posters and
+other wide artwork in the gallery. If no better copy is available, keep the
+supplied image and say so. Keep verdict stamps short so they fit the poster.
+
 ## 2. Write the review
 
 Copy `_template/review-template.md` into `_posts/` and name it with today's date
