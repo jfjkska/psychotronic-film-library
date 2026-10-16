@@ -45,7 +45,8 @@
     {% for entry in ranked %}
       {% assign parts = entry | split: '|' %}
       {% assign film = site.posts | where: 'url', parts[1] | first %}
-      {% include card.html post=film reason=parts[2] %}
+      {% assign related_reason = parts[2] %}
+      {% include card.html post=film reason=related_reason %}
     {% endfor %}
   </ul>
 </section>

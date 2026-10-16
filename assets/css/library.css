@@ -351,6 +351,9 @@ a:hover { color: var(--paper); }
 @media (max-width: 600px) {
   .lightbox { padding: .5rem; }
   .lightbox-panel { grid-template-columns: 44px minmax(0, 1fr) 44px; gap: .3rem; }
+  .lightbox-image { grid-column: 1 / -1; max-height: calc(100dvh - 13rem); }
+  .lightbox-prev, .lightbox-next { grid-row: 3; }
+  .lightbox-caption { grid-column: 2; grid-row: 3; }
 }
 
 /* ── Comments ────────────────────────────────────────────────────────────── */
