@@ -30,10 +30,6 @@ giscus:
   category: "General"
   category_id: ""       # DIC_kwDOUgekHM4DF5vQ
 
-# Newsletter via Buttondown. Leave empty to hide the email signup; RSS remains
-# available on /updates/. Configure RSS-to-email in the account. Setup: README.
-buttondown_username: "psychotronic"
-
 # Social card used when a link is shared (Twitter/X, Facebook, WhatsApp).
 logo: /assets/img/social-card.jpg
 

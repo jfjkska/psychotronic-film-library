@@ -360,14 +360,6 @@ a:hover { color: var(--paper); }
 .comments { margin-top: 2.5rem; }
 .comments-note { margin: 0 0 1rem; font-family: var(--type); font-size: .85rem; color: var(--dim); }
 
-/* ── Newsletter ─────────────────────────────────────────────────────────── */
-.newsletter { max-width: 560px; margin: 0 auto 2rem; }
-.newsletter-form { padding: 1.2rem 1.4rem; background: var(--cream); color: var(--ink); border: 2px solid var(--black); box-shadow: 6px 6px 0 var(--magenta), 6px 6px 0 2px var(--black); transform: rotate(-.5deg); text-align: left; }
-.newsletter-label { display: block; font-family: var(--poster); text-transform: uppercase; letter-spacing: .14em; font-size: .78rem; color: var(--magenta-deep); margin-bottom: .5rem; }
-.newsletter-row { display: flex; gap: .6rem; flex-wrap: wrap; }
-.newsletter-row input { flex: 1 1 200px; padding: .55em .8em; font: 1rem var(--type); color: var(--ink); background: var(--paper); border: 2px solid var(--ink); }
-.newsletter-row .button { margin-top: 0; }
-.newsletter-small { margin: .6rem 0 0; font-family: var(--type); font-size: .78rem; color: rgba(18, 6, 15, .7); }
 
 /* ── Contact ──────────────────────────────────────────────────────────────── */
 .contact-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }

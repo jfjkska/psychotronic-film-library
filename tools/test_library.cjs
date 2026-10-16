@@ -99,12 +99,6 @@ const apaches = page('reviews/apaches/index.html');
 assert(apaches.window.document.querySelector('.related a[href="/reviews/the-finishing-line/"]'), 'Public information films connect');
 assert(apaches.window.document.querySelector('.watch a[href*="replay.bfi.org.uk"]'));
 const updates = page('updates/index.html');
-const signup = updates.window.document.querySelector('form.newsletter-form');
-if (signup) {
-  assert(/^https:\/\/buttondown\.com\/api\/emails\/embed-subscribe\/.+/.test(signup.action));
-  assert(signup.querySelector('input[type="email"][required]'));
-  assert(signup.querySelector('input[name="embed"][value="1"]'));
-}
 assert(updates.window.document.querySelector('a[href="/feed.xml"]'));
 console.log(`PASS: ${total} reviews; search, combined filters, co-productions, sorts, shared URLs, gallery navigation, swipes, focus, recommendations and viewing links.`);
 [home, restored, invalid, review, apaches, updates].forEach(dom => dom.window.close());

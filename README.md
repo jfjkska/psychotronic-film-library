@@ -64,20 +64,11 @@ Comments live in GitHub Discussions on this repo, so nothing else to host.
    `data-category-id`. Copy those four values into the `giscus:` block in `_config.yml`.
    Commit. The comments box appears at the foot of every review, in the site's colours.
 
-## Email updates
+## Following new reviews
 
-1. Use the site's mailing-list account at https://buttondown.com and pick a username.
-2. Put the username in `buttondown_username` in `_config.yml`. The signup form
-   appears in the footer and on `/updates/`. With no account configured, readers
-   can still follow the RSS feed from that page; no email addresses are collected.
-3. For automatic new-review emails, configure Buttondown's RSS-to-email with
-   `https://psychotronicfilmlibrary.com/feed.xml`. Choose a cadence and test it with
-   your own subscription before inviting readers. Account setup and automation
-   are separate from displaying the form; check the service's current plan terms.
-
-The form submits directly to Buttondown, which handles confirmation and unsubscribe.
-It does not send emails itself. See [Buttondown's signup form documentation](https://docs.buttondown.com/building-your-subscriber-base)
-and [RSS-to-email documentation](https://docs.buttondown.com/rss-to-email).
+Readers can follow `https://psychotronicfilmlibrary.com/feed.xml` in an RSS reader.
+The `/updates/` page links to the feed. No mailing-list account or email signup
+is needed.
 
 ## Checking browsing and gallery changes
 
