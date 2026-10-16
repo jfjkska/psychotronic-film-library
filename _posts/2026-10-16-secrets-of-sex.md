@@ -21,7 +21,7 @@ watch:
   - label: "Synapse DVD via MVD (Region 1)"
     url: https://mvdshop.com/products/secrets-of-sex-aka-bizarre-alternate-cover-release-dvd
     checked: 2026-10-16
-trailer: 87zOeJcSCRk
+trailer: HRuGDY808B0
 tracks:
   - title: "Peter Reno – This Is My City (De Wolfe)"
     youtube: HICnUE-4q_g
