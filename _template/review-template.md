@@ -28,6 +28,8 @@ tracks:                                     # optional: score tracks, same idea
     youtube: dQw4w9WgXcQ
 excerpt: >-
   One or two sentences shown on the front page and in the RSS feed.
+# Optional: a short, specific search/social description. Defaults to the excerpt.
+# description: "What makes this film worth finding, in one or two short sentences."
 ---
 
 Write the review here. Plain paragraphs, one blank line between them.

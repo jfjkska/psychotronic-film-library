@@ -16,10 +16,18 @@ lang: en-GB
 url: "https://psychotronicfilmlibrary.com"
 baseurl: ""
 
+# Public token from Cloudflare → Web Analytics → this site's JavaScript snippet.
+# Leave empty to disable. Local previews never send visit data.
+cloudflare_web_analytics_token: "fd1a62c8493a4d8db41054505a63ab7b"
+
 # Contact form. Sign up free at https://formspree.io, make a form, paste its
 # endpoint here (looks like https://formspree.io/f/abcdwxyz). Until then the
 # form shows a note saying it isn't wired up.
 contact_form_endpoint: https://formspree.io/f/xzezzyez
+
+# Email subscriptions use the same RSS feed as reader apps.
+followit_url: "https://follow.it/psychotronic-film-library?leanpub"
+followit_form_action: "https://api.follow.it/subscription-form/N1J0RUYvWTVNUUtKbnFGQVFYb21xdHFydVFzbDF5U3hydEtkYmFHSXZOV0x6TG9TdEZrRkZGVVlNYXdRMTVhYlJ2VU00d3h6NXViUTFuSkVxb09IRUd0K3hYSE5JYTJZQktWTUF0TSszOXRWTGRNYVlnZG03Mm9WMW83R3JvRnd8QTFNYkVrdGdZdUJTM3BUdTRwVWtXdW14M29TdXEyZU5XTjZmOXVlbkpaTT0=/8"
 
 # Comments on review pages, via giscus (stored in GitHub Discussions on the
 # site's repo, free). Leave `repo` empty and no comments box appears.

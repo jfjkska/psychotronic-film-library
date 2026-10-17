@@ -364,6 +364,19 @@ a:hover { color: var(--paper); }
 .comments-note { margin: 0 0 1rem; font-family: var(--type); font-size: .85rem; color: var(--dim); }
 
 
+/* ── Email updates ────────────────────────────────────────────────────────── */
+.subscribe { margin: 2.5rem 0; padding: clamp(1rem, 3vw, 2rem); background: var(--plum); border: 2px solid var(--magenta); box-shadow: 5px 5px 0 var(--black); }
+.subscribe .rule { margin-top: 0; }
+.subscribe-form { max-width: 42rem; }
+.subscribe-form label { display: block; margin-bottom: .4rem; font: .85rem var(--type); }
+.subscribe-controls { display: flex; flex-wrap: wrap; gap: .75rem; }
+.subscribe-controls input { flex: 1 1 14rem; min-width: 0; width: 100%; padding: .75em; font: 1rem var(--type); color: var(--ink); background: var(--paper); border: 2px solid var(--cream); border-radius: 2px; }
+.subscribe-controls input::placeholder { color: #64545c; opacity: 1; }
+.subscribe-controls button { flex: 0 1 auto; padding: .65em 1.3em; min-height: 44px; cursor: pointer; font: 1rem var(--poster); text-transform: uppercase; letter-spacing: .1em; color: var(--ink); background: var(--yellow); border: 2px solid var(--yellow); border-radius: 2px; }
+.subscribe-controls button:hover { background: var(--paper); border-color: var(--paper); }
+.subscribe .subscribe-note, .subscribe .subscribe-provider { margin: .8rem 0 0; font: .8rem/1.6 var(--type); color: var(--dim); }
+@media (max-width: 480px) { .subscribe-controls button { width: 100%; } }
+
 /* ── Contact ──────────────────────────────────────────────────────────────── */
 .contact-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
 @media (min-width: 860px) { .contact-grid { grid-template-columns: 1fr 1.2fr; gap: 3.5rem; align-items: start; } }

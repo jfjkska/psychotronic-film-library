@@ -32,3 +32,5 @@ jobs:
         run: npm install --prefix "$RUNNER_TEMP/library-tests" --ignore-scripts --no-audit --no-fund jsdom@26.1.0
       - name: Check library interactions
         run: node tools/test_library.cjs _site "$RUNNER_TEMP/library-tests/node_modules/jsdom"
+      - name: Check review search metadata
+        run: node tools/test_review_seo.cjs _site "$RUNNER_TEMP/library-tests/node_modules/jsdom"

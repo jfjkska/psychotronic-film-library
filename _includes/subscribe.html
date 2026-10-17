@@ -1,0 +1,13 @@
+<section class="subscribe" aria-labelledby="subscribe-heading">
+  <h2 id="subscribe-heading" class="rule">Fresh from the strange shelf</h2>
+  <p>Get an email when a new review lands.</p>
+  <form class="subscribe-form" action="{{ site.followit_form_action | escape }}" method="post">
+    <label for="subscribe-email">Your email address</label>
+    <div class="subscribe-controls">
+      <input id="subscribe-email" type="email" name="email" required autocomplete="email" placeholder="Enter your email" spellcheck="false" autocapitalize="none">
+      <button type="submit">Subscribe</button>
+    </div>
+  </form>
+  <p class="subscribe-note">Confirm your subscription by email. Unsubscribe at any time.</p>
+  <p class="subscribe-provider">Email updates delivered by <a href="https://follow.it">follow.it</a>. <a href="{{ site.followit_url | escape }}">Subscribe on follow.it</a>.</p>
+</section>

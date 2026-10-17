@@ -1,0 +1,61 @@
+{%- capture review_title -%}{{ page.title }}{% if page.year %} ({{ page.year }}){% endif %} review{%- endcapture -%}
+{%- assign review_description = page.description | default: page.excerpt | default: page.content | markdownify | strip_html | normalize_whitespace | truncate: 180 -%}
+{%- assign review_url = page.url | absolute_url -%}
+{%- assign review_image = page.image.path | default: page.image | default: page.poster | default: site.logo | absolute_url -%}
+{%- assign review_author = page.author | default: site.author -%}
+{%- assign review_rating = page.rating | default: 0 | plus: 0 -%}
+<title>{{ review_title | escape }} | {{ site.title | escape }}</title>
+<meta name="description" content="{{ review_description | escape }}">
+<link rel="canonical" href="{{ review_url | escape }}">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="{{ site.title | escape }}">
+<meta property="og:locale" content="{{ site.lang | default: 'en-GB' | replace: '-', '_' | escape }}">
+<meta property="og:title" content="{{ review_title | escape }}">
+<meta property="og:description" content="{{ review_description | escape }}">
+<meta property="og:url" content="{{ review_url | escape }}">
+<meta property="og:image" content="{{ review_image | escape }}">
+<meta property="og:image:alt" content="{{ page.title | escape }}{% if page.year %} ({{ page.year }}){% endif %} — Psychotronic Film Library review">
+<meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+{% if page.last_modified_at %}<meta property="article:modified_time" content="{{ page.last_modified_at | date_to_xmlschema }}">{% endif %}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ review_title | escape }}">
+<meta name="twitter:description" content="{{ review_description | escape }}">
+<meta name="twitter:image" content="{{ review_image | escape }}">
+<meta name="twitter:image:alt" content="{{ page.title | escape }}{% if page.year %} ({{ page.year }}){% endif %} — Psychotronic Film Library review">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Review",
+  "@id": {{ review_url | append: '#review' | jsonify | replace: '<', '\u003c' }},
+  "url": {{ review_url | jsonify | replace: '<', '\u003c' }},
+  "name": {{ review_title | jsonify | replace: '<', '\u003c' }},
+  "description": {{ review_description | jsonify | replace: '<', '\u003c' }},
+  "image": {{ review_image | jsonify | replace: '<', '\u003c' }},
+  "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
+  {% if page.last_modified_at %}"dateModified": {{ page.last_modified_at | date_to_xmlschema | jsonify }},{% endif %}
+  "inLanguage": {{ site.lang | default: 'en-GB' | jsonify }},
+  "author": {
+    "@type": "Person",
+    "name": {{ review_author | jsonify | replace: '<', '\u003c' }},
+    "url": {{ '/about/' | absolute_url | jsonify }}
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": {{ site.title | jsonify | replace: '<', '\u003c' }},
+    "url": {{ '/' | absolute_url | jsonify }}
+  },
+  {% if review_rating > 0 and review_rating <= 5 %}
+  "reviewRating": { "@type": "Rating", "ratingValue": {{ review_rating }}, "bestRating": 5, "worstRating": 1 },
+  {% endif %}
+  "itemReviewed": {
+    "@type": "Movie",
+    "name": {{ page.title | jsonify | replace: '<', '\u003c' }},
+    "image": {{ page.poster | default: review_image | absolute_url | jsonify | replace: '<', '\u003c' }}
+    {% if page.aka %}, "alternateName": {{ page.aka | jsonify | replace: '<', '\u003c' }}{% endif %}
+    {% if page.year %}, "dateCreated": {{ page.year | append: '' | jsonify }}{% endif %}
+    {% if page.director %}, "director": { "@type": "Person", "name": {{ page.director | jsonify | replace: '<', '\u003c' }} }{% endif %}
+    {% if page.genres %}, "genre": {{ page.genres | jsonify | replace: '<', '\u003c' }}{% endif %}
+    {% if page.imdb %}, "sameAs": {{ page.imdb | prepend: 'https://www.imdb.com/title/' | append: '/' | jsonify }}{% endif %}
+  }
+}
+</script>

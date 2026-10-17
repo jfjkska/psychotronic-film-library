@@ -66,13 +66,46 @@ Comments live in GitHub Discussions on this repo, so nothing else to host.
 
 ## Following new reviews
 
-Readers can follow `https://psychotronicfilmlibrary.com/feed.xml` in an RSS reader.
-The `/updates/` page links to the feed. No mailing-list account or email signup
-is needed.
+Readers can subscribe by email on `/updates/` or beneath any review. The form
+posts directly to follow.it, which delivers new reviews from the site's RSS feed
+and handles confirmation and unsubscribe. Its endpoint and public subscription
+link are set in `_config.yml` as `followit_form_action` and `followit_url`.
+No subscriber addresses are stored in this repository.
+
+Readers can also follow `https://psychotronicfilmlibrary.com/feed.xml` in an RSS
+reader without an email signup; `/updates/` retains the feed link.
+
+## Review search metadata
+
+Review pages automatically use `Film Title (year) review | Psychotronic Film
+Library` as their browser/search title. The visible film title and URL stay the
+same. A short `description:` can override the excerpt for search and sharing;
+otherwise the excerpt is used, with HTML removed and a 180-character limit.
+
+`_includes/review-seo.html` supplies canonical URLs, social cards and one complete
+Review JSON-LD record identifying the Movie, author, publication date and visible
+1–5 eye rating. A rating of 0 means unrated and is omitted from structured data.
+Only set `last_modified_at:` when a review is actually updated. Structured data
+does not guarantee a particular search appearance.
+
+## Visitor analytics
+
+Cloudflare Web Analytics works with GitHub Pages without moving hosting or DNS.
+In the Cloudflare dashboard, add `psychotronicfilmlibrary.com` under Web Analytics
+and copy the public `token` value from the installation snippet into
+`cloudflare_web_analytics_token` in `_config.yml`. Do not paste an account API key.
+Use manual snippet installation rather than also enabling automatic injection.
+
+The beacon loads only in production builds with a non-empty token. Local
+development stays untracked. After publishing, visit a review and confirm that
+the dashboard receives its page view. Counts start when tracking is activated;
+blocked scripts and visitors without JavaScript will not be counted.
 
 ## Checking browsing and gallery changes
 
 Build the site with Jekyll, then run `node tools/test_library.cjs <build-folder> <jsdom-module-path>`.
+Run `node tools/test_review_seo.cjs <build-folder> <jsdom-module-path>` to check
+review metadata, JSON-LD and parity between visible and structured ratings.
 This exercises search by alternative title/cast, combined filters, country
 co-productions, sorting, shared search URLs, gallery navigation, focus restoration,
 swipes, recommendations and viewing links. Also check desktop and mobile in a
