@@ -9,7 +9,8 @@ body_class: home
 
   <form class="finder" role="search" data-finder>
     <label class="sr-only" for="finder-q">Search the library</label>
-    <input id="finder-q" type="search" name="q" placeholder="Title, alternative title, director, cast, year…" autocomplete="off" data-finder-input aria-controls="film-rack">
+    <input id="finder-q" type="search" name="q" placeholder="Search films, people…" autocomplete="off" data-finder-input aria-controls="film-rack">
+    <div class="finder-panel" id="finder-panel">
     <div class="finder-controls" data-finder-controls hidden>
       <label>Decade<select name="decade" data-decade><option value="">All decades</option></select></label>
       <label>Country<select name="country" data-country><option value="">All countries</option></select></label>
@@ -37,12 +38,13 @@ body_class: home
       <button type="button" class="chip chip-toggle" data-more-genres aria-expanded="false">+ {{ ranked.size | minus: 10 }} more</button>
       {%- endif -%}
     </div>
+    </div>
+    <div class="finder-summary" data-finder-summary hidden>
+      <button type="button" class="chip finder-toggle" data-filter-toggle aria-expanded="false" aria-controls="finder-panel" hidden>Filter &amp; sort<span data-filter-count hidden></span></button>
+      <p role="status" aria-live="polite" aria-atomic="true" data-result-count></p>
+      <button type="button" class="chip" data-reset-finder hidden>Clear filters</button>
+    </div>
   </form>
-
-  <div class="finder-summary" data-finder-summary hidden>
-    <p role="status" aria-live="polite" aria-atomic="true" data-result-count></p>
-    <button type="button" class="chip" data-reset-finder hidden>Clear filters</button>
-  </div>
 
   <ul class="rack" id="film-rack" data-rack>
     {% for post in site.posts %}{% include card.html post=post %}{% endfor %}

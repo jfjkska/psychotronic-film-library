@@ -15,7 +15,26 @@
   var reset = document.querySelector('[data-reset-finder]');
   var row = finder.querySelector('[data-genre-row]');
   var more = finder.querySelector('[data-more-genres]');
+  var filterToggle = finder.querySelector('[data-filter-toggle]');
+  var filterCount = finder.querySelector('[data-filter-count]');
   var genre = '';
+
+  if (filterToggle) {
+    finder.classList.add('is-compact');
+    filterToggle.hidden = false;
+    filterToggle.addEventListener('click', function () {
+      var open = finder.classList.toggle('is-open');
+      filterToggle.setAttribute('aria-expanded', String(open));
+      if (open && filterToggle.getClientRects().length) decade.focus();
+    });
+    finder.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && finder.classList.contains('is-open') && filterToggle.getClientRects().length) {
+        finder.classList.remove('is-open');
+        filterToggle.setAttribute('aria-expanded', 'false');
+        filterToggle.focus();
+      }
+    });
+  }
 
   function norm(s) {
     return (s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
@@ -84,6 +103,11 @@
     });
     if (empty) empty.hidden = shown !== 0;
     count.textContent = shown + ' of ' + cards.length + ' films';
+    if (filterCount) {
+      var active = [genre, decade.value, country.value, rating.value, sort.value !== 'newest'].filter(Boolean).length;
+      filterCount.textContent = active ? ' (' + active + ')' : '';
+      filterCount.hidden = active === 0;
+    }
     reset.hidden = !(input.value || genre || decade.value || country.value || rating.value || sort.value !== 'newest');
     if (updateURL) {
       var url = new URL(location.href);
@@ -121,6 +145,27 @@
   finder.addEventListener('submit', function (e) { e.preventDefault(); });
   window.addEventListener('popstate', restore);
   restore();
+})();
+
+// Compact navigation is enabled only on the homepage; all links remain available without JS.
+(function () {
+  if (!document.body.classList.contains('home')) return;
+  var toggle = document.querySelector('[data-menu-toggle]');
+  if (!toggle) return;
+  var nav = toggle.closest('nav');
+  nav.classList.add('is-compact');
+  toggle.hidden = false;
+  toggle.addEventListener('click', function () {
+    var open = nav.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', String(open));
+  });
+  nav.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && nav.classList.contains('is-open') && toggle.getClientRects().length) {
+      nav.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.focus();
+    }
+  });
 })();
 
 // Screening room: swap the thumbnail for a YouTube embed only when pressed.
