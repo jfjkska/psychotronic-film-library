@@ -17,7 +17,7 @@ body_class: review-page
   <div class="review-grid">
     <aside class="one-sheet">
       <figure class="poster-frame">
-        <a href="{{ poster | relative_url }}" data-poster-enlarge data-lightbox="posters"><img src="{{ poster | relative_url }}" alt="Enlarge poster for {{ page.title }}{% if page.year %} ({{ page.year }}){% endif %}" loading="eager"></a>
+        <a href="{{ poster | relative_url }}" data-poster-enlarge data-lightbox="posters"><img src="{{ poster | relative_url }}" alt="Enlarge poster for {{ page.title }}{% if page.year %} ({{ page.year }}){% endif %}" loading="eager" width="300" height="450"></a>
         {% if page.verdict %}<span class="stamp">{{ page.verdict }}</span>{% endif %}
       </figure>
       {% if page.posters %}

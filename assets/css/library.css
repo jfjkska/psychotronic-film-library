@@ -201,7 +201,7 @@ a:hover { color: var(--paper); }
   color: var(--ink);
 }
 .card-poster { position: relative; margin: 0; aspect-ratio: 2 / 3; overflow: hidden; background: var(--plum); border: 1px solid rgba(0, 0, 0, .35); }
-.card-poster img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.card-poster img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; }
 .sticker {
   position: absolute; top: -8px; right: -8px;
   width: 56px; height: 56px; border-radius: 50%;
@@ -241,8 +241,9 @@ a:hover { color: var(--paper); }
   border: 6px solid var(--cream); background: var(--cream);
   box-shadow: 12px 12px 0 var(--magenta), 12px 12px 0 2px var(--black);
 }
-.poster-frame img { display: block; width: 100%; height: auto; }
-.poster-frame > a { display: block; cursor: zoom-in; }
+/* Reserve the same space before loading and when switching poster formats. */
+.poster-frame > a { position: relative; display: block; aspect-ratio: 2 / 3; background: var(--plum); cursor: zoom-in; }
+.poster-frame img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; }
 .stamp { pointer-events: none; }
 .card-reason { color: var(--teal); font: .78rem/1.5 var(--type); margin: .5rem 0; }
 .stamp {
@@ -286,8 +287,8 @@ a:hover { color: var(--paper); }
 
 /* ── Other posters ───────────────────────────────────────────────────────── */
 .poster-alts { list-style: none; margin: 0 0 1.4rem; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem; max-width: 420px; }
-.poster-alts .alt { display: block; padding: 0; width: 56px; border: 2px solid rgba(244, 230, 195, .4); background: var(--black); cursor: pointer; transition: border-color .15s, transform .15s; }
-.poster-alts .alt img { display: block; width: 100%; aspect-ratio: 2 / 3; object-fit: cover; }
+.poster-alts .alt { position: relative; display: block; padding: 0; width: 56px; aspect-ratio: 2 / 3; border: 2px solid rgba(244, 230, 195, .4); background: var(--black); cursor: pointer; transition: border-color .15s, transform .15s; }
+.poster-alts .alt img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; }
 .poster-alts .alt:hover { border-color: var(--yellow); transform: translateY(-2px); }
 .poster-alts .alt.is-on { border-color: var(--magenta); box-shadow: 2px 2px 0 var(--black); }
 
