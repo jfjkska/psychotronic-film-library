@@ -185,7 +185,7 @@
   dialog.innerHTML = '<div class="lightbox-panel">' +
     '<button type="button" class="lightbox-close" aria-label="Close image viewer">Close ×</button>' +
     '<button type="button" class="lightbox-prev" aria-label="Previous image">‹</button>' +
-    '<img class="lightbox-image" alt="">' +
+    '<div class="lightbox-stage"><img class="lightbox-image" alt=""></div>' +
     '<button type="button" class="lightbox-next" aria-label="Next image">›</button>' +
     '<div class="lightbox-caption"><p aria-live="polite" aria-atomic="true"></p><a target="_blank" rel="noopener">Open full image</a></div></div>';
   document.body.appendChild(dialog);

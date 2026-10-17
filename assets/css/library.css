@@ -340,20 +340,21 @@ a:hover { color: var(--paper); }
 .lightbox { box-sizing: border-box; inset: 0; width: 100%; height: 100%; max-width: 100vw; max-height: 100dvh; margin: 0; padding: 1rem; border: 0; background: transparent; color: var(--paper); }
 .lightbox::backdrop { background: rgba(7, 2, 6, .96); }
 .lightbox[open] { display: grid; place-items: center; }
-.lightbox-panel { width: 100%; max-width: 1400px; max-height: 100%; display: grid; grid-template-columns: 48px minmax(0, 1fr) 48px; grid-template-rows: auto minmax(0, 1fr) auto; gap: .75rem; align-items: center; }
+.lightbox-panel { width: 100%; height: 100%; max-width: 1400px; max-height: 100%; display: grid; grid-template-columns: 48px minmax(0, 1fr) 48px; grid-template-rows: auto minmax(0, 1fr) auto; gap: .75rem; align-items: center; }
 .lightbox button { min-width: 44px; min-height: 44px; color: var(--paper); background: var(--plum); border: 2px solid var(--cream); border-radius: 3px; cursor: pointer; }
 .lightbox button:hover { color: var(--ink); background: var(--yellow); }
 .lightbox-close { grid-column: 1 / -1; justify-self: end; padding: .5rem .8rem; font: .85rem var(--type); }
 .lightbox-prev, .lightbox-next { font: 2rem/1 var(--body); padding: 0; }
 .lightbox-prev { grid-column: 1; grid-row: 2; }
 .lightbox-next { grid-column: 3; grid-row: 2; }
-.lightbox-image { grid-column: 2; grid-row: 2; display: block; width: auto; height: auto; max-width: 100%; max-height: calc(100dvh - 11rem); margin: auto; object-fit: contain; touch-action: pan-y pinch-zoom; }
+.lightbox-stage { grid-column: 2; grid-row: 2; position: relative; width: 100%; height: 100%; min-width: 0; min-height: 0; }
+.lightbox-image { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; touch-action: pan-y pinch-zoom; }
 .lightbox-caption { grid-column: 1 / -1; text-align: center; font: .8rem/1.5 var(--type); }
 .lightbox-caption p { margin: 0 0 .35rem; }
 @media (max-width: 600px) {
   .lightbox { padding: .5rem; }
   .lightbox-panel { grid-template-columns: 44px minmax(0, 1fr) 44px; gap: .3rem; }
-  .lightbox-image { grid-column: 1 / -1; max-height: calc(100dvh - 13rem); }
+  .lightbox-stage { grid-column: 1 / -1; }
   .lightbox-prev, .lightbox-next { grid-row: 3; }
   .lightbox-caption { grid-column: 2; grid-row: 3; }
 }
