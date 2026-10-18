@@ -214,7 +214,7 @@ a:hover { color: var(--paper); }
   .home .lobby-head .display { font-size: clamp(1.9rem, 7vw, 2.5rem); }
   .home .finder { margin-bottom: 1rem; }
   .home .finder input { min-height: 44px; padding: .65em .75em; font-size: 1rem; }
-  .home .finder-summary { order: 1; justify-content: space-between; gap: .35rem .65rem; margin-top: .8rem; text-align: left; }
+  .home .finder-summary { order: 1; justify-content: center; gap: .35rem .65rem; margin-top: .8rem; text-align: left; }
   .home .finder-summary p { font-size: .78rem; }
   .home .finder-toggle { display: inline-flex; align-items: center; }
   .home .finder-summary button { min-height: 44px; font-size: .75rem; }
