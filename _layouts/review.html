@@ -12,6 +12,7 @@ body_class: review-page
       {% if page.director %}<span class="strap-sep">·</span> Directed by <b>{{ page.director }}</b>{% endif %}
       {% if page.country %}<span class="strap-sep">·</span> {{ page.country }}{% endif %}
     </p>
+    <p><a class="chip" href="{{ '/' | relative_url }}" data-dice>Random review</a></p>
   </header>
 
   <div class="review-grid">

@@ -13,6 +13,8 @@ rating: 2
 verdict: "Eternal tedium"
 poster: /assets/img/posters/ganja-and-hess.jpg
 fetch_posters: false
+keep_alts: true
+posters: [/assets/img/posters/ganja-and-hess-alt-1.jpg, /assets/img/posters/ganja-and-hess-alt-2.jpg, /assets/img/posters/ganja-and-hess-alt-3.jpg]
 stills: [/assets/img/stills/ganja-and-hess-1.jpg, /assets/img/stills/ganja-and-hess-2.jpg, /assets/img/stills/ganja-and-hess-3.jpg, /assets/img/stills/ganja-and-hess-4.jpg]
 imdb: tt0068619
 letterboxd: https://letterboxd.com/film/ganja-hess/
