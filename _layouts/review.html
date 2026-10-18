@@ -51,7 +51,7 @@ body_class: review-page
         {% if page.genres %}
         <dt>Filed under</dt>
         <dd class="chips">
-          {% for g in page.genres %}<a class="chip" href="{{ '/shelf/' | relative_url }}#{{ g | slugify }}">{{ g }}</a>{% endfor %}
+          {% for g in page.genres %}<a class="chip" href="{{ '/' | relative_url }}?genre={{ g | downcase | uri_escape }}">{{ g }}</a>{% endfor %}
         </dd>
         {% endif %}
       </dl>

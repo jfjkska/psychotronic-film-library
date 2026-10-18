@@ -1,20 +1,53 @@
 ---
 layout: default
-title: The shelf
+title: Browse
 permalink: /shelf/
 body_class: shelf
 ---
 <section class="shelf-page">
   <header class="page-head">
-    <h1 class="display">The shelf</h1>
+    <h1 class="display">Browse</h1>
   </header>
 
-  <h2 class="rule">By genre</h2>
+  <nav class="browse-links chips" aria-label="Browse by genre">
+    <a class="chip" href="#giallo">Giallo</a>
+    <a class="chip" href="#british-horror">British horror</a>
+    <a class="chip" href="#eurosleaze">Eurosleaze</a>
+    <a class="chip" href="#exploitation">Exploitation</a>
+    <a class="chip" href="#crime">Crime</a>
+    <a class="chip" href="#science-fiction">Science fiction</a>
+    <a class="chip" href="#a-to-z">A to Z</a>
+  </nav>
+  {% assign categories = 'Giallo|British horror|Eurosleaze|Exploitation|Crime|Science fiction' | split: '|' %}
+  {% for category in categories %}
+  <section class="genre-block" id="{{ category | slugify }}">
+    <h2 class="rule">{{ category }}</h2>
+    <ul class="listing">
+      {% assign films = site.posts | sort_natural: 'title' %}
+      {% for post in films %}
+        {% assign matches = false %}
+        {% for tag in post.genres %}
+          {% case category %}
+            {% when 'Giallo' %}{% if tag contains 'giallo' %}{% assign matches = true %}{% endif %}
+            {% when 'British horror' %}{% if tag == 'british horror' %}{% assign matches = true %}{% endif %}
+            {% when 'Eurosleaze' %}{% if tag == 'eurosleaze' %}{% assign matches = true %}{% endif %}
+            {% when 'Exploitation' %}{% if tag contains 'exploitation' or tag contains 'ploitation' or tag == 'video nasty' %}{% assign matches = true %}{% endif %}
+            {% when 'Crime' %}{% if tag contains 'crime' or tag == 'poliziottesco' %}{% assign matches = true %}{% endif %}
+            {% when 'Science fiction' %}{% if tag contains 'sci-fi' or tag == 'post-apocalyptic' or tag == 'cyborg' %}{% assign matches = true %}{% endif %}
+          {% endcase %}
+        {% endfor %}
+        {% if matches %}<li><a href="{{ post.url | relative_url }}">{{ post.title }}</a>{% if post.year %} <span class="dim">({{ post.year }})</span>{% endif %}</li>{% endif %}
+      {% endfor %}
+    </ul>
+  </section>
+  {% endfor %}
+  <details class="browse-tags">
+  <summary class="rule">All review tags</summary>
   {%- assign all_genres = "" | split: "" -%}
   {%- for post in site.posts -%}{%- for g in post.genres -%}{%- assign all_genres = all_genres | push: g -%}{%- endfor -%}{%- endfor -%}
   {%- assign all_genres = all_genres | uniq | sort_natural -%}
   {% for g in all_genres %}
-  <section class="genre-block" id="{{ g | slugify }}">
+  <section class="genre-block" id="tag-{{ g | slugify }}">
     <h3 class="genre-name">{{ g }}</h3>
     <ul class="listing">
       {% for post in site.posts %}{% if post.genres contains g %}
@@ -23,8 +56,9 @@ body_class: shelf
     </ul>
   </section>
   {% endfor %}
+  </details>
 
-  <h2 class="rule">A to Z</h2>
+  <h2 class="rule" id="a-to-z">A to Z</h2>
   <ul class="listing az">
     {% assign az = site.posts | sort_natural: "title" %}
     {% for post in az %}

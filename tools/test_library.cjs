@@ -28,6 +28,15 @@ function reset(dom) { dom.window.document.querySelector('[data-reset-finder]').c
 const home = page('index.html');
 const total = visible(home).length;
 assert(total >= 83);
+change(home, '[data-genre-select]', 'giallo');
+assert(visible(home).length > 0 && visible(home).every(c => c.dataset.genres.split('|').includes('giallo')), 'Genre dropdown filters reviews');
+assert.equal(new URLSearchParams(home.window.location.search).get('genre'), 'giallo');
+reset(home);
+assert.equal(home.window.document.querySelector('[data-genre-select]').value, '');
+const genreLink = page('index.html', '?genre=british+horror');
+assert.equal(genreLink.window.document.querySelector('[data-genre-select]').value, 'british horror');
+assert(visible(genreLink).length > 0 && visible(genreLink).every(c => c.dataset.genres.split('|').includes('british horror')), 'Genre links restore the dropdown and results');
+genreLink.window.close();
 change(home, '[data-finder-input]', 'Blood Camp Thatcher', 'input');
 assert.deepEqual(titles(home), ['Turkey Shoot'], 'Alternative title search');
 reset(home);

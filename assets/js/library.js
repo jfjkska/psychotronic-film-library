@@ -3,7 +3,7 @@
   var finder = document.querySelector('[data-finder]');
   if (!finder) return;
   var input = finder.querySelector('[data-finder-input]');
-  var chips = Array.prototype.slice.call(finder.querySelectorAll('[data-genre]'));
+  var genreSelect = finder.querySelector('[data-genre-select]');
   var rack = document.querySelector('[data-rack]');
   var cards = Array.prototype.slice.call(rack.querySelectorAll('.card'));
   var empty = document.querySelector('[data-empty]');
@@ -13,8 +13,6 @@
   var sort = finder.querySelector('[data-sort]');
   var count = document.querySelector('[data-result-count]');
   var reset = document.querySelector('[data-reset-finder]');
-  var row = finder.querySelector('[data-genre-row]');
-  var more = finder.querySelector('[data-more-genres]');
   var filterToggle = finder.querySelector('[data-filter-toggle]');
   var filterCount = finder.querySelector('[data-filter-count]');
   var genre = '';
@@ -25,7 +23,7 @@
     filterToggle.addEventListener('click', function () {
       var open = finder.classList.toggle('is-open');
       filterToggle.setAttribute('aria-expanded', String(open));
-      if (open && filterToggle.getClientRects().length) decade.focus();
+      if (open && filterToggle.getClientRects().length) genreSelect.focus();
     });
     finder.addEventListener('keydown', function (event) {
       if (event.key === 'Escape' && finder.classList.contains('is-open') && filterToggle.getClientRects().length) {
@@ -92,15 +90,6 @@
     var fragment = document.createDocumentFragment();
     ordered.forEach(function (r) { fragment.appendChild(r.card); });
     rack.appendChild(fragment);
-    chips.forEach(function (chip) {
-      var on = chip.getAttribute('data-genre') === genre;
-      chip.classList.toggle('is-on', on);
-      chip.setAttribute('aria-pressed', String(on));
-      if (on && chip.classList.contains('chip-more')) {
-        row.classList.add('is-open');
-        if (more) more.setAttribute('aria-expanded', 'true');
-      }
-    });
     if (empty) empty.hidden = shown !== 0;
     count.textContent = shown + ' of ' + cards.length + ' films';
     if (filterCount) {
@@ -122,7 +111,8 @@
     var params = new URLSearchParams(location.search);
     input.value = params.get('q') || '';
     genre = params.get('genre') || '';
-    if (!chips.some(function (c) { return c.getAttribute('data-genre') === genre; })) genre = '';
+    genreSelect.value = genre;
+    if (genreSelect.selectedIndex < 0) genreSelect.value = genre = '';
     [decade, country, rating, sort].forEach(function (select) {
       var value = params.get(select.name) || (select === sort ? 'newest' : '');
       select.value = value;
@@ -130,13 +120,10 @@
     });
     apply(false);
   }
-  chips.forEach(function (chip) {
-    chip.addEventListener('click', function () {
-      genre = chip.getAttribute('data-genre');
-      apply(true);
-    });
+  genreSelect.addEventListener('change', function () {
+    genre = genreSelect.value;
+    apply(true);
   });
-  if (more && row) more.addEventListener('click', function () { row.classList.add('is-open'); more.setAttribute('aria-expanded', 'true'); });
   input.addEventListener('input', function () { apply(true); });
   [decade, country, rating, sort].forEach(function (select) { select.addEventListener('change', function () { apply(true); }); });
   reset.addEventListener('click', function () {
@@ -147,9 +134,8 @@
   restore();
 })();
 
-// Compact navigation is enabled only on the homepage; all links remain available without JS.
+// All links remain available without JS.
 (function () {
-  if (!document.body.classList.contains('home')) return;
   var toggle = document.querySelector('[data-menu-toggle]');
   if (!toggle) return;
   var nav = toggle.closest('nav');
