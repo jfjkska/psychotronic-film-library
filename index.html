@@ -27,7 +27,7 @@ body_class: home
     <div class="finder-summary" data-finder-summary hidden>
       <button type="button" class="chip finder-toggle" data-filter-toggle aria-expanded="false" aria-controls="finder-panel" hidden>Filter &amp; sort<span data-filter-count hidden></span></button>
       <a class="chip" href="{{ site.posts.first.url | relative_url }}" data-dice>Random review</a>
-      <p role="status" aria-live="polite" aria-atomic="true" data-result-count></p>
+      <p class="sr-only" role="status" aria-live="polite" aria-atomic="true" data-result-count></p>
       <button type="button" class="chip" data-reset-finder hidden>Clear filters</button>
     </div>
   </form>
