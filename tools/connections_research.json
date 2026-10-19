@@ -1,0 +1,264 @@
+{
+  "hubs": [
+    {
+      "id": "thx-1138",
+      "name": "THX 1138",
+      "year": "1971",
+      "films": {
+        "sugar-hill": "Don Pedro Colley plays the hologram SRT.",
+        "spider-baby": "Sid Haig plays NCH.",
+        "i-dont-want-to-be-born": "Donald Pleasence plays SEN."
+      },
+      "sources": [
+        [
+          "AFI cast record",
+          "https://catalog.afi.com/Film/54136-THX-1138"
+        ]
+      ]
+    },
+    {
+      "id": "joe-kidd",
+      "name": "Joe Kidd",
+      "year": "1972",
+      "films": {
+        "death-weekend": "Don Stroud plays Lamarr.",
+        "queen-of-blood": "John Saxon plays Luis Chama.",
+        "hands-of-steel": "John Saxon plays Luis Chama."
+      },
+      "sources": [
+        [
+          "AFI cast record",
+          "https://catalog.afi.com/Film/54388-JOE-KIDD"
+        ]
+      ]
+    },
+    {
+      "id": "black-christmas",
+      "name": "Black Christmas",
+      "year": "1974",
+      "films": {
+        "turkey-shoot": "Olivia Hussey plays Jess.",
+        "queen-of-blood": "John Saxon plays the police lieutenant.",
+        "hands-of-steel": "John Saxon plays the police lieutenant."
+      },
+      "sources": [
+        [
+          "TIFF Canadian Film Encyclopedia",
+          "https://cfe.tiff.net/canadianfilmencyclopedia/content/films/black-christmas"
+        ]
+      ]
+    },
+    {
+      "id": "escape-from-new-york",
+      "name": "Escape from New York",
+      "year": "1981",
+      "films": {
+        "the-devils-rain": "Ernest Borgnine plays Cabbie.",
+        "i-dont-want-to-be-born": "Donald Pleasence plays the President."
+      },
+      "sources": [
+        [
+          "AFI cast record",
+          "https://catalog.afi.com/Film/67411-ESCAPE-FROM-NEW-YORK"
+        ]
+      ]
+    }
+  ],
+  "dossiers": [
+    {
+      "title": "Baron Samedi meets George Lucas",
+      "kicker": "An unexpected reunion",
+      "films": [
+        "sugar-hill",
+        "spider-baby",
+        "i-dont-want-to-be-born"
+      ],
+      "text": "Don Pedro Colley, Sid Haig and Donald Pleasence all turn up in THX 1138. Follow those three careers out of Lucas’s sterile future and you land in voodoo revenge, a very strange family home and a possessed-baby picture.",
+      "hub": "thx-1138",
+      "sources": [
+        [
+          "Check the THX 1138 cast at AFI",
+          "https://catalog.afi.com/Film/54136-THX-1138"
+        ]
+      ]
+    },
+    {
+      "title": "John Saxon is your escape route",
+      "kicker": "One western, three exits",
+      "films": [
+        "death-weekend",
+        "queen-of-blood",
+        "hands-of-steel"
+      ],
+      "text": "A home-invasion thriller, a space vampire and a cyborg arm-wrestler. Joe Kidd supplies the missing piece: Don Stroud and John Saxon share its cast.",
+      "hub": "joe-kidd",
+      "sources": [
+        [
+          "Check the Joe Kidd cast at AFI",
+          "https://catalog.afi.com/Film/54388-JOE-KIDD"
+        ]
+      ]
+    },
+    {
+      "title": "Christmas before the turkey shoot",
+      "kicker": "A detour through the sorority house",
+      "films": [
+        "turkey-shoot",
+        "hands-of-steel",
+        "queen-of-blood"
+      ],
+      "text": "Olivia Hussey and John Saxon both appear in Black Christmas. Hussey takes us to Turkey Shoot; Saxon gives us a choice of Queen of Blood or Hands of Steel. An unusually unpleasant festive triple bill.",
+      "hub": "black-christmas",
+      "sources": [
+        [
+          "Black Christmas at TIFF",
+          "https://cfe.tiff.net/canadianfilmencyclopedia/content/films/black-christmas"
+        ]
+      ]
+    },
+    {
+      "title": "The devil takes a cab",
+      "kicker": "Two horror casts, one prison city",
+      "films": [
+        "the-devils-rain",
+        "i-dont-want-to-be-born"
+      ],
+      "text": "Ernest Borgnine leaves The Devil’s Rain for Cabbie’s taxi in Escape from New York. Donald Pleasence plays the President in the same film, giving us a route back to I Don’t Want to Be Born.",
+      "hub": "escape-from-new-york",
+      "sources": [
+        [
+          "Escape from New York at AFI",
+          "https://catalog.afi.com/Film/67411-ESCAPE-FROM-NEW-YORK"
+        ]
+      ]
+    },
+    {
+      "title": "Horror came to school",
+      "kicker": "A different way to connect films",
+      "films": [
+        "apaches",
+        "the-finishing-line"
+      ],
+      "text": "These two 1977 shorts belong together through their purpose and audience: safety lessons staged as nightmares. The BFI places Apaches alongside John Krish’s railway film in a tradition of alarming public information films.",
+      "sources": [
+        [
+          "The BFI on John Krish and safety films",
+          "https://www.bfi.org.uk/features/giants-shadows-celebrating-centenaries-sarah-erulkar-john-krish"
+        ]
+      ]
+    },
+    {
+      "title": "Second-hand spaceships",
+      "kicker": "Follow the material",
+      "films": [
+        "queen-of-blood"
+      ],
+      "text": "The AFI records Soviet effects footage from Nebo Zovyot and Mechte Navstrechu in Queen of Blood, plus AIP’s plan to pair it with Blood Bath. Connections can follow the footage and the cinema bill, as well as the cast.",
+      "sources": [
+        [
+          "Queen of Blood: production and release history",
+          "https://catalog.afi.com/Catalog/moviedetails/23975"
+        ]
+      ]
+    },
+    {
+      "title": "From cut-ups to the operating table",
+      "kicker": "The Balch connection",
+      "films": [
+        "secrets-of-sex",
+        "horror-hospital"
+      ],
+      "text": "Antony Balch’s two features sit beside another career: his experimental film work with William S. Burroughs. Mark Webber’s programme notes put the underground experiments and the exploitation pictures back in the same frame.",
+      "sources": [
+        [
+          "Mark Webber: Burroughs in Britain",
+          "https://markwebber.org.uk/archive/2001/03/14/burroughs-in-britain/"
+        ]
+      ]
+    },
+    {
+      "title": "Same composer. Different name.",
+      "kicker": "Read the small print",
+      "films": [
+        "burial-ground",
+        "strip-nude-for-your-killer"
+      ],
+      "text": "Burial Ground’s review lists Burt Rexon, with Berto Pisano in brackets. Strip Nude for Your Killer credits Berto Pisano. Joining that alias uncovers a music connection alongside director Andrea Bianchi. Both links come from the library’s review credits.",
+      "sources": []
+    }
+  ],
+  "bills": [
+    {
+      "title": "No running in the playground",
+      "films": [
+        "apaches",
+        "the-finishing-line"
+      ],
+      "kind": "Shared purpose",
+      "text": "Two short, savage safety lessons. The adults called it education."
+    },
+    {
+      "title": "Balch’s bad medicine",
+      "films": [
+        "secrets-of-sex",
+        "horror-hospital"
+      ],
+      "kind": "Shared director",
+      "text": "From the anthology’s bedroom oddities to a country retreat with a deeply unsuitable treatment plan."
+    },
+    {
+      "title": "Bianchi, blood and Berto",
+      "films": [
+        "strip-nude-for-your-killer",
+        "burial-ground"
+      ],
+      "kind": "Shared director + music",
+      "text": "Andrea Bianchi and Berto Pisano connect fashion-house murder to a zombie-infested villa."
+    },
+    {
+      "title": "An unwelcome guest",
+      "films": [
+        "queen-of-blood",
+        "the-green-slime"
+      ],
+      "kind": "Editorial pairing",
+      "text": "Bring something back to the space station. Regret bringing something back to the space station."
+    },
+    {
+      "title": "The countryside is closed",
+      "films": [
+        "death-weekend",
+        "turkey-shoot"
+      ],
+      "kind": "Editorial pairing",
+      "text": "Two brutally unfair games of survival. A change of scenery will not improve your odds."
+    },
+    {
+      "title": "Bad company, great company",
+      "films": [
+        "frightmare",
+        "house-of-mortal-sin"
+      ],
+      "kind": "Shared collaborators",
+      "text": "Pete Walker, Sheila Keith, Stanley Myers and David McGillivray. A thoroughly disreputable repertory company."
+    },
+    {
+      "title": "The dead are not taking requests",
+      "films": [
+        "sugar-hill",
+        "blacula"
+      ],
+      "kind": "Editorial pairing",
+      "text": "Voodoo revenge and a displaced vampire: two very different routes through 1970s Black horror."
+    },
+    {
+      "title": "The witch and the witness",
+      "films": [
+        "secret-rites",
+        "the-virgin-witch"
+      ],
+      "kind": "Fact / fiction pairing",
+      "text": "Watch an occult documentary beside a fictional initiation. Compare what each film wants you to believe."
+    }
+  ]
+}

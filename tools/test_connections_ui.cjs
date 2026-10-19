@@ -1,0 +1,51 @@
+// DOM integration checks. Optional argument: path to an installed jsdom module.
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
+const {JSDOM} = require(path.resolve(process.argv[2] || '_site/tooling/js/node_modules/jsdom'));
+const root=path.join(__dirname,'..');
+const html=fs.readFileSync(path.join(root,'connections/index.html'),'utf8').replace(/^---[\s\S]*?---\s*/,'').replace(/{% (?:end)?raw %}/g,'');
+function page(url) {
+ const dom=new JSDOM(html,{url,runScripts:'outside-only',pretendToBeVisual:true});
+ ['connections-core.js','connections.js'].forEach(f=>dom.window.eval(fs.readFileSync(path.join(root,'assets/js',f),'utf8')));
+ return dom;
+}
+const dom=page('http://localhost/connections/');
+const $=id=>dom.window.document.getElementById(id);
+function change(id,value,event='change'){ $(id).value=value;$(id).dispatchEvent(new dom.window.Event(event,{bubbles:true})); }
+assert.equal($('film-select').options.length,JSON.parse($('connections-data').textContent).films.length);
+assert.match($('focus-film').textContent,/Horror Hospital/);
+change('film-select','burial-ground');change('credit-filter','music');
+assert.match($('thread-map').textContent,/Berto Pisano/);
+assert.match($('thread-map').textContent,/Strip Nude/);
+assert.equal(new URL(dom.window.location.href).searchParams.get('film'),'burial-ground');
+change('film-select','apaches');
+assert.match($('thread-map').textContent,/No shared/);
+change('route-from','sugar-hill');change('route-to','spider-baby');
+assert.equal($('route-result').children.length,3);
+assert.match($('route-result').textContent,/THX 1138/);
+$('allow-detours').click();
+assert.match($('route-status').textContent,/No route/);
+change('route-to','sugar-hill');
+assert.equal($('route-result').children.length,1);
+assert.match($('route-status').textContent,/already there/);
+const bill=$('bill').textContent;$('next-bill').click();assert.notEqual($('bill').textContent,bill);
+change('hub-search','no-such-detour','input');
+assert.equal($('hub-empty').hidden,false);
+const hubButton=dom.window.document.querySelector('[data-hub="thx-1138"]');hubButton.click();
+assert($('hub-thx-1138').closest('details').open);
+assert.equal($('hub-search').value,'');assert.equal($('hub-thx-1138').hidden,false);
+change('person-search','no-such-credit','input');
+assert.equal($('person-select').disabled,true);assert.match($('person-timeline').textContent,/No recurring/);
+change('person-search','Saxon','input');
+assert.equal($('person-select').disabled,false);assert.equal($('person-timeline').children.length,2);
+const years=[...$('person-timeline').querySelectorAll('.year')].map(x=>Number(x.textContent));
+assert.deepEqual(years,[1966,1986]);
+const linked=page('http://localhost/connections/?film=burial-ground#hub-black-christmas');
+assert.equal(linked.window.document.getElementById('film-select').value,'burial-ground');
+assert(linked.window.document.getElementById('hub-black-christmas').closest('details').open);
+const invalid=page('http://localhost/connections/?film=%3Cscript%3E');
+assert.equal(invalid.window.document.getElementById('film-select').value,'horror-hospital');
+for(const link of dom.window.document.querySelectorAll('a')) assert(!/undefined|null/.test(link.getAttribute('href')));
+dom.window.close();linked.window.close();invalid.window.close();
+console.log('Connections DOM: film/role selection, URL state, routes, double bills, detour search, career search and deep links passed.');

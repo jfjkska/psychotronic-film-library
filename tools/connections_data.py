@@ -330,15 +330,14 @@ CLUBS = [
         "groupie-girl": "Mary and Madeleine Collinson, the first twin Playmates, October 1970",
         "vampyres": "Anulka Dziubinska, Miss May 1973",
         "devil-hunter": "Ursula Buchfellner, Miss October 1979",
-        "death-game": "Colleen Camp played one in Apocalypse Now",
     }},
     {"id": "bond", "name": "Bond", "films": {
         "tragic-ceremony": "Luciana Paluzzi, Fiona Volpe in Thunderball",
+        "the-green-slime": "Luciana Paluzzi, Fiona Volpe in Thunderball",
         "i-dont-want-to-be-born": "Caroline Munro, Naomi in The Spy Who Loved Me",
         "milano-calibro-9": "Barbara Bouchet, Moneypenny in Casino Royale (1967)",
-        "home-before-midnight": "Richard Todd, Ian Fleming's own first choice for Dr. No",
     }},
-    {"id": "sitcom", "name": "Britcom", "films": {
+    {"id": "sitcom", "name": "Television familiar faces", "films": {
         "keep-it-up-jack": "Frank Thornton, Are You Being Served?",
         "house-of-whipcord": "Penny Irving, Are You Being Served?; Ray Brooks, the voice of Mr Benn",
         "groupie-girl": "James Beck, Private Walker in Dad's Army",
@@ -350,6 +349,7 @@ CLUBS = [
     }},
     {"id": "oscars", "name": "Oscar winners", "films": {
         "frogs": "Ray Milland, Best Actor for The Lost Weekend",
+        "the-devils-rain": "Ernest Borgnine, Best Actor for Marty",
         "exorcist-ii-the-heretic": "Louise Fletcher (Cuckoo's Nest) and Ennio Morricone",
         "mumsy-nanny-sonny-and-girly": "Freddie Francis, two Oscars for cinematography",
         "the-perfume-of-the-lady-in-black": "Nicola Piovani, Life Is Beautiful",
@@ -366,10 +366,12 @@ CLUBS = [
     }},
     {"id": "christmas", "name": "Christmas killers", "films": {
         "silent-night-bloody-night": "the film itself",
-        "creepozoids": "Linnea Quigley went on to Silent Night, Deadly Night (1984)",
+        "creepozoids": "Linnea Quigley also appears in Silent Night, Deadly Night (1984)",
         "the-black-room": "Linnea Quigley again",
         "witchcraft-70": "Edmund Purdom later directed and starred in Don't Open Till Christmas",
         "hands-of-steel": "John Saxon is the detective in Black Christmas",
+        "queen-of-blood": "John Saxon also appears in Black Christmas",
+        "turkey-shoot": "Olivia Hussey plays Jess in Black Christmas",
     }},
 ]
 
@@ -379,7 +381,7 @@ THEMES = [
         "house-of-mortal-sin": "a killer priest", "alice-sweet-alice": "murder at First Communion",
         "alucarda": "a convent possessed", "exorcist-ii-the-heretic": "the Church's own sequel",
         "the-devils-nightmare": "a priest among the seven sins"}},
-    {"id": "t-witches", "name": "Real witches on camera", "films": {
+    {"id": "t-witches", "name": "Witchcraft: fact and fiction", "films": {
         "secret-rites": "Alex Sanders, 'King of the Witches'", "witchcraft-70": "Anton LaVey's Church of Satan",
         "the-virgin-witch": "a coven run out of a country house", "satans-slave": "a family coven"}},
     {"id": "t-schools", "name": "Girls' schools", "films": {
@@ -409,7 +411,7 @@ LINEAGE = [
     ("Suspiria", 1977, "the-house-that-screamed", "the girls' school as a trap", "to"),
     ("Black Christmas", 1974, "silent-night-bloody-night", "Christmas slasher template", "to"),
     ("Knock Knock", 2015, "death-game", "remade by Eli Roth, Locke and Camp producing", "to"),
-    ("Lust for Love of a Chinese Courtesan", 1984, "intimate-confessions-of-a-chinese-courtesan", "Shaw Brothers sequel", "to"),
+    ("Lust for Love of a Chinese Courtesan", 1984, "intimate-confessions-of-a-chinese-courtesan", "the story revisited at Shaw Brothers", "to"),
 ]
 
 TITLE_CLASHES = [
