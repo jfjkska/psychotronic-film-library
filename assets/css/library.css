@@ -88,7 +88,7 @@ a:hover { color: var(--paper); }
 /* ── Masthead ─────────────────────────────────────────────────────────────── */
 .masthead { position: relative; z-index: 1; padding: clamp(14px, 3vw, 34px) var(--gutter) 0; }
 .banner {
-  display: block; max-width: var(--wrap); margin: 0 auto;
+  display: block; max-width: min(840px, var(--wrap)); margin: 0 auto;
   transform: rotate(-.6deg);
   border-radius: 4px;
   box-shadow: 0 0 0 4px var(--cream), 0 0 0 7px var(--black), 0 22px 50px rgba(0, 0, 0, .65);
