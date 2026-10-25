@@ -12,6 +12,14 @@ genres: [cannibal, italian horror, video nasty]
 rating: 4
 verdict: "Tuck in"
 poster: /assets/img/posters/cannibal-apocalypse.jpg
+trailer: bWXvvA4kNFE
+tracks:
+  - title: "Alexander Blonksteiner – Apocalypse (main theme)"
+    youtube: npqfuNSkALM
+  - title: "Alexander Blonksteiner – Market Suspense"
+    youtube: nizm-SbYI-E
+  - title: "Alexander Blonksteiner – Apocalypse domani (complete score)"
+    youtube: YK3HcdSOwBU
 excerpt: >-
   Margheriti takes the cannibal film out of the jungle and onto the streets of
   Georgia. A messy, bizarre and bloody ride for those with a taste for it.
