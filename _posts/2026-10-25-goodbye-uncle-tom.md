@@ -10,6 +10,13 @@ genres: [mondo, documentary, exploitation]
 rating: 3
 verdict: "Grim document"
 poster: /assets/img/posters/goodbye-uncle-tom.jpg
+watch:
+  - label: "Blue Underground 4-disc limited edition Blu-ray, region free (2024, English and Italian cuts)"
+    url: https://blue-underground.com/project/goodbye-uncle-tom-4-disc-ltd-ed-blu-ray/
+    checked: 2026-10-25
+  - label: "Blue Underground 4-disc limited edition 4K UHD (2024)"
+    url: https://blue-underground.com/?p=3460
+    checked: 2026-10-25
 trailer: BZoE3pn7VQs
 tracks:
   - title: "Riz Ortolani and Katyna Ranieri: Oh My Love"
