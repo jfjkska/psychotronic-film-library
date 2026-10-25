@@ -25,7 +25,8 @@ excerpt: >-
   Georgia. A messy, bizarre and bloody ride for those with a taste for it.
 imdb: tt0080379
 stills: [/assets/img/stills/cannibal-apocalypse-1.jpg, /assets/img/stills/cannibal-apocalypse-2.jpg, /assets/img/stills/cannibal-apocalypse-3.jpg, /assets/img/stills/cannibal-apocalypse-4.jpg]
-tmdb_poster: /oqaziDWONW3nkzIpwXyfMvFnvGR.jpg
+fetch_posters: false
+keep_alts: true
 posters: [/assets/img/posters/cannibal-apocalypse-alt-1.jpg, /assets/img/posters/cannibal-apocalypse-alt-2.jpg, /assets/img/posters/cannibal-apocalypse-alt-3.jpg]
 image: /assets/img/cards/cannibal-apocalypse.jpg
 ---
