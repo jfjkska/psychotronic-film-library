@@ -23,6 +23,11 @@ tracks:
 excerpt: >-
   Margheriti takes the cannibal film out of the jungle and onto the streets of
   Georgia. A messy, bizarre and bloody ride for those with a taste for it.
+imdb: tt0080379
+stills: [/assets/img/stills/cannibal-apocalypse-1.jpg, /assets/img/stills/cannibal-apocalypse-2.jpg, /assets/img/stills/cannibal-apocalypse-3.jpg, /assets/img/stills/cannibal-apocalypse-4.jpg]
+tmdb_poster: /oqaziDWONW3nkzIpwXyfMvFnvGR.jpg
+posters: [/assets/img/posters/cannibal-apocalypse-alt-1.jpg, /assets/img/posters/cannibal-apocalypse-alt-2.jpg, /assets/img/posters/cannibal-apocalypse-alt-3.jpg]
+image: /assets/img/cards/cannibal-apocalypse.jpg
 ---
 
 Cannibal Apocalypse (1980), aka Invasion of the Flesh Hunters, is written and directed by Antonio Margheriti under his pseudonym Anthony M. Dawson. He reused props and uniforms from his previous film The Last Hunter (1980) for the opening Vietnam War sequence. It stars John Saxon, Giovanni Lombardo Radice and Tony King, fresh from his role in The Last Hunter.
