@@ -27,6 +27,10 @@ excerpt: >-
   Jacopetti and Prosperi take a helicopter back to the Antebellum South in this
   relentless mondo docudrama. Not recommended viewing, but an important document
   of the form.
+imdb: tt0180396
+stills: [/assets/img/stills/goodbye-uncle-tom-1.jpg, /assets/img/stills/goodbye-uncle-tom-2.jpg, /assets/img/stills/goodbye-uncle-tom-3.jpg, /assets/img/stills/goodbye-uncle-tom-4.jpg]
+posters: [/assets/img/posters/goodbye-uncle-tom-alt-1.jpg, /assets/img/posters/goodbye-uncle-tom-alt-2.jpg, /assets/img/posters/goodbye-uncle-tom-alt-3.jpg]
+image: /assets/img/cards/goodbye-uncle-tom.jpg
 ---
 
 Goodbye Uncle Tom, aka Addio Zio Tom (1971), is a mondo docudrama produced and directed by Gualtiero Jacopetti and Franco Prosperi. The film begins in modern America in the swathe of political corruption, assassinations and the call for armed revolution from the Black Panthers. A white middle class woman with a black chauffeur narrates how her family had five hundred slaves to maintain the house. This isn't Driving Miss Daisy but a lament to the hierarchy of white owners and black people who work without pay and are victim to their owners' whims and fancies.
