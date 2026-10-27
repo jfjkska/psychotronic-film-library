@@ -24,6 +24,10 @@ excerpt: >-
   Greek island in Joe D'Amato's video nasty. Gore pushed to its bloody extreme,
   and offal by the bucketload.
 imdb: tt0082479
+stills: [/assets/img/stills/anthropophagous-1.jpg, /assets/img/stills/anthropophagous-2.jpg, /assets/img/stills/anthropophagous-3.jpg, /assets/img/stills/anthropophagous-4.jpg]
+tmdb_poster: /4P6BWMGUPioHSZrFtKvMSH5kXv2.jpg
+posters: [/assets/img/posters/anthropophagous-alt-1.jpg, /assets/img/posters/anthropophagous-alt-2.jpg, /assets/img/posters/anthropophagous-alt-3.jpg]
+image: /assets/img/cards/anthropophagous.jpg
 ---
 
 Anthropophagous (1980) is directed by Joe D'Amato and co-written with exploitation legend George Eastman. George plays a disfigured cannibal who is killing all the residents of a remote Greek island. On to this island arrives a group of tourists. Among them are Julia (Tisa Farrow), who is no stranger to Italian horror, and Maggie (Serena Grandi). Maggie is pregnant, and this detail is one reason this film ended up on the video nasties list. It was one of thirty-nine films that could be seized and prosecuted under the Obscene Publications Act in the UK.
