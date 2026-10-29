@@ -16,6 +16,10 @@ excerpt: >-
   Lollobrigida, Trintignant and Ewa Aulin caught in a love triangle of double
   crosses and murders that may or may not be real.
 imdb: tt0061994
+stills: [/assets/img/stills/death-laid-an-egg-1.jpg, /assets/img/stills/death-laid-an-egg-2.jpg, /assets/img/stills/death-laid-an-egg-3.jpg, /assets/img/stills/death-laid-an-egg-4.jpg]
+tmdb_poster: /mTNQrflCUiyQSCFQegeVGeRPVi2.jpg
+posters: [/assets/img/posters/death-laid-an-egg-alt-1.jpg, /assets/img/posters/death-laid-an-egg-alt-2.jpg, /assets/img/posters/death-laid-an-egg-alt-3.jpg]
+image: /assets/img/cards/death-laid-an-egg.jpg
 ---
 
 Death Laid an Egg (1968) is written and directed by Giulio Questi. Best described as a "surreal, avant-garde giallo", it is certainly an odd one amongst its contemporaries. Questi is new to me, although the actors need no introduction.
