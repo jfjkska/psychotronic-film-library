@@ -17,6 +17,11 @@ excerpt: >-
   Two Athens conmen are blackmailed into guarding a telekinetic young woman
   from a shady organisation in Nico Mastorakis's debut: eurosleaze, buddy
   comedy, sci-fi horror and espionage thrown into one bubbling Greek pot.
+imdb: tt0236397
+stills: [/assets/img/stills/death-has-blue-eyes-1.jpg, /assets/img/stills/death-has-blue-eyes-2.jpg]
+tmdb_poster: /iaNNNZf4usMH1KRjRB5tzeaIiAD.jpg
+posters: [/assets/img/posters/death-has-blue-eyes-alt-1.jpg, /assets/img/posters/death-has-blue-eyes-alt-2.jpg]
+image: /assets/img/cards/death-has-blue-eyes.jpg
 ---
 
 Death Has Blue Eyes (1976) is written and directed by Nico Mastorakis. What do you get if you throw eurosleaze, buddy comedy, sci-fi horror and espionage thriller into a bubbling Greek pot? Death Has Blue Eyes is what you get. Don't forget to add a pinch of questionable men's underwear and a swearing parrot for seasoning.
