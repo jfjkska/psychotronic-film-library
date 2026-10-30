@@ -7,6 +7,7 @@ tmdb: 194489
 director: "Nico Mastorakis"
 country: Greece
 starring: "Peter Winter, Hristos Nomikos, Maria Aliferi, Jessica Dublin"
+music: "Nikos Lavranos"
 genres: [eurosleaze, sci-fi horror, espionage, buddy comedy]
 rating: 3
 verdict: "Greek mayhem"
