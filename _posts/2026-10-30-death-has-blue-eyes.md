@@ -11,6 +11,7 @@ genres: [eurosleaze, sci-fi horror, espionage, buddy comedy]
 rating: 3
 verdict: "Greek mayhem"
 poster: /assets/img/posters/death-has-blue-eyes.jpg
+trailer: W1nm0RauBcs
 excerpt: >-
   Two Athens conmen are blackmailed into guarding a telekinetic young woman
   from a shady organisation in Nico Mastorakis's debut: eurosleaze, buddy
