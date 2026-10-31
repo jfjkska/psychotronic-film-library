@@ -24,6 +24,9 @@ excerpt: >-
   Rassimov's Satan in this Italian answer to The Exorcist. A messy mix of sexual
   repression and satanic possession, with a revelatory Stella Carnacina.
 imdb: tt0072147
+stills: [/assets/img/stills/enter-the-devil-1.jpg, /assets/img/stills/enter-the-devil-2.jpg, /assets/img/stills/enter-the-devil-3.jpg]
+posters: [/assets/img/posters/enter-the-devil-alt-1.jpg, /assets/img/posters/enter-the-devil-alt-2.jpg, /assets/img/posters/enter-the-devil-alt-3.jpg]
+image: /assets/img/cards/enter-the-devil.jpg
 ---
 
 Enter the Devil aka The Sexorcist (1974) is directed by Mario Gariazzo. It was just one of the many European films to ride on the success of Friedkin's possession classic. It was later renamed The Eerie Midnight Horror Show. What were they thinking when they came up with that?
