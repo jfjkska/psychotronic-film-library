@@ -18,6 +18,11 @@ excerpt: >-
   A West German Exorcist rip-off with added nudity, in which a boarding-school
   girl is possessed by a demonic buzzing. The plot is thin, but Dagmar Hedrich
   plays innocent and evil with enthusiasm and aplomb.
+imdb: tt0071795
+stills: [/assets/img/stills/magdalena-1.jpg, /assets/img/stills/magdalena-2.jpg, /assets/img/stills/magdalena-3.jpg]
+tmdb_poster: /vnIAsNB6ZEfcGLExj9gc38GuJgO.jpg
+posters: [/assets/img/posters/magdalena-alt-1.jpg, /assets/img/posters/magdalena-alt-2.jpg, /assets/img/posters/magdalena-alt-3.jpg]
+image: /assets/img/cards/magdalena.jpg
 ---
 
 Magdalena aka The Devil's Female (1974) is a West German Exorcist rip-off with added nudity. It is directed by Walter Boos, known for his German sex films dressed up as documentaries.
