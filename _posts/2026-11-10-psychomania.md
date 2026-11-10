@@ -33,6 +33,10 @@ excerpt: >-
   A British occult biker film in which a sociopathic gang leader makes a pact
   to die and come back as one of the living dead. A masterpiece involving a
   satanic frog, with one of the best psych rock soundtracks ever.
+imdb: tt0067630
+stills: [/assets/img/stills/psychomania-1.jpg, /assets/img/stills/psychomania-2.jpg, /assets/img/stills/psychomania-3.jpg, /assets/img/stills/psychomania-4.jpg]
+posters: [/assets/img/posters/psychomania-alt-1.jpg, /assets/img/posters/psychomania-alt-2.jpg, /assets/img/posters/psychomania-alt-3.jpg]
+image: /assets/img/cards/psychomania.jpg
 ---
 
 Psychomania aka The Death Wheelers (1973) is a British occult biker film directed by Don Sharp. Psychomania defines the cult film, and it is one of my all-time favourites from watching it as a teenager on late-night television in the early 1980s.
