@@ -20,7 +20,8 @@ excerpt: >-
   plays innocent and evil with enthusiasm and aplomb.
 imdb: tt0071795
 stills: [/assets/img/stills/magdalena-1.jpg, /assets/img/stills/magdalena-2.jpg, /assets/img/stills/magdalena-3.jpg]
-tmdb_poster: /vnIAsNB6ZEfcGLExj9gc38GuJgO.jpg
+tmdb_poster: /lJVLTLeZuwmLoJnYmUykBnpr4Jk.jpg
+keep_alts: true
 posters: [/assets/img/posters/magdalena-alt-1.jpg, /assets/img/posters/magdalena-alt-2.jpg, /assets/img/posters/magdalena-alt-3.jpg]
 image: /assets/img/cards/magdalena.jpg
 ---
