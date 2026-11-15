@@ -40,6 +40,15 @@ For archive films with no reliable TMDB entry, add `fetch_posters: false` to
 the review's front matter. This skips automatic poster, gallery and credit
 lookups for that review, preserving its supplied assets; share cards still run.
 
+## Thumbnails
+
+Cards and the banner load small WebP copies from `assets/img/thumbs/`,
+made by `tools/make_thumbs.py` (needs Pillow). The poster workflow runs it
+after fetching, so new reviews get them automatically; until then a card
+falls back to the full poster. Full-size posters stay for the review page
+and the lightbox. Run `python tools/make_thumbs.py` by hand after replacing
+a poster or the banner yourself.
+
 ## Wiring the contact form (2 minutes, free)
 
 GitHub Pages can't process a form on its own, so the form posts to Formspree.

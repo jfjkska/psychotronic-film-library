@@ -1,6 +1,8 @@
 <header class="masthead">
   <a class="banner" href="{{ '/' | relative_url }}" aria-label="{{ site.title }} — home">
-    <img src="{{ '/assets/img/banner.jpg' | relative_url }}" alt="{{ site.title }}" width="2172" height="724" fetchpriority="high">
+    {%- assign banner = '/assets/img/banner.jpg' -%}
+    {%- assign banner_srcset = banner | thumb_srcset: "440,880,1680" -%}
+    <img src="{{ banner | thumb: 880 | relative_url }}"{% if banner_srcset != "" %} srcset="{{ banner_srcset }}" sizes="{% if page.url == '/' %}(max-width: 872px) calc(100vw - 32px), 840px{% else %}(max-width: 564px) 78vw, 440px{% endif %}"{% endif %} alt="{{ site.title }}" width="2172" height="724" fetchpriority="high">
   </a>
   <nav class="marquee" aria-label="Main">
     <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}aria-current="page"{% endif %}>Reviews</a>
