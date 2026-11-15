@@ -17,9 +17,17 @@ body_class: review-page
   <div class="review-grid">
     <aside class="one-sheet">
       <figure class="poster-frame">
-        <a href="{{ poster | relative_url }}" data-poster-enlarge data-lightbox="posters"><img src="{{ poster | relative_url }}" alt="Enlarge poster for {{ page.title }}{% if page.year %} ({{ page.year }}){% endif %}" loading="eager" width="300" height="450"></a>
+        {%- assign frame_srcset = poster | thumb_srcset: "400,600" -%}
+        <a href="{{ poster | relative_url }}" data-poster-enlarge data-lightbox="posters"><img src="{{ poster | relative_url }}"{% if frame_srcset != "" %} srcset="{{ frame_srcset }}" sizes="(max-width: 859px) 132px, 320px"{% endif %} alt="Enlarge poster for {{ page.title }}{% if page.year %} ({{ page.year }}){% endif %}" loading="eager" width="300" height="450"></a>
         {% if page.verdict %}<span class="stamp">{{ page.verdict }}</span>{% endif %}
       </figure>
+      {% comment %} Phones: a short summary beside a small poster, so the review starts in the first screen. Hidden on desktop. {% endcomment %}
+      <div class="sheet-summary">
+        {% if page.verdict %}<p class="sheet-verdict">{{ page.verdict }}</p>{% endif %}
+        {% if page.rating and page.rating > 0 %}<p class="sheet-rating">{% include rating.html rating=page.rating %}</p>{% endif %}
+        {% if page.runtime %}<p class="sheet-meta">{{ page.runtime }}</p>{% endif %}
+        <p class="sheet-jump"><a href="#credits">Credits &amp; where to watch</a></p>
+      </div>
       {% if page.posters %}
       <ul class="poster-alts" aria-label="Other posters" data-poster-alts>
         <li><button type="button" class="alt is-on" data-src="{{ poster | relative_url }}"><img src="{{ poster | thumb: 400 | relative_url }}" alt="" loading="lazy"></button></li>
@@ -29,6 +37,7 @@ body_class: review-page
       </ul>
       {% endif %}
 
+      <h2 class="rule credits-head" id="credits">Credits</h2>
       <dl class="credits">
         {% if page.rating and page.rating > 0 %}
         <dt>Verdict</dt><dd>{% include rating.html rating=page.rating %}</dd>

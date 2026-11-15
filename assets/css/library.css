@@ -500,3 +500,33 @@ body:not(.home) .marquee { margin-top: clamp(14px, 2.5vw, 24px); }
   /* On phones the search lives behind Menu so content starts higher. */
   .marquee.is-compact:not(.is-open) .nav-search { display: none; }
 }
+
+/* ── Review pages on phones and tablets ──────────────────────────────────────
+   The desktop two-column layout is untouched. Below 860px the one-sheet's
+   parts become grid items: a small poster beside a short summary, then the
+   review, then credits and other posters. */
+.sheet-summary, .credits-head { display: none; }
+@media (max-width: 859px) {
+  .review-page .banner { max-width: min(300px, 64vw); }
+  .review-page .masthead { padding-top: 10px; }
+  .review-page .marquee { margin-top: 12px; padding-top: .3rem; padding-bottom: .3rem; }
+  .review-head { margin: 1.2rem auto 1.3rem; }
+  .review-head .display { font-size: clamp(2rem, 9vw, 3.2rem); }
+  .review-head .strap { font-size: .92rem; margin-top: .5em; }
+  .review-grid { grid-template-columns: minmax(0, 132px) minmax(0, 1fr); gap: 1.3rem 1.1rem; align-items: start; }
+  .one-sheet { display: contents; }
+  .poster-frame { grid-column: 1; grid-row: 1; margin: 0; border-width: 4px; transform: rotate(-1.4deg); box-shadow: 6px 6px 0 var(--magenta), 6px 6px 0 2px var(--black); }
+  .poster-frame .stamp { display: none; }
+  .sheet-summary { display: block; grid-column: 2; grid-row: 1; align-self: center; font-family: var(--type); }
+  .sheet-summary p { margin: 0 0 .55rem; }
+  .sheet-verdict { display: inline-block; padding: .15em .5em .1em; transform: rotate(-3deg); font: 1rem/1.25 var(--poster); text-transform: uppercase; letter-spacing: .1em; color: var(--orange); border: 3px double var(--orange); background: rgba(18, 6, 15, .82); }
+  .sheet-rating .eyes { --eye-line: var(--cream); }
+  .sheet-rating .eye { width: 26px; height: 16px; }
+  .sheet-meta { font-size: .9rem; color: var(--dim); }
+  .sheet-jump { font-size: .9rem; }
+  .sheet-jump a { display: inline-flex; align-items: center; min-height: 44px; }
+  .review-body { grid-column: 1 / -1; grid-row: 2; margin: 0 calc(-1 * var(--gutter)); padding: .2rem var(--gutter) .6rem; }
+  .credits-head { display: block; grid-column: 1 / -1; grid-row: 3; margin: .5rem 0 0; scroll-margin-top: 1rem; }
+  .credits { grid-column: 1 / -1; grid-row: 4; }
+  .poster-alts { grid-column: 1 / -1; grid-row: 5; margin: 0; }
+}
