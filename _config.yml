@@ -63,8 +63,16 @@ plugins:
 feed:
   path: feed.xml
   excerpt_only: false
+  posts_limit: 50
 
 defaults:
+  # Pages that are not reviews share the site card (1200x630, large preview).
+  # Reviews keep their own per-film card from tools/make_cards.py.
+  - scope:
+      path: ""
+      type: pages
+    values:
+      image: /assets/img/social-card-wide.jpg
   - scope:
       path: ""
       type: posts
