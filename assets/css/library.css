@@ -500,3 +500,15 @@ body:not(.home) .marquee { margin-top: clamp(14px, 2.5vw, 24px); }
   /* On phones the search lives behind Menu so content starts higher. */
   .marquee.is-compact:not(.is-open) .nav-search { display: none; }
 }
+
+/* ── Alignment fixes ─────────────────────────────────────────────────────── */
+/* Nav: links and the Menu button share one height, size and spacing, centred. */
+.marquee { align-items: center; }
+.marquee > a, .marquee-more > a { display: inline-flex; align-items: center; min-height: 44px; }
+.marquee.is-compact .nav-toggle { font-size: clamp(.95rem, 1.6vw, 1.2rem); letter-spacing: .14em; line-height: inherit; }
+@media (max-width: 600px) {
+  .marquee.is-compact .nav-toggle { font-size: .85rem; letter-spacing: .06em; }
+}
+/* Score: when one track title wraps to two lines, keep both players level. */
+.tracks > li { display: grid; grid-template-rows: 1fr auto; }
+.tracks .track-title { align-self: end; }
