@@ -538,6 +538,9 @@ body:not(.home) .marquee { margin-top: clamp(14px, 2.5vw, 24px); }
 @media (max-width: 600px) {
   .marquee.is-compact .nav-toggle { font-size: .85rem; letter-spacing: .06em; }
 }
+/* Menu button: drop Safari's native button styling and the side padding,
+   so its text sits exactly like the links and the right edge matches the left. */
+.marquee.is-compact .nav-toggle, .home .nav-toggle { -webkit-appearance: none; appearance: none; margin: 0; padding: 0; border-radius: 0; vertical-align: baseline; }
 /* Score: when one track title wraps to two lines, keep both players level. */
 .tracks > li { display: grid; grid-template-rows: 1fr auto; }
 .tracks .track-title { align-self: end; }
