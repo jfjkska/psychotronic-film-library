@@ -162,6 +162,24 @@ for (const slug of fs.readdirSync(path.join(build, 'reviews'))) {
 }
 const margheriti = new JSDOM(fs.readFileSync(path.join(build, 'director/antonio-margheriti/index.html'), 'utf8')).window.document;
 assert.equal(margheriti.querySelectorAll('.rack .card').length, 5, 'Credited names (as Anthony M. Dawson) join the person page');
+// Links inside review text: first mention only, never to itself, never nested, always resolving.
+let autolinks = 0;
+for (const slug of fs.readdirSync(path.join(build, 'reviews'))) {
+  const d = new JSDOM(fs.readFileSync(path.join(build, 'reviews', slug, 'index.html'), 'utf8')).window.document;
+  const links = [...d.querySelectorAll('.review-body a.autolink')];
+  autolinks += links.length;
+  const hrefs = links.map(a => a.getAttribute('href'));
+  assert.equal(new Set(hrefs).size, hrefs.length, `${slug}: each film or director linked once`);
+  for (const a of links) {
+    const href = a.getAttribute('href');
+    assert.notEqual(href, `/reviews/${slug}/`, `${slug}: no link to itself`);
+    assert(!a.parentElement.closest('a, h1, h2, h3, h4, h5, h6'), `${slug}: not inside a link or heading`);
+    assert(fs.existsSync(path.join(build, decodeURI(href), 'index.html')), `${slug}: ${href} resolves`);
+  }
+}
+assert(autolinks > 40, 'Reviews link to each other');
+const mania = new JSDOM(fs.readFileSync(path.join(build, 'reviews/psychomania/index.html'), 'utf8')).window.document;
+assert(mania.querySelector('.review-body a.autolink[href="/reviews/the-virgin-witch/"]'), 'Psychomania links The Virgin Witch');
 const updates = page('updates/index.html');
 assert(updates.window.document.querySelector('a[href="/feed.xml"]'));
 console.log(`PASS: ${total} reviews; search, combined filters, co-productions, sorts, shared URLs, gallery navigation, swipes, focus, recommendations and viewing links.`);
