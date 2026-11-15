@@ -18,6 +18,12 @@ body_class: shelf
     <a class="chip" href="#science-fiction">Science fiction</a>
     <a class="chip" href="#a-to-z">A to Z</a>
   </nav>
+  {%- assign lib = site.data.library_pages -%}
+  <div class="browse-index">
+    <p><span class="dim">By decade:</span> {% assign keys = lib.decade | sort %}{% for pair in keys %}<a href="{{ pair[1] | relative_url }}">{{ pair[0] }}</a>{% unless forloop.last %} · {% endunless %}{% endfor %}</p>
+    <p><span class="dim">By country:</span> {% assign keys = lib.country | sort %}{% for pair in keys %}<a href="{{ pair[1] | relative_url }}">{{ pair[0] }}</a>{% unless forloop.last %} · {% endunless %}{% endfor %}</p>
+    <p><span class="dim">By director:</span> {% assign shown = "" | split: "" %}{% assign keys = lib.director | sort %}{% for pair in keys %}{% unless pair[0] contains '(as ' or shown contains pair[1] %}{% assign shown = shown | push: pair[1] %}<a href="{{ pair[1] | relative_url }}">{{ pair[0] }}</a> · {% endunless %}{% endfor %}<a href="{{ '/directors/' | relative_url }}">all directors</a></p>
+  </div>
   {% assign categories = 'Giallo|British horror|Eurosleaze|Exploitation|Crime|Science fiction' | split: '|' %}
   {% for category in categories %}
   <section class="genre-block" id="{{ category | slugify }}">

@@ -530,3 +530,12 @@ body:not(.home) .marquee { margin-top: clamp(14px, 2.5vw, 24px); }
   .credits { grid-column: 1 / -1; grid-row: 4; }
   .poster-alts { grid-column: 1 / -1; grid-row: 5; margin: 0; }
 }
+
+/* ── Director, country, decade and genre pages ──────────────────────────── */
+.listing-intro { max-width: 62ch; margin: 1rem 0 .4rem; font-size: 1.2rem; color: var(--paper); }
+.listing-more { margin: 0; font: .9rem var(--type); color: var(--dim); }
+.listing-body .rule { margin-top: 1.6rem; margin-bottom: 1.4rem; }
+.strap a { color: inherit; text-decoration: none; border-bottom: 2px dotted var(--magenta); }
+.strap a:hover { color: var(--paper); }
+.browse-index { display: grid; gap: .4rem 2rem; margin: 1rem 0 0; }
+.browse-index p { margin: 0; }

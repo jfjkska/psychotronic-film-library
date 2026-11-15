@@ -7,10 +7,12 @@ body_class: review-page
   <header class="review-head">
     <h1 class="display">{{ page.title }}</h1>
     {% if page.aka %}<p class="aka">a.k.a. {{ page.aka }}</p>{% endif %}
+    {%- assign lib = site.data.library_pages -%}
+    {%- assign decade_key = page.year | divided_by: 10 | times: 10 | append: 's' -%}
     <p class="strap">
-      {% if page.year %}<span class="strap-year">{{ page.year }}</span>{% endif %}
-      {% if page.director %}<span class="strap-sep">·</span> Directed by <b>{{ page.director }}</b>{% endif %}
-      {% if page.country %}<span class="strap-sep">·</span> {{ page.country }}{% endif %}
+      {% if page.year %}{% if lib.decade[decade_key] %}<a href="{{ lib.decade[decade_key] | relative_url }}" title="More films of the {{ decade_key }}" class="strap-year">{{ page.year }}</a>{% else %}<span class="strap-year">{{ page.year }}</span>{% endif %}{% endif %}
+      {% if page.director %}<span class="strap-sep">·</span> Directed by <b>{% if lib.director[page.director] %}<a href="{{ lib.director[page.director] | relative_url }}">{{ page.director }}</a>{% else %}{{ page.director }}{% endif %}</b>{% endif %}
+      {% if page.country %}<span class="strap-sep">·</span> {% assign nations = page.country | split: '/' %}{% for raw in nations %}{% assign nation = raw | strip %}{% if lib.country[nation] %}<a href="{{ lib.country[nation] | relative_url }}" title="More films from {{ nation }}">{{ nation }}</a>{% else %}{{ nation }}{% endif %}{% unless forloop.last %} / {% endunless %}{% endfor %}{% endif %}
     </p>
   </header>
 
@@ -42,7 +44,7 @@ body_class: review-page
         {% if page.rating and page.rating > 0 %}
         <dt>Verdict</dt><dd>{% include rating.html rating=page.rating %}</dd>
         {% endif %}
-        {% if page.director %}<dt>Director</dt><dd><a class="quiet" href="{{ '/directors/' | relative_url }}#{{ page.director | slugify }}">{{ page.director }}</a></dd>{% endif %}
+        {% if page.director %}<dt>Director</dt><dd><a class="quiet" href="{% if site.data.library_pages.director[page.director] %}{{ site.data.library_pages.director[page.director] | relative_url }}{% else %}{{ '/directors/' | relative_url }}#{{ page.director | slugify }}{% endif %}">{{ page.director }}</a></dd>{% endif %}
         {% if page.starring %}<dt>Starring</dt><dd>{% assign names = page.starring | split: ',' %}{% for raw in names %}{% assign n = raw | strip %}<a class="quiet" href="{{ '/' | relative_url }}?q={{ n | url_encode }}" title="Search the library for {{ n | escape }}">{{ n }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}</dd>{% endif %}
         {% if page.music %}<dt>Music</dt><dd>{% assign names = page.music | split: ',' %}{% for raw in names %}{% assign n = raw | strip %}{% if n contains 'performed by ' %}{% assign n = n | remove_first: 'performed by ' %}performed by {% endif %}<a class="quiet" href="{{ '/' | relative_url }}?q={{ n | url_encode }}" title="Search the library for {{ n | escape }}">{{ n }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}</dd>{% endif %}
         {% if page.runtime %}<dt>Runtime</dt><dd>{{ page.runtime }}</dd>{% endif %}
@@ -60,7 +62,7 @@ body_class: review-page
         {% if page.genres %}
         <dt>Filed under</dt>
         <dd class="chips">
-          {% for g in page.genres %}<a class="chip" href="{{ '/' | relative_url }}?genre={{ g | downcase | uri_escape }}">{{ g }}</a>{% endfor %}
+          {% for g in page.genres %}{% assign tag_key = g | downcase %}<a class="chip" href="{% if site.data.library_pages.tag[tag_key] %}{{ site.data.library_pages.tag[tag_key] | relative_url }}{% else %}{{ '/' | relative_url }}?genre={{ tag_key | uri_escape }}{% endif %}">{{ g }}</a>{% endfor %}
         </dd>
         {% endif %}
       </dl>
