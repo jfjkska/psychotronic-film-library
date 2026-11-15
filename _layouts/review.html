@@ -12,7 +12,6 @@ body_class: review-page
       {% if page.director %}<span class="strap-sep">·</span> Directed by <b>{{ page.director }}</b>{% endif %}
       {% if page.country %}<span class="strap-sep">·</span> {{ page.country }}{% endif %}
     </p>
-    <p><a class="chip" href="{{ '/' | relative_url }}" data-dice>Random review</a></p>
   </header>
 
   <div class="review-grid">
@@ -35,8 +34,8 @@ body_class: review-page
         <dt>Verdict</dt><dd>{% include rating.html rating=page.rating %}</dd>
         {% endif %}
         {% if page.director %}<dt>Director</dt><dd><a class="quiet" href="{{ '/directors/' | relative_url }}#{{ page.director | slugify }}">{{ page.director }}</a></dd>{% endif %}
-        {% if page.starring %}<dt>Starring</dt><dd>{{ page.starring }}</dd>{% endif %}
-        {% if page.music %}<dt>Music</dt><dd>{{ page.music }}</dd>{% endif %}
+        {% if page.starring %}<dt>Starring</dt><dd>{% assign names = page.starring | split: ',' %}{% for raw in names %}{% assign n = raw | strip %}<a class="quiet" href="{{ '/' | relative_url }}?q={{ n | url_encode }}" title="Search the library for {{ n | escape }}">{{ n }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}</dd>{% endif %}
+        {% if page.music %}<dt>Music</dt><dd>{% assign names = page.music | split: ',' %}{% for raw in names %}{% assign n = raw | strip %}{% if n contains 'performed by ' %}{% assign n = n | remove_first: 'performed by ' %}performed by {% endif %}<a class="quiet" href="{{ '/' | relative_url }}?q={{ n | url_encode }}" title="Search the library for {{ n | escape }}">{{ n }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}</dd>{% endif %}
         {% if page.runtime %}<dt>Runtime</dt><dd>{{ page.runtime }}</dd>{% endif %}
         {% if page.version %}<dt>Version seen</dt><dd>{{ page.version }}</dd>{% endif %}
         {% if page.watched_on %}<dt>Seen on</dt><dd>{{ page.watched_on }}</dd>{% endif %}
@@ -90,6 +89,12 @@ body_class: review-page
       </section>
       {% endif %}
       <p class="byline">Filed {{ page.date | date: "%-d %B %Y" }}{% if page.author %} by {{ page.author }}{% endif %}.</p>
+      <div class="review-actions" data-share data-share-url="{{ page.url | absolute_url }}" data-share-title="{{ page.title | escape }}{% if page.year %} ({{ page.year }}){% endif %} review">
+        <button type="button" class="chip" data-copy-link hidden>Copy link</button>
+        <button type="button" class="chip" data-native-share hidden>Share</button>
+        <a class="chip" href="{{ '/' | relative_url }}" data-dice>Random review</a>
+        <span class="share-status" role="status" aria-live="polite" data-share-status></span>
+      </div>
       {% include comments.html %}
     </div>
   </div>

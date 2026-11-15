@@ -13,6 +13,13 @@
     <a href="{{ '/contact/' | relative_url }}" {% if page.url == '/contact/' %}aria-current="page"{% endif %}>Contact</a>
     <a href="{{ '/updates/' | relative_url }}" {% if page.url == '/updates/' %}aria-current="page"{% endif %}>Email updates</a>
     </div>
+    {% unless page.url == '/' %}
+    <form class="nav-search" action="{{ '/' | relative_url }}" method="get" role="search">
+      <label class="sr-only" for="nav-q">Search the library</label>
+      <input id="nav-q" type="search" name="q" placeholder="Search films, directors, actors…" autocomplete="off">
+      <button type="submit">Search</button>
+    </form>
+    {% endunless %}
   </nav>
   <script type="application/json" data-reel>[{% for post in site.posts %}"{{ post.url | relative_url }}"{% unless forloop.last %},{% endunless %}{% endfor %}]</script>
 </header>

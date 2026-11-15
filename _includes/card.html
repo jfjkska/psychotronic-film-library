@@ -5,10 +5,10 @@
   edge can lose it. Set poster_focus: "left" (or a CSS object-position
   value) on that review to crop from the other side instead.
 {% endcomment %}
-<li class="card" data-title="{{ p.title | escape }}" data-aka="{{ p.aka | escape }}" data-cast="{{ p.starring | escape }}" data-year="{{ p.year }}" data-date="{{ p.date | date: '%s' }}" data-rating="{{ p.rating | default: 0 }}" data-country="{{ p.country | escape }}" data-director="{{ p.director | escape }}" data-genres="{{ p.genres | join: '|' | downcase | escape }}">
+<li class="card" data-title="{{ p.title | escape }}" data-aka="{{ p.aka | escape }}" data-cast="{{ p.starring | escape }}" data-music="{{ p.music | escape }}" data-year="{{ p.year }}" data-date="{{ p.date | date: '%s' }}" data-rating="{{ p.rating | default: 0 }}" data-country="{{ p.country | escape }}" data-director="{{ p.director | escape }}" data-genres="{{ p.genres | join: '|' | downcase | escape }}">
   <a class="card-link" href="{{ p.url | relative_url }}">
     <figure class="card-poster">
-      <img src="{{ poster | relative_url }}" alt="" loading="lazy" width="300" height="450"{% if p.poster_focus %} style="object-position: {{ p.poster_focus }};"{% endif %}>
+      <img src="{{ poster | relative_url }}" alt="Poster for {{ p.title | escape }}{% if p.year %} ({{ p.year }}){% endif %}" loading="lazy" width="300" height="450"{% if p.poster_focus %} style="object-position: {{ p.poster_focus }};"{% endif %}>
       {% if p.year %}<span class="sticker">{{ p.year }}</span>{% endif %}
     </figure>
     <div class="card-text">

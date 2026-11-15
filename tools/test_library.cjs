@@ -107,6 +107,27 @@ assert(doc.querySelector('.watch a[href="https://www.justwatch.com/uk/movie/quee
 const apaches = page('reviews/apaches/index.html');
 assert(apaches.window.document.querySelector('.related a[href="/reviews/the-finishing-line/"]'), 'Public information films connect');
 assert(apaches.window.document.querySelector('.watch a[href*="replay.bfi.org.uk"]'));
+// Every cast and music link on a review lands on a homepage search that finds that review.
+for (const slug of ['psychomania', 'the-bloodstained-shadow', 'queen-of-blood']) {
+  const film = page(`reviews/${slug}/index.html`).window.document;
+  const filmTitle = film.querySelector('h1').textContent.trim();
+  const links = [...film.querySelectorAll('.credits a[href^="/?q="]')];
+  assert(links.length > 0, `${slug}: credits link to search`);
+  for (const link of links) {
+    const search = page('index.html', link.getAttribute('href').slice(1));
+    assert(titles(search).includes(filmTitle), `${slug}: ${link.textContent} search finds the review`);
+    search.window.close();
+  }
+  assert(film.querySelector('.review-actions [data-dice]'), `${slug}: random review sits at the foot`);
+  assert(!film.querySelector('.review-head [data-dice]'), `${slug}: no random link under the title`);
+  assert.equal(film.querySelector('form.nav-search').getAttribute('action'), '/');
+  assert.equal(film.querySelector('form.nav-search input').name, 'q');
+}
+assert.equal(doc.querySelector('[data-copy-link]').hidden, false, 'Copy link is offered with JS');
+assert.equal(doc.querySelector('[data-native-share]').hidden, true, 'Share sheet only where navigator.share exists');
+assert.equal(home.window.document.querySelectorAll('h1').length, 1, 'Homepage has one H1');
+assert(!home.window.document.querySelector('form.nav-search'), 'Homepage keeps its own finder only');
+assert([...home.window.document.querySelectorAll('.card img')].every(i => i.alt.startsWith('Poster for ')), 'Card posters have alt text');
 const updates = page('updates/index.html');
 assert(updates.window.document.querySelector('a[href="/feed.xml"]'));
 console.log(`PASS: ${total} reviews; search, combined filters, co-productions, sorts, shared URLs, gallery navigation, swipes, focus, recommendations and viewing links.`);

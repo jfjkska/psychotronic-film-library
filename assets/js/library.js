@@ -44,7 +44,7 @@
       card: card, index: index, title: data.title || '', year: Number(data.year) || 0,
       date: Number(data.date) || 0, rating: Number(data.rating) || 0,
       countries: countries(data.country), genres: (data.genres || '').split('|'),
-      hay: norm([data.title, data.aka, data.cast, data.director, data.year, data.country, data.genres].join(' '))
+      hay: norm([data.title, data.aka, data.cast, data.music, data.director, data.year, data.country, data.genres].join(' '))
     };
   });
   function addOptions(select, values, label) {
@@ -277,4 +277,42 @@
     if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.5) show(index + (dx < 0 ? 1 : -1));
     touch = null;
   }, { passive: true });
+})();
+
+// Share a review: copy its link, or open the device's share sheet where there is one.
+(function () {
+  var box = document.querySelector('[data-share]');
+  if (!box) return;
+  var url = box.getAttribute('data-share-url') || location.href;
+  var title = box.getAttribute('data-share-title') || document.title;
+  var status = box.querySelector('[data-share-status]');
+  var copy = box.querySelector('[data-copy-link]');
+  var share = box.querySelector('[data-native-share]');
+  function say(text) {
+    status.textContent = text;
+    clearTimeout(say.t);
+    say.t = setTimeout(function () { status.textContent = ''; }, 3000);
+  }
+  function fallbackCopy() {
+    var field = document.createElement('textarea');
+    field.value = url; field.setAttribute('readonly', '');
+    field.style.position = 'absolute'; field.style.left = '-9999px';
+    document.body.appendChild(field); field.select();
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+    document.body.removeChild(field);
+    say(ok ? 'Link copied' : 'Copy this link: ' + url);
+  }
+  copy.hidden = false;
+  copy.addEventListener('click', function () {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(function () { say('Link copied'); }, fallbackCopy);
+    } else fallbackCopy();
+  });
+  if (typeof navigator.share === 'function') {
+    share.hidden = false;
+    share.addEventListener('click', function () {
+      navigator.share({ title: title, url: url }).catch(function () {});
+    });
+  }
 })();
