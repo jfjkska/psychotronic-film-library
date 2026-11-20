@@ -17,7 +17,9 @@ body_class: review-page
   <div class="review-grid">
     <aside class="one-sheet">
       <figure class="poster-frame">
-        <a href="{{ poster | relative_url }}" data-poster-enlarge data-lightbox="posters"><img src="{{ poster | relative_url }}" alt="Enlarge poster for {{ page.title }}{% if page.year %} ({{ page.year }}){% endif %}" loading="eager" width="300" height="450"></a>
+        {%- assign frame_srcset = poster | thumb_srcset: "400,600" -%}
+        {% comment %} Desktop shows the poster at 320px, so it gets the WebP thumbnails; phones keep the full-size poster. {% endcomment %}
+        <a href="{{ poster | relative_url }}" data-poster-enlarge data-lightbox="posters"><picture>{% if frame_srcset != "" %}<source media="(min-width: 860px)" srcset="{{ frame_srcset }}" sizes="320px">{% endif %}<img src="{{ poster | relative_url }}" alt="Enlarge poster for {{ page.title }}{% if page.year %} ({{ page.year }}){% endif %}" loading="eager" width="300" height="450"></picture></a>
         {% if page.verdict %}<span class="stamp">{{ page.verdict }}</span>{% endif %}
       </figure>
       {% if page.posters %}

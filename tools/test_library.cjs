@@ -135,6 +135,8 @@ for (const img of home.window.document.querySelectorAll('img')) {
   for (const u of urls) assert(fs.existsSync(path.join(build, decodeURI(u))), `Missing image ${u}`);
 }
 assert([...home.window.document.querySelectorAll('.card img')].every(i => /\/thumbs\/posters\/.+-400\.webp$/.test(i.getAttribute('src'))), 'Cards use poster thumbnails');
+// Swapping posters drops the desktop thumbnail source so the chosen image shows.
+assert.equal(doc.querySelector('.poster-frame source'), null, 'Swapping posters drops the thumbnail source');
 const updates = page('updates/index.html');
 assert(updates.window.document.querySelector('a[href="/feed.xml"]'));
 console.log(`PASS: ${total} reviews; search, combined filters, co-productions, sorts, shared URLs, gallery navigation, swipes, focus, recommendations and viewing links.`);
