@@ -40,6 +40,15 @@ For archive films with no reliable TMDB entry, add `fetch_posters: false` to
 the review's front matter. This skips automatic poster, gallery and credit
 lookups for that review, preserving its supplied assets; share cards still run.
 
+## Links inside reviews
+
+`_plugins/review_links.rb` links the first mention of another reviewed film
+(and of a director with a page) inside each review, at build time. The
+review files are not changed. Titles that could be ordinary words ("Prey",
+"Voices", "Frogs") only link when written as a title: in italics, followed
+by the film's year in brackets, or capitalised mid-sentence. To compare
+output without it, build with `PSYCHOTRONIC_NO_AUTOLINK=1`.
+
 ## Thumbnails
 
 Cards and the banner load small WebP copies from `assets/img/thumbs/`,
