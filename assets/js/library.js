@@ -153,14 +153,30 @@
   });
   input.addEventListener('input', function () { apply(true); });
   [decade, country, rating, sort].forEach(function (select) { select.addEventListener('change', function () { apply(true); }); });
-  if (showMore) showMore.addEventListener('click', function () {
+  function addBatch() {
     loadAll();
     limit += batch;
     apply(false);
+  }
+  if (showMore) showMore.addEventListener('click', function () {
+    addBatch();
     // Move focus to the first newly shown card so keyboard users carry on from there.
     var next = Array.prototype.filter.call(rack.querySelectorAll('.card'), function (c) { return !c.hidden; })[limit - batch];
     if (next) next.querySelector('a').focus({ preventScroll: false });
   });
+  // Scrolling near the end of the list brings in the next batch on its own;
+  // the button stays for keyboard users and as a fallback.
+  if (showMore) {
+    var waiting = false;
+    window.addEventListener('scroll', function () {
+      if (waiting) return;
+      waiting = true;
+      setTimeout(function () {
+        waiting = false;
+        if (!showMore.hidden && showMore.getBoundingClientRect().top < window.innerHeight + 800) addBatch();
+      }, 120);
+    }, { passive: true });
+  }
   reset.addEventListener('click', function () {
     finder.reset(); genre = ''; apply(true); input.focus();
   });
