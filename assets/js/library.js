@@ -198,7 +198,8 @@
   row.addEventListener('click', function (e) {
     var btn = e.target.closest('.alt');
     if (!btn) return;
-    frame.removeAttribute('srcset');
+    var source = frame.parentNode.querySelector('source');
+    if (source) source.remove();
     frame.src = btn.getAttribute('data-src');
     var enlarge = document.querySelector('[data-poster-enlarge]');
     if (enlarge) enlarge.href = frame.src;
