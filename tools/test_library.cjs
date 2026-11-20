@@ -126,6 +126,7 @@ for (const slug of ['psychomania', 'the-bloodstained-shadow', 'queen-of-blood'])
 assert.equal(doc.querySelector('[data-copy-link]').hidden, false, 'Copy link is offered with JS');
 assert.equal(doc.querySelector('[data-native-share]').hidden, true, 'Share sheet only where navigator.share exists');
 assert.equal(home.window.document.querySelectorAll('h1').length, 1, 'Homepage has one H1');
+assert.equal(home.window.document.querySelector('h1 .banner img').alt, 'Psychotronic Film Library', 'Homepage H1 is the banner, named by its alt text');
 assert(!home.window.document.querySelector('form.nav-search'), 'Homepage keeps its own finder only');
 assert([...home.window.document.querySelectorAll('.card img')].every(i => i.alt.startsWith('Poster for ')), 'Card posters have alt text');
 // Card and banner images: every src and srcset candidate exists, and cards use the small WebP copies.
