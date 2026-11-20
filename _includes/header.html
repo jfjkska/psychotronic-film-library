@@ -1,7 +1,10 @@
 <header class="masthead">
-  <a class="banner" href="{{ '/' | relative_url }}" aria-label="{{ site.title }} — home">
+  {%- comment %} On the homepage the banner is the page's main heading; its alt text is the heading text. {% endcomment %}
+  {% if page.url == '/' %}<h1 class="banner-heading">{% endif %}
+  <a class="banner" href="{{ '/' | relative_url }}"{% unless page.url == '/' %} aria-label="{{ site.title }} — home"{% endunless %}>
     <img src="{{ '/assets/img/banner.jpg' | relative_url }}" alt="{{ site.title }}" width="2172" height="724" fetchpriority="high">
   </a>
+  {% if page.url == '/' %}</h1>{% endif %}
   <nav class="marquee" aria-label="Main">
     <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}aria-current="page"{% endif %}>Reviews</a>
     <a href="{{ '/shelf/' | relative_url }}" {% if page.url == '/shelf/' %}aria-current="page"{% endif %}>Browse</a>
