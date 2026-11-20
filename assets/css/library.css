@@ -456,7 +456,8 @@ a:hover { color: var(--paper); }
 }
 
 /* ── Homepage heading ────────────────────────────────────────────────────── */
-.lobby-intro { margin: 0 auto .5rem; max-width: 40ch; font: 400 clamp(.95rem, 1.8vw, 1.15rem)/1.35 var(--poster); text-transform: uppercase; letter-spacing: .12em; color: var(--yellow); }
+/* Homepage: the banner doubles as the H1; the heading adds no spacing of its own. */
+.banner-heading { margin: 0; font: inherit; }
 
 /* ── Compact banner away from the homepage ───────────────────────────────── */
 body:not(.home) .masthead { padding-top: clamp(10px, 2vw, 20px); }
