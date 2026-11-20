@@ -22,9 +22,9 @@ body_class: review-page
       </figure>
       {% if page.posters %}
       <ul class="poster-alts" aria-label="Other posters" data-poster-alts>
-        <li><button type="button" class="alt is-on" data-src="{{ poster | relative_url }}"><img src="{{ poster | relative_url }}" alt="" loading="lazy"></button></li>
+        <li><button type="button" class="alt is-on" data-src="{{ poster | relative_url }}"><img src="{{ poster | thumb: 400 | relative_url }}" alt="" loading="lazy"></button></li>
         {% for alt in page.posters %}
-        <li><button type="button" class="alt" data-src="{{ alt | relative_url }}"><img src="{{ alt | relative_url }}" alt="Another poster for {{ page.title }}" loading="lazy"></button></li>
+        <li><button type="button" class="alt" data-src="{{ alt | relative_url }}"><img src="{{ alt | thumb: 160 | relative_url }}" alt="Another poster for {{ page.title }}" loading="lazy"></button></li>
         {% endfor %}
       </ul>
       {% endif %}

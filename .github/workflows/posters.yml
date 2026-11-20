@@ -82,11 +82,14 @@ jobs:
           python tools/fetch_posters.py ${{ inputs.force && '--force' || '' }} ${{ inputs.candidates && '--candidates' || '' }} ${{ inputs.restills && '--restills' || '' }} ${{ inputs.revariants && '--revariants' || '' }} ${{ steps.touched.outputs.only }}
       - name: Draw share cards
         run: python tools/make_cards.py
+      # Small WebP copies for cards and listings (see tools/make_thumbs.py).
+      - name: Make thumbnails
+        run: python tools/make_thumbs.py
       - name: Commit any new posters
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A assets/img/posters assets/img/stills assets/img/cards _posts _poster_candidates
+          git add -A assets/img/posters assets/img/stills assets/img/cards assets/img/thumbs _posts _poster_candidates
           if git diff --cached --quiet; then echo "No poster changes."; exit 0; fi
           git commit -m "Fetch posters from TMDB"
           # A push to main while this was running leaves our commit behind the

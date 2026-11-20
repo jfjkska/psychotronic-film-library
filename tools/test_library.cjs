@@ -129,6 +129,12 @@ assert.equal(home.window.document.querySelectorAll('h1').length, 1, 'Homepage ha
 assert.equal(home.window.document.querySelector('h1 .banner img').alt, 'Psychotronic Film Library', 'Homepage H1 is the banner, named by its alt text');
 assert(!home.window.document.querySelector('form.nav-search'), 'Homepage keeps its own finder only');
 assert([...home.window.document.querySelectorAll('.card img')].every(i => i.alt.startsWith('Poster for ')), 'Card posters have alt text');
+// Card and banner images: every src and srcset candidate exists, and cards use the small WebP copies.
+for (const img of home.window.document.querySelectorAll('img')) {
+  const urls = [img.getAttribute('src'), ...(img.getAttribute('srcset') || '').split(',').map(s => s.trim().split(' ')[0])].filter(Boolean);
+  for (const u of urls) assert(fs.existsSync(path.join(build, decodeURI(u))), `Missing image ${u}`);
+}
+assert([...home.window.document.querySelectorAll('.card img')].every(i => /\/thumbs\/posters\/.+-400\.webp$/.test(i.getAttribute('src'))), 'Cards use poster thumbnails');
 const updates = page('updates/index.html');
 assert(updates.window.document.querySelector('a[href="/feed.xml"]'));
 console.log(`PASS: ${total} reviews; search, combined filters, co-productions, sorts, shared URLs, gallery navigation, swipes, focus, recommendations and viewing links.`);
