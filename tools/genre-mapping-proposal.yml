@@ -1,0 +1,53 @@
+# PROPOSAL — not live. Needs the author's OK before genre pages are built.
+#
+# Groups the 91 review tags into 18 canonical genres. Review front matter is
+# not changed: each review keeps its own tags, and a review appears on every
+# canonical genre page that any of its tags maps to. Only genres with 4 or
+# more films get a page (_plugins/library_pages.rb, THRESHOLDS["genre"]).
+#
+# To switch genre pages on: edit this list as you like, then move it to
+# _data/genres.yml. The genre chips on reviews then link to /genre/<name>/
+# instead of the homepage filter. Tags left out (see the end) keep linking
+# to the homepage filter. An optional `intro:` line per genre replaces the
+# generated one-sentence introduction on its page.
+genres:
+  - name: Giallo
+    tags: [giallo, giallo-influenced, italian thriller]
+  - name: Thrillers
+    tags: [thriller, erotic thriller, psychosexual thriller, psycho thriller, mystery, whodunnit, espionage, home invasion]
+  - name: British horror
+    tags: [british horror]
+  - name: Italian horror
+    tags: [italian horror]
+  - name: European horror
+    tags: [euro horror, french horror, spanish horror, mexican horror]
+  - name: American horror
+    tags: [american horror]
+  - name: Gothic horror
+    tags: [gothic horror, gothic, ghost story]
+  - name: Occult and possession
+    tags: [occult horror, occult, possession horror, catholic horror, supernatural]
+  - name: Vampires
+    tags: [vampire, erotic vampire]
+  - name: Zombies and cannibals
+    tags: [zombie, cannibal, mondo]
+  - name: Slashers and psychos
+    tags: [slasher, proto-slasher, american slasher, psycho horror, psychological horror, psychodrama]
+  - name: Video nasties
+    tags: [video nasty]
+  - name: Exploitation
+    tags: [exploitation, american exploitation, british exploitation, hong kong exploitation, ozploitation, blaxploitation, naziploitation, nunsploitation, women in prison, revenge, biker, gore]
+  - name: Eurosleaze and sexploitation
+    tags: [eurosleaze, sexploitation, sleaze, erotic horror, erotic drama]
+  - name: Comedy
+    tags: [sex comedy, black comedy, buddy comedy, campy]
+  - name: Science fiction and monsters
+    tags: [sci-fi, sci-fi horror, post-apocalyptic, cyborg, kaiju, creature feature, eco-horror, nature run amok]
+  - name: Crime and action
+    tags: [poliziottesco, italian crime, italian action, crime, macaroni combat, war, martial arts, wuxia, sword and sandal]
+  - name: Arthouse and oddities
+    tags: [arthouse, surreal, drama, cult, hollywood misfire, fantasy horror, rural horror, anthology]
+  - name: Documentaries and shorts
+    tags: [documentary, short film, public information film]
+
+# Not mapped (too broad or not a genre): horror, period, historical, sequel.

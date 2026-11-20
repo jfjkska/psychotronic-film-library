@@ -137,6 +137,30 @@ for (const img of home.window.document.querySelectorAll('img')) {
 assert([...home.window.document.querySelectorAll('.card img')].every(i => /\/thumbs\/posters\/.+-400\.webp$/.test(i.getAttribute('src'))), 'Cards use poster thumbnails');
 // Swapping posters drops the desktop thumbnail source so the chosen image shows.
 assert.equal(doc.querySelector('.poster-frame source'), null, 'Swapping posters drops the thumbnail source');
+// Director, country and decade pages: one H1, self canonical, in the sitemap, ItemList matches the cards.
+const sitemap = fs.readFileSync(path.join(build, 'sitemap.xml'), 'utf8');
+const indexPages = ['director', 'country', 'decade'].flatMap(kind => fs.readdirSync(path.join(build, kind)).map(slug => `${kind}/${slug}/`));
+assert(indexPages.length >= 15, 'Index pages generated');
+for (const rel of indexPages) {
+  const d = new JSDOM(fs.readFileSync(path.join(build, rel, 'index.html'), 'utf8')).window.document;
+  assert.equal(d.querySelectorAll('h1').length, 1, `${rel}: one H1`);
+  assert.equal(d.querySelector('link[rel="canonical"]').href, `https://psychotronicfilmlibrary.com/${rel}`, `${rel}: canonical`);
+  assert(sitemap.includes(`<loc>https://psychotronicfilmlibrary.com/${rel}</loc>`), `${rel}: in sitemap`);
+  const list = [...d.querySelectorAll('script[type="application/ld+json"]')].map(s => JSON.parse(s.textContent)).find(x => x['@type'] === 'ItemList');
+  const cards = [...d.querySelectorAll('.rack .card-link')].map(a => 'https://psychotronicfilmlibrary.com' + a.getAttribute('href'));
+  assert(cards.length >= 2, `${rel}: lists several films`);
+  assert.deepEqual(list.itemListElement.map(i => i.url), cards, `${rel}: ItemList matches cards`);
+}
+// Every internal link on every review (chips, director, strap, credits) resolves to a built page.
+for (const slug of fs.readdirSync(path.join(build, 'reviews'))) {
+  const d = new JSDOM(fs.readFileSync(path.join(build, 'reviews', slug, 'index.html'), 'utf8')).window.document;
+  for (const a of d.querySelectorAll('.strap a, .credits a[href^="/"]')) {
+    const target = a.getAttribute('href').split(/[?#]/)[0];
+    assert(fs.existsSync(path.join(build, decodeURI(target), target.endsWith('/') ? 'index.html' : '')), `${slug}: ${a.getAttribute('href')} resolves`);
+  }
+}
+const margheriti = new JSDOM(fs.readFileSync(path.join(build, 'director/antonio-margheriti/index.html'), 'utf8')).window.document;
+assert.equal(margheriti.querySelectorAll('.rack .card').length, 5, 'Credited names (as Anthony M. Dawson) join the person page');
 const updates = page('updates/index.html');
 assert(updates.window.document.querySelector('a[href="/feed.xml"]'));
 console.log(`PASS: ${total} reviews; search, combined filters, co-productions, sorts, shared URLs, gallery navigation, swipes, focus, recommendations and viewing links.`);
