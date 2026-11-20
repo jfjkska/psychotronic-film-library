@@ -37,6 +37,16 @@ assert(home.window.document.querySelector('.rack-more a[href="/shelf/#a-to-z"]')
 home.window.document.querySelector('[data-show-more]').click();
 assert.equal(visible(home).length, Math.min(total, batch * 2), 'Show more adds a batch');
 assert.equal(home.window.document.querySelectorAll('[data-rack] .card').length, total, 'All cards present once more is asked for');
+// Scrolling near the end brings in the next batch without a click.
+{
+  const w = home.window, before = visible(home).length;
+  w.document.querySelector('[data-show-more]').getBoundingClientRect = () => ({ top: 100 });
+  const realTimeout = w.setTimeout;
+  w.setTimeout = fn => fn();
+  w.dispatchEvent(new w.Event('scroll'));
+  w.setTimeout = realTimeout;
+  assert.equal(visible(home).length, Math.min(total, before + batch), 'Scrolling near the end adds a batch');
+}
 while (!home.window.document.querySelector('[data-show-more]').hidden) home.window.document.querySelector('[data-show-more]').click();
 assert.equal(visible(home).length, total, 'Show more reaches the whole library');
 const fresh = page('index.html');
