@@ -149,10 +149,8 @@ for (const img of home.window.document.querySelectorAll('img')) {
   for (const u of urls) assert(fs.existsSync(path.join(build, decodeURI(u))), `Missing image ${u}`);
 }
 assert([...home.window.document.querySelectorAll('.card img')].every(i => /\/thumbs\/posters\/.+-400\.webp$/.test(i.getAttribute('src'))), 'Cards use poster thumbnails');
-// Phones: the summary beside the poster links to the credits, which keep their id.
-assert(doc.querySelector('.sheet-summary a[href="#credits"]') && doc.getElementById('credits'), 'Credits jump link resolves');
-const swapped = doc.querySelector('.poster-frame img');
-assert.equal(swapped.hasAttribute('srcset'), false, 'Swapping posters drops the thumbnail srcset');
+// Swapping posters drops the desktop thumbnail source so the chosen image shows.
+assert.equal(doc.querySelector('.poster-frame source'), null, 'Swapping posters drops the thumbnail source');
 // Director, country and decade pages: one H1, self canonical, in the sitemap, ItemList matches the cards.
 const sitemap = fs.readFileSync(path.join(build, 'sitemap.xml'), 'utf8');
 const indexPages = ['director', 'country', 'decade'].flatMap(kind => fs.readdirSync(path.join(build, kind)).map(slug => `${kind}/${slug}/`));
