@@ -529,3 +529,14 @@ body:not(.home) .marquee { margin-top: clamp(14px, 2.5vw, 24px); }
 /* Score: when one track title wraps to two lines, keep both players level. */
 .tracks > li { display: grid; grid-template-rows: 1fr auto; }
 .tracks .track-title { align-self: end; }
+/* Menu +/−: Anton's plus glyph is small and sits near the baseline, so draw the
+   sign instead, sized and centred on the capital letters of the links. */
+.marquee.is-compact .nav-toggle::after, .home .nav-toggle::after {
+  content: ''; flex: none; width: .55em; height: .55em; margin-left: .45em;
+  background: linear-gradient(var(--yellow), var(--yellow)) center / 100% 2px no-repeat,
+              linear-gradient(var(--yellow), var(--yellow)) center / 2px 100% no-repeat;
+  filter: drop-shadow(1px 1px 0 var(--black));
+}
+.marquee.is-compact .nav-toggle[aria-expanded="true"]::after, .home .nav-toggle[aria-expanded="true"]::after {
+  content: ''; background-size: 100% 2px, 0 0;
+}
