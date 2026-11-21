@@ -510,6 +510,11 @@ body:not(.home) .marquee { margin-top: clamp(14px, 2.5vw, 24px); }
 .strap a:hover { color: var(--paper); }
 .browse-index { display: grid; gap: .4rem 2rem; margin: 1rem 0 0; }
 .browse-index p { margin: 0; }
+
+/* ── Show more on the homepage ───────────────────────────────────────────── */
+.rack-more { display: flex; flex-direction: column; align-items: center; gap: .8rem; margin: 2.4rem 0 0; text-align: center; }
+.rack-more .chip { min-height: 44px; display: inline-flex; align-items: center; font-size: .95rem; padding-inline: 1.4em; }
+.rack-more p { margin: 0; font: .9rem var(--type); }
 /* ── Alignment fixes ─────────────────────────────────────────────────────── */
 /* Nav: links and the Menu button share one height, size and spacing, centred. */
 .marquee { align-items: center; }
@@ -524,3 +529,14 @@ body:not(.home) .marquee { margin-top: clamp(14px, 2.5vw, 24px); }
 /* Score: when one track title wraps to two lines, keep both players level. */
 .tracks > li { display: grid; grid-template-rows: 1fr auto; }
 .tracks .track-title { align-self: end; }
+/* Menu +/−: Anton's plus glyph is small and sits near the baseline, so draw the
+   sign instead, sized and centred on the capital letters of the links. */
+.marquee.is-compact .nav-toggle::after, .home .nav-toggle::after {
+  content: ''; flex: none; width: .55em; height: .55em; margin-left: .45em;
+  background: linear-gradient(var(--yellow), var(--yellow)) center / 100% 2px no-repeat,
+              linear-gradient(var(--yellow), var(--yellow)) center / 2px 100% no-repeat;
+  filter: drop-shadow(1px 1px 0 var(--black));
+}
+.marquee.is-compact .nav-toggle[aria-expanded="true"]::after, .home .nav-toggle[aria-expanded="true"]::after {
+  content: ''; background-size: 100% 2px, 0 0;
+}

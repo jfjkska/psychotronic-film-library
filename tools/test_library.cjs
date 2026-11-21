@@ -26,8 +26,33 @@ function titles(dom) { return visible(dom).map(c => c.dataset.title); }
 function reset(dom) { dom.window.document.querySelector('[data-reset-finder]').click(); }
 
 const home = page('index.html');
-const total = visible(home).length;
+const total = Number(home.window.document.querySelector('[data-rack]').dataset.total);
 assert(total >= 83);
+// The homepage starts with one batch; the rest waits in a template until needed.
+const batch = Number(home.window.document.querySelector('[data-rack]').dataset.batch);
+assert.equal(home.window.document.querySelectorAll('[data-rack] .card').length, batch, 'Only the newest batch is in the page at first');
+assert.equal(visible(home).length, batch);
+assert.equal(home.window.document.querySelector('[data-show-more]').hidden, false, 'Show more is offered');
+assert(home.window.document.querySelector('.rack-more a[href="/shelf/#a-to-z"]'), 'Every review stays reachable without JS');
+home.window.document.querySelector('[data-show-more]').click();
+assert.equal(visible(home).length, Math.min(total, batch * 2), 'Show more adds a batch');
+assert.equal(home.window.document.querySelectorAll('[data-rack] .card').length, total, 'All cards present once more is asked for');
+// Scrolling near the end brings in the next batch without a click.
+{
+  const w = home.window, before = visible(home).length;
+  w.document.querySelector('[data-show-more]').getBoundingClientRect = () => ({ top: 100 });
+  const realTimeout = w.setTimeout;
+  w.setTimeout = fn => fn();
+  w.dispatchEvent(new w.Event('scroll'));
+  w.setTimeout = realTimeout;
+  assert.equal(visible(home).length, Math.min(total, before + batch), 'Scrolling near the end adds a batch');
+}
+while (!home.window.document.querySelector('[data-show-more]').hidden) home.window.document.querySelector('[data-show-more]').click();
+assert.equal(visible(home).length, total, 'Show more reaches the whole library');
+const fresh = page('index.html');
+change(fresh, '[data-finder-input]', 'Blood Camp Thatcher', 'input');
+assert.deepEqual(titles(fresh), ['Turkey Shoot'], 'Search covers reviews beyond the first batch');
+fresh.window.close();
 change(home, '[data-genre-select]', 'giallo');
 assert(visible(home).length > 0 && visible(home).every(c => c.dataset.genres.split('|').includes('giallo')), 'Genre dropdown filters reviews');
 assert.equal(new URLSearchParams(home.window.location.search).get('genre'), 'giallo');
@@ -68,7 +93,7 @@ assert(visible(home).every((c, i, all) => !i || Number(all[i - 1].dataset.rating
 const restored = page('index.html', '?q=Blood+Camp+Thatcher&country=Australia');
 assert.deepEqual(titles(restored), ['Turkey Shoot'], 'Shared search URL restores state');
 const invalid = page('index.html', '?country=Nowhere&sort=invalid&genre=unknown');
-assert.equal(visible(invalid).length, total, 'Unknown filters fall back safely');
+assert.equal(visible(invalid).length, batch, 'Unknown filters fall back safely to the first batch');
 
 const review = page('reviews/queen-of-blood/index.html');
 const doc = review.window.document;

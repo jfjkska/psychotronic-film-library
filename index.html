@@ -32,10 +32,17 @@ body_class: home
     </div>
   </form>
 
-  <ul class="rack" id="film-rack" data-rack>
-    {% for post in site.posts %}{% include card.html post=post %}{% endfor %}
+  {%- assign batch = 24 -%}
+  <ul class="rack" id="film-rack" data-rack data-batch="{{ batch }}" data-total="{{ site.posts | size }}">
+    {% for post in site.posts limit: batch %}{% include card.html post=post %}{% endfor %}
   </ul>
+  {%- comment -%} The rest of the library, inert until a reader asks for more, searches or filters. {%- endcomment -%}
+  <template data-more-cards>{% for post in site.posts offset: batch %}{% include card.html post=post %}{% endfor %}</template>
   <p class="empty" data-empty hidden>Nothing on the shelf matches that. Try another word.</p>
+  <div class="rack-more">
+    <button type="button" class="chip" data-show-more hidden>Show more reviews</button>
+    <p><a href="{{ '/shelf/' | relative_url }}#a-to-z">Browse all {{ site.posts | size }} reviews A–Z</a></p>
+  </div>
 </section>
 
 <script type="application/ld+json">
