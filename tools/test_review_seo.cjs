@@ -28,7 +28,34 @@ for (const entry of reviews) {
   assert.equal(one('meta[name="twitter:description"]').content, description);
   assert.equal(one('meta[name="twitter:card"]').content, 'summary_large_image');
   assert.match(one('meta[property="og:image"]').content, /^https:\/\//);
-  const schema = JSON.parse(one('script[type="application/ld+json"]').textContent);
+  const records = [...document.querySelectorAll('script[type="application/ld+json"]')].map(s => JSON.parse(s.textContent));
+  assert.equal(records.length, 2, `${entry.name}: expected Review and BreadcrumbList JSON-LD`);
+  const schema = records.find(r => r['@type'] === 'Review');
+  const crumbs = records.find(r => r['@type'] === 'BreadcrumbList');
+  assert(schema && crumbs, `${entry.name}: Review and BreadcrumbList present`);
+  assert.deepEqual(crumbs.itemListElement.map(i => i.position), [1, 2, 3]);
+  assert.equal(crumbs.itemListElement[2].item, canonical);
+  assert.equal(crumbs.itemListElement[2].name, name);
+  assert.match(schema.publisher.logo.url, /^https:\/\/.+\.png$/);
+  const credit = label => {
+    const dt = [...document.querySelectorAll('.credits dt')].find(d => d.textContent.trim() === label);
+    return dt ? dt.nextElementSibling.textContent.trim() : null;
+  };
+  const list = text => text.split(/\s*,\s*/).map(s => s.replace(/^performed by /, '').trim()).filter(Boolean);
+  const movie = schema.itemReviewed;
+  const starring = credit('Starring');
+  if (starring) assert.deepEqual(movie.actor.map(a => a.name), list(starring), `${entry.name}: actors match credits`);
+  else assert.equal(movie.actor, undefined);
+  const music = credit('Music');
+  if (music) assert.deepEqual(movie.musicBy.map(a => a.name), list(music), `${entry.name}: music matches credits`);
+  else assert.equal(movie.musicBy, undefined);
+  const runtime = credit('Runtime');
+  if (runtime && /^\d+ min$/.test(runtime)) assert.equal(movie.duration, `PT${parseInt(runtime, 10)}M`, `${entry.name}: duration`);
+  else assert.equal(movie.duration, undefined);
+  const country = [...document.querySelectorAll('.strap')].map(s => s.textContent)[0];
+  if (movie.countryOfOrigin) {
+    assert(movie.countryOfOrigin.length > 0 && movie.countryOfOrigin.every(c => c['@type'] === 'Country' && c.name && country.includes(c.name)), `${entry.name}: countries`);
+  }
   assert.equal(schema['@type'], 'Review');
   assert.equal(schema.url, canonical);
   assert.equal(schema.description, description);

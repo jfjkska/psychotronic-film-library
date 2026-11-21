@@ -4,7 +4,7 @@ body_class: home
 ---
 <section class="lobby">
   <div class="lobby-head">
-    <h1 class="display">Latest reviews</h1>
+    <h2 class="display">Latest reviews</h2>
   </div>
 
   <form class="finder" role="search" data-finder>
@@ -32,8 +32,28 @@ body_class: home
     </div>
   </form>
 
-  <ul class="rack" id="film-rack" data-rack>
-    {% for post in site.posts %}{% include card.html post=post %}{% endfor %}
+  {%- assign batch = 24 -%}
+  <ul class="rack" id="film-rack" data-rack data-batch="{{ batch }}" data-total="{{ site.posts | size }}">
+    {% for post in site.posts limit: batch %}{% include card.html post=post %}{% endfor %}
   </ul>
+  {%- comment -%} The rest of the library, inert until a reader asks for more, searches or filters. {%- endcomment -%}
+  <template data-more-cards>{% for post in site.posts offset: batch %}{% include card.html post=post %}{% endfor %}</template>
   <p class="empty" data-empty hidden>Nothing on the shelf matches that. Try another word.</p>
+  <div class="rack-more">
+    <button type="button" class="chip" data-show-more hidden>Show more reviews</button>
+    <p><a href="{{ '/shelf/' | relative_url }}#a-to-z">Browse all {{ site.posts | size }} reviews A–Z</a></p>
+  </div>
 </section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": {{ "Latest reviews" | prepend: " — " | prepend: site.title | jsonify }},
+  "numberOfItems": {{ site.posts | size }},
+  "itemListOrder": "https://schema.org/ItemListOrderDescending",
+  "itemListElement": [{% for post in site.posts %}
+    { "@type": "ListItem", "position": {{ forloop.index }}, "url": {{ post.url | absolute_url | jsonify }}, "name": {{ post.title | append: '' | jsonify | replace: '<', '\u003c' }} }{% unless forloop.last %},{% endunless %}{% endfor %}
+  ]
+}
+</script>

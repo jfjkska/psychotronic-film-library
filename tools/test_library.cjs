@@ -26,8 +26,33 @@ function titles(dom) { return visible(dom).map(c => c.dataset.title); }
 function reset(dom) { dom.window.document.querySelector('[data-reset-finder]').click(); }
 
 const home = page('index.html');
-const total = visible(home).length;
+const total = Number(home.window.document.querySelector('[data-rack]').dataset.total);
 assert(total >= 83);
+// The homepage starts with one batch; the rest waits in a template until needed.
+const batch = Number(home.window.document.querySelector('[data-rack]').dataset.batch);
+assert.equal(home.window.document.querySelectorAll('[data-rack] .card').length, batch, 'Only the newest batch is in the page at first');
+assert.equal(visible(home).length, batch);
+assert.equal(home.window.document.querySelector('[data-show-more]').hidden, false, 'Show more is offered');
+assert(home.window.document.querySelector('.rack-more a[href="/shelf/#a-to-z"]'), 'Every review stays reachable without JS');
+home.window.document.querySelector('[data-show-more]').click();
+assert.equal(visible(home).length, Math.min(total, batch * 2), 'Show more adds a batch');
+assert.equal(home.window.document.querySelectorAll('[data-rack] .card').length, total, 'All cards present once more is asked for');
+// Scrolling near the end brings in the next batch without a click.
+{
+  const w = home.window, before = visible(home).length;
+  w.document.querySelector('[data-show-more]').getBoundingClientRect = () => ({ top: 100 });
+  const realTimeout = w.setTimeout;
+  w.setTimeout = fn => fn();
+  w.dispatchEvent(new w.Event('scroll'));
+  w.setTimeout = realTimeout;
+  assert.equal(visible(home).length, Math.min(total, before + batch), 'Scrolling near the end adds a batch');
+}
+while (!home.window.document.querySelector('[data-show-more]').hidden) home.window.document.querySelector('[data-show-more]').click();
+assert.equal(visible(home).length, total, 'Show more reaches the whole library');
+const fresh = page('index.html');
+change(fresh, '[data-finder-input]', 'Blood Camp Thatcher', 'input');
+assert.deepEqual(titles(fresh), ['Turkey Shoot'], 'Search covers reviews beyond the first batch');
+fresh.window.close();
 change(home, '[data-genre-select]', 'giallo');
 assert(visible(home).length > 0 && visible(home).every(c => c.dataset.genres.split('|').includes('giallo')), 'Genre dropdown filters reviews');
 assert.equal(new URLSearchParams(home.window.location.search).get('genre'), 'giallo');
@@ -68,7 +93,7 @@ assert(visible(home).every((c, i, all) => !i || Number(all[i - 1].dataset.rating
 const restored = page('index.html', '?q=Blood+Camp+Thatcher&country=Australia');
 assert.deepEqual(titles(restored), ['Turkey Shoot'], 'Shared search URL restores state');
 const invalid = page('index.html', '?country=Nowhere&sort=invalid&genre=unknown');
-assert.equal(visible(invalid).length, total, 'Unknown filters fall back safely');
+assert.equal(visible(invalid).length, batch, 'Unknown filters fall back safely to the first batch');
 
 const review = page('reviews/queen-of-blood/index.html');
 const doc = review.window.document;
@@ -107,6 +132,78 @@ assert(doc.querySelector('.watch a[href="https://www.justwatch.com/uk/movie/quee
 const apaches = page('reviews/apaches/index.html');
 assert(apaches.window.document.querySelector('.related a[href="/reviews/the-finishing-line/"]'), 'Public information films connect');
 assert(apaches.window.document.querySelector('.watch a[href*="replay.bfi.org.uk"]'));
+// Every cast and music link on a review lands on a homepage search that finds that review.
+for (const slug of ['psychomania', 'the-bloodstained-shadow', 'queen-of-blood']) {
+  const film = page(`reviews/${slug}/index.html`).window.document;
+  const filmTitle = film.querySelector('h1').textContent.trim();
+  const links = [...film.querySelectorAll('.credits a[href^="/?q="]')];
+  assert(links.length > 0, `${slug}: credits link to search`);
+  for (const link of links) {
+    const search = page('index.html', link.getAttribute('href').slice(1));
+    assert(titles(search).includes(filmTitle), `${slug}: ${link.textContent} search finds the review`);
+    search.window.close();
+  }
+  assert(film.querySelector('.review-actions [data-dice]'), `${slug}: random review sits at the foot`);
+  assert(!film.querySelector('.review-head [data-dice]'), `${slug}: no random link under the title`);
+  assert.equal(film.querySelector('form.nav-search').getAttribute('action'), '/');
+  assert.equal(film.querySelector('form.nav-search input').name, 'q');
+}
+assert.equal(doc.querySelector('[data-copy-link]').hidden, false, 'Copy link is offered with JS');
+assert.equal(doc.querySelector('[data-native-share]').hidden, true, 'Share sheet only where navigator.share exists');
+assert.equal(home.window.document.querySelectorAll('h1').length, 1, 'Homepage has one H1');
+assert.equal(home.window.document.querySelector('h1 .banner img').alt, 'Psychotronic Film Library', 'Homepage H1 is the banner, named by its alt text');
+assert(!home.window.document.querySelector('form.nav-search'), 'Homepage keeps its own finder only');
+assert([...home.window.document.querySelectorAll('.card img')].every(i => i.alt.startsWith('Poster for ')), 'Card posters have alt text');
+// Card and banner images: every src and srcset candidate exists, and cards use the small WebP copies.
+for (const img of home.window.document.querySelectorAll('img')) {
+  const urls = [img.getAttribute('src'), ...(img.getAttribute('srcset') || '').split(',').map(s => s.trim().split(' ')[0])].filter(Boolean);
+  for (const u of urls) assert(fs.existsSync(path.join(build, decodeURI(u))), `Missing image ${u}`);
+}
+assert([...home.window.document.querySelectorAll('.card img')].every(i => /\/thumbs\/posters\/.+-400\.webp$/.test(i.getAttribute('src'))), 'Cards use poster thumbnails');
+// Swapping posters drops the desktop thumbnail source so the chosen image shows.
+assert.equal(doc.querySelector('.poster-frame source'), null, 'Swapping posters drops the thumbnail source');
+// Director, country and decade pages: one H1, self canonical, in the sitemap, ItemList matches the cards.
+const sitemap = fs.readFileSync(path.join(build, 'sitemap.xml'), 'utf8');
+const indexPages = ['director', 'country', 'decade'].flatMap(kind => fs.readdirSync(path.join(build, kind)).map(slug => `${kind}/${slug}/`));
+assert(indexPages.length >= 15, 'Index pages generated');
+for (const rel of indexPages) {
+  const d = new JSDOM(fs.readFileSync(path.join(build, rel, 'index.html'), 'utf8')).window.document;
+  assert.equal(d.querySelectorAll('h1').length, 1, `${rel}: one H1`);
+  assert.equal(d.querySelector('link[rel="canonical"]').href, `https://psychotronicfilmlibrary.com/${rel}`, `${rel}: canonical`);
+  assert(sitemap.includes(`<loc>https://psychotronicfilmlibrary.com/${rel}</loc>`), `${rel}: in sitemap`);
+  const list = [...d.querySelectorAll('script[type="application/ld+json"]')].map(s => JSON.parse(s.textContent)).find(x => x['@type'] === 'ItemList');
+  const cards = [...d.querySelectorAll('.rack .card-link')].map(a => 'https://psychotronicfilmlibrary.com' + a.getAttribute('href'));
+  assert(cards.length >= 2, `${rel}: lists several films`);
+  assert.deepEqual(list.itemListElement.map(i => i.url), cards, `${rel}: ItemList matches cards`);
+}
+// Every internal link on every review (chips, director, strap, credits) resolves to a built page.
+for (const slug of fs.readdirSync(path.join(build, 'reviews'))) {
+  const d = new JSDOM(fs.readFileSync(path.join(build, 'reviews', slug, 'index.html'), 'utf8')).window.document;
+  for (const a of d.querySelectorAll('.strap a, .credits a[href^="/"]')) {
+    const target = a.getAttribute('href').split(/[?#]/)[0];
+    assert(fs.existsSync(path.join(build, decodeURI(target), target.endsWith('/') ? 'index.html' : '')), `${slug}: ${a.getAttribute('href')} resolves`);
+  }
+}
+const margheriti = new JSDOM(fs.readFileSync(path.join(build, 'director/antonio-margheriti/index.html'), 'utf8')).window.document;
+assert.equal(margheriti.querySelectorAll('.rack .card').length, 5, 'Credited names (as Anthony M. Dawson) join the person page');
+// Links inside review text: first mention only, never to itself, never nested, always resolving.
+let autolinks = 0;
+for (const slug of fs.readdirSync(path.join(build, 'reviews'))) {
+  const d = new JSDOM(fs.readFileSync(path.join(build, 'reviews', slug, 'index.html'), 'utf8')).window.document;
+  const links = [...d.querySelectorAll('.review-body a.autolink')];
+  autolinks += links.length;
+  const hrefs = links.map(a => a.getAttribute('href'));
+  assert.equal(new Set(hrefs).size, hrefs.length, `${slug}: each film or director linked once`);
+  for (const a of links) {
+    const href = a.getAttribute('href');
+    assert.notEqual(href, `/reviews/${slug}/`, `${slug}: no link to itself`);
+    assert(!a.parentElement.closest('a, h1, h2, h3, h4, h5, h6'), `${slug}: not inside a link or heading`);
+    assert(fs.existsSync(path.join(build, decodeURI(href), 'index.html')), `${slug}: ${href} resolves`);
+  }
+}
+assert(autolinks > 40, 'Reviews link to each other');
+const mania = new JSDOM(fs.readFileSync(path.join(build, 'reviews/psychomania/index.html'), 'utf8')).window.document;
+assert(mania.querySelector('.review-body a.autolink[href="/reviews/the-virgin-witch/"]'), 'Psychomania links The Virgin Witch');
 const updates = page('updates/index.html');
 assert(updates.window.document.querySelector('a[href="/feed.xml"]'));
 console.log(`PASS: ${total} reviews; search, combined filters, co-productions, sorts, shared URLs, gallery navigation, swipes, focus, recommendations and viewing links.`);

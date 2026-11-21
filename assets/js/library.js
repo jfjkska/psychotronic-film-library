@@ -5,7 +5,11 @@
   var input = finder.querySelector('[data-finder-input]');
   var genreSelect = finder.querySelector('[data-genre-select]');
   var rack = document.querySelector('[data-rack]');
-  var cards = Array.prototype.slice.call(rack.querySelectorAll('.card'));
+  var more = document.querySelector('[data-more-cards]');
+  var showMore = document.querySelector('[data-show-more]');
+  var batch = Number(rack.getAttribute('data-batch')) || Infinity;
+  var limit = batch;
+  var cards;
   var empty = document.querySelector('[data-empty]');
   var decade = finder.querySelector('[data-decade]');
   var country = finder.querySelector('[data-country]');
@@ -38,15 +42,27 @@
     return (s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
   }
   function countries(s) { return (s || '').split(/\s*[,/;]\s*/).filter(Boolean); }
-  var records = cards.map(function (card, index) {
+  function record(card, index) {
     var data = card.dataset;
     return {
       card: card, index: index, title: data.title || '', year: Number(data.year) || 0,
       date: Number(data.date) || 0, rating: Number(data.rating) || 0,
       countries: countries(data.country), genres: (data.genres || '').split('|'),
-      hay: norm([data.title, data.aka, data.cast, data.director, data.year, data.country, data.genres].join(' '))
+      hay: norm([data.title, data.aka, data.cast, data.music, data.director, data.year, data.country, data.genres].join(' '))
     };
-  });
+  }
+  // The homepage starts with the newest batch; the rest of the library waits
+  // in a <template> and joins the rack the first time it is needed.
+  var pending = more ? Array.prototype.slice.call(more.content.querySelectorAll('.card')) : [];
+  var records = Array.prototype.slice.call(rack.querySelectorAll('.card')).map(record);
+  var everyCard = records.map(function (r) { return r.card; }).concat(pending);
+  cards = everyCard;
+  function loadAll() {
+    if (!pending.length) return;
+    pending.forEach(function (card) { card.hidden = true; records.push(record(card, records.length)); });
+    rack.appendChild(more.content);
+    pending = [];
+  }
   function addOptions(select, values, label) {
     values.forEach(function (value) {
       var option = document.createElement('option');
@@ -56,7 +72,7 @@
   }
   var decades = [];
   var nations = [];
-  records.forEach(function (r) {
+  everyCard.map(record).forEach(function (r) {
     var d = String(Math.floor(r.year / 10) * 10);
     if (r.year && decades.indexOf(d) === -1) decades.push(d);
     r.countries.forEach(function (c) { if (nations.indexOf(c) === -1) nations.push(c); });
@@ -66,16 +82,21 @@
   finder.querySelector('[data-finder-controls]').hidden = false;
   document.querySelector('[data-finder-summary]').hidden = false;
 
+  function browsing() {
+    return !(input.value.trim() || genre || decade.value || country.value || rating.value);
+  }
   function apply(updateURL) {
+    if (!browsing() || sort.value !== 'newest') loadAll();
     var words = norm(input.value).split(' ').filter(Boolean);
     var shown = 0;
+    var capped = browsing();
     records.forEach(function (r) {
       var ok = (!genre || r.genres.indexOf(genre) !== -1) &&
         words.every(function (word) { return r.hay.indexOf(word) !== -1; }) &&
         (!decade.value || Math.floor(r.year / 10) * 10 === Number(decade.value)) &&
         (!country.value || r.countries.indexOf(country.value) !== -1) &&
         (!rating.value || r.rating >= Number(rating.value));
-      r.card.hidden = !ok;
+      r.ok = ok;
       if (ok) shown++;
     });
     var ordered = records.slice().sort(function (a, b) {
@@ -88,8 +109,14 @@
       return result || a.index - b.index;
     });
     var fragment = document.createDocumentFragment();
-    ordered.forEach(function (r) { fragment.appendChild(r.card); });
+    var listed = 0;
+    ordered.forEach(function (r) {
+      r.card.hidden = !r.ok || (capped && listed >= limit);
+      if (!r.card.hidden) listed++;
+      fragment.appendChild(r.card);
+    });
     rack.appendChild(fragment);
+    if (showMore) showMore.hidden = !(capped && listed < cards.length);
     if (empty) empty.hidden = shown !== 0;
     count.textContent = shown + ' of ' + cards.length + ' films';
     if (filterCount) {
@@ -126,6 +153,30 @@
   });
   input.addEventListener('input', function () { apply(true); });
   [decade, country, rating, sort].forEach(function (select) { select.addEventListener('change', function () { apply(true); }); });
+  function addBatch() {
+    loadAll();
+    limit += batch;
+    apply(false);
+  }
+  if (showMore) showMore.addEventListener('click', function () {
+    addBatch();
+    // Move focus to the first newly shown card so keyboard users carry on from there.
+    var next = Array.prototype.filter.call(rack.querySelectorAll('.card'), function (c) { return !c.hidden; })[limit - batch];
+    if (next) next.querySelector('a').focus({ preventScroll: false });
+  });
+  // Scrolling near the end of the list brings in the next batch on its own;
+  // the button stays for keyboard users and as a fallback.
+  if (showMore) {
+    var waiting = false;
+    window.addEventListener('scroll', function () {
+      if (waiting) return;
+      waiting = true;
+      setTimeout(function () {
+        waiting = false;
+        if (!showMore.hidden && showMore.getBoundingClientRect().top < window.innerHeight + 800) addBatch();
+      }, 120);
+    }, { passive: true });
+  }
   reset.addEventListener('click', function () {
     finder.reset(); genre = ''; apply(true); input.focus();
   });
@@ -198,6 +249,8 @@
   row.addEventListener('click', function (e) {
     var btn = e.target.closest('.alt');
     if (!btn) return;
+    var source = frame.parentNode.querySelector('source');
+    if (source) source.remove();
     frame.src = btn.getAttribute('data-src');
     var enlarge = document.querySelector('[data-poster-enlarge]');
     if (enlarge) enlarge.href = frame.src;
@@ -277,4 +330,42 @@
     if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.5) show(index + (dx < 0 ? 1 : -1));
     touch = null;
   }, { passive: true });
+})();
+
+// Share a review: copy its link, or open the device's share sheet where there is one.
+(function () {
+  var box = document.querySelector('[data-share]');
+  if (!box) return;
+  var url = box.getAttribute('data-share-url') || location.href;
+  var title = box.getAttribute('data-share-title') || document.title;
+  var status = box.querySelector('[data-share-status]');
+  var copy = box.querySelector('[data-copy-link]');
+  var share = box.querySelector('[data-native-share]');
+  function say(text) {
+    status.textContent = text;
+    clearTimeout(say.t);
+    say.t = setTimeout(function () { status.textContent = ''; }, 3000);
+  }
+  function fallbackCopy() {
+    var field = document.createElement('textarea');
+    field.value = url; field.setAttribute('readonly', '');
+    field.style.position = 'absolute'; field.style.left = '-9999px';
+    document.body.appendChild(field); field.select();
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+    document.body.removeChild(field);
+    say(ok ? 'Link copied' : 'Copy this link: ' + url);
+  }
+  copy.hidden = false;
+  copy.addEventListener('click', function () {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(function () { say('Link copied'); }, fallbackCopy);
+    } else fallbackCopy();
+  });
+  if (typeof navigator.share === 'function') {
+    share.hidden = false;
+    share.addEventListener('click', function () {
+      navigator.share({ title: title, url: url }).catch(function () {});
+    });
+  }
 })();
