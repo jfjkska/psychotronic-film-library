@@ -16,7 +16,7 @@ body_class: home
       {%- assign all_genres = "" | split: "" -%}
       {%- for post in site.posts -%}{%- for g in post.genres -%}{%- assign all_genres = all_genres | push: g -%}{%- endfor -%}{%- endfor -%}
       {%- assign uniq_genres = all_genres | uniq | sort_natural -%}
-      {% for g in uniq_genres %}<option value="{{ g | downcase | escape }}">{{ g }}</option>{% endfor %}
+      {% for g in uniq_genres %}<option value="{{ g | downcase | escape }}">{{ g | escape }}</option>{% endfor %}
       </select></label>
       <label>Decade<select name="decade" data-decade><option value="">All decades</option></select></label>
       <label>Country<select name="country" data-country><option value="">All countries</option></select></label>

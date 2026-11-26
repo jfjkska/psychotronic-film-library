@@ -37,6 +37,15 @@ def api(path, **params):
     params["api_key"] = KEY
     return json.loads(get(f"{API}{path}?{urllib.parse.urlencode(params)}"))
 
+# Values from TMDB end up in URLs and in each review's front matter, so only
+# the expected shapes are accepted: image paths like /abc123.jpg, IMDb ids
+# like tt0070544, numeric TMDB ids.
+PATH_RE = re.compile(r"/[A-Za-z0-9_-]+\.(?:jpg|jpeg|png|webp|svg)")
+IMDB_RE = re.compile(r"tt\d{5,10}")
+
+def safe_images(items):
+    return [p for p in (items or []) if isinstance(p.get("file_path"), str) and PATH_RE.fullmatch(p["file_path"])]
+
 def front_matter(text):
     m = re.match(r"^---\n(.*?)\n---\n", text, re.S)
     return (m.group(1), m.end()) if m else (None, 0)
@@ -51,9 +60,9 @@ def field(fm, name):
 
 def best_poster(movie_id):
     imgs = api(f"/movie/{movie_id}/images", include_image_language="en,null")
-    posters = imgs.get("posters") or []
+    posters = safe_images(imgs.get("posters"))
     if not posters:
-        posters = api(f"/movie/{movie_id}/images").get("posters") or []
+        posters = safe_images(api(f"/movie/{movie_id}/images").get("posters"))
     if not posters: return None
     en = [p for p in posters if p.get("iso_639_1") == "en"]
     pool = en or posters
@@ -65,7 +74,7 @@ def candidate_sheet(slug, movie):
     .txt listing each number's TMDB path. Pin one with `tmdb_poster:` in the post."""
     from PIL import ImageDraw
     imgs = api(f"/movie/{movie['id']}/images")
-    posters = imgs.get("posters") or []
+    posters = safe_images(imgs.get("posters"))
     posters.sort(key=lambda p: (p.get("vote_count", 0), p.get("vote_average", 0)), reverse=True)
     posters = posters[:40]
     if not posters:
@@ -122,7 +131,7 @@ def tmdb_image(file_path, size="w342"):
 
 def all_posters(movie_id):
     imgs = api(f"/movie/{movie_id}/images")
-    posters = imgs.get("posters") or []
+    posters = safe_images(imgs.get("posters"))
     posters.sort(key=lambda p: (p.get("vote_count", 0), p.get("vote_average", 0), p.get("width", 0)), reverse=True)
     return posters
 
@@ -207,13 +216,13 @@ def extras(slug, movie, path):
     if not field(fm, "imdb"):
         try:
             det = api(f"/movie/{movie['id']}")
-            if det.get("imdb_id"):
+            if IMDB_RE.fullmatch(str(det.get("imdb_id") or "")):
                 text, fm = set_field(text, fm, "imdb", det["imdb_id"]); changed_here = True
         except Exception as e:
             print(f"  imdb {slug}: {e}")
     if RESTILLS or not re.search(r"^stills:", fm, re.M):
         try:
-            bds = (api(f"/movie/{movie['id']}/images").get("backdrops") or [])
+            bds = safe_images(api(f"/movie/{movie['id']}/images").get("backdrops"))
             bds.sort(key=lambda b: (b.get("vote_count", 0), b.get("vote_average", 0)), reverse=True)
             paths, seen = [], []
             os.makedirs("assets/img/stills", exist_ok=True)
@@ -264,6 +273,8 @@ for path in sorted(glob.glob("_posts/*.md")):
         try: w0, h0 = Image.open(current).size; ratio = w0 / h0
         except Exception: ratio = 1.0
     pinned = field(fm, "tmdb_poster")
+    if pinned and not PATH_RE.fullmatch(pinned):
+        print(f"error {slug}: tmdb_poster {pinned!r} is not a TMDB image path"); continue
     need_extras = RESTILLS or REVARIANTS or not field(fm, "imdb") or not re.search(r"^stills:", fm, re.M) or not re.search(r"^posters:", fm, re.M) or not pinned
     if width >= MIN_WIDTH and ratio < 0.8 and not FORCE and not pinned and not CANDIDATES and not need_extras:
         print(f"skip  {slug}: already {width}px wide"); continue
@@ -272,6 +283,8 @@ for path in sorted(glob.glob("_posts/*.md")):
     try:
         tmdb_id = field(fm, "tmdb")
         if tmdb_id:
+            if not tmdb_id.isdigit():
+                print(f"error {slug}: tmdb {tmdb_id!r} is not a number"); continue
             movie = api(f"/movie/{tmdb_id}")
         else:
             res = api("/search/movie", query=title, year=year or "")
@@ -281,6 +294,8 @@ for path in sorted(glob.glob("_posts/*.md")):
             if not hits:
                 print(f"none  {slug}: no TMDB match for {title!r} {year}. Add a `tmdb:` id to the post."); continue
             movie = hits[0]
+        if not isinstance(movie.get("id"), int):
+            print(f"error {slug}: TMDB returned no usable id"); continue
         if CANDIDATES:
             candidate_sheet(slug, movie); continue
         if extras(slug, movie, path): changed.append(slug + " (extras)")

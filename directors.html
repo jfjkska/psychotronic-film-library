@@ -26,10 +26,10 @@ body_class: directors
     {%- assign n = key | split: "|" | last -%}
     {%- assign films = site.posts | where: "director", n | sort: "year" -%}
     <section class="director-block" id="{{ n | slugify }}">
-      <h2 class="director-name">{% if site.data.library_pages.director[n] %}<a class="quiet" href="{{ site.data.library_pages.director[n] | relative_url }}">{{ n }}</a>{% else %}{{ n }}{% endif %}<span class="director-count">{{ films.size }} film{% if films.size != 1 %}s{% endif %}</span></h2>
+      <h2 class="director-name">{% if site.data.library_pages.director[n] %}<a class="quiet" href="{{ site.data.library_pages.director[n] | relative_url }}">{{ n | escape }}</a>{% else %}{{ n | escape }}{% endif %}<span class="director-count">{{ films.size }} film{% if films.size != 1 %}s{% endif %}</span></h2>
       <ul class="listing">
         {% for post in films %}
-        <li><span class="dim">{{ post.year }}</span> <a href="{{ post.url | relative_url }}">{{ post.title }}</a>{% if post.rating and post.rating > 0 %} {% include rating.html rating=post.rating %}{% endif %}</li>
+        <li><span class="dim">{{ post.year }}</span> <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>{% if post.rating and post.rating > 0 %} {% include rating.html rating=post.rating %}{% endif %}</li>
         {% endfor %}
       </ul>
     </section>
