@@ -1,0 +1,12 @@
+# Keeps the pinned action commits and the gems current; opens a pull request
+# when one has an update.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+  - package-ecosystem: bundler
+    directory: /
+    schedule:
+      interval: monthly

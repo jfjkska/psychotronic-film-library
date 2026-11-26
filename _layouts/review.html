@@ -5,14 +5,14 @@ body_class: review-page
 {% assign poster = page.poster | default: "/assets/img/posters/no-poster.svg" %}
 <article class="review">
   <header class="review-head">
-    <h1 class="display">{{ page.title }}</h1>
-    {% if page.aka %}<p class="aka">a.k.a. {{ page.aka }}</p>{% endif %}
+    <h1 class="display">{{ page.title | escape }}</h1>
+    {% if page.aka %}<p class="aka">a.k.a. {{ page.aka | escape }}</p>{% endif %}
     {%- assign lib = site.data.library_pages -%}
     {%- assign decade_key = page.year | divided_by: 10 | times: 10 | append: 's' -%}
     <p class="strap">
       {% if page.year %}{% if lib.decade[decade_key] %}<a href="{{ lib.decade[decade_key] | relative_url }}" title="More films of the {{ decade_key }}" class="strap-year">{{ page.year }}</a>{% else %}<span class="strap-year">{{ page.year }}</span>{% endif %}{% endif %}
-      {% if page.director %}<span class="strap-sep">·</span> Directed by <b>{% if lib.director[page.director] %}<a href="{{ lib.director[page.director] | relative_url }}">{{ page.director }}</a>{% else %}{{ page.director }}{% endif %}</b>{% endif %}
-      {% if page.country %}<span class="strap-sep">·</span> {% assign nations = page.country | split: '/' %}{% for raw in nations %}{% assign nation = raw | strip %}{% if lib.country[nation] %}<a href="{{ lib.country[nation] | relative_url }}" title="More films from {{ nation }}">{{ nation }}</a>{% else %}{{ nation }}{% endif %}{% unless forloop.last %} / {% endunless %}{% endfor %}{% endif %}
+      {% if page.director %}<span class="strap-sep">·</span> Directed by <b>{% if lib.director[page.director] %}<a href="{{ lib.director[page.director] | relative_url }}">{{ page.director | escape }}</a>{% else %}{{ page.director | escape }}{% endif %}</b>{% endif %}
+      {% if page.country %}<span class="strap-sep">·</span> {% assign nations = page.country | split: '/' %}{% for raw in nations %}{% assign nation = raw | strip %}{% if lib.country[nation] %}<a href="{{ lib.country[nation] | relative_url }}" title="More films from {{ nation | escape }}">{{ nation | escape }}</a>{% else %}{{ nation | escape }}{% endif %}{% unless forloop.last %} / {% endunless %}{% endfor %}{% endif %}
     </p>
   </header>
 
@@ -21,14 +21,14 @@ body_class: review-page
       <figure class="poster-frame">
         {%- assign frame_srcset = poster | thumb_srcset: "400,600" -%}
         {% comment %} Desktop shows the poster at 320px, so it gets the WebP thumbnails; phones keep the full-size poster. {% endcomment %}
-        <a href="{{ poster | relative_url }}" data-poster-enlarge data-lightbox="posters"><picture>{% if frame_srcset != "" %}<source media="(min-width: 860px)" srcset="{{ frame_srcset }}" sizes="320px">{% endif %}<img src="{{ poster | relative_url }}" alt="Enlarge poster for {{ page.title }}{% if page.year %} ({{ page.year }}){% endif %}" loading="eager" width="300" height="450"></picture></a>
-        {% if page.verdict %}<span class="stamp">{{ page.verdict }}</span>{% endif %}
+        <a href="{{ poster | relative_url }}" data-poster-enlarge data-lightbox="posters"><picture>{% if frame_srcset != "" %}<source media="(min-width: 860px)" srcset="{{ frame_srcset }}" sizes="320px">{% endif %}<img src="{{ poster | relative_url }}" alt="Enlarge poster for {{ page.title | escape }}{% if page.year %} ({{ page.year }}){% endif %}" loading="eager" width="300" height="450"></picture></a>
+        {% if page.verdict %}<span class="stamp">{{ page.verdict | escape }}</span>{% endif %}
       </figure>
       {% if page.posters %}
       <ul class="poster-alts" aria-label="Other posters" data-poster-alts>
         <li><button type="button" class="alt is-on" data-src="{{ poster | relative_url }}"><img src="{{ poster | thumb: 400 | relative_url }}" alt="" loading="lazy"></button></li>
         {% for alt in page.posters %}
-        <li><button type="button" class="alt" data-src="{{ alt | relative_url }}"><img src="{{ alt | thumb: 160 | relative_url }}" alt="Another poster for {{ page.title }}" loading="lazy"></button></li>
+        <li><button type="button" class="alt" data-src="{{ alt | relative_url }}"><img src="{{ alt | thumb: 160 | relative_url }}" alt="Another poster for {{ page.title | escape }}" loading="lazy"></button></li>
         {% endfor %}
       </ul>
       {% endif %}
@@ -37,25 +37,25 @@ body_class: review-page
         {% if page.rating and page.rating > 0 %}
         <dt>Verdict</dt><dd>{% include rating.html rating=page.rating %}</dd>
         {% endif %}
-        {% if page.director %}<dt>Director</dt><dd><a class="quiet" href="{% if site.data.library_pages.director[page.director] %}{{ site.data.library_pages.director[page.director] | relative_url }}{% else %}{{ '/directors/' | relative_url }}#{{ page.director | slugify }}{% endif %}">{{ page.director }}</a></dd>{% endif %}
-        {% if page.starring %}<dt>Starring</dt><dd>{% assign names = page.starring | split: ',' %}{% for raw in names %}{% assign n = raw | strip %}<a class="quiet" href="{{ '/' | relative_url }}?q={{ n | url_encode }}" title="Search the library for {{ n | escape }}">{{ n }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}</dd>{% endif %}
-        {% if page.music %}<dt>Music</dt><dd>{% assign names = page.music | split: ',' %}{% for raw in names %}{% assign n = raw | strip %}{% if n contains 'performed by ' %}{% assign n = n | remove_first: 'performed by ' %}performed by {% endif %}<a class="quiet" href="{{ '/' | relative_url }}?q={{ n | url_encode }}" title="Search the library for {{ n | escape }}">{{ n }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}</dd>{% endif %}
-        {% if page.runtime %}<dt>Runtime</dt><dd>{{ page.runtime }}</dd>{% endif %}
-        {% if page.version %}<dt>Version seen</dt><dd>{{ page.version }}</dd>{% endif %}
-        {% if page.watched_on %}<dt>Seen on</dt><dd>{{ page.watched_on }}</dd>{% endif %}
+        {% if page.director %}<dt>Director</dt><dd><a class="quiet" href="{% if site.data.library_pages.director[page.director] %}{{ site.data.library_pages.director[page.director] | relative_url }}{% else %}{{ '/directors/' | relative_url }}#{{ page.director | slugify }}{% endif %}">{{ page.director | escape }}</a></dd>{% endif %}
+        {% if page.starring %}<dt>Starring</dt><dd>{% assign names = page.starring | split: ',' %}{% for raw in names %}{% assign n = raw | strip %}<a class="quiet" href="{{ '/' | relative_url }}?q={{ n | url_encode }}" title="Search the library for {{ n | escape }}">{{ n | escape }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}</dd>{% endif %}
+        {% if page.music %}<dt>Music</dt><dd>{% assign names = page.music | split: ',' %}{% for raw in names %}{% assign n = raw | strip %}{% if n contains 'performed by ' %}{% assign n = n | remove_first: 'performed by ' %}performed by {% endif %}<a class="quiet" href="{{ '/' | relative_url }}?q={{ n | url_encode }}" title="Search the library for {{ n | escape }}">{{ n | escape }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}</dd>{% endif %}
+        {% if page.runtime %}<dt>Runtime</dt><dd>{{ page.runtime | escape }}</dd>{% endif %}
+        {% if page.version %}<dt>Version seen</dt><dd>{{ page.version | escape }}</dd>{% endif %}
+        {% if page.watched_on %}<dt>Seen on</dt><dd>{{ page.watched_on | escape }}</dd>{% endif %}
         {% include watch.html %}
         {% if page.imdb %}
         <dt>Elsewhere</dt>
         <dd class="elsewhere">
-          <a href="https://www.imdb.com/title/{{ page.imdb }}/" rel="noopener">IMDb</a>
-          <a href="https://letterboxd.com/imdb/{{ page.imdb }}/" rel="noopener">Letterboxd</a>
-          {% if page.tmdb %}<a href="https://www.themoviedb.org/movie/{{ page.tmdb }}" rel="noopener">TMDB</a>{% endif %}
+          <a href="https://www.imdb.com/title/{{ page.imdb | escape }}/" rel="noopener">IMDb</a>
+          <a href="https://letterboxd.com/imdb/{{ page.imdb | escape }}/" rel="noopener">Letterboxd</a>
+          {% if page.tmdb %}<a href="https://www.themoviedb.org/movie/{{ page.tmdb | escape }}" rel="noopener">TMDB</a>{% endif %}
         </dd>
         {% endif %}
         {% if page.genres %}
         <dt>Filed under</dt>
         <dd class="chips">
-          {% for g in page.genres %}{% assign tag_key = g | downcase %}<a class="chip" href="{% if site.data.library_pages.tag[tag_key] %}{{ site.data.library_pages.tag[tag_key] | relative_url }}{% else %}{{ '/' | relative_url }}?genre={{ tag_key | uri_escape }}{% endif %}">{{ g }}</a>{% endfor %}
+          {% for g in page.genres %}{% assign tag_key = g | downcase %}<a class="chip" href="{% if site.data.library_pages.tag[tag_key] %}{{ site.data.library_pages.tag[tag_key] | relative_url }}{% else %}{{ '/' | relative_url }}?genre={{ tag_key | uri_escape }}{% endif %}">{{ g | escape }}</a>{% endfor %}
         </dd>
         {% endif %}
       </dl>
@@ -84,7 +84,7 @@ body_class: review-page
         <ul class="tracks">
           {% for t in page.tracks %}
           <li>
-            <p class="track-title">{{ t.title }}</p>
+            <p class="track-title">{{ t.title | escape }}</p>
             {% include player.html id=t.youtube title=t.title %}
           </li>
           {% endfor %}
@@ -92,7 +92,7 @@ body_class: review-page
         {% endif %}
       </section>
       {% endif %}
-      <p class="byline">Filed {{ page.date | date: "%-d %B %Y" }}{% if page.author %} by {{ page.author }}{% endif %}.</p>
+      <p class="byline">Filed {{ page.date | date: "%-d %B %Y" }}{% if page.author %} by {{ page.author | escape }}{% endif %}.</p>
       <div class="review-actions" data-share data-share-url="{{ page.url | absolute_url }}" data-share-title="{{ page.title | escape }}{% if page.year %} ({{ page.year }}){% endif %} review">
         <button type="button" class="chip" data-copy-link hidden>Copy link</button>
         <button type="button" class="chip" data-native-share hidden>Share</button>
@@ -112,13 +112,13 @@ body_class: review-page
     {% if page.previous %}
     <a class="bill prev" href="{{ page.previous.url | relative_url }}">
       <span class="bill-label">Earlier</span>
-      <span class="bill-title">{{ page.previous.title }}{% if page.previous.year %} ({{ page.previous.year }}){% endif %}</span>
+      <span class="bill-title">{{ page.previous.title | escape }}{% if page.previous.year %} ({{ page.previous.year }}){% endif %}</span>
     </a>
     {% endif %}
     {% if page.next %}
     <a class="bill next" href="{{ page.next.url | relative_url }}">
       <span class="bill-label">Later</span>
-      <span class="bill-title">{{ page.next.title }}{% if page.next.year %} ({{ page.next.year }}){% endif %}</span>
+      <span class="bill-title">{{ page.next.title | escape }}{% if page.next.year %} ({{ page.next.year }}){% endif %}</span>
     </a>
     {% endif %}
   </nav>

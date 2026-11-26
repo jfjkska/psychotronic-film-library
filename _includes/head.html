@@ -1,5 +1,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+{%- comment %}
+  What the pages may load, and from where. GitHub Pages cannot send this as a
+  header, so it is set here. A new outside service (an embed, a form, a
+  script) has to be added to this list or the browser will block it.
+{% endcomment %}
+{%- assign csp_giscus = '' -%}
+{%- if site.giscus.repo and site.giscus.repo != '' -%}{%- assign csp_giscus = ' https://giscus.app' -%}{%- endif %}
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com{{ csp_giscus }}; style-src 'self'; style-src-attr 'unsafe-inline'; img-src 'self' data: https://i.ytimg.com; font-src 'self'; connect-src 'self' https://cloudflareinsights.com; frame-src https://www.youtube-nocookie.com{{ csp_giscus }}; form-action 'self' https://formspree.io https://api.follow.it https://follow.it; base-uri 'self'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#12060f">
 {% if page.layout == 'review' %}
